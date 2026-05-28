@@ -1,0 +1,5 @@
+runs/*/tmp/
+runs/*/logs/
+runs/*/results/magic/
+runs/*/results/routing/
+*.oas
