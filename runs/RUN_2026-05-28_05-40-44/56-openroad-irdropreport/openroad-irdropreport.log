@@ -1,0 +1,44 @@
+Reading timing models for corner nom_tt_025C_1v80…
+Reading timing library for the 'nom_tt_025C_1v80' corner at '/foss/pdks/ciel/sky130/versions/7b70722e33c03fcb5dabcf4d479fb0822d9251c9/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib'…
+Reading OpenROAD database at '/foss/designs/alu32_openlane/runs/RUN_2026-05-28_05-40-44/53-odb-cellfrequencytables/alu32.odb'…
+Reading design constraints file at '/usr/local/lib/python3.12/dist-packages/librelane/scripts/base.sdc'…
+[WARNING STA-0366] port '__VIRTUAL_CLK__' not found.
+[INFO] Using clock __VIRTUAL_CLK__…
+[INFO] Setting output delay to: 5.0
+[INFO] Setting input delay to: 5.0
+[WARNING STA-0366] port '__VIRTUAL_CLK__' not found.
+[INFO] Setting load to: 0.033442
+[INFO] Setting clock uncertainty to: 0.25
+[INFO] Setting clock transition to: 0.1499999999999999944488848768742172978818416595458984375
+[WARNING STA-0419] transition time can not be specified for virtual clocks.
+[INFO] Setting timing derate to: 5%
+[WARNING STA-0450] virtual clock __VIRTUAL_CLK__ can not be propagated.
+[INFO] Using voltage extracted from lib (1.8000000000V) for power nets and 0V for ground nets…
+%OL_CREATE_REPORT irdrop.rpt
++ analyze_power_grid -net VPWR -voltage_file /foss/designs/alu32_openlane/runs/RUN_2026-05-28_05-40-44/56-openroad-irdropreport/net-VPWR.csv
+[INFO PSM-0040] All shapes on net VPWR are connected.
+########## IR report #################
+Net              : VPWR
+Corner           : nom_tt_025C_1v80
+Total power      : 4.41e-03 W
+Supply voltage   : 1.80e+00 V
+Worstcase voltage: 1.80e+00 V
+Average voltage  : 1.80e+00 V
+Average IR drop  : 1.91e-04 V
+Worstcase IR drop: 1.47e-03 V
+Percentage drop  : 0.08 %
+######################################
++ analyze_power_grid -net VGND -voltage_file /foss/designs/alu32_openlane/runs/RUN_2026-05-28_05-40-44/56-openroad-irdropreport/net-VGND.csv
+[INFO PSM-0040] All shapes on net VGND are connected.
+########## IR report #################
+Net              : VGND
+Corner           : nom_tt_025C_1v80
+Total power      : 4.41e-03 W
+Supply voltage   : 0.00e+00 V
+Worstcase voltage: 1.28e-03 V
+Average voltage  : 1.83e-04 V
+Average IR drop  : 1.83e-04 V
+Worstcase IR drop: 1.28e-03 V
+Percentage drop  : 0.07 %
+######################################
+%OL_END_REPORT

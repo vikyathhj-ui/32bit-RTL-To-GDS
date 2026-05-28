@@ -1,0 +1,42 @@
+
+===========================================================================
+Violator List
+============================================================================
+[setup in-out] B[7] -> zero : -5.666304
+[setup in-out] B[7] -> overflow : -5.446606
+[setup in-out] B[7] -> result[31] : -4.944466
+[setup in-out] B[7] -> result[28] : -4.773612
+[setup in-out] B[7] -> result[30] : -4.734734
+[setup in-out] B[7] -> result[27] : -4.599301
+[setup in-out] B[7] -> result[29] : -4.578083
+[setup in-out] B[7] -> result[26] : -4.385113
+[setup in-out] B[7] -> result[22] : -4.296219
+[setup in-out] B[7] -> result[25] : -4.091206
+[setup in-out] B[7] -> result[24] : -3.899277
+[setup in-out] B[7] -> result[23] : -3.803287
+[setup in-out] B[7] -> result[19] : -3.629684
+[setup in-out] B[7] -> result[21] : -3.607790
+[setup in-out] B[7] -> result[18] : -3.473945
+[setup in-out] B[7] -> result[20] : -3.357370
+[setup in-out] B[6] -> result[17] : -3.192979
+[setup in-out] B[6] -> result[16] : -2.921263
+[setup in-out] A[2] -> carry : -2.817176
+[setup in-out] B[6] -> result[14] : -2.781078
+[setup in-out] B[6] -> result[15] : -2.758872
+[setup in-out] B[2] -> result[0] : -2.724455
+[setup in-out] A[3] -> result[13] : -2.396756
+[setup in-out] A[3] -> result[12] : -2.246976
+[setup in-out] A[3] -> result[9] : -2.129155
+[setup in-out] A[3] -> result[11] : -2.091498
+[setup in-out] A[3] -> result[10] : -1.908700
+[setup in-out] A[3] -> result[8] : -1.783437
+[setup in-out] B[2] -> result[6] : -0.306741
+[setup in-out] A[0] -> result[7] : -0.277019
+[setup in-out] A[0] -> result[4] : -0.265638
+[setup in-out] B[2] -> result[5] : -0.217873
+Writing metric timing__hold_vio__count__corner:nom_tt_025C_1v80: 0
+Writing metric timing__hold_r2r__ws__corner:nom_tt_025C_1v80: 1e30
+Writing metric timing__hold_r2r_vio__count__corner:nom_tt_025C_1v80: 0
+Writing metric timing__setup_vio__count__corner:nom_tt_025C_1v80: 32
+Writing metric timing__setup_r2r__ws__corner:nom_tt_025C_1v80: 1e30
+Writing metric timing__setup_r2r_vio__count__corner:nom_tt_025C_1v80: 0

@@ -1,0 +1,14 @@
+{
+    "json_h": "/foss/designs/alu32_openlane/runs/RUN_2026-05-28_05-26-24/05-yosys-jsonheader/alu32.h.json",
+    "nl": "/foss/designs/alu32_openlane/runs/RUN_2026-05-28_05-26-24/06-yosys-synthesis/alu32.nl.v",
+    "metrics": {
+        "design__lint_error__count": 0,
+        "design__lint_timing_construct__count": 0,
+        "design__lint_warning__count": 0,
+        "design__inferred_latch__count": 0,
+        "design__instance__count": 3518,
+        "design__instance__area": 34423.0144,
+        "design__instance_unmapped__count": 0,
+        "synthesis__check_error__count": 0
+    }
+}

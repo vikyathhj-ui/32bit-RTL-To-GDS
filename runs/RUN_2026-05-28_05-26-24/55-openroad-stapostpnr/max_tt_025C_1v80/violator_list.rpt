@@ -1,0 +1,31 @@
+
+===========================================================================
+Violator List
+============================================================================
+[setup in-out] B[1] -> zero : -3.611952
+[setup in-out] B[1] -> overflow : -3.443882
+[setup in-out] B[1] -> result[31] : -3.032389
+[setup in-out] B[1] -> result[30] : -2.825081
+[setup in-out] B[1] -> result[29] : -2.742618
+[setup in-out] B[0] -> result[27] : -2.718189
+[setup in-out] B[1] -> result[28] : -2.712842
+[setup in-out] B[0] -> carry : -2.524912
+[setup in-out] B[1] -> result[26] : -2.435234
+[setup in-out] B[1] -> result[24] : -2.381704
+[setup in-out] B[1] -> result[23] : -2.334231
+[setup in-out] B[1] -> result[22] : -2.290073
+[setup in-out] B[1] -> result[25] : -2.244272
+[setup in-out] B[1] -> result[21] : -1.984902
+[setup in-out] B[1] -> result[17] : -1.885050
+[setup in-out] B[1] -> result[19] : -1.876789
+[setup in-out] B[1] -> result[18] : -1.857934
+[setup in-out] B[2] -> result[0] : -1.791276
+[setup in-out] B[1] -> result[20] : -1.518106
+[setup in-out] B[1] -> result[16] : -1.365812
+[setup in-out] B[1] -> result[15] : -1.306574
+[setup in-out] B[1] -> result[14] : -1.224100
+[setup in-out] B[1] -> result[13] : -0.989714
+[setup in-out] B[1] -> result[12] : -0.845352
+[setup in-out] A[1] -> result[11] : -0.225541
+[setup in-out] A[1] -> result[9] : -0.139830
+[setup in-out] A[1] -> result[10] : -0.103214
