@@ -1,6 +1,0 @@
-
-15. Executing PROC_DLATCH pass (convert process syncs to latches).
-No latch inferred for signal `\alu32.\result' from process `\alu32.$proc$/foss/designs/alu32_openlane/src/alu32.v:11$1'.
-No latch inferred for signal `\alu32.\zero' from process `\alu32.$proc$/foss/designs/alu32_openlane/src/alu32.v:11$1'.
-No latch inferred for signal `\alu32.\carry' from process `\alu32.$proc$/foss/designs/alu32_openlane/src/alu32.v:11$1'.
-No latch inferred for signal `\alu32.\overflow' from process `\alu32.$proc$/foss/designs/alu32_openlane/src/alu32.v:11$1'.

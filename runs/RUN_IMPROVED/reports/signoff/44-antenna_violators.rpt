@@ -1,0 +1,14 @@
+Partial/Required:  4.09, Required:    400.0, Partial:  1635.68, Net: _0136_, Pin: _3539_/C, Layer: met3
+Partial/Required:  4.09, Required:    400.0, Partial:  1635.68, Net: _0136_, Pin: _3093_/A1, Layer: met3
+Partial/Required:  1.47, Required:    400.0, Partial:   587.78, Net: net32, Pin: _3395_/A1, Layer: met1
+Partial/Required:  1.47, Required:    400.0, Partial:   587.62, Net: _1847_, Pin: _2796_/A1, Layer: met3
+Partial/Required:  1.47, Required:    400.0, Partial:   587.62, Net: _1847_, Pin: _2749_/A0, Layer: met3
+Partial/Required:  1.45, Required:    400.0, Partial:   578.72, Net: _0032_, Pin: _3207_/A, Layer: met3
+Partial/Required:  1.45, Required:    400.0, Partial:   578.72, Net: _0032_, Pin: _3710_/B2, Layer: met3
+Partial/Required:  1.41, Required:    400.0, Partial:   565.46, Net: _1644_, Pin: _3602_/C, Layer: met3
+Partial/Required:  1.36, Required:    400.0, Partial:   543.95, Net: _1315_, Pin: _3365_/A, Layer: met3
+Partial/Required:  1.36, Required:    400.0, Partial:   543.95, Net: _1315_, Pin: _2320_/A, Layer: met3
+Partial/Required:  1.33, Required:    400.0, Partial:   533.14, Net: _1427_, Pin: _3217_/B1, Layer: met3
+Partial/Required:  1.07, Required:    400.0, Partial:   427.64, Net: _1934_, Pin: _2839_/B, Layer: met3
+Partial/Required:  1.02, Required:   2896.8, Partial:  2943.24, Net: _0277_, Pin: _3238_/B, Layer: met5
+Partial/Required:  1.00, Required:    400.0, Partial:   400.76, Net: _1427_, Pin: _3105_/A1, Layer: met3

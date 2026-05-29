@@ -1,0 +1,19 @@
+Design Name: alu32
+Run Directory: /work/runs/RUN_FINAL
+----------------------------------------
+
+Magic DRC Summary:
+Source: /work/runs/RUN_FINAL/reports/signoff/drc.rpt
+Total Magic DRC violations is 0
+----------------------------------------
+
+LVS Summary:
+Source: /work/runs/RUN_FINAL/logs/signoff/41-alu32.lef.lvs.log
+Number of nets: 4103                       |Number of nets: 4103                       
+Design is LVS clean.
+----------------------------------------
+
+Antenna Summary:
+Source: /work/runs/RUN_FINAL/logs/signoff/44-arc.log
+Pin violations: 1
+Net violations: 1
