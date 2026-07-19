@@ -1,0 +1,11 @@
+{
+    "DESIGN_NAME": "alu32_final",
+    "VERILOG_FILES": "dir::src/alu32_final.v",
+    "CLOCK_PORT": "clk",
+    "CLOCK_PERIOD": 15.0,
+    "PDK": "sky130A",
+    "STD_CELL_LIBRARY": "sky130_fd_sc_hd",
+    "FP_SIZING": "relative",
+    "FP_CORE_UTIL": 40,
+    "PL_TARGET_DENSITY_PCT": 45
+}

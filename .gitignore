@@ -1,0 +1,5 @@
+runs/
+*.vcd
+*.raw
+*.log
+__pycache__/
