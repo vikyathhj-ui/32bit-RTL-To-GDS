@@ -175,6 +175,56 @@ Format for each entry: **context → options → choice → evidence**. Newest a
 - **Evidence:** the probe outputs above (reproducible from the commands in the Phase 2 commit message);
   `results/adder_smoke.txt` (Icarus elaborates all 8 codes); `scripts/check_opcodes.py` PASS.
 
+## D-013 — Where the PIPE=1 register goes
+- **Context:** BRIEF A2: "`PIPE=1` adds a register after the adder/shifter stage". Stage S1 contains
+  the adder, its comparison select (SLT/MIN/MAX need the adder result plus `a`/`b`), the shifter and
+  the short "misc" units.
+- **Options:**
+  1. Register the raw adder outputs. MIN/MAX would then also need `a0`/`b0` registered: 64 extra
+     flip-flops.
+  2. Register each unit's *final* result: `r_add` (after the comparison mux), `r_shift` and `r_misc`,
+     plus `sel`, C, V and illegal.
+  3. Register only the muxed `y` (that is just a deeper output register and doesn't split anything).
+- **Choice:** option 2, in `rtl/alu_top.sv` `g_pipe`.
+  - About 102 data flip-flops. S1 = adder + compare mux (the critical path); S2 = 3:1 mux + zero detect.
+  - The stages are deliberately unbalanced: the point of PIPE=1 is to take the final mux and
+    flag logic off the adder path.
+  - Phase 4 will measure whether it pays off.
+- **Evidence:** `results/lint_summary.json` and `results/synth_check.json` (PIPE=1 configs PASS).
+  Latency L=3 will be proven formally in Phase 3.
+
+## D-014 — One shared `~b` inverter
+- **Context:** SUB/SLT/SLTU/MIN/MAX/MINU/MAXU need `a + ~b + 1`; ANDN/ORN/XNOR need `~b`. The Zbb spec's
+  implementation hint suggests reusing the subtraction inverter.
+- **Choice:** `bx = inv_b ? ~b0 : b0` feeds both the adder and the AND/OR/XOR unit. AND and ANDN then
+  share one AND gate row, and so on.
+- **Evidence:** `rtl/alu_top.sv` (`inv_b`, `bx`). Correctness will be proven by the full-ALU
+  equivalence in Phase 3.
+
+## D-015 — CTZ through the CLZ tree
+- **Context:** BRIEF A2: "CTZ is a bit reversal followed by the CLZ tree."
+- **Choice:** a single `clz` instance whose input is `(op == CTZ) ? rev32(a) : a`. Bit reversal is pure
+  wiring; the only cost is a 32-bit 2:1 mux, instead of a second tree.
+  - `clz` is a recursive halving tree (`rtl/clz_tree.sv`) with log₂32 = 5 mux levels.
+  - All-zero input gives 32, per `zb#insns-clz`.
+- **Evidence:** `rtl/clz.sv`, `rtl/clz_tree.sv`, `rtl/alu_top.sv`.
+
+## D-016 — Shifter as a funnel shifter with bit reversal
+- **Context:** BRIEF A2: one shared logarithmic barrel shifter for SLL/SRL/SRA/ROL/ROR, with left shifts
+  via bit reversal.
+- **Options:**
+  1. A separate rotate unit.
+  2. A 64-bit double-width shifter.
+  3. A 63→32 funnel right shifter, where the fill bits select the operation: 0 for SRL, sign for SRA,
+     `a[30:0]` for ROR.
+- **Choice:** option 3.
+  - Left operations reverse the input and the output: `SLL = rev(SRL(rev a))`,
+    `ROL = rev(ROR(rev a))`.
+  - Five 2:1 mux stages (16, 8, 4, 2, 1), with each stage only as wide as later stages can use
+    (63→47→39→35→33→32).
+  - Rotate-by-0 gives `a` naturally.
+- **Evidence:** `rtl/shifter.sv`.
+
 ---
 
 ## Bugs found by verification
