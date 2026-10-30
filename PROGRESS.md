@@ -3,7 +3,7 @@
 Single source of truth for status. Update this before every commit.
 Spec: `docs/BRIEF.md`. Branch: `rework/alu-ppa`.
 
-**Current state:** Phase 2 gate met (lint clean, 24/24). Phase 2 commits are local until PR #1 (phases 0+1) is merged; then push and open PR #2. Next after that: Phase 3 (verification). Plan it first.
+**Current state:** Phases 0–1 merged to `main` (PR #1, merge commit `044d4ca`). Phase 2 complete; PR #2 open (awaiting owner merge). Next: Phase 3 (verification). Plan it first.
 
 ## Phase 0 — Setup and audit
 - [x] Environment check script (`scripts/env_check.sh` → `results/env_check.txt`). All tools found after
@@ -44,7 +44,7 @@ Spec: `docs/BRIEF.md`. Branch: `rework/alu-ppa`.
 - [x] `make synth-check`: Yosys (slang) synthesis, 16/16 configs, no latches.
 - [x] **Gate:** `verilator --lint-only -Wall` clean for all 8 `ADDER` values × PIPE 0/1, plus each adder
       alone: 24/24, 0 waivers (`make lint` → `results/lint_summary.json`). Commit done.
-- [ ] Push and open PR #2 (waiting for PR #1 to be merged, as agreed).
+- [x] Pushed; PR #2 opened after PR #1 was merged.
 
 ## Phase 3 — Verification
 - [ ] cocotb directed tests (corners, shift amounts 0/1/31, op × flag edges), on Icarus and Verilator.
