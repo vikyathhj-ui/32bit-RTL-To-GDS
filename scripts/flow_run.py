@@ -32,6 +32,11 @@ from lint import TOP_FILES  # noqa: E402
 TEMPLATE = REPO / "flow" / "config.template.json"
 RUNS = REPO / "runs"
 SLOWEST = "max_ss_100C_1v60"
+# Setup-repair margin as a fraction of the clock period (DECISIONS D-029): the
+# resizer works from placement / global-routing parasitic estimates, which came
+# out ~9.5% optimistic at max_ss versus the final extracted wires, so repair
+# aims for slack >= SETUP_MARGIN_FRAC * T. Same rule for every architecture.
+SETUP_MARGIN_FRAC = 0.12
 # Flow variants (DECISIONS D-026/D-027). "default" is the stock LibreLane flow.
 # "preserved" keeps the hand-written prefix/lookahead cells as separate modules
 # through synthesis so ABC cannot restructure the adder tree; all else identical.
@@ -77,7 +82,9 @@ def run(arch: str, period: float, pipe: int = 0, quiet: bool = True, variant: st
                   .replace("@ADDER_CODE@", str(ADDERS[arch]))
                   .replace("@PIPE@", str(pipe))
                   .replace('"@CLOCK_PERIOD@"', f"{period:.2f}"))
-        cfg_obj = json.loads(cfg) | VARIANTS[variant]
+        margin = round(SETUP_MARGIN_FRAC * period, 3)
+        cfg_obj = json.loads(cfg) | VARIANTS[variant] | {
+            "PL_RESIZER_SETUP_SLACK_MARGIN": margin, "GRT_RESIZER_SETUP_SLACK_MARGIN": margin}
         cfg_path = rundir / "config.json"
         cfg_path.write_text(json.dumps(cfg_obj, indent=4) + "\n")
         cmd = ["librelane", "--manual-pdk", "--pdk-root", os.environ["PDK_ROOT"],

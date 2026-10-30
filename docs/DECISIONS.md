@@ -454,6 +454,29 @@ Format for each entry: **context → options → choice → evidence**. Newest a
   - Both sweeps were restarted.
   - The ABC experiment (synthesis only) is unaffected.
 
+## D-029 — Setup-repair margin of 12% of the clock period
+- **Symptom after D-028:** post-global-routing repair ran, but final timing at `max_ss` still came out
+  about 2 ns short of what the repair step reported. RCA at 22 ns: repair +0.029 ns (all violations
+  fixed by its estimate), final WS −2.080 ns (`runs_v2_post_grt_repair_no_margin/RCA_P0_T22.00`).
+- **Cause:**
+  - The resizer works from placement or global-routing parasitic *estimates*. Signoff STA uses
+    detailed-routing extracted RC.
+  - The intermediate STA steps during PnR evaluate only the default corner (`nom_tt`), so the
+    optimism at the slow corners is invisible until signoff.
+  - The error was about 9.5% of the period at `max_ss`. Without margin, every run lands that much
+    short, and the sweep drifts toward the design's *unrepaired* delay.
+- **Choice:**
+  - `PL_RESIZER_SETUP_SLACK_MARGIN` = `GRT_RESIZER_SETUP_SLACK_MARGIN` = **0.12 × CLOCK_PERIOD**,
+    set per run by `scripts/flow_run.py` (`SETUP_MARGIN_FRAC`).
+  - The same rule applies to every architecture and both variants, so the comparison stays fair.
+  - This is the usual over-constraining of optimisation against estimate error. The cost is somewhat
+    more repair area, which is reported.
+- **Test** (`runs/RCA_P0_T22.00`, margin 2.64 ns): repair reached +0.919 ns (it hit RCA's limit), and
+  the final WS at `max_ss` was −0.762 ns, versus −2.080 ns without margin. The estimate-to-final gap
+  drops from 2.1 to 0.76 ns. RCA at 22 ns is simply just below what RCA can do.
+- The runs made without margin are archived in `runs_v2_post_grt_repair_no_margin/` (git-ignored) and
+  not used. Both sweeps were restarted with D-028 + D-029.
+
 ---
 
 ## Bugs found by verification
