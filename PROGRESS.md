@@ -3,7 +3,7 @@
 Single source of truth for status. Update this before every commit.
 Spec: `docs/BRIEF.md`. Branch: `rework/alu-ppa`.
 
-**Current state:** Phases 0–1 merged (PR #1). Phase 2 in PR #2 (awaiting owner merge). Phase 3 gate met (`results/verify_summary.json` PASS); its commits are local until PR #2 is merged, then push, confirm CI green, and open PR #3. Next: Phase 4 (physical design sweep). Plan it first.
+**Current state:** Phases 0–2 merged (PR #1 `044d4ca`, PR #2 `dc2a1dc`). Phase 3 complete, CI green, PR #3 open (awaiting owner merge). Next: Phase 4 (physical design sweep). Plan it first.
 
 ## Phase 0 — Setup and audit
 - [x] Environment check script (`scripts/env_check.sh` → `results/env_check.txt`). All tools found after
@@ -62,7 +62,8 @@ Spec: `docs/BRIEF.md`. Branch: `rework/alu-ppa`.
       issue D-021; bench vector-count fix.
 - [x] `.github/workflows/ci.yml`: lint, model, reduced sim, formal subset (OSS CAD Suite, D-020).
 - [x] **Gate:** 8/8 configs pass, coverage closed, all proofs PASS. Committed locally.
-- [ ] Push (after PR #2 is merged), confirm the CI run is green, open PR #3.
+- [x] Pushed after PR #2 was merged. CI green on run 41067482198 (after fixing a Verilator 5.053
+      SIMILARNAME lint warning). PR #3 opened.
 
 ## Phase 4 — Physical design sweep
 - [ ] `flow/` config template; fixed die/utilisation policy (DECISIONS.md).
@@ -93,4 +94,5 @@ Spec: `docs/BRIEF.md`. Branch: `rework/alu-ppa`.
   would need sudo, which is the owner's call.
 - CI uses OSS CAD Suite (pinned 2026-10-14), not the iic-osic image, so tool versions differ (D-020).
   `test_spike_xcheck` skips there with a reason.
-- The first CI run has not been observed yet; it can only start after the push.
+- CI's newer Verilator found a lint issue the container's version did not (D-020). Re-check CI after
+  RTL changes, not just the local `make lint`.

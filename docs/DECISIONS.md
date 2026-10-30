@@ -323,6 +323,14 @@ Format for each entry: **context → options → choice → evidence**. Newest a
   The full set runs locally under `make verify`, and its results are committed.
 - **Limitation:** CI tool versions differ from the container. A CI-only failure is investigated, not
   masked.
+- **First CI runs:** OSS CAD Suite gave Verilator 5.053-devel, Yosys 0.70, SBY 0.69 and Icarus
+  14.0-dev (newer build).
+  - Run 41066356427 failed lint with a check the container's Verilator 5.050 lacks: `SIMILARNAME` on
+    `p`/`P` in the four prefix adders.
+  - The fix was a rename (`p` → `pb`), not a waiver. To see the message, `scripts/lint.py` now prints
+    the warning text for failing configurations.
+  - Run 41067482198 was green: model 161 passed + 1 skipped (Spike), lint 24/24, sim-ci 5/5 at 100%
+    coverage, formal-ci 14/14.
 
 ## D-021 — RTL coding style adjusted for an Icarus 14.0-dev evaluation problem
 - **Context:** the first Icarus cocotb run of `alu_top` failed on SLL, SRA, ROL, ROR and CTZ, while
