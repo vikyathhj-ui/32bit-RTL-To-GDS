@@ -36,7 +36,7 @@ sys.path.insert(0, str(REPO / "scripts"))
 import flow_run  # noqa: E402
 from adders import ADDERS  # noqa: E402
 
-OUTDIR = REPO / "results" / "flow" / "sweep"
+OUTDIR = REPO / "results" / "flow" / "sweep"  # default variant; others get sweep_<variant>/
 STEP = 0.25
 MAX_RUNS = 16
 
@@ -45,14 +45,18 @@ def q_up(t: float) -> float:
     return math.ceil(round(t / STEP, 6)) * STEP
 
 
-def search(arch: str, seed: float, pipe: int) -> dict:
+def outdir(variant: str) -> Path:
+    return OUTDIR if variant == "default" else OUTDIR.parent / f"sweep_{variant}"
+
+
+def search(arch: str, seed: float, pipe: int, variant: str = "default") -> dict:
     hist: dict[float, dict] = {}
     t_start = time.time()
 
     def probe(t: float) -> dict:
         t = round(round(t / STEP) * STEP, 2)
         if t not in hist:
-            r = flow_run.run(arch, t, pipe)
+            r = flow_run.run(arch, t, pipe, variant=variant)
             hist[t] = r
             print(f"[{arch}] T={t:5.2f} {r['status']:<13} setup_ws(max_ss)={r.get('setup_ws_slowest')} "
                   f"hold_ws_min={r.get('hold_ws_min')}", flush=True)
@@ -60,12 +64,13 @@ def search(arch: str, seed: float, pipe: int) -> dict:
         return hist[t]
 
     def save(result=None):
-        OUTDIR.mkdir(parents=True, exist_ok=True)
-        data = {"arch": arch, "pipe": pipe, "seed_ns": seed, "step_ns": STEP,
+        od = outdir(variant)
+        od.mkdir(parents=True, exist_ok=True)
+        data = {"arch": arch, "pipe": pipe, "variant": variant, "seed_ns": seed, "step_ns": STEP,
                 "runs": [hist[t] for t in sorted(hist)]}
         if result:
             data.update(result)
-        (OUTDIR / f"{arch}.json").write_text(json.dumps(data, indent=2) + "\n")
+        (od / f"{arch}.json").write_text(json.dumps(data, indent=2) + "\n")
 
     def next_from(rec: dict, closing: bool) -> float:
         ws = rec.get("setup_ws_slowest")
@@ -127,20 +132,24 @@ def main(argv=None) -> int:
     ap.add_argument("--seed", type=float, default=15.0, help="first period to try (ns)")
     ap.add_argument("--pipe", type=int, default=0, choices=[0, 1])
     ap.add_argument("--jobs", type=int, default=3)
+    ap.add_argument("--variant", default="default", choices=list(flow_run.VARIANTS))
     a = ap.parse_args(argv)
     archs = a.adder or list(ADDERS)
+    n = len(archs)
     with ProcessPoolExecutor(max_workers=a.jobs) as ex:
-        results = list(ex.map(search, archs, [a.seed] * len(archs), [a.pipe] * len(archs)))
+        results = list(ex.map(search, archs, [a.seed] * n, [a.pipe] * n, [a.variant] * n))
     # Merge every per-architecture file (not only this invocation's) into one log.
     merged = {}
-    for f in sorted(OUTDIR.glob("*.json")):
+    for f in sorted(outdir(a.variant).glob("*.json")):
         d = json.loads(f.read_text())
         merged[d["arch"]] = {k: v for k, v in d.items() if k not in ("arch", "runs")} | {
             "runs": [{k: r.get(k) for k in ("period_ns", "status", "setup_ws_slowest", "hold_ws_min",
                                              "run_dir")} for r in d["runs"]]}
     log = {"step_ns": STEP, "criterion": "setup WS >= 0 at max_ss_100C_1v60 and hold WS >= 0 at all corners",
            "results": merged}
-    (REPO / "results" / "flow" / "sweep_log.json").write_text(json.dumps(log, indent=2) + "\n")
+    log_name = "sweep_log.json" if a.variant == "default" else f"sweep_log_{a.variant}.json"
+    log["variant"] = a.variant
+    (REPO / "results" / "flow" / log_name).write_text(json.dumps(log, indent=2) + "\n")
     for r in results:
         print(f"{r['arch']:<5} {r['status']:<10} min_period={r.get('min_period_ns')} ns "
               f"runs={r['runs_used']} nonmonotonic={r['nonmonotonic_points_ns']}")

@@ -379,6 +379,59 @@ Format for each entry: **context → options → choice → evidence**. Newest a
   input-register → output-register chain of `a311`/`o311` cells: the synthesiser's mapping of `a + b`
   looks like a ripple carry. D-026 tests that.
 
+## D-026 — ABC structure experiment: the default flow destroys the adder architectures
+- **Question** (BRIEF A4 "Structure check"): does ABC keep the hand-written prefix trees?
+- **Method** (`scripts/abc_exp.py`, `flow/adder_wrap.sv`):
+  - The adder alone, between input and output registers, is synthesised with the sweep's exact
+    LibreLane settings in two variants:
+    - **default:** flattened, LibreLane's default `AREA 0` ABC script;
+    - **preserved:** slang `--keep-hierarchy` plus `keep_hierarchy` on `pg_black*`, `pg_gray*`,
+      `cla4_unit*` and `adder_rca*`, so ABC maps each cell separately.
+  - The worst register-to-register path is measured with OpenSTA: tt_025C_1v80 liberty, ideal clock,
+    no wire parasitics.
+  - The flow's own pre-PnR `max.rpt` was **not** used for this, because for fast adders its worst path
+    is an output-port path set by the 20% I/O delay (seen in the first trial).
+- **Result** (`results/flow/abc_experiment.json`; table generated from that file):
+
+| Arch | Default: depth | Default: r2r delay (ns) | Default: area (µm²) | Preserved: depth | Preserved: r2r delay (ns) | Preserved: area (µm²) |
+|---|---|---|---|---|---|---|
+| RCA | 32 | 12.7865 | 2842.7 | 32 | 12.7865 | 2842.7 |
+| CLA4 | 22 | 6.1088 | 3009.1 | 15 | 2.6773 | 3803.6 |
+| CSLA | 32 | 12.7865 | 2842.7 | 11 | 5.1996 | 3827.4 |
+| BK | 20 | 6.2303 | 2969.1 | 10 | 2.5135 | 3316.9 |
+| KS | 17 | 4.5047 | 3088.0 | 6 | 1.7392 | 4307.9 |
+| SK | 21 | 6.0724 | 2996.6 | 7 | 2.0776 | 3633.5 |
+| HC | 16 | 4.4413 | 3066.7 | 7 | 1.9001 | 3633.5 |
+| BEH | 20 | 5.9127 | 2979.1 | 20 | 5.9134 | 2979.1 |
+
+- **Findings:**
+  - **Preserved,** logic depth follows the theory: KS < SK = HC < BK < CSLA < CLA4, prefix depth
+    plus the pre/post cells. Delays order the same way.
+  - **Default ABC** (area script, with `amap` and repeated balance/rewrite) turns every prefix adder
+    into a 16–22-deep chain, 2.3–3.5× slower and 12–40% smaller.
+  - **CSLA under default synthesis is identical to RCA** (same cells, area and delay): the duplicated
+    cin=0/cin=1 adders and the select logic were merged away.
+  - **BEH:** Yosys first maps `+` to a Brent–Kung `$lcu` (`_90_lcu_brent_kung` in the log), and ABC
+    then restructures that too (depth 20, ~5.9 ns).
+- **Consequence:** a default-flow PPA sweep mostly measures what ABC built, not the architectures. This
+  is why D-027 adds a structure-preserved sweep.
+
+## D-027 — Two physical-design sweeps: default flow and structure-preserved flow
+- **Context:** D-026 shows that the stock flow erases the architectural differences, while the brief's
+  question is "which adder should this ALU use at a given frequency target, and why?".
+- **Options:**
+  1. Default-flow sweep only.
+  2. Preserved sweep only.
+  3. Both.
+- **Choice:** option 3, chosen by the project owner on 2026-10-30.
+  - The **default** sweep (`results/flow/sweep/`) shows what a stock flow delivers.
+  - The **preserved** sweep (`results/flow/sweep_preserved/`, run tags `*_preserved`) uses identical
+    settings plus D-026's `keep_hierarchy` list, and shows what each architecture can deliver.
+  - The recommendation (Phase 5) is based on the preserved sweep. Both sets are reported.
+- **Implementation:** `scripts/flow_run.py` `VARIANTS`, `scripts/sweep.py --variant preserved`. The
+  preserved sweep runs with 2 parallel jobs alongside the default sweep's 3 (5 × ~0.9 GB peak RAM on a
+  7 GB machine).
+
 ---
 
 ## Bugs found by verification

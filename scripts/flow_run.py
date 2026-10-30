@@ -32,10 +32,19 @@ from lint import TOP_FILES  # noqa: E402
 TEMPLATE = REPO / "flow" / "config.template.json"
 RUNS = REPO / "runs"
 SLOWEST = "max_ss_100C_1v60"
+# Flow variants (DECISIONS D-026/D-027). "default" is the stock LibreLane flow.
+# "preserved" keeps the hand-written prefix/lookahead cells as separate modules
+# through synthesis so ABC cannot restructure the adder tree; all else identical.
+VARIANTS = {
+    "default": {},
+    "preserved": {"SLANG_ARGUMENTS": ["--keep-hierarchy"],
+                  "SYNTH_KEEP_HIERARCHY_MODULES": ["pg_black*", "pg_gray*", "cla4_unit*", "adder_rca*"]},
+}
 
 
-def tag(arch: str, period: float, pipe: int = 0) -> str:
-    return f"{arch}_P{pipe}_T{period:.2f}"
+def tag(arch: str, period: float, pipe: int = 0, variant: str = "default") -> str:
+    suffix = "" if variant == "default" else f"_{variant}"
+    return f"{arch}_P{pipe}_T{period:.2f}{suffix}"
 
 
 def corners(metrics: dict) -> list[str]:
@@ -54,11 +63,11 @@ def evaluate(metrics: dict) -> dict:
             "closes": closes, "corners": len(cs)}
 
 
-def run(arch: str, period: float, pipe: int = 0, quiet: bool = True) -> dict:
-    t = tag(arch, period, pipe)
+def run(arch: str, period: float, pipe: int = 0, quiet: bool = True, variant: str = "default") -> dict:
+    t = tag(arch, period, pipe, variant)
     rundir = RUNS / t
     metrics_file = rundir / "final" / "metrics.json"
-    rec = {"arch": arch, "pipe": pipe, "period_ns": round(period, 2), "tag": t,
+    rec = {"arch": arch, "pipe": pipe, "variant": variant, "period_ns": round(period, 2), "tag": t,
            "run_dir": str(rundir.relative_to(REPO))}
 
     if not metrics_file.exists():
@@ -68,8 +77,9 @@ def run(arch: str, period: float, pipe: int = 0, quiet: bool = True) -> dict:
                   .replace("@ADDER_CODE@", str(ADDERS[arch]))
                   .replace("@PIPE@", str(pipe))
                   .replace('"@CLOCK_PERIOD@"', f"{period:.2f}"))
+        cfg_obj = json.loads(cfg) | VARIANTS[variant]
         cfg_path = rundir / "config.json"
-        cfg_path.write_text(cfg)
+        cfg_path.write_text(json.dumps(cfg_obj, indent=4) + "\n")
         cmd = ["librelane", "--manual-pdk", "--pdk-root", os.environ["PDK_ROOT"],
                "--pdk", "sky130A", "--scl", "sky130_fd_sc_hd",
                "--run-tag", t, "--design-dir", str(rundir), "--condensed", str(cfg_path)]
@@ -101,8 +111,9 @@ def main(argv=None) -> int:
     ap.add_argument("--adder", required=True, choices=list(ADDERS))
     ap.add_argument("--period", type=float, required=True, help="clock period in ns")
     ap.add_argument("--pipe", type=int, default=0, choices=[0, 1])
+    ap.add_argument("--variant", default="default", choices=list(VARIANTS))
     a = ap.parse_args(argv)
-    rec = run(a.adder, a.period, a.pipe, quiet=False)
+    rec = run(a.adder, a.period, a.pipe, quiet=False, variant=a.variant)
     return 0 if rec["status"] != "FLOW_FAILED" else 1
 
 
