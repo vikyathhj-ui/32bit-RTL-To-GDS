@@ -8,7 +8,8 @@ SHELL := /bin/bash
 PY    ?= .venv/bin/python
 
 .PHONY: help env model model-test model-xcheck rtl lint synth-check opcodes-check adder-smoke \
-        sim sim-ci formal formal-ci verify verify-summary legacy-probe clean
+        sim sim-ci formal formal-ci verify verify-summary \
+        flow-sweep flow-sweep-preserved abc-exp power summary legacy-probe clean
 
 help:
 	@echo "make env          tool table -> results/env_check.txt"
@@ -23,6 +24,11 @@ help:
 	@echo "make formal       all SymbiYosys proofs -> results/formal/summary.json"
 	@echo "make formal-ci    CI subset of the proofs"
 	@echo "make verify       lint + model + sim + formal + results/verify_summary.json"
+	@echo "make flow-sweep   LibreLane min-period sweep, default flow (hours) -> results/flow/sweep/"
+	@echo "make flow-sweep-preserved  same with structure-preserved synthesis (D-027)"
+	@echo "make abc-exp      ABC structure experiment -> results/flow/abc_experiment.json"
+	@echo "make power        gate-level workload power on each closing run"
+	@echo "make summary      build results/summary.json from all of the above"
 	@echo "make legacy-probe audit evidence for docs/AUDIT.md"
 	@echo "make clean        remove sim_build/"
 
@@ -77,6 +83,21 @@ verify-summary:
 	python3 scripts/verify_summary.py
 
 verify: lint model sim formal verify-summary
+
+flow-sweep:
+	python3 scripts/sweep.py --jobs 3
+
+flow-sweep-preserved:
+	python3 scripts/sweep.py --variant preserved --seed 12 --jobs 2
+
+abc-exp:
+	python3 scripts/abc_exp.py
+
+power:
+	$(PY) scripts/power_all.py
+
+summary:
+	python3 scripts/parse_flow.py
 
 legacy-probe:
 	scripts/legacy_probe.sh
