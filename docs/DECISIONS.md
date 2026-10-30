@@ -53,6 +53,95 @@ Format for each entry: **context → options → choice → evidence**. Newest a
   `docs/AUDIT.md` quotes a line from `results/legacy_probe.txt`.
 - **Evidence:** `scripts/legacy_probe.sh` reproduces the log.
 
+## D-006 — Latency definition with registered inputs and outputs (spec clarification)
+- **Context:** BRIEF A2 says "inputs and outputs are registered (1-cycle latency)". With both banks
+  registered, a result reaches the output register one edge after the input register captures it. At the
+  ports, that is 2 edges after `in_valid` is sampled, so the brief's number was ambiguous.
+- **Options:**
+  1. Register inputs and outputs, and define latency at the ports as 2 (PIPE=1: 3).
+  2. Register only the outputs, keep "1 cycle", and accept port-to-register timing paths.
+- **Choice:** option 1, chosen by the project owner on 2026-10-30. It keeps the brief's real intent:
+  STA sees register-to-register paths, so the adder comparison isn't polluted by I/O constraints.
+- **Evidence:** `docs/SPEC.md` section 2 (definition + WaveDrom). Phase 3's formal protocol proof will
+  check L = 2 / 3.
+
+## D-007 — Zbb test vectors: spec definitions + Spike (spec clarification)
+- **Context:** Phase 1 asks to test the model against "the examples in the ratified RISC-V Zbb
+  specification". The ratified text (`riscv-isa-manual` `src/unpriv/zbb.adoc` and `zb.adoc`, checked at
+  commit `8fb3965fe4b5`) has **no numeric examples**. It gives a Sail "Operation" block per instruction,
+  plus `strlen`/`strcmp` assembly in `bitmanip-examples.adoc`. A literal reading of the brief is
+  impossible.
+- **Options:**
+  1. Hand vectors from the definitions only.
+  2. Hand vectors, plus the strlen/strcmp idioms as tests, plus a cross-check against Spike, the RISC-V
+     reference simulator.
+- **Choice:** option 2, chosen by the project owner. Spike is an implementation written by others, so
+  the check is independent in a way hand vectors can't be.
+- **Evidence:**
+  - `model/test_alu_ref.py`: hand vectors cite `zb#insns-*`; `test_strlen_idiom` and `test_strcmp_idiom`.
+  - `results/model_xcheck.json`: 8,572 vectors over 27 ops, PASS. The vector count comes from the script.
+  - **Mutation check:** a deliberately broken local copy of the model (MIN made unsigned; ORC.B testing
+    only 7 bits per byte) made the cross-check report FAIL with mismatches in exactly those two ops, and
+    made pytest fail. So the check really compares.
+  - **Limitation:** Spike has no flags and no illegal-opcode concept, so only `y` is cross-checked.
+    Flags and illegal opcodes are covered by the pytest cases.
+
+## D-008 — Flag semantics; SUB carry means "no borrow"
+- **Context:** RISC-V has no flags. The brief defines flags for ADD/SUB (N, Z from `y`; C = V = 0
+  elsewhere) but leaves the sense of C on SUB open. P6 will reuse this ALU, so the choice must be fixed
+  and documented.
+- **Options:**
+  1. C = carry-out of `a + ~b + 1` ("no borrow", ARM/6502).
+  2. C = borrow (x86), i.e. the inverted carry-out.
+- **Choice:** option 1, chosen by the project owner. It is the shared adder's raw carry-out, so no
+  extra inverter is needed. V is the two's-complement overflow for both ADD and SUB. SLT(U) and
+  MIN/MAX(U) report C = V = 0 even though they use the adder internally. An illegal opcode gives
+  `y = 0`, so Z = 1.
+- **Evidence:** `docs/SPEC.md` section 4; `model/test_alu_ref.py::test_flags`, `test_properties_binary`
+  (`sub.c == (a >= b)`) and `test_c_v_zero_for_non_add_sub`.
+
+## D-009 — Opcode encoding
+- **Context:** the brief fixes 27 ops on a 5-bit opcode but not the encoding.
+- **Options:**
+  1. Arbitrary or alphabetical order.
+  2. Reuse RISC-V funct3/funct7 bits (they don't fit in 5 bits for Zbb).
+  3. RV32I first, then Zbb grouped by the hardware unit that executes the op.
+- **Choice:** option 3: codes 0–9 RV32I, 10–13 adder-based Zbb, 14–16 logic, 17–18 rotates, 19–21
+  count, 22–26 byte/extend, 27–31 illegal.
+  - Grouping by unit keeps the unit-select logic small.
+  - Illegal codes form one contiguous block (`op >= 27`), so detecting them is a single comparison.
+- **Evidence:** `docs/SPEC.md` section 3; `model/alu_ref.py` `OPCODES`;
+  `model/test_alu_ref.py::test_opcode_table`. Phase 2 will add a check that `rtl/alu_pkg.sv` matches.
+
+## D-010 — Reset and output-hold policy
+- **Context:** the brief names `rst_n` but doesn't define reset scope or what the outputs do when no
+  operation is in flight.
+- **Options:**
+  1. Reset every register.
+  2. Reset only the valid pipeline.
+  3. Data registers load every cycle.
+  4. Data registers load only when valid.
+- **Choice:**
+  - `rst_n` is active-low, asserted asynchronously and released synchronously. It resets **only the
+    valid bits**.
+  - Data registers have no reset and load only when their stage is valid; otherwise they hold.
+  - Outputs are defined only while `out_valid = 1`.
+- **Why:** resettable flops are larger. Holding data stops toggling on idle cycles, which shows up in
+  the activity-annotated power numbers (Phase 4). That trade-off is measured, not assumed.
+- **Evidence:** `docs/SPEC.md` section 2. It will be verified in Phase 3 (protocol proof; the scoreboard
+  only compares when `out_valid = 1`).
+
+## D-011 — Golden model style and independence
+- **Context:** BRIEF A3 requires the model to be written independently of the RTL.
+- **Choice:**
+  - `model/alu_ref.py` is pure Python on unsigned ints, transcribed from the ratified Operation blocks
+    (anchors cited per function).
+  - It was written before any RTL exists.
+  - It uses the straightforward scan or loop form of each definition (e.g. CLZ scans bits), never the
+    tree structures the RTL will use. So a structural bug in the RTL can't be copied into the reference.
+  - Opcode numbers are the only shared fact with the RTL; they are checked, not shared code.
+- **Evidence:** `model/alu_ref.py`; `results/model_xcheck.json`.
+
 ---
 
 ## Bugs found by verification
