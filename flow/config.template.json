@@ -1,0 +1,12 @@
+{
+    "//": "LibreLane config template for alu_top (BRIEF A4). scripts/flow_run.py fills the @...@ fields. Same settings for every architecture (DECISIONS D-022).",
+    "DESIGN_NAME": "alu_top",
+    "VERILOG_FILES": "@VERILOG_FILES@",
+    "USE_SLANG": true,
+    "SYNTH_PARAMETERS": ["ADDER=@ADDER_CODE@", "PIPE=@PIPE@"],
+    "CLOCK_PORT": "clk",
+    "CLOCK_PERIOD": "@CLOCK_PERIOD@",
+    "FP_SIZING": "relative",
+    "FP_CORE_UTIL": 40,
+    "PL_TARGET_DENSITY_PCT": 50
+}
