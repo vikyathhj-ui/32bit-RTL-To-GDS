@@ -1,0 +1,45 @@
+# SymbiYosys: per-architecture adder equivalence miter (BRIEF A3 formal 1).
+# Run from the repo root: sby -f formal/adder_eq.sby   (or scripts/run_formal.py)
+
+[tasks]
+RCA
+CLA4
+CSLA
+BK
+KS
+SK
+HC
+BEH
+
+[options]
+mode prove
+
+[engines]
+smtbmc yices
+
+[script]
+RCA: read_slang --top adder_miter -GARCH=0 alu_pkg.sv pg_black.sv pg_gray.sv cla4_unit.sv adder_rca.sv adder_cla4.sv adder_csla.sv adder_bk.sv adder_ks.sv adder_sk.sv adder_hc.sv adder_beh.sv adder.sv adder_miter.sv
+CLA4: read_slang --top adder_miter -GARCH=1 alu_pkg.sv pg_black.sv pg_gray.sv cla4_unit.sv adder_rca.sv adder_cla4.sv adder_csla.sv adder_bk.sv adder_ks.sv adder_sk.sv adder_hc.sv adder_beh.sv adder.sv adder_miter.sv
+CSLA: read_slang --top adder_miter -GARCH=2 alu_pkg.sv pg_black.sv pg_gray.sv cla4_unit.sv adder_rca.sv adder_cla4.sv adder_csla.sv adder_bk.sv adder_ks.sv adder_sk.sv adder_hc.sv adder_beh.sv adder.sv adder_miter.sv
+BK: read_slang --top adder_miter -GARCH=3 alu_pkg.sv pg_black.sv pg_gray.sv cla4_unit.sv adder_rca.sv adder_cla4.sv adder_csla.sv adder_bk.sv adder_ks.sv adder_sk.sv adder_hc.sv adder_beh.sv adder.sv adder_miter.sv
+KS: read_slang --top adder_miter -GARCH=4 alu_pkg.sv pg_black.sv pg_gray.sv cla4_unit.sv adder_rca.sv adder_cla4.sv adder_csla.sv adder_bk.sv adder_ks.sv adder_sk.sv adder_hc.sv adder_beh.sv adder.sv adder_miter.sv
+SK: read_slang --top adder_miter -GARCH=5 alu_pkg.sv pg_black.sv pg_gray.sv cla4_unit.sv adder_rca.sv adder_cla4.sv adder_csla.sv adder_bk.sv adder_ks.sv adder_sk.sv adder_hc.sv adder_beh.sv adder.sv adder_miter.sv
+HC: read_slang --top adder_miter -GARCH=6 alu_pkg.sv pg_black.sv pg_gray.sv cla4_unit.sv adder_rca.sv adder_cla4.sv adder_csla.sv adder_bk.sv adder_ks.sv adder_sk.sv adder_hc.sv adder_beh.sv adder.sv adder_miter.sv
+BEH: read_slang --top adder_miter -GARCH=7 alu_pkg.sv pg_black.sv pg_gray.sv cla4_unit.sv adder_rca.sv adder_cla4.sv adder_csla.sv adder_bk.sv adder_ks.sv adder_sk.sv adder_hc.sv adder_beh.sv adder.sv adder_miter.sv
+prep -top adder_miter
+
+[files]
+../rtl/alu_pkg.sv
+../rtl/adders/pg_black.sv
+../rtl/adders/pg_gray.sv
+../rtl/adders/cla4_unit.sv
+../rtl/adders/adder_rca.sv
+../rtl/adders/adder_cla4.sv
+../rtl/adders/adder_csla.sv
+../rtl/adders/adder_bk.sv
+../rtl/adders/adder_ks.sv
+../rtl/adders/adder_sk.sv
+../rtl/adders/adder_hc.sv
+../rtl/adders/adder_beh.sv
+../rtl/adders/adder.sv
+../formal/adder_miter.sv

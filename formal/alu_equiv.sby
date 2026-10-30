@@ -1,0 +1,68 @@
+# SymbiYosys: full-ALU equivalence vs behavioural reference, every ADDER x PIPE (BRIEF A3 formal 2).
+# Run from formal/: sby -f alu_equiv.sby [task]   (or scripts/run_formal.py)
+
+[tasks]
+RCA_P0
+RCA_P1
+CLA4_P0
+CLA4_P1
+CSLA_P0
+CSLA_P1
+BK_P0
+BK_P1
+KS_P0
+KS_P1
+SK_P0
+SK_P1
+HC_P0
+HC_P1
+BEH_P0
+BEH_P1
+
+[options]
+mode prove
+depth 6
+
+[engines]
+smtbmc yices
+
+[script]
+RCA_P0: read_slang --top alu_equiv -GADDER=0 -GPIPE=0 alu_pkg.sv adder.sv adder_beh.sv adder_bk.sv adder_cla4.sv adder_csla.sv adder_hc.sv adder_ks.sv adder_rca.sv adder_sk.sv cla4_unit.sv pg_black.sv pg_gray.sv shifter.sv clz_tree.sv clz.sv cpop.sv alu_top.sv alu_ref_beh.sv alu_equiv.sv
+RCA_P1: read_slang --top alu_equiv -GADDER=0 -GPIPE=1 alu_pkg.sv adder.sv adder_beh.sv adder_bk.sv adder_cla4.sv adder_csla.sv adder_hc.sv adder_ks.sv adder_rca.sv adder_sk.sv cla4_unit.sv pg_black.sv pg_gray.sv shifter.sv clz_tree.sv clz.sv cpop.sv alu_top.sv alu_ref_beh.sv alu_equiv.sv
+CLA4_P0: read_slang --top alu_equiv -GADDER=1 -GPIPE=0 alu_pkg.sv adder.sv adder_beh.sv adder_bk.sv adder_cla4.sv adder_csla.sv adder_hc.sv adder_ks.sv adder_rca.sv adder_sk.sv cla4_unit.sv pg_black.sv pg_gray.sv shifter.sv clz_tree.sv clz.sv cpop.sv alu_top.sv alu_ref_beh.sv alu_equiv.sv
+CLA4_P1: read_slang --top alu_equiv -GADDER=1 -GPIPE=1 alu_pkg.sv adder.sv adder_beh.sv adder_bk.sv adder_cla4.sv adder_csla.sv adder_hc.sv adder_ks.sv adder_rca.sv adder_sk.sv cla4_unit.sv pg_black.sv pg_gray.sv shifter.sv clz_tree.sv clz.sv cpop.sv alu_top.sv alu_ref_beh.sv alu_equiv.sv
+CSLA_P0: read_slang --top alu_equiv -GADDER=2 -GPIPE=0 alu_pkg.sv adder.sv adder_beh.sv adder_bk.sv adder_cla4.sv adder_csla.sv adder_hc.sv adder_ks.sv adder_rca.sv adder_sk.sv cla4_unit.sv pg_black.sv pg_gray.sv shifter.sv clz_tree.sv clz.sv cpop.sv alu_top.sv alu_ref_beh.sv alu_equiv.sv
+CSLA_P1: read_slang --top alu_equiv -GADDER=2 -GPIPE=1 alu_pkg.sv adder.sv adder_beh.sv adder_bk.sv adder_cla4.sv adder_csla.sv adder_hc.sv adder_ks.sv adder_rca.sv adder_sk.sv cla4_unit.sv pg_black.sv pg_gray.sv shifter.sv clz_tree.sv clz.sv cpop.sv alu_top.sv alu_ref_beh.sv alu_equiv.sv
+BK_P0: read_slang --top alu_equiv -GADDER=3 -GPIPE=0 alu_pkg.sv adder.sv adder_beh.sv adder_bk.sv adder_cla4.sv adder_csla.sv adder_hc.sv adder_ks.sv adder_rca.sv adder_sk.sv cla4_unit.sv pg_black.sv pg_gray.sv shifter.sv clz_tree.sv clz.sv cpop.sv alu_top.sv alu_ref_beh.sv alu_equiv.sv
+BK_P1: read_slang --top alu_equiv -GADDER=3 -GPIPE=1 alu_pkg.sv adder.sv adder_beh.sv adder_bk.sv adder_cla4.sv adder_csla.sv adder_hc.sv adder_ks.sv adder_rca.sv adder_sk.sv cla4_unit.sv pg_black.sv pg_gray.sv shifter.sv clz_tree.sv clz.sv cpop.sv alu_top.sv alu_ref_beh.sv alu_equiv.sv
+KS_P0: read_slang --top alu_equiv -GADDER=4 -GPIPE=0 alu_pkg.sv adder.sv adder_beh.sv adder_bk.sv adder_cla4.sv adder_csla.sv adder_hc.sv adder_ks.sv adder_rca.sv adder_sk.sv cla4_unit.sv pg_black.sv pg_gray.sv shifter.sv clz_tree.sv clz.sv cpop.sv alu_top.sv alu_ref_beh.sv alu_equiv.sv
+KS_P1: read_slang --top alu_equiv -GADDER=4 -GPIPE=1 alu_pkg.sv adder.sv adder_beh.sv adder_bk.sv adder_cla4.sv adder_csla.sv adder_hc.sv adder_ks.sv adder_rca.sv adder_sk.sv cla4_unit.sv pg_black.sv pg_gray.sv shifter.sv clz_tree.sv clz.sv cpop.sv alu_top.sv alu_ref_beh.sv alu_equiv.sv
+SK_P0: read_slang --top alu_equiv -GADDER=5 -GPIPE=0 alu_pkg.sv adder.sv adder_beh.sv adder_bk.sv adder_cla4.sv adder_csla.sv adder_hc.sv adder_ks.sv adder_rca.sv adder_sk.sv cla4_unit.sv pg_black.sv pg_gray.sv shifter.sv clz_tree.sv clz.sv cpop.sv alu_top.sv alu_ref_beh.sv alu_equiv.sv
+SK_P1: read_slang --top alu_equiv -GADDER=5 -GPIPE=1 alu_pkg.sv adder.sv adder_beh.sv adder_bk.sv adder_cla4.sv adder_csla.sv adder_hc.sv adder_ks.sv adder_rca.sv adder_sk.sv cla4_unit.sv pg_black.sv pg_gray.sv shifter.sv clz_tree.sv clz.sv cpop.sv alu_top.sv alu_ref_beh.sv alu_equiv.sv
+HC_P0: read_slang --top alu_equiv -GADDER=6 -GPIPE=0 alu_pkg.sv adder.sv adder_beh.sv adder_bk.sv adder_cla4.sv adder_csla.sv adder_hc.sv adder_ks.sv adder_rca.sv adder_sk.sv cla4_unit.sv pg_black.sv pg_gray.sv shifter.sv clz_tree.sv clz.sv cpop.sv alu_top.sv alu_ref_beh.sv alu_equiv.sv
+HC_P1: read_slang --top alu_equiv -GADDER=6 -GPIPE=1 alu_pkg.sv adder.sv adder_beh.sv adder_bk.sv adder_cla4.sv adder_csla.sv adder_hc.sv adder_ks.sv adder_rca.sv adder_sk.sv cla4_unit.sv pg_black.sv pg_gray.sv shifter.sv clz_tree.sv clz.sv cpop.sv alu_top.sv alu_ref_beh.sv alu_equiv.sv
+BEH_P0: read_slang --top alu_equiv -GADDER=7 -GPIPE=0 alu_pkg.sv adder.sv adder_beh.sv adder_bk.sv adder_cla4.sv adder_csla.sv adder_hc.sv adder_ks.sv adder_rca.sv adder_sk.sv cla4_unit.sv pg_black.sv pg_gray.sv shifter.sv clz_tree.sv clz.sv cpop.sv alu_top.sv alu_ref_beh.sv alu_equiv.sv
+BEH_P1: read_slang --top alu_equiv -GADDER=7 -GPIPE=1 alu_pkg.sv adder.sv adder_beh.sv adder_bk.sv adder_cla4.sv adder_csla.sv adder_hc.sv adder_ks.sv adder_rca.sv adder_sk.sv cla4_unit.sv pg_black.sv pg_gray.sv shifter.sv clz_tree.sv clz.sv cpop.sv alu_top.sv alu_ref_beh.sv alu_equiv.sv
+prep -top alu_equiv
+
+[files]
+../rtl/alu_pkg.sv
+../rtl/adders/adder.sv
+../rtl/adders/adder_beh.sv
+../rtl/adders/adder_bk.sv
+../rtl/adders/adder_cla4.sv
+../rtl/adders/adder_csla.sv
+../rtl/adders/adder_hc.sv
+../rtl/adders/adder_ks.sv
+../rtl/adders/adder_rca.sv
+../rtl/adders/adder_sk.sv
+../rtl/adders/cla4_unit.sv
+../rtl/adders/pg_black.sv
+../rtl/adders/pg_gray.sv
+../rtl/shifter.sv
+../rtl/clz_tree.sv
+../rtl/clz.sv
+../rtl/cpop.sv
+../rtl/alu_top.sv
+../formal/alu_ref_beh.sv
+../formal/alu_equiv.sv
