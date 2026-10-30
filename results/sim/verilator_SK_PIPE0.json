@@ -1,0 +1,26 @@
+{
+  "config": "verilator_SK_PIPE0",
+  "simulator": "verilator",
+  "tool": "Verilator 5.050 2026-07-01 rev v5.050",
+  "adder": "SK",
+  "params": {
+    "ADDER": 5,
+    "PIPE": 0
+  },
+  "status": "PASS",
+  "tests": {
+    "test_directed": "PASS",
+    "test_random": "PASS"
+  },
+  "results_checked": {
+    "test_directed": 3646,
+    "test_random": 1000000
+  },
+  "random_vectors": 1000000,
+  "seed": 20261030,
+  "seconds": 379.2,
+  "coverage_percent": 100.0,
+  "coverage_file": "results/coverage/verilator_SK_PIPE0.json",
+  "log": "sim_build/cocotb/verilator_SK_PIPE0/sim.log",
+  "command": "scripts/run_sim.py --sim verilator --adder SK --pipe 0 --vectors 1000000 --seed 20261030"
+}

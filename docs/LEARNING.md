@@ -151,5 +151,61 @@ depth. Phase 4 measures it.
 - **Function** is proven in Phase 3: formal equivalence plus cocotb against the golden model. The only
   functional check in Phase 2 is the adder smoke test.
 
-## Phase 3+
+## Phase 3 — verification
+
+### Scoreboard testbench (`tb/alu_tb.py`)
+- **Driver:** puts one operation on the inputs per cycle, sometimes with a bubble (`in_valid=0`).
+- **Scoreboard:** a queue. Each issued operation pushes its *expected* result, taken from the golden
+  model.
+- **Monitor:** every time `out_valid=1`, pops the queue and compares `y`, `flags` and `illegal_op`. It
+  also checks the result arrived exactly L cycles after issue, so it tests timing, not just order.
+- **Why drive and sample on the falling edge:** values read there are the settled result of the previous
+  rising edge, which avoids race conditions between the testbench and the design.
+
+### Constrained random
+- **The problem with pure random:** 32-bit operands almost never hit the interesting values (0, −1,
+  INT_MIN, single bits, long zero runs for CLZ).
+- **"Constrained" means a weighted mix:** mostly random, with corners injected on purpose. See
+  `rand_operand()`.
+- **Seeds:** the seed is recorded, so any failure can be replayed exactly.
+
+### Functional coverage (`tb/alu_coverage.py`, `docs/COVERAGE.md`)
+- **What it answers:** "did my stimulus actually exercise X?" For example: every op with a negative
+  operand, every CLZ result 0..32, every flag value each op can produce.
+- **It measures the test, not the design.** 100% coverage with a broken scoreboard would still pass
+  bugs.
+- **Unreachable bins** are left out with a written reason. Formal equivalence then proves they really
+  are unreachable.
+
+### How a formal miter works (`formal/adder_miter.sv`)
+1. Feed the same inputs to two circuits: the adder under test, and the obviously-correct `a + b + cin`.
+2. Assert that their outputs are equal.
+3. The solver tries to find *any* input that breaks the assertion.
+   - If none exists, the two are equal for all 2⁶⁵ inputs. That is a proof, not a sample.
+   - If one exists, you get the exact counterexample as a waveform.
+- **Evidence it works:** breaking one prefix index in KS made the miter fail immediately with a trace.
+
+### k-induction (how SBY proves sequential properties, `formal/alu_equiv.sv`)
+- **Base case:** from reset, the property holds for the first k cycles (a bounded check).
+- **Induction step:** if the property held for any k consecutive cycles, it holds in cycle k+1, starting
+  from *any* state, even unreachable ones.
+- **Why k must be at least the pipeline depth:** a "garbage" start state gets flushed out of the
+  pipeline within L cycles. Any garbage that would reach the output shows up inside the k-cycle window
+  and is ruled out by the assumption.
+
+### Coverage vs formal: why do both?
+- **Formal** proves the RTL equals the reference for every input, but only for the properties you wrote,
+  only within the formal model, and only against a reference *you* wrote.
+- **Simulation against the golden model** is an independent second reference (Python, checked against
+  Spike). It also exercises the real testbench interface, reset sequencing and simulators.
+- **Coverage** shows the simulation didn't just repeat easy cases.
+- Together: two independent references agreeing, plus evidence the stimulus was meaningful.
+
+### Tools are not always right (D-021)
+- **What happened:** Icarus evaluated comparisons inside port connections wrongly in one module, while
+  Verilator and formal agreed the RTL was correct.
+- **The lesson:** when two tools disagree, isolate with minimal cases before "fixing" the design. Then
+  choose a coding style that every tool evaluates the same way.
+
+## Phase 4+
 (to be added)

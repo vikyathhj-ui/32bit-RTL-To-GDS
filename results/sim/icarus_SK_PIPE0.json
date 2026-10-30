@@ -1,0 +1,26 @@
+{
+  "config": "icarus_SK_PIPE0",
+  "simulator": "icarus",
+  "tool": "Icarus Verilog version 14.0 (devel) (s20260301-391-g64f13540-dirty)",
+  "adder": "SK",
+  "params": {
+    "ADDER": 5,
+    "PIPE": 0
+  },
+  "status": "PASS",
+  "tests": {
+    "test_directed": "PASS",
+    "test_random": "PASS"
+  },
+  "results_checked": {
+    "test_directed": 3646,
+    "test_random": 20000
+  },
+  "random_vectors": 20000,
+  "seed": 20261030,
+  "seconds": 14.2,
+  "coverage_percent": 100.0,
+  "coverage_file": "results/coverage/icarus_SK_PIPE0.json",
+  "log": "sim_build/cocotb/icarus_SK_PIPE0/sim.log",
+  "command": "scripts/run_sim.py --sim icarus --adder SK --pipe 0 --vectors 20000 --seed 20261030"
+}

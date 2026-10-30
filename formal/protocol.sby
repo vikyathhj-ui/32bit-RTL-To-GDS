@@ -1,0 +1,39 @@
+# SymbiYosys: out_valid latency L = 2 + PIPE (BRIEF A3 formal 3).
+# Run from formal/: sby -f protocol.sby [task]   (or scripts/run_formal.py)
+
+[tasks]
+P0
+P1
+
+[options]
+mode prove
+depth 8
+
+[engines]
+smtbmc yices
+
+[script]
+P0: read_slang --top protocol -GPIPE=0 alu_pkg.sv adder.sv adder_beh.sv adder_bk.sv adder_cla4.sv adder_csla.sv adder_hc.sv adder_ks.sv adder_rca.sv adder_sk.sv cla4_unit.sv pg_black.sv pg_gray.sv shifter.sv clz_tree.sv clz.sv cpop.sv alu_top.sv protocol.sv
+P1: read_slang --top protocol -GPIPE=1 alu_pkg.sv adder.sv adder_beh.sv adder_bk.sv adder_cla4.sv adder_csla.sv adder_hc.sv adder_ks.sv adder_rca.sv adder_sk.sv cla4_unit.sv pg_black.sv pg_gray.sv shifter.sv clz_tree.sv clz.sv cpop.sv alu_top.sv protocol.sv
+prep -top protocol
+
+[files]
+../rtl/alu_pkg.sv
+../rtl/adders/adder.sv
+../rtl/adders/adder_beh.sv
+../rtl/adders/adder_bk.sv
+../rtl/adders/adder_cla4.sv
+../rtl/adders/adder_csla.sv
+../rtl/adders/adder_hc.sv
+../rtl/adders/adder_ks.sv
+../rtl/adders/adder_rca.sv
+../rtl/adders/adder_sk.sv
+../rtl/adders/cla4_unit.sv
+../rtl/adders/pg_black.sv
+../rtl/adders/pg_gray.sv
+../rtl/shifter.sv
+../rtl/clz_tree.sv
+../rtl/clz.sv
+../rtl/cpop.sv
+../rtl/alu_top.sv
+../formal/protocol.sv

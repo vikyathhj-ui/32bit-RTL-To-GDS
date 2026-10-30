@@ -15,13 +15,13 @@ module adder_bk #(
     localparam int L  = $clog2(W);
     localparam int NS = 2 * L - 1;  // number of prefix levels
 
-    logic [W-1:0] p;
+    logic [W-1:0] pb;  // per-bit propagate a ^ b (P is the group propagate)
     logic [W-1:0] G [0:NS];
     logic [W-1:0] P [0:NS];
 
-    assign p    = a ^ b;
-    assign G[0] = (a & b) | {{(W-1){1'b0}}, p[0] & cin};
-    assign P[0] = p;
+    assign pb   = a ^ b;
+    assign G[0] = (a & b) | {{(W-1){1'b0}}, pb[0] & cin};
+    assign P[0] = pb;
 
     // Up-sweep: level k combines i with i - 2^k where (i + 1) is a multiple of 2^(k+1).
     for (genvar k = 0; k < L; k++) begin : g_up
@@ -55,7 +55,7 @@ module adder_bk #(
         end
     end
 
-    assign sum  = p ^ {G[NS][W-2:0], cin};
+    assign sum  = pb ^ {G[NS][W-2:0], cin};
     assign cout = G[NS][W-1];
 
     if ((1 << L) != W) begin : g_bad_width

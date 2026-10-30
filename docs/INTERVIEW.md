@@ -123,3 +123,86 @@ nothing.
 - No. Lint catches structural problems (widths, unused or undriven signals, latches), not wrong
   function. I saw that Verilator doesn't even warn about a signal that is never driven and never used.
 - Correctness comes from formal equivalence and simulation against the golden model (Phase 3).
+
+### Verification (Phase 3)
+*Numbers come from `results/verify_summary.json`, `results/sim/*.json` and `results/formal/summary.json`.*
+
+**Q20. How did you verify the ALU?**
+Two independent references and three methods:
+1. **cocotb testbench** against the Python golden model (itself cross-checked with Spike):
+   - directed corners plus 1,000,000 checked constrained-random results for each of the 8 adder
+     configurations on Verilator;
+   - 100,000 per configuration with PIPE=1;
+   - 20,000 per configuration on Icarus.
+2. **Functional coverage:** 100% of 495 defined bins in every run.
+3. **SymbiYosys formal proofs:** 26/26 tasks pass, all by k-induction:
+   - 8 adder miters;
+   - 16 full-ALU equivalence proofs against a separate behavioural reference;
+   - 2 latency proofs.
+
+**Q21. How does a formal miter work?**
+- Feed the same inputs to the design and to a trusted reference (here `a + b + cin`), and assert that
+  the outputs are equal. The solver searches for any input that breaks it.
+- None existing means the two are equal for all 2⁶⁵ inputs. My 8 adder miters each prove in about
+  2 seconds or less.
+- When I shifted one Kogge–Stone prefix index on purpose, the miter failed at once with a
+  counterexample waveform.
+
+**Q22. Your full-ALU equivalence: how is it set up?**
+- `alu_top` runs next to a shadow pipeline that carries the same (op, a, b) with the spec's timing, into
+  a behavioural reference ALU written from the spec with plain operators.
+- The assertion: whenever `out_valid` is high, `y`, `flags` and `illegal_op` match, and `out_valid`
+  itself matches the shadow valid.
+- It's proven by k-induction for every ADDER × PIPE (16 tasks, 23–232 s each).
+
+**Q23. What is k-induction and why did your proofs need depth ≥ the pipeline length?**
+- **Base case:** the property holds for k cycles after reset.
+- **Step:** if it held for any k consecutive cycles, it holds in the next one, starting from *any*
+  state.
+- Garbage in the pipeline registers is flushed within L cycles, so a k of at least L+1 lets the step
+  rule out unreachable start states. I used depth 6 for the ALU and 8 for the protocol.
+
+**Q24. If formal proves everything, why run a million random vectors?**
+Formal proves the RTL equals *my* reference, under *my* properties, in the formal model. Simulation
+checks against a *second, independent* reference: the Python model, which agrees with Spike. It also
+exercises the real interface, reset sequences and two simulators. Two independent references agreeing
+is much stronger than one.
+
+**Q25. What did coverage tell you that pass/fail couldn't?**
+- That the stimulus really reached the hard cases: every CLZ/CTZ result 0..32, every op with min/max
+  operands, every flag value each op can produce, every shift-amount bin.
+- Bins that the spec makes impossible (e.g. C=1 on AND) are left out with a written reason. Formal
+  equivalence proves they are unreachable.
+
+**Q26. How do you know your testbench can actually catch bugs?**
+Mutation testing: I injected bugs and watched each check fail.
+- SUB carry inverted: the bench failed with "NZCV=0100, expected 0110", and the equivalence proof
+  failed.
+- ORC.B checking 7 bits per byte: the bench failed.
+- One prefix index off: the miter failed.
+- `out_valid` one stage early: the protocol proof failed.
+
+**Q27. Did verification find bugs?**
+- The early adder smoke test found one (CLA4 padding, B-001). Phase 3 found no functional RTL bugs; every
+  check had been mutation-tested, so that result means something.
+- It did find a **simulator** problem: Icarus evaluated comparisons inside port connections wrongly in
+  one module. I isolated it with minimal cases and recoded the decode as explicit wires (D-021).
+- It also found a counting issue in my own bench: a reset flushed 2 operations, so a "1M" run checked
+  only 999,998. I fixed the bench to check exactly 1M.
+
+**Q28. Why drive and sample on the falling clock edge in cocotb?**
+At the falling edge, every register has settled from the previous rising edge. Reading there, and
+driving inputs for the next rising edge, avoids race conditions between Python and the simulator's
+event order.
+
+**Q29. How did you run CI without the 16 GB EDA image?**
+- GitHub Actions with YosysHQ OSS CAD Suite pinned to a dated release (Yosys + slang, SBY, Verilator,
+  Icarus), with actions pinned to commit SHAs.
+- CI runs lint, the model tests, a reduced simulation and a formal subset. The full 1M-vector
+  regression and all 26 proofs run locally with `make verify`, and their results are committed (D-020).
+
+**Q30. What is the difference between `illegal_op` and just returning zero?**
+- Both happen: y = 0 (so Z = 1), and `illegal_op` = 1, so a CPU can raise an illegal-instruction
+  exception.
+- Coverage confirms illegal opcodes were exercised (about 3% of random ops, plus directed codes 27–31).
+- Formal proves the behaviour for all of them.

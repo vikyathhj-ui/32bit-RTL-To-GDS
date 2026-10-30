@@ -1,0 +1,26 @@
+{
+  "config": "verilator_BEH_PIPE1",
+  "simulator": "verilator",
+  "tool": "Verilator 5.050 2026-07-01 rev v5.050",
+  "adder": "BEH",
+  "params": {
+    "ADDER": 7,
+    "PIPE": 1
+  },
+  "status": "PASS",
+  "tests": {
+    "test_directed": "PASS",
+    "test_random": "PASS"
+  },
+  "results_checked": {
+    "test_directed": 3645,
+    "test_random": 100000
+  },
+  "random_vectors": 100000,
+  "seed": 20261030,
+  "seconds": 22.4,
+  "coverage_percent": 100.0,
+  "coverage_file": "results/coverage/verilator_BEH_PIPE1.json",
+  "log": "sim_build/cocotb/verilator_BEH_PIPE1/sim.log",
+  "command": "scripts/run_sim.py --sim verilator --adder BEH --pipe 1 --vectors 100000 --seed 20261030"
+}
