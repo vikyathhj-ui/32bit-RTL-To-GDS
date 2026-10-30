@@ -1,0 +1,14 @@
+ADD    op= 0 A=00000005 B=00000007 -> y=0000000c exp=0000000c OK   z=0
+XNOR   op= 8 A=f0f0f0f0 B=ff00ff00 -> y=xxxxxxxx exp=f00ff00f FAIL z=x
+ROL0   op=12 A=80000001 B=00000000 -> y=80000001 exp=80000001 OK   z=0
+ROL1   op=12 A=80000001 B=00000001 -> y=00000003 exp=00000003 OK   z=0
+ROR1   op=13 A=00000003 B=00000001 -> y=c0000000 exp=80000001 FAIL z=0
+ABS    op=20 A=fffffffb B=00000000 -> y=00000005 exp=00000005 OK   z=0
+CLZ    op=23 A=00010000 B=00000000 -> y=0000000f exp=0000000f OK   z=0
+POP    op=24 A=f000000f B=00000000 -> y=00000008 exp=00000008 OK   z=0
+b2b: after ADD(10,20) issued, cycle+1 y=xxxxxxxx (exp 0000001e)
+b2b: after AND(ff,0f) issued, cycle+1 y=0000000f (exp 0000000f)
+zero after y=0 stable: z=1
+y=00000001 z=1 (z should be 0 when y!=0)
+valid_in=0 for 4 cycles -> valid_out=1 (exp 0)
+legacy/tb_probe.v:34: $finish called at 376000 (1ps)
