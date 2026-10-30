@@ -1,0 +1,218 @@
+{
+  "check": "yosys read_slang + synth -flatten + check -assert, no latches",
+  "tool": "Yosys 0.68 (git sha1 38e001a6f, Release, GNU /usr/bin/c++ 13.3.0)",
+  "result": "PASS",
+  "configs": 16,
+  "passed": 16,
+  "failed": [],
+  "results": [
+    {
+      "config": "alu_top_RCA_PIPE0",
+      "params": {
+        "ADDER": 0,
+        "PIPE": 0
+      },
+      "status": "PASS",
+      "latches": 0,
+      "errors": [],
+      "exit": 0,
+      "log": "sim_build/synth/alu_top_RCA_PIPE0.log",
+      "command": "yosys -p 'read_slang --top alu_top -GADDER=0 -GPIPE=0 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv; synth -flatten -top alu_top; check -assert; stat'"
+    },
+    {
+      "config": "alu_top_RCA_PIPE1",
+      "params": {
+        "ADDER": 0,
+        "PIPE": 1
+      },
+      "status": "PASS",
+      "latches": 0,
+      "errors": [],
+      "exit": 0,
+      "log": "sim_build/synth/alu_top_RCA_PIPE1.log",
+      "command": "yosys -p 'read_slang --top alu_top -GADDER=0 -GPIPE=1 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv; synth -flatten -top alu_top; check -assert; stat'"
+    },
+    {
+      "config": "alu_top_CLA4_PIPE0",
+      "params": {
+        "ADDER": 1,
+        "PIPE": 0
+      },
+      "status": "PASS",
+      "latches": 0,
+      "errors": [],
+      "exit": 0,
+      "log": "sim_build/synth/alu_top_CLA4_PIPE0.log",
+      "command": "yosys -p 'read_slang --top alu_top -GADDER=1 -GPIPE=0 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv; synth -flatten -top alu_top; check -assert; stat'"
+    },
+    {
+      "config": "alu_top_CLA4_PIPE1",
+      "params": {
+        "ADDER": 1,
+        "PIPE": 1
+      },
+      "status": "PASS",
+      "latches": 0,
+      "errors": [],
+      "exit": 0,
+      "log": "sim_build/synth/alu_top_CLA4_PIPE1.log",
+      "command": "yosys -p 'read_slang --top alu_top -GADDER=1 -GPIPE=1 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv; synth -flatten -top alu_top; check -assert; stat'"
+    },
+    {
+      "config": "alu_top_CSLA_PIPE0",
+      "params": {
+        "ADDER": 2,
+        "PIPE": 0
+      },
+      "status": "PASS",
+      "latches": 0,
+      "errors": [],
+      "exit": 0,
+      "log": "sim_build/synth/alu_top_CSLA_PIPE0.log",
+      "command": "yosys -p 'read_slang --top alu_top -GADDER=2 -GPIPE=0 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv; synth -flatten -top alu_top; check -assert; stat'"
+    },
+    {
+      "config": "alu_top_CSLA_PIPE1",
+      "params": {
+        "ADDER": 2,
+        "PIPE": 1
+      },
+      "status": "PASS",
+      "latches": 0,
+      "errors": [],
+      "exit": 0,
+      "log": "sim_build/synth/alu_top_CSLA_PIPE1.log",
+      "command": "yosys -p 'read_slang --top alu_top -GADDER=2 -GPIPE=1 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv; synth -flatten -top alu_top; check -assert; stat'"
+    },
+    {
+      "config": "alu_top_BK_PIPE0",
+      "params": {
+        "ADDER": 3,
+        "PIPE": 0
+      },
+      "status": "PASS",
+      "latches": 0,
+      "errors": [],
+      "exit": 0,
+      "log": "sim_build/synth/alu_top_BK_PIPE0.log",
+      "command": "yosys -p 'read_slang --top alu_top -GADDER=3 -GPIPE=0 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv; synth -flatten -top alu_top; check -assert; stat'"
+    },
+    {
+      "config": "alu_top_BK_PIPE1",
+      "params": {
+        "ADDER": 3,
+        "PIPE": 1
+      },
+      "status": "PASS",
+      "latches": 0,
+      "errors": [],
+      "exit": 0,
+      "log": "sim_build/synth/alu_top_BK_PIPE1.log",
+      "command": "yosys -p 'read_slang --top alu_top -GADDER=3 -GPIPE=1 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv; synth -flatten -top alu_top; check -assert; stat'"
+    },
+    {
+      "config": "alu_top_KS_PIPE0",
+      "params": {
+        "ADDER": 4,
+        "PIPE": 0
+      },
+      "status": "PASS",
+      "latches": 0,
+      "errors": [],
+      "exit": 0,
+      "log": "sim_build/synth/alu_top_KS_PIPE0.log",
+      "command": "yosys -p 'read_slang --top alu_top -GADDER=4 -GPIPE=0 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv; synth -flatten -top alu_top; check -assert; stat'"
+    },
+    {
+      "config": "alu_top_KS_PIPE1",
+      "params": {
+        "ADDER": 4,
+        "PIPE": 1
+      },
+      "status": "PASS",
+      "latches": 0,
+      "errors": [],
+      "exit": 0,
+      "log": "sim_build/synth/alu_top_KS_PIPE1.log",
+      "command": "yosys -p 'read_slang --top alu_top -GADDER=4 -GPIPE=1 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv; synth -flatten -top alu_top; check -assert; stat'"
+    },
+    {
+      "config": "alu_top_SK_PIPE0",
+      "params": {
+        "ADDER": 5,
+        "PIPE": 0
+      },
+      "status": "PASS",
+      "latches": 0,
+      "errors": [],
+      "exit": 0,
+      "log": "sim_build/synth/alu_top_SK_PIPE0.log",
+      "command": "yosys -p 'read_slang --top alu_top -GADDER=5 -GPIPE=0 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv; synth -flatten -top alu_top; check -assert; stat'"
+    },
+    {
+      "config": "alu_top_SK_PIPE1",
+      "params": {
+        "ADDER": 5,
+        "PIPE": 1
+      },
+      "status": "PASS",
+      "latches": 0,
+      "errors": [],
+      "exit": 0,
+      "log": "sim_build/synth/alu_top_SK_PIPE1.log",
+      "command": "yosys -p 'read_slang --top alu_top -GADDER=5 -GPIPE=1 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv; synth -flatten -top alu_top; check -assert; stat'"
+    },
+    {
+      "config": "alu_top_HC_PIPE0",
+      "params": {
+        "ADDER": 6,
+        "PIPE": 0
+      },
+      "status": "PASS",
+      "latches": 0,
+      "errors": [],
+      "exit": 0,
+      "log": "sim_build/synth/alu_top_HC_PIPE0.log",
+      "command": "yosys -p 'read_slang --top alu_top -GADDER=6 -GPIPE=0 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv; synth -flatten -top alu_top; check -assert; stat'"
+    },
+    {
+      "config": "alu_top_HC_PIPE1",
+      "params": {
+        "ADDER": 6,
+        "PIPE": 1
+      },
+      "status": "PASS",
+      "latches": 0,
+      "errors": [],
+      "exit": 0,
+      "log": "sim_build/synth/alu_top_HC_PIPE1.log",
+      "command": "yosys -p 'read_slang --top alu_top -GADDER=6 -GPIPE=1 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv; synth -flatten -top alu_top; check -assert; stat'"
+    },
+    {
+      "config": "alu_top_BEH_PIPE0",
+      "params": {
+        "ADDER": 7,
+        "PIPE": 0
+      },
+      "status": "PASS",
+      "latches": 0,
+      "errors": [],
+      "exit": 0,
+      "log": "sim_build/synth/alu_top_BEH_PIPE0.log",
+      "command": "yosys -p 'read_slang --top alu_top -GADDER=7 -GPIPE=0 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv; synth -flatten -top alu_top; check -assert; stat'"
+    },
+    {
+      "config": "alu_top_BEH_PIPE1",
+      "params": {
+        "ADDER": 7,
+        "PIPE": 1
+      },
+      "status": "PASS",
+      "latches": 0,
+      "errors": [],
+      "exit": 0,
+      "log": "sim_build/synth/alu_top_BEH_PIPE1.log",
+      "command": "yosys -p 'read_slang --top alu_top -GADDER=7 -GPIPE=1 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv; synth -flatten -top alu_top; check -assert; stat'"
+    }
+  ]
+}

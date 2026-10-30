@@ -3,7 +3,7 @@
 Single source of truth for status. Update this before every commit.
 Spec: `docs/BRIEF.md`. Branch: `rework/alu-ppa`.
 
-**Current state:** Phases 0 and 1 complete; PR open to `main` (awaiting owner merge). Next: Phase 2 (RTL). Plan it first.
+**Current state:** Phases 0–1 merged to `main` (PR #1, merge commit `044d4ca`). Phase 2 complete; PR #2 open (awaiting owner merge). Next: Phase 3 (verification). Plan it first.
 
 ## Phase 0 — Setup and audit
 - [x] Environment check script (`scripts/env_check.sh` → `results/env_check.txt`). All tools found after
@@ -30,15 +30,21 @@ Spec: `docs/BRIEF.md`. Branch: `rework/alu-ppa`.
 - [x] **Gate:** model tests pass (`make model`). Commit, push, open PR.
 
 ## Phase 2 — RTL
-- [ ] Check Yosys SV support (slang vs. built-in frontend); decide on the language subset (DECISIONS.md).
-- [ ] Check that the `rtl/alu_pkg.sv` opcodes match `model/alu_ref.py` `OPCODES` (D-009).
-- [ ] `rtl/alu_pkg.sv` (opcodes).
-- [ ] `rtl/adders/*.sv`, common interface: RCA, CLA4, CSLA, BK, KS, SK, HC, BEH (prefix adders use explicit
-      G/P cells in `generate` loops).
-- [ ] `rtl/shifter.sv` (log barrel; left shift via bit reversal), `rtl/clz.sv` (log-depth LZ tree, CTZ via
-      reversal), `rtl/cpop.sv` (compressor tree).
-- [ ] `rtl/alu_top.sv`: registered I/O, `PIPE` parameter, shared adder/shifter, `illegal_op`.
-- [ ] **Gate:** `verilator --lint-only -Wall` clean for all 8 `ADDER` values. Commit, push, open PR.
+- [x] Check Yosys SV support (slang vs. built-in frontend); decide on the language subset (D-012). Yosys
+      is used via slang. `ADDER` is an integer code because Icarus can't pass string params.
+- [x] Check that the `rtl/alu_pkg.sv` opcodes (and adder codes) match the model and `scripts/adders.py`
+      (`make opcodes-check`).
+- [x] `rtl/alu_pkg.sv` (opcodes, adder codes).
+- [x] `rtl/adders/*.sv`, common interface: RCA, CLA4, CSLA, BK, KS, SK, HC, BEH (prefix adders use explicit
+      `pg_black`/`pg_gray` cells in `generate` loops).
+- [x] `rtl/shifter.sv` (63→32 funnel, left via bit reversal), `rtl/clz.sv` + `clz_tree.sv` (log-depth
+      tree, CTZ via reversal), `rtl/cpop.sv` (adder tree).
+- [x] `rtl/alu_top.sv`: registered I/O, `PIPE` parameter, shared adder/shifter/inverter, `illegal_op`.
+- [x] Early adder smoke test (`make adder-smoke`): 8/8 PASS. Found and fixed bug B-001 (CLA4 cout).
+- [x] `make synth-check`: Yosys (slang) synthesis, 16/16 configs, no latches.
+- [x] **Gate:** `verilator --lint-only -Wall` clean for all 8 `ADDER` values × PIPE 0/1, plus each adder
+      alone: 24/24, 0 waivers (`make lint` → `results/lint_summary.json`). Commit done.
+- [x] Pushed; PR #2 opened after PR #1 was merged.
 
 ## Phase 3 — Verification
 - [ ] cocotb directed tests (corners, shift amounts 0/1/31, op × flag edges), on Icarus and Verilator.
@@ -80,5 +86,7 @@ Spec: `docs/BRIEF.md`. Branch: `rework/alu-ppa`.
 ## Open issues
 - The host has no `make`; run `make` inside the container (see CLAUDE.md). Installing it on the host
   would need sudo, which is the owner's call.
+- `alu_top` has **no functional verification yet**. Phase 2's gate is lint and synthesis only; the adder
+  smoke test covers the adders alone. Phase 3 (cocotb + formal) is where the ALU is proven.
 - CI (Phase 3) will need either the iic-osic image or its own tool install. `test_spike_xcheck` skips
   with a reason where Spike is absent.

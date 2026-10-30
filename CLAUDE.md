@@ -79,11 +79,20 @@ Make targets. `make` exists only in the container, not on the host:
 ```bash
 docker exec -w /foss/projects/32bit-RTL-To-GDS iic-osic bash -lc 'make env'           # tool table -> results/env_check.txt
 docker exec -w /foss/projects/32bit-RTL-To-GDS iic-osic bash -lc 'make model'         # pytest + Spike cross-check
+docker exec -w /foss/projects/32bit-RTL-To-GDS iic-osic bash -lc 'make rtl'           # opcodes + lint + synth-check + adder smoke
 docker exec -w /foss/projects/32bit-RTL-To-GDS iic-osic bash -lc 'make legacy-probe'  # audit evidence
 ```
 - `make model` writes `results/model_test.txt` and `results/model_xcheck.json`.
 - The Spike cross-check builds a bare-metal rv32i_zbb program (`model/spike/`) with
   `riscv64-unknown-elf-gcc` and runs it with `spike --isa=rv32i_zbb`.
+
+RTL conventions (Phase 2, D-012):
+- SV subset accepted by Verilator, slang and Icarus. Yosys is always used through slang (`read_slang`;
+  LibreLane `USE_SLANG`), because the built-in frontend rejects `parameter string` and in-module
+  `import`.
+- `ADDER` is an **integer** (`alu_pkg::ADDER_RCA..ADDER_BEH`), since Icarus can't pass string params to
+  children. Names are mapped in `scripts/adders.py`.
+- One module per file. Package imports go inside module bodies. No lint waivers so far.
 
 Spec conventions fixed in Phase 1 (see docs/SPEC.md and docs/DECISIONS.md):
 - Latency 2 (PIPE=0) / 3 (PIPE=1).

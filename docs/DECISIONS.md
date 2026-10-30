@@ -142,7 +142,107 @@ Format for each entry: **context → options → choice → evidence**. Newest a
   - Opcode numbers are the only shared fact with the RTL; they are checked, not shared code.
 - **Evidence:** `model/alu_ref.py`; `results/model_xcheck.json`.
 
+## D-012 — SystemVerilog subset, and `ADDER` as an integer code
+- **Context:** the RTL must be accepted by Verilator (lint and cocotb), Icarus (cocotb, BRIEF A3) and
+  Yosys (LibreLane synthesis, SymbiYosys). The brief asks to check Yosys SV support early.
+- **Probe:** small test modules in `sim_build/probe/` (not committed) using a package, `logic`,
+  `always_ff`/`always_comb`, `for (genvar …)` with computed indices, unpacked arrays of packed
+  vectors, and a string `ADDER` parameter selecting logic in `generate`.
+
+  | Tool | Result |
+  |---|---|
+  | Verilator 5.050 | Accepts all of it. |
+  | Yosys `read_slang` | Accepts all of it. The parameter really switches the logic (KS → `$add`, otherwise `$sub/$xor/$or`). |
+  | Yosys built-in `read_verilog -sv` | Rejects `parameter string` and `import` inside a module. |
+  | Icarus 14.0-dev | Parses everything, and honours string parameters given as **literals**. But it **cannot pass a string parameter from a parent module to a child**: `child #(.N(N))` fails with "Unable to bind variable", whether typed, untyped, renamed, via a localparam, or positional. |
+
+- **Options:**
+  1. String `ADDER`; drop Icarus. That breaks BRIEF A3, which requires cocotb on Icarus and Verilator.
+  2. Choose the architecture with `` `define `` macros. That is preprocessor-driven and hides the choice
+     from the parameter interface.
+  3. **Integer `ADDER`** with named constants `alu_pkg::ADDER_RCA … ADDER_BEH`.
+- **Choice:** option 3.
+  - **Verified:** integer parameters pass parent → child and `-P`/`-G` overrides work in Icarus,
+    Verilator and slang. Icarus selected the correct generate branch in simulation.
+  - **Names:** they stay the brief's names everywhere a person types them. `scripts/adders.py` maps
+    name → code, and `scripts/check_opcodes.py` checks that table against `alu_pkg.sv`.
+  - **Yosys:** all Yosys use goes through slang (`USE_SLANG` in LibreLane, `read_slang` in checks and
+    SBY). The built-in frontend's gaps therefore don't constrain the RTL.
+  - **Further rules:** package imports go inside module bodies; one module per file (Verilator
+    `DECLFILENAME`).
+- **Impact on the brief:** the selector is still "parameter ADDER" with the 8 architectures in the A2
+  table. Only its type is int instead of string. This is reported to the owner in the Phase 2 PR.
+- **Evidence:** the probe outputs above (reproducible from the commands in the Phase 2 commit message);
+  `results/adder_smoke.txt` (Icarus elaborates all 8 codes); `scripts/check_opcodes.py` PASS.
+
+## D-013 — Where the PIPE=1 register goes
+- **Context:** BRIEF A2: "`PIPE=1` adds a register after the adder/shifter stage". Stage S1 contains
+  the adder, its comparison select (SLT/MIN/MAX need the adder result plus `a`/`b`), the shifter and
+  the short "misc" units.
+- **Options:**
+  1. Register the raw adder outputs. MIN/MAX would then also need `a0`/`b0` registered: 64 extra
+     flip-flops.
+  2. Register each unit's *final* result: `r_add` (after the comparison mux), `r_shift` and `r_misc`,
+     plus `sel`, C, V and illegal.
+  3. Register only the muxed `y` (that is just a deeper output register and doesn't split anything).
+- **Choice:** option 2, in `rtl/alu_top.sv` `g_pipe`.
+  - About 102 data flip-flops. S1 = adder + compare mux (the critical path); S2 = 3:1 mux + zero detect.
+  - The stages are deliberately unbalanced: the point of PIPE=1 is to take the final mux and
+    flag logic off the adder path.
+  - Phase 4 will measure whether it pays off.
+- **Evidence:** `results/lint_summary.json` and `results/synth_check.json` (PIPE=1 configs PASS).
+  Latency L=3 will be proven formally in Phase 3.
+
+## D-014 — One shared `~b` inverter
+- **Context:** SUB/SLT/SLTU/MIN/MAX/MINU/MAXU need `a + ~b + 1`; ANDN/ORN/XNOR need `~b`. The Zbb spec's
+  implementation hint suggests reusing the subtraction inverter.
+- **Choice:** `bx = inv_b ? ~b0 : b0` feeds both the adder and the AND/OR/XOR unit. AND and ANDN then
+  share one AND gate row, and so on.
+- **Evidence:** `rtl/alu_top.sv` (`inv_b`, `bx`). Correctness will be proven by the full-ALU
+  equivalence in Phase 3.
+
+## D-015 — CTZ through the CLZ tree
+- **Context:** BRIEF A2: "CTZ is a bit reversal followed by the CLZ tree."
+- **Choice:** a single `clz` instance whose input is `(op == CTZ) ? rev32(a) : a`. Bit reversal is pure
+  wiring; the only cost is a 32-bit 2:1 mux, instead of a second tree.
+  - `clz` is a recursive halving tree (`rtl/clz_tree.sv`) with log₂32 = 5 mux levels.
+  - All-zero input gives 32, per `zb#insns-clz`.
+- **Evidence:** `rtl/clz.sv`, `rtl/clz_tree.sv`, `rtl/alu_top.sv`.
+
+## D-016 — Shifter as a funnel shifter with bit reversal
+- **Context:** BRIEF A2: one shared logarithmic barrel shifter for SLL/SRL/SRA/ROL/ROR, with left shifts
+  via bit reversal.
+- **Options:**
+  1. A separate rotate unit.
+  2. A 64-bit double-width shifter.
+  3. A 63→32 funnel right shifter, where the fill bits select the operation: 0 for SRL, sign for SRA,
+     `a[30:0]` for ROR.
+- **Choice:** option 3.
+  - Left operations reverse the input and the output: `SLL = rev(SRL(rev a))`,
+    `ROL = rev(ROR(rev a))`.
+  - Five 2:1 mux stages (16, 8, 4, 2, 1), with each stage only as wide as later stages can use
+    (63→47→39→35→33→32).
+  - Rotate-by-0 gives `a` naturally.
+- **Evidence:** `rtl/shifter.sv`.
+
 ---
 
 ## Bugs found by verification
-(Phase 3 fills this in.)
+
+### Phase 2 (found by the early adder smoke test, before Phase 3)
+
+**B-001 — CLA4 carry-out wrong (padding used p = 0).**
+- **Symptom:** `scripts/adder_smoke.sh` reported 75,701 of 151,078 vectors wrong for CLA4 only. Sums
+  were correct; `cout` was always 0.
+  - Example: `W=8 a=00 b=ff cin=1 got=000 exp=100`.
+- **Cause:**
+  - At the top lookahead level, 2 real groups are padded to a 4-input `cla4_unit`.
+  - Padding was tied to `g = 0, p = 0`.
+  - The unit's group propagate is `gp = &p`, so any padded 0 forced `gp = 0`.
+  - `cout = G | P & cin` then lost the propagate term.
+- **Fix:** pad with the identity of the (G, P) operator, `g = 0, p = 1` (`rtl/adders/adder_cla4.sv`).
+- **Verified:** adder smoke CLA4 PASS (151,078 vectors, 0 errors); Verilator `-Wall` gives 0 warnings
+  at W = 8/16/32/64.
+- **Lesson:** padding must be the operator's identity element. It goes in LEARNING.md.
+
+(Phase 3 adds bugs found by cocotb and formal.)

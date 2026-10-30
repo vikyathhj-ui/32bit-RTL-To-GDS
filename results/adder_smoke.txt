@@ -1,0 +1,16 @@
+adder_smoke RCA  PASS vectors=151078 errors=0
+tb/smoke/adder_smoke_tb.sv:65: $finish called at 151078 (1s)
+adder_smoke CLA4 PASS vectors=151078 errors=0
+tb/smoke/adder_smoke_tb.sv:65: $finish called at 151078 (1s)
+adder_smoke CSLA PASS vectors=151078 errors=0
+tb/smoke/adder_smoke_tb.sv:65: $finish called at 151078 (1s)
+adder_smoke BK   PASS vectors=151078 errors=0
+tb/smoke/adder_smoke_tb.sv:65: $finish called at 151078 (1s)
+adder_smoke KS   PASS vectors=151078 errors=0
+tb/smoke/adder_smoke_tb.sv:65: $finish called at 151078 (1s)
+adder_smoke SK   PASS vectors=151078 errors=0
+tb/smoke/adder_smoke_tb.sv:65: $finish called at 151078 (1s)
+adder_smoke HC   PASS vectors=151078 errors=0
+tb/smoke/adder_smoke_tb.sv:65: $finish called at 151078 (1s)
+adder_smoke BEH  PASS vectors=151078 errors=0
+tb/smoke/adder_smoke_tb.sv:65: $finish called at 151078 (1s)

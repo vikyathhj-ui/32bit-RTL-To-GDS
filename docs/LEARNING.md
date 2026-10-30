@@ -67,5 +67,89 @@ the code. Filled in phase by phase.
 - **Mutation check:** a check that never fails proves nothing. Breaking the model on purpose (D-007) and
   seeing the check fail proves that it really compares.
 
-## Phase 2+
+## Phase 2 — RTL
+
+### Generate and propagate: the idea behind every fast adder
+- **Per-bit signals:** `g = a & b` means "this bit **generates** a carry by itself". `p = a ^ b` means
+  "this bit **propagates** an incoming carry".
+- **Groups:** a group of bits [i..j] also has a (G, P). For a high part H and a low part L:
+  `G = G_H | P_H & G_L` and `P = P_H & P_L`. That is the **prefix operator** ("dot", `o`). It's
+  `pg_black` in `rtl/adders/pg_black.sv`.
+- **Why it matters:** the operator is **associative**, so groups can be combined in any tree shape. The
+  tree shape *is* the adder architecture.
+- **Gray cells:** once a group reaches bit 0, its G **is** the carry, and P is no longer needed. That is
+  the gray cell (`pg_gray.sv`).
+- **Carry-in:** `cin` is folded into bit 0 (`g0 = a0&b0 | p0&cin`), so "group reaches bit 0" includes
+  the carry-in. Sum bit `i` = `p_i ^ carry_into_i`.
+
+### The four prefix trees on 8 bits (● black/gray cell, | wire)
+```
+Kogge-Stone (3 levels, 17 cells, fan-out <= 2, long wires)
+  bit: 7 6 5 4 3 2 1 0
+  L0 : ● ● ● ● ● ● ● |     span 1: every bit i>=1 joins i-1
+  L1 : ● ● ● ● ● ● | |     span 2
+  L2 : ● ● ● ● | | | |     span 4
+Sklansky (3 levels, 12 cells, fan-out grows: bit 3 drives 4 cells at L2)
+  L0 : ● | ● | ● | ● |     bits with bit0 set (odd bits) join bit i-1
+  L1 : ● ● | | ● ● | |     bits with bit1 set join the top of the lower half
+  L2 : ● ● ● ● | | | |     bits 4..7 all join bit 3
+Brent-Kung (5 levels = 2*log2(8)-1, 11 cells, fan-out <= 2, short wires)
+  up : ● | ● | ● | ● |  → ● | | | ● | | |  → ● | | | | | | |
+  down:  | | ● | | | | |  → | ● | ● | ● | |   (fills in 5, then 2,4,6)
+Han-Carlson (4 levels, KS on odd bits only, then one fix-up level for even bits)
+```
+| Architecture | Depth | Cells | Wiring |
+|---|---|---|---|
+| Kogge-Stone (`adder_ks.sv`) | minimum (log₂W) | the most | wiring-heavy |
+| Sklansky (`adder_sk.sv`) | minimum (log₂W) | few | high fan-out |
+| Brent-Kung (`adder_bk.sv`) | almost double | the fewest | short wires |
+| Han-Carlson (`adder_hc.sv`) | one level more than KS | about half of KS | in between |
+
+**Exam question:** which one wins after place-and-route? That depends on wires and fan-out, not just
+depth. Phase 4 measures it.
+
+### CLA and carry-select (the "classic" fast adders)
+- **CLA4** (`adder_cla4.sv`):
+  - A 4-bit lookahead unit computes 3 carries in parallel from (g, p, cin) and outputs a group (G, P).
+  - Stacking units into a tree (8 → 2 → 1 for 32 bits) gives log₄ depth.
+  - The tree is a prefix structure too, with radix 4.
+- **Carry-select** (`adder_csla.sv`):
+  - Each 8-bit block computes its sum twice, for carry-in 0 and 1.
+  - The real carry then only passes through one mux per block.
+  - It spends area (two adders per block) to buy speed.
+
+### Identity elements (lesson from bug B-001)
+- **What went wrong:** when padding a 4-input lookahead unit that has only 2 real inputs, the padding
+  must not change the answer. Padding with p = 0 forced the group propagate (`&p`) to 0 and broke
+  `cout`.
+- **The fix:** pad with the identity of the operator, (g = 0, p = 1).
+- **General rule:** this applies to any reduction. Pad an AND with 1, an OR with 0, a sum with 0.
+
+### Funnel shifter (`rtl/shifter.sv`)
+- **Concept:** put fill bits on the left of `a` and shift the 63-bit concatenation right. The fill bits
+  choose the operation:
+  - zeros: logical shift;
+  - sign copies: arithmetic shift;
+  - `a` itself: rotate.
+- **Log stages:** 5 stages of 2:1 muxes (shift by 16, 8, 4, 2, 1). Any amount 0..31 is a combination of
+  these, so depth is log₂32 = 5 muxes, not 31.
+- **Left shifts:** reverse the bits, shift right, reverse back. Reversal is free; it's just wires.
+
+### Leading-zero count tree (`rtl/clz_tree.sv`)
+- **Concept:** split the word in half. If the top half has a 1, the answer is the top half's count;
+  otherwise it is 16 plus the bottom half's count. Recurse.
+- **Depth:** each level is one mux, so depth is log₂32 = 5.
+- **CTZ:** the same tree on the bit-reversed word.
+
+### Lint vs synthesis vs verification
+- **`make lint`** (Verilator `-Wall`) catches *style and structure* problems: unused or undriven
+  signals, width mismatches, latches.
+  - It does **not** prove the design computes the right thing.
+  - Seen in this project: a signal that is never driven *and* never used produces no warning at all.
+- **`make synth-check`** proves Yosys can build it with no latches or multiple drivers. It also doesn't
+  prove function.
+- **Function** is proven in Phase 3: formal equivalence plus cocotb against the golden model. The only
+  functional check in Phase 2 is the adder smoke test.
+
+## Phase 3+
 (to be added)

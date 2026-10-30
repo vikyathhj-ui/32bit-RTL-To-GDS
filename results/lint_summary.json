@@ -1,0 +1,339 @@
+{
+  "check": "verilator --lint-only -Wall",
+  "tool": "Verilator 5.050 2026-07-01 rev v5.050",
+  "result": "PASS",
+  "configs": 24,
+  "passed": 24,
+  "failed": [],
+  "waivers": [],
+  "results": [
+    {
+      "config": "alu_top_RCA_PIPE0",
+      "top": "alu_top",
+      "params": {
+        "ADDER": 0,
+        "PIPE": 0
+      },
+      "status": "PASS",
+      "warnings": 0,
+      "errors": 0,
+      "exit": 0,
+      "log": "sim_build/lint/alu_top_RCA_PIPE0.log",
+      "command": "verilator --lint-only -Wall --top-module alu_top -GADDER=0 -GPIPE=0 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv"
+    },
+    {
+      "config": "alu_top_RCA_PIPE1",
+      "top": "alu_top",
+      "params": {
+        "ADDER": 0,
+        "PIPE": 1
+      },
+      "status": "PASS",
+      "warnings": 0,
+      "errors": 0,
+      "exit": 0,
+      "log": "sim_build/lint/alu_top_RCA_PIPE1.log",
+      "command": "verilator --lint-only -Wall --top-module alu_top -GADDER=0 -GPIPE=1 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv"
+    },
+    {
+      "config": "alu_top_CLA4_PIPE0",
+      "top": "alu_top",
+      "params": {
+        "ADDER": 1,
+        "PIPE": 0
+      },
+      "status": "PASS",
+      "warnings": 0,
+      "errors": 0,
+      "exit": 0,
+      "log": "sim_build/lint/alu_top_CLA4_PIPE0.log",
+      "command": "verilator --lint-only -Wall --top-module alu_top -GADDER=1 -GPIPE=0 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv"
+    },
+    {
+      "config": "alu_top_CLA4_PIPE1",
+      "top": "alu_top",
+      "params": {
+        "ADDER": 1,
+        "PIPE": 1
+      },
+      "status": "PASS",
+      "warnings": 0,
+      "errors": 0,
+      "exit": 0,
+      "log": "sim_build/lint/alu_top_CLA4_PIPE1.log",
+      "command": "verilator --lint-only -Wall --top-module alu_top -GADDER=1 -GPIPE=1 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv"
+    },
+    {
+      "config": "alu_top_CSLA_PIPE0",
+      "top": "alu_top",
+      "params": {
+        "ADDER": 2,
+        "PIPE": 0
+      },
+      "status": "PASS",
+      "warnings": 0,
+      "errors": 0,
+      "exit": 0,
+      "log": "sim_build/lint/alu_top_CSLA_PIPE0.log",
+      "command": "verilator --lint-only -Wall --top-module alu_top -GADDER=2 -GPIPE=0 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv"
+    },
+    {
+      "config": "alu_top_CSLA_PIPE1",
+      "top": "alu_top",
+      "params": {
+        "ADDER": 2,
+        "PIPE": 1
+      },
+      "status": "PASS",
+      "warnings": 0,
+      "errors": 0,
+      "exit": 0,
+      "log": "sim_build/lint/alu_top_CSLA_PIPE1.log",
+      "command": "verilator --lint-only -Wall --top-module alu_top -GADDER=2 -GPIPE=1 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv"
+    },
+    {
+      "config": "alu_top_BK_PIPE0",
+      "top": "alu_top",
+      "params": {
+        "ADDER": 3,
+        "PIPE": 0
+      },
+      "status": "PASS",
+      "warnings": 0,
+      "errors": 0,
+      "exit": 0,
+      "log": "sim_build/lint/alu_top_BK_PIPE0.log",
+      "command": "verilator --lint-only -Wall --top-module alu_top -GADDER=3 -GPIPE=0 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv"
+    },
+    {
+      "config": "alu_top_BK_PIPE1",
+      "top": "alu_top",
+      "params": {
+        "ADDER": 3,
+        "PIPE": 1
+      },
+      "status": "PASS",
+      "warnings": 0,
+      "errors": 0,
+      "exit": 0,
+      "log": "sim_build/lint/alu_top_BK_PIPE1.log",
+      "command": "verilator --lint-only -Wall --top-module alu_top -GADDER=3 -GPIPE=1 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv"
+    },
+    {
+      "config": "alu_top_KS_PIPE0",
+      "top": "alu_top",
+      "params": {
+        "ADDER": 4,
+        "PIPE": 0
+      },
+      "status": "PASS",
+      "warnings": 0,
+      "errors": 0,
+      "exit": 0,
+      "log": "sim_build/lint/alu_top_KS_PIPE0.log",
+      "command": "verilator --lint-only -Wall --top-module alu_top -GADDER=4 -GPIPE=0 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv"
+    },
+    {
+      "config": "alu_top_KS_PIPE1",
+      "top": "alu_top",
+      "params": {
+        "ADDER": 4,
+        "PIPE": 1
+      },
+      "status": "PASS",
+      "warnings": 0,
+      "errors": 0,
+      "exit": 0,
+      "log": "sim_build/lint/alu_top_KS_PIPE1.log",
+      "command": "verilator --lint-only -Wall --top-module alu_top -GADDER=4 -GPIPE=1 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv"
+    },
+    {
+      "config": "alu_top_SK_PIPE0",
+      "top": "alu_top",
+      "params": {
+        "ADDER": 5,
+        "PIPE": 0
+      },
+      "status": "PASS",
+      "warnings": 0,
+      "errors": 0,
+      "exit": 0,
+      "log": "sim_build/lint/alu_top_SK_PIPE0.log",
+      "command": "verilator --lint-only -Wall --top-module alu_top -GADDER=5 -GPIPE=0 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv"
+    },
+    {
+      "config": "alu_top_SK_PIPE1",
+      "top": "alu_top",
+      "params": {
+        "ADDER": 5,
+        "PIPE": 1
+      },
+      "status": "PASS",
+      "warnings": 0,
+      "errors": 0,
+      "exit": 0,
+      "log": "sim_build/lint/alu_top_SK_PIPE1.log",
+      "command": "verilator --lint-only -Wall --top-module alu_top -GADDER=5 -GPIPE=1 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv"
+    },
+    {
+      "config": "alu_top_HC_PIPE0",
+      "top": "alu_top",
+      "params": {
+        "ADDER": 6,
+        "PIPE": 0
+      },
+      "status": "PASS",
+      "warnings": 0,
+      "errors": 0,
+      "exit": 0,
+      "log": "sim_build/lint/alu_top_HC_PIPE0.log",
+      "command": "verilator --lint-only -Wall --top-module alu_top -GADDER=6 -GPIPE=0 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv"
+    },
+    {
+      "config": "alu_top_HC_PIPE1",
+      "top": "alu_top",
+      "params": {
+        "ADDER": 6,
+        "PIPE": 1
+      },
+      "status": "PASS",
+      "warnings": 0,
+      "errors": 0,
+      "exit": 0,
+      "log": "sim_build/lint/alu_top_HC_PIPE1.log",
+      "command": "verilator --lint-only -Wall --top-module alu_top -GADDER=6 -GPIPE=1 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv"
+    },
+    {
+      "config": "alu_top_BEH_PIPE0",
+      "top": "alu_top",
+      "params": {
+        "ADDER": 7,
+        "PIPE": 0
+      },
+      "status": "PASS",
+      "warnings": 0,
+      "errors": 0,
+      "exit": 0,
+      "log": "sim_build/lint/alu_top_BEH_PIPE0.log",
+      "command": "verilator --lint-only -Wall --top-module alu_top -GADDER=7 -GPIPE=0 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv"
+    },
+    {
+      "config": "alu_top_BEH_PIPE1",
+      "top": "alu_top",
+      "params": {
+        "ADDER": 7,
+        "PIPE": 1
+      },
+      "status": "PASS",
+      "warnings": 0,
+      "errors": 0,
+      "exit": 0,
+      "log": "sim_build/lint/alu_top_BEH_PIPE1.log",
+      "command": "verilator --lint-only -Wall --top-module alu_top -GADDER=7 -GPIPE=1 rtl/alu_pkg.sv rtl/adders/adder.sv rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv rtl/shifter.sv rtl/clz_tree.sv rtl/clz.sv rtl/cpop.sv rtl/alu_top.sv"
+    },
+    {
+      "config": "adder_rca_W32",
+      "top": "adder_rca",
+      "params": {
+        "W": 32
+      },
+      "status": "PASS",
+      "warnings": 0,
+      "errors": 0,
+      "exit": 0,
+      "log": "sim_build/lint/adder_rca_W32.log",
+      "command": "verilator --lint-only -Wall --top-module adder_rca -GW=32 rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv"
+    },
+    {
+      "config": "adder_cla4_W32",
+      "top": "adder_cla4",
+      "params": {
+        "W": 32
+      },
+      "status": "PASS",
+      "warnings": 0,
+      "errors": 0,
+      "exit": 0,
+      "log": "sim_build/lint/adder_cla4_W32.log",
+      "command": "verilator --lint-only -Wall --top-module adder_cla4 -GW=32 rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv"
+    },
+    {
+      "config": "adder_csla_W32",
+      "top": "adder_csla",
+      "params": {
+        "W": 32
+      },
+      "status": "PASS",
+      "warnings": 0,
+      "errors": 0,
+      "exit": 0,
+      "log": "sim_build/lint/adder_csla_W32.log",
+      "command": "verilator --lint-only -Wall --top-module adder_csla -GW=32 rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv"
+    },
+    {
+      "config": "adder_bk_W32",
+      "top": "adder_bk",
+      "params": {
+        "W": 32
+      },
+      "status": "PASS",
+      "warnings": 0,
+      "errors": 0,
+      "exit": 0,
+      "log": "sim_build/lint/adder_bk_W32.log",
+      "command": "verilator --lint-only -Wall --top-module adder_bk -GW=32 rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv"
+    },
+    {
+      "config": "adder_ks_W32",
+      "top": "adder_ks",
+      "params": {
+        "W": 32
+      },
+      "status": "PASS",
+      "warnings": 0,
+      "errors": 0,
+      "exit": 0,
+      "log": "sim_build/lint/adder_ks_W32.log",
+      "command": "verilator --lint-only -Wall --top-module adder_ks -GW=32 rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv"
+    },
+    {
+      "config": "adder_sk_W32",
+      "top": "adder_sk",
+      "params": {
+        "W": 32
+      },
+      "status": "PASS",
+      "warnings": 0,
+      "errors": 0,
+      "exit": 0,
+      "log": "sim_build/lint/adder_sk_W32.log",
+      "command": "verilator --lint-only -Wall --top-module adder_sk -GW=32 rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv"
+    },
+    {
+      "config": "adder_hc_W32",
+      "top": "adder_hc",
+      "params": {
+        "W": 32
+      },
+      "status": "PASS",
+      "warnings": 0,
+      "errors": 0,
+      "exit": 0,
+      "log": "sim_build/lint/adder_hc_W32.log",
+      "command": "verilator --lint-only -Wall --top-module adder_hc -GW=32 rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv"
+    },
+    {
+      "config": "adder_beh_W32",
+      "top": "adder_beh",
+      "params": {
+        "W": 32
+      },
+      "status": "PASS",
+      "warnings": 0,
+      "errors": 0,
+      "exit": 0,
+      "log": "sim_build/lint/adder_beh_W32.log",
+      "command": "verilator --lint-only -Wall --top-module adder_beh -GW=32 rtl/adders/adder_beh.sv rtl/adders/adder_bk.sv rtl/adders/adder_cla4.sv rtl/adders/adder_csla.sv rtl/adders/adder_hc.sv rtl/adders/adder_ks.sv rtl/adders/adder_rca.sv rtl/adders/adder_sk.sv rtl/adders/cla4_unit.sv rtl/adders/pg_black.sv rtl/adders/pg_gray.sv"
+    }
+  ]
+}
