@@ -142,7 +142,57 @@ Format for each entry: **context → options → choice → evidence**. Newest a
   - Opcode numbers are the only shared fact with the RTL; they are checked, not shared code.
 - **Evidence:** `model/alu_ref.py`; `results/model_xcheck.json`.
 
+## D-012 — SystemVerilog subset, and `ADDER` as an integer code
+- **Context:** the RTL must be accepted by Verilator (lint and cocotb), Icarus (cocotb, BRIEF A3) and
+  Yosys (LibreLane synthesis, SymbiYosys). The brief asks to check Yosys SV support early.
+- **Probe:** small test modules in `sim_build/probe/` (not committed) using a package, `logic`,
+  `always_ff`/`always_comb`, `for (genvar …)` with computed indices, unpacked arrays of packed
+  vectors, and a string `ADDER` parameter selecting logic in `generate`.
+
+  | Tool | Result |
+  |---|---|
+  | Verilator 5.050 | Accepts all of it. |
+  | Yosys `read_slang` | Accepts all of it. The parameter really switches the logic (KS → `$add`, otherwise `$sub/$xor/$or`). |
+  | Yosys built-in `read_verilog -sv` | Rejects `parameter string` and `import` inside a module. |
+  | Icarus 14.0-dev | Parses everything, and honours string parameters given as **literals**. But it **cannot pass a string parameter from a parent module to a child**: `child #(.N(N))` fails with "Unable to bind variable", whether typed, untyped, renamed, via a localparam, or positional. |
+
+- **Options:**
+  1. String `ADDER`; drop Icarus. That breaks BRIEF A3, which requires cocotb on Icarus and Verilator.
+  2. Choose the architecture with `` `define `` macros. That is preprocessor-driven and hides the choice
+     from the parameter interface.
+  3. **Integer `ADDER`** with named constants `alu_pkg::ADDER_RCA … ADDER_BEH`.
+- **Choice:** option 3.
+  - **Verified:** integer parameters pass parent → child and `-P`/`-G` overrides work in Icarus,
+    Verilator and slang. Icarus selected the correct generate branch in simulation.
+  - **Names:** they stay the brief's names everywhere a person types them. `scripts/adders.py` maps
+    name → code, and `scripts/check_opcodes.py` checks that table against `alu_pkg.sv`.
+  - **Yosys:** all Yosys use goes through slang (`USE_SLANG` in LibreLane, `read_slang` in checks and
+    SBY). The built-in frontend's gaps therefore don't constrain the RTL.
+  - **Further rules:** package imports go inside module bodies; one module per file (Verilator
+    `DECLFILENAME`).
+- **Impact on the brief:** the selector is still "parameter ADDER" with the 8 architectures in the A2
+  table. Only its type is int instead of string. This is reported to the owner in the Phase 2 PR.
+- **Evidence:** the probe outputs above (reproducible from the commands in the Phase 2 commit message);
+  `results/adder_smoke.txt` (Icarus elaborates all 8 codes); `scripts/check_opcodes.py` PASS.
+
 ---
 
 ## Bugs found by verification
-(Phase 3 fills this in.)
+
+### Phase 2 (found by the early adder smoke test, before Phase 3)
+
+**B-001 — CLA4 carry-out wrong (padding used p = 0).**
+- **Symptom:** `scripts/adder_smoke.sh` reported 75,701 of 151,078 vectors wrong for CLA4 only. Sums
+  were correct; `cout` was always 0.
+  - Example: `W=8 a=00 b=ff cin=1 got=000 exp=100`.
+- **Cause:**
+  - At the top lookahead level, 2 real groups are padded to a 4-input `cla4_unit`.
+  - Padding was tied to `g = 0, p = 0`.
+  - The unit's group propagate is `gp = &p`, so any padded 0 forced `gp = 0`.
+  - `cout = G | P & cin` then lost the propagate term.
+- **Fix:** pad with the identity of the (G, P) operator, `g = 0, p = 1` (`rtl/adders/adder_cla4.sv`).
+- **Verified:** adder smoke CLA4 PASS (151,078 vectors, 0 errors); Verilator `-Wall` gives 0 warnings
+  at W = 8/16/32/64.
+- **Lesson:** padding must be the operator's identity element. It goes in LEARNING.md.
+
+(Phase 3 adds bugs found by cocotb and formal.)
