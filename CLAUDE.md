@@ -75,11 +75,20 @@ docker exec -w /foss/projects/32bit-RTL-To-GDS iic-osic bash -lc \
 # use: .venv/bin/python ...
 ```
 
-Checks:
+Make targets. `make` exists only in the container, not on the host:
 ```bash
-docker exec -w /foss/projects/32bit-RTL-To-GDS iic-osic bash -lc 'scripts/env_check.sh'     # tool table
-docker exec -w /foss/projects/32bit-RTL-To-GDS iic-osic bash -lc 'scripts/legacy_probe.sh'  # audit evidence
+docker exec -w /foss/projects/32bit-RTL-To-GDS iic-osic bash -lc 'make env'           # tool table -> results/env_check.txt
+docker exec -w /foss/projects/32bit-RTL-To-GDS iic-osic bash -lc 'make model'         # pytest + Spike cross-check
+docker exec -w /foss/projects/32bit-RTL-To-GDS iic-osic bash -lc 'make legacy-probe'  # audit evidence
 ```
+- `make model` writes `results/model_test.txt` and `results/model_xcheck.json`.
+- The Spike cross-check builds a bare-metal rv32i_zbb program (`model/spike/`) with
+  `riscv64-unknown-elf-gcc` and runs it with `spike --isa=rv32i_zbb`.
+
+Spec conventions fixed in Phase 1 (see docs/SPEC.md and docs/DECISIONS.md):
+- Latency 2 (PIPE=0) / 3 (PIPE=1).
+- SUB C = no borrow.
+- Opcodes 0–26 as in SPEC section 3; codes 27–31 are illegal.
 
 Tool notes:
 - The image has **LibreLane** (OpenLane 2 successor), not `openlane`.

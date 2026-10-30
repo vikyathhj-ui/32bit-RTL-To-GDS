@@ -3,7 +3,7 @@
 Single source of truth for status. Update this before every commit.
 Spec: `docs/BRIEF.md`. Branch: `rework/alu-ppa`.
 
-**Current state:** Phase 0 complete. Next: Phase 1 (spec + golden model). Plan it first.
+**Current state:** Phases 0 and 1 complete; PR open to `main` (awaiting owner merge). Next: Phase 2 (RTL). Plan it first.
 
 ## Phase 0 — Setup and audit
 - [x] Environment check script (`scripts/env_check.sh` → `results/env_check.txt`). All tools found after
@@ -14,17 +14,24 @@ Spec: `docs/BRIEF.md`. Branch: `rework/alu-ppa`.
       `LICENSE` (MIT).
 - [x] Layout created; legacy RTL moved to `legacy/` via `git mv`.
 - [x] Commit + push `rework/alu-ppa`.
-- [ ] PR for Phase 0 (opened together with Phase 1's PR, as agreed in the Phase 0 plan).
+- [x] PR for Phase 0 (opened together with Phase 1's PR, as agreed in the Phase 0 plan).
 
 ## Phase 1 — Spec and golden model
-- [ ] `docs/SPEC.md`: functional spec, op table with bit-exact definitions, interface timing diagram
+- [x] `docs/SPEC.md`: functional spec, op table with bit-exact definitions, interface timing diagram
       (WaveDrom).
-- [ ] `model/alu_ref.py`: bit-exact model of all 27 ops + flags + `illegal_op`.
-- [ ] Model unit tests: hand-computed vectors + examples from the ratified Zbb spec.
-- [ ] **Gate:** model tests pass. Commit, push, open PR.
+- [x] Spec clarifications agreed with the owner: latency 2/3 (D-006), Zbb vectors = spec-derived + Spike
+      (D-007), SUB C = no borrow (D-008).
+- [x] `model/alu_ref.py`: bit-exact model of all 27 ops + flags + `illegal_op`.
+- [x] Model unit tests (`model/test_alu_ref.py`): hand vectors, flags, illegal ops, strlen/strcmp
+      idioms, properties → `results/model_test.txt`.
+- [x] Spike cross-check (`model/spike_xcheck.py`) → `results/model_xcheck.json` (PASS); mutation check
+      confirmed it detects errors.
+- [x] `Makefile`: `make env`, `make model` (run inside the container).
+- [x] **Gate:** model tests pass (`make model`). Commit, push, open PR.
 
 ## Phase 2 — RTL
 - [ ] Check Yosys SV support (slang vs. built-in frontend); decide on the language subset (DECISIONS.md).
+- [ ] Check that the `rtl/alu_pkg.sv` opcodes match `model/alu_ref.py` `OPCODES` (D-009).
 - [ ] `rtl/alu_pkg.sv` (opcodes).
 - [ ] `rtl/adders/*.sv`, common interface: RCA, CLA4, CSLA, BK, KS, SK, HC, BEH (prefix adders use explicit
       G/P cells in `generate` loops).
@@ -71,4 +78,7 @@ Spec: `docs/BRIEF.md`. Branch: `rework/alu-ppa`.
 - [ ] Ask the user about renaming the repo to `rv32-alu-ppa-explorer` and archiving `STA`.
 
 ## Open issues
-- None yet.
+- The host has no `make`; run `make` inside the container (see CLAUDE.md). Installing it on the host
+  would need sudo, which is the owner's call.
+- CI (Phase 3) will need either the iic-osic image or its own tool install. `test_spike_xcheck` skips
+  with a reason where Spike is absent.
