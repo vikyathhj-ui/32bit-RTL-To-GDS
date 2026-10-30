@@ -1,0 +1,25 @@
+{
+  "arch": "BK",
+  "pipe": 0,
+  "variant": "preserved",
+  "seed_ns": 12.0,
+  "step_ns": 0.25,
+  "runs": [
+    {
+      "arch": "BK",
+      "pipe": 0,
+      "variant": "preserved",
+      "period_ns": 12.0,
+      "tag": "BK_P0_T12.00_preserved",
+      "run_dir": "runs/BK_P0_T12.00_preserved/runs/BK_P0_T12.00_preserved",
+      "seconds": 714,
+      "exit": 2,
+      "setup_ws_slowest": -3.409213452483952,
+      "hold_ws_min": 0.22630847836269632,
+      "closes": false,
+      "corners": 9,
+      "status": "FAILS_TIMING",
+      "metrics": "runs/BK_P0_T12.00_preserved/runs/BK_P0_T12.00_preserved/final/metrics.json"
+    }
+  ]
+}

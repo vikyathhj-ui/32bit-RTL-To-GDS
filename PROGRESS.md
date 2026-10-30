@@ -3,7 +3,23 @@
 Single source of truth for status. Update this before every commit.
 Spec: `docs/BRIEF.md`. Branch: `rework/alu-ppa`.
 
-**Current state:** Phases 0–2 merged (PR #1 `044d4ca`, PR #2 `dc2a1dc`). Phase 3 complete, CI green, PR #3 open (awaiting owner merge). Next: Phase 4 (physical design sweep). Plan it first.
+**Current state (2026-10-30): Phase 4 PAUSED by the owner — resume only when asked.** Phases 0–3 merged (PR #1–#3).
+
+**Phase 4 resume point:**
+- **Default-flow sweep: COMPLETE**, 8/8 (`results/flow/sweep/*.json`).
+- **Preserved-flow sweep: 2/8 done** (CLA4 16.00 ns, RCA 33.50 ns). CSLA was in progress (closes 19.00,
+  fails 18.50); BK, KS, SK, HC and BEH were not finished.
+- **Gate-level power:** done for default BEH, BK and CLA4 (`sim_build/gls/<run>/power.json`); the other 5
+  default designs and all 8 preserved designs are still to do.
+- **To resume:**
+  1. `docker exec -w /foss/projects/32bit-RTL-To-GDS iic-osic bash -lc 'python3 scripts/sweep.py --variant preserved --seed 12 --jobs 4'`
+     (reuses all finished runs in `runs/`).
+  2. `.venv/bin/python scripts/power_all.py` (skips designs that already have power).
+  3. `python3 scripts/parse_flow.py` to build `results/summary.json`.
+  4. Docs (D-023…D-025 results, INTERVIEW), then the results commit and PR #4.
+- **Flow config is final:** fixed util 40% (D-022), post-GRT repair on (D-028), setup margin 12% of T
+  (D-029). Runs from earlier configs are archived in `runs_v1_*`, `runs_v2_*` and `runs_v3_interrupted`
+  (git-ignored, not used).
 
 ## Phase 0 — Setup and audit
 - [x] Environment check script (`scripts/env_check.sh` → `results/env_check.txt`). All tools found after
@@ -66,14 +82,15 @@ Spec: `docs/BRIEF.md`. Branch: `rework/alu-ppa`.
       SIMILARNAME lint warning). PR #3 opened.
 
 ## Phase 4 — Physical design sweep
-- [ ] `flow/` config template; fixed die/utilisation policy (DECISIONS.md).
-- [ ] `scripts/sweep.py`: min closing period at the slowest corner, 0.25 ns resolution (plus a
-      monotonicity check).
+- [x] `flow/` config template; fixed utilisation policy (D-022), post-GRT repair (D-028), 12% setup margin (D-029).
+- [x] `scripts/sweep.py`: min closing period at the slowest corner, 0.25 ns resolution (plus a
+      monotonicity check). Default flow 8/8 done; preserved flow 2/8 (paused).
 - [ ] Report parser → `results/summary.json` (area, cells, util, WNS/TNS setup+hold per corner, fmax per
       corner, critical path, logic depth).
 - [ ] Workload VCD (50% add/sub, 20% logic, 20% shift, 10% Zbb) → OpenSTA activity-annotated power;
       energy/op.
-- [ ] ABC structure experiment: default vs. structure-preserving.
+- [x] ABC structure experiment: default vs. structure-preserving (`results/flow/abc_experiment.json`,
+      D-026). This led to two sweeps (D-027).
 - [ ] Post-synth vs. post-route delay per architecture.
 - [ ] **Gate:** all 8 configs complete, `summary.json` populated. Commit, push, open PR.
 
