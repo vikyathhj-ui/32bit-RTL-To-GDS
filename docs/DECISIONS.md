@@ -432,6 +432,28 @@ Format for each entry: **context → options → choice → evidence**. Newest a
   preserved sweep runs with 2 parallel jobs alongside the default sweep's 3 (5 × ~0.9 GB peak RAM on a
   7 GB machine).
 
+## D-028 — Enable timing repair after global routing (first sweep attempt discarded)
+- **Symptom:** in the first sweep attempt the slowest-corner slack did not converge. RCA failed at
+  15, 22.75 and 26 ns with WS −7.6, −3.1 and −3.9 ns at `max_ss_100C_1v60`: the path got slower as
+  the clock relaxed.
+- **Diagnosis** (`runs_v1_no_post_grt_repair/RCA_P0_T26.00`):
+  - The post-CTS resizer did repair setup, from −6.781 ns to +0.060 ns, but against *placement-estimated*
+    parasitics.
+  - After global and detailed routing, the real wires added about 4 ns at `max_ss`, and 549 max-slew
+    violations remained.
+  - LibreLane's Classic flow has `RUN_POST_GRT_RESIZER_TIMING = false` and
+    `RUN_POST_GRT_DESIGN_REPAIR = false` by default, so nothing repairs after routing.
+  - Every run therefore lands about 4 ns short of whatever target it is given. The "minimum period"
+    would measure the unrepaired routing penalty, not the adder.
+- **Choice:** enable both steps in `flow/config.template.json` for every architecture and both
+  variants. Repair then sees global-routing parasitics, which is standard practice when signing off at
+  a slow corner.
+- **Consequences:**
+  - The runs made before this change (about 1.5 h of compute) are archived unchanged in
+    `runs_v1_no_post_grt_repair/` (git-ignored) and are not used.
+  - Both sweeps were restarted.
+  - The ABC experiment (synthesis only) is unaffected.
+
 ---
 
 ## Bugs found by verification
