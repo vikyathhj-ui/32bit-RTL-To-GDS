@@ -1,0 +1,132 @@
+{
+  "check": "model/alu_ref.py vs Spike (y only)",
+  "result": "PASS",
+  "vectors": 8572,
+  "mismatches": 0,
+  "seed": 2026,
+  "random_per_op": 250,
+  "ops_checked": 27,
+  "per_op": {
+    "ADD": {
+      "vectors": 299,
+      "mismatches": 0
+    },
+    "SUB": {
+      "vectors": 299,
+      "mismatches": 0
+    },
+    "SLL": {
+      "vectors": 362,
+      "mismatches": 0
+    },
+    "SLT": {
+      "vectors": 299,
+      "mismatches": 0
+    },
+    "SLTU": {
+      "vectors": 299,
+      "mismatches": 0
+    },
+    "XOR": {
+      "vectors": 299,
+      "mismatches": 0
+    },
+    "SRL": {
+      "vectors": 362,
+      "mismatches": 0
+    },
+    "SRA": {
+      "vectors": 362,
+      "mismatches": 0
+    },
+    "OR": {
+      "vectors": 299,
+      "mismatches": 0
+    },
+    "AND": {
+      "vectors": 299,
+      "mismatches": 0
+    },
+    "MIN": {
+      "vectors": 299,
+      "mismatches": 0
+    },
+    "MAX": {
+      "vectors": 299,
+      "mismatches": 0
+    },
+    "MINU": {
+      "vectors": 299,
+      "mismatches": 0
+    },
+    "MAXU": {
+      "vectors": 299,
+      "mismatches": 0
+    },
+    "ANDN": {
+      "vectors": 299,
+      "mismatches": 0
+    },
+    "ORN": {
+      "vectors": 299,
+      "mismatches": 0
+    },
+    "XNOR": {
+      "vectors": 299,
+      "mismatches": 0
+    },
+    "ROL": {
+      "vectors": 362,
+      "mismatches": 0
+    },
+    "ROR": {
+      "vectors": 362,
+      "mismatches": 0
+    },
+    "CLZ": {
+      "vectors": 322,
+      "mismatches": 0
+    },
+    "CTZ": {
+      "vectors": 322,
+      "mismatches": 0
+    },
+    "CPOP": {
+      "vectors": 322,
+      "mismatches": 0
+    },
+    "SEXT.B": {
+      "vectors": 322,
+      "mismatches": 0
+    },
+    "SEXT.H": {
+      "vectors": 322,
+      "mismatches": 0
+    },
+    "ZEXT.H": {
+      "vectors": 322,
+      "mismatches": 0
+    },
+    "REV8": {
+      "vectors": 322,
+      "mismatches": 0
+    },
+    "ORC.B": {
+      "vectors": 322,
+      "mismatches": 0
+    }
+  },
+  "first_mismatches": [],
+  "tools": {
+    "spike": "Spike RISC-V ISA Simulator 1.1.1-dev",
+    "gcc": "riscv64-unknown-elf-gcc () 16.1.0",
+    "isa": "rv32i_zbb"
+  },
+  "commands": {
+    "compile": "riscv64-unknown-elf-gcc -march=rv32i_zbb -mabi=ilp32 -nostdlib -nostartfiles -T /foss/projects/32bit-RTL-To-GDS/model/spike/link.ld /foss/projects/32bit-RTL-To-GDS/model/spike/crt.S /foss/projects/32bit-RTL-To-GDS/sim_build/spike/vectors.S -o /foss/projects/32bit-RTL-To-GDS/sim_build/spike/xcheck.elf",
+    "simulate": "spike --isa=rv32i_zbb +signature=/foss/projects/32bit-RTL-To-GDS/sim_build/spike/signature.txt --signature-granularity=4 /foss/projects/32bit-RTL-To-GDS/sim_build/spike/xcheck.elf"
+  },
+  "source_files": {
+    "signature": "sim_build/spike/signature.txt"
+  }
+}

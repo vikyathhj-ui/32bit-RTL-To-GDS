@@ -1,0 +1,22 @@
+ITEM             STATUS   VERSION / PATH
+iverilog         found    Icarus Verilog version 14.0 (devel) (s20260301-391-g64f13540-dirty) (/foss/tools/bin/iverilog)
+verilator        found    Verilator 5.050 2026-07-01 rev v5.050 (/foss/tools/bin/verilator)
+yosys            found    Yosys 0.68 (git sha1 38e001a6f, Release, GNU /usr/bin/c++ 13.3.0) (/foss/tools/bin/yosys)
+sby              found    symbiyosys (/foss/tools/bin/sby)
+yosys-smtbmc     found    yosys-smtbmc (/foss/tools/bin/yosys-smtbmc)
+z3               absent   -
+boolector        absent   -
+yices-smt2       found    Yices 2.7.0
+bitwuzla         absent   -
+python3          found    Python 3.12.3 (/usr/bin/python3)
+cocotb           found    2.0.1 (/foss/projects/32bit-RTL-To-GDS/.venv/bin/python)
+cocotb-coverage  found    2.0 (/foss/projects/32bit-RTL-To-GDS/.venv/bin/python)
+librelane        found    3.1.0.dev3 (/foss/tools/bin/librelane)
+openroad         found    26Q3-1621-g21512b0ab  (/foss/tools/bin/openroad)
+sta              found    3.1.0 (/foss/tools/bin/sta)
+magic            found    8.3.681 (/foss/tools/bin/magic)
+netgen           found    Netgen 1.5.323 compiled on Tue Aug 25 11:33:45 AM CEST 2026 (/foss/tools/bin/netgen)
+klayout          found    KLayout 0.30.11 (/foss/tools/klayout/klayout)
+sky130A PDK      found    /foss/pdks/sky130A (PDK=sky130A)
+
+RESULT: all required tools found
