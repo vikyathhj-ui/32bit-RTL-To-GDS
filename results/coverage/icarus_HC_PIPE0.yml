@@ -1,0 +1,548 @@
+alu:
+  cover_percentage: 100.0
+  coverage: 495
+  size: 495
+  type: <class 'cocotb_coverage.coverage.CoverItem'>
+alu.clz_result:
+  at_least: 1
+  bins:_hits:
+    0: 376
+    1: 175
+    2: 42
+    3: 21
+    4: 14
+    5: 13
+    6: 5
+    7: 6
+    8: 8
+    9: 6
+    10: 6
+    11: 7
+    12: 3
+    13: 6
+    14: 3
+    15: 4
+    16: 13
+    17: 2
+    18: 6
+    19: 4
+    20: 5
+    21: 5
+    22: 6
+    23: 6
+    24: 34
+    25: 22
+    26: 17
+    27: 7
+    28: 9
+    29: 6
+    30: 5
+    31: 14
+    32: 51
+  cover_percentage: 100.0
+  coverage: 33
+  size: 33
+  type: <class 'cocotb_coverage.coverage.CoverPoint'>
+  weight: 1
+alu.ctz_result:
+  at_least: 1
+  bins:_hits:
+    0: 362
+    1: 167
+    2: 72
+    3: 40
+    4: 21
+    5: 13
+    6: 12
+    7: 4
+    8: 17
+    9: 6
+    10: 3
+    11: 4
+    12: 6
+    13: 3
+    14: 4
+    15: 5
+    16: 12
+    17: 6
+    18: 2
+    19: 3
+    20: 5
+    21: 6
+    22: 6
+    23: 7
+    24: 4
+    25: 3
+    26: 4
+    27: 5
+    28: 6
+    29: 6
+    30: 7
+    31: 47
+    32: 45
+  cover_percentage: 100.0
+  coverage: 33
+  size: 33
+  type: <class 'cocotb_coverage.coverage.CoverPoint'>
+  weight: 1
+alu.op_x_a_class:
+  at_least: 1
+  bins:_hits:
+    ('ADD', 'max'): 43
+    ('ADD', 'min'): 46
+    ('ADD', 'negative'): 314
+    ('ADD', 'positive'): 403
+    ('ADD', 'zero'): 72
+    ('AND', 'max'): 26
+    ('AND', 'min'): 43
+    ('AND', 'negative'): 299
+    ('AND', 'positive'): 349
+    ('AND', 'zero'): 46
+    ('ANDN', 'max'): 47
+    ('ANDN', 'min'): 41
+    ('ANDN', 'negative'): 296
+    ('ANDN', 'positive'): 356
+    ('ANDN', 'zero'): 52
+    ('CLZ', 'max'): 38
+    ('CLZ', 'min'): 41
+    ('CLZ', 'negative'): 335
+    ('CLZ', 'positive'): 442
+    ('CLZ', 'zero'): 51
+    ('CPOP', 'max'): 31
+    ('CPOP', 'min'): 43
+    ('CPOP', 'negative'): 364
+    ('CPOP', 'positive'): 422
+    ('CPOP', 'zero'): 53
+    ('CTZ', 'max'): 34
+    ('CTZ', 'min'): 47
+    ('CTZ', 'negative'): 326
+    ('CTZ', 'positive'): 461
+    ('CTZ', 'zero'): 45
+    ('ILLEGAL', 'max'): 30
+    ('ILLEGAL', 'min'): 23
+    ('ILLEGAL', 'negative'): 224
+    ('ILLEGAL', 'positive'): 333
+    ('ILLEGAL', 'zero'): 37
+    ('MAX', 'max'): 40
+    ('MAX', 'min'): 53
+    ('MAX', 'negative'): 303
+    ('MAX', 'positive'): 333
+    ('MAX', 'zero'): 46
+    ('MAXU', 'max'): 36
+    ('MAXU', 'min'): 48
+    ('MAXU', 'negative'): 310
+    ('MAXU', 'positive'): 392
+    ('MAXU', 'zero'): 37
+    ('MIN', 'max'): 28
+    ('MIN', 'min'): 45
+    ('MIN', 'negative'): 309
+    ('MIN', 'positive'): 378
+    ('MIN', 'zero'): 51
+    ('MINU', 'max'): 40
+    ('MINU', 'min'): 33
+    ('MINU', 'negative'): 293
+    ('MINU', 'positive'): 357
+    ('MINU', 'zero'): 47
+    ('OR', 'max'): 44
+    ('OR', 'min'): 39
+    ('OR', 'negative'): 287
+    ('OR', 'positive'): 338
+    ('OR', 'zero'): 44
+    ('ORC.B', 'max'): 35
+    ('ORC.B', 'min'): 39
+    ('ORC.B', 'negative'): 320
+    ('ORC.B', 'positive'): 401
+    ('ORC.B', 'zero'): 44
+    ('ORN', 'max'): 44
+    ('ORN', 'min'): 41
+    ('ORN', 'negative'): 316
+    ('ORN', 'positive'): 384
+    ('ORN', 'zero'): 40
+    ('REV8', 'max'): 40
+    ('REV8', 'min'): 47
+    ('REV8', 'negative'): 307
+    ('REV8', 'positive'): 366
+    ('REV8', 'zero'): 46
+    ('ROL', 'max'): 41
+    ('ROL', 'min'): 53
+    ('ROL', 'negative'): 340
+    ('ROL', 'positive'): 422
+    ('ROL', 'zero'): 62
+    ('ROR', 'max'): 56
+    ('ROR', 'min'): 58
+    ('ROR', 'negative'): 350
+    ('ROR', 'positive'): 433
+    ('ROR', 'zero'): 48
+    ('SEXT.B', 'max'): 37
+    ('SEXT.B', 'min'): 41
+    ('SEXT.B', 'negative'): 309
+    ('SEXT.B', 'positive'): 347
+    ('SEXT.B', 'zero'): 41
+    ('SEXT.H', 'max'): 36
+    ('SEXT.H', 'min'): 48
+    ('SEXT.H', 'negative'): 290
+    ('SEXT.H', 'positive'): 355
+    ('SEXT.H', 'zero'): 38
+    ('SLL', 'max'): 56
+    ('SLL', 'min'): 66
+    ('SLL', 'negative'): 349
+    ('SLL', 'positive'): 453
+    ('SLL', 'zero'): 68
+    ('SLT', 'max'): 45
+    ('SLT', 'min'): 52
+    ('SLT', 'negative'): 313
+    ('SLT', 'positive'): 423
+    ('SLT', 'zero'): 55
+    ('SLTU', 'max'): 41
+    ('SLTU', 'min'): 46
+    ('SLTU', 'negative'): 339
+    ('SLTU', 'positive'): 359
+    ('SLTU', 'zero'): 59
+    ('SRA', 'max'): 45
+    ('SRA', 'min'): 58
+    ('SRA', 'negative'): 326
+    ('SRA', 'positive'): 417
+    ('SRA', 'zero'): 77
+    ('SRL', 'max'): 61
+    ('SRL', 'min'): 56
+    ('SRL', 'negative'): 345
+    ('SRL', 'positive'): 440
+    ('SRL', 'zero'): 70
+    ('SUB', 'max'): 40
+    ('SUB', 'min'): 51
+    ('SUB', 'negative'): 365
+    ('SUB', 'positive'): 412
+    ('SUB', 'zero'): 55
+    ('XNOR', 'max'): 40
+    ('XNOR', 'min'): 45
+    ('XNOR', 'negative'): 303
+    ('XNOR', 'positive'): 376
+    ('XNOR', 'zero'): 40
+    ('XOR', 'max'): 46
+    ('XOR', 'min'): 50
+    ('XOR', 'negative'): 338
+    ('XOR', 'positive'): 373
+    ('XOR', 'zero'): 56
+    ('ZEXT.H', 'max'): 39
+    ('ZEXT.H', 'min'): 35
+    ('ZEXT.H', 'negative'): 310
+    ('ZEXT.H', 'positive'): 385
+    ('ZEXT.H', 'zero'): 49
+  cover_percentage: 100.0
+  coverage: 140
+  size: 140
+  type: <class 'cocotb_coverage.coverage.CoverPoint'>
+  weight: 1
+alu.op_x_b_class:
+  at_least: 1
+  bins:_hits:
+    ('ADD', 'max'): 47
+    ('ADD', 'min'): 47
+    ('ADD', 'negative'): 325
+    ('ADD', 'positive'): 410
+    ('ADD', 'zero'): 49
+    ('AND', 'max'): 32
+    ('AND', 'min'): 36
+    ('AND', 'negative'): 285
+    ('AND', 'positive'): 343
+    ('AND', 'zero'): 67
+    ('ANDN', 'max'): 40
+    ('ANDN', 'min'): 38
+    ('ANDN', 'negative'): 321
+    ('ANDN', 'positive'): 342
+    ('ANDN', 'zero'): 51
+    ('ILLEGAL', 'max'): 29
+    ('ILLEGAL', 'min'): 25
+    ('ILLEGAL', 'negative'): 247
+    ('ILLEGAL', 'positive'): 307
+    ('ILLEGAL', 'zero'): 39
+    ('MAX', 'max'): 31
+    ('MAX', 'min'): 34
+    ('MAX', 'negative'): 305
+    ('MAX', 'positive'): 349
+    ('MAX', 'zero'): 56
+    ('MAXU', 'max'): 50
+    ('MAXU', 'min'): 33
+    ('MAXU', 'negative'): 319
+    ('MAXU', 'positive'): 376
+    ('MAXU', 'zero'): 45
+    ('MIN', 'max'): 43
+    ('MIN', 'min'): 38
+    ('MIN', 'negative'): 297
+    ('MIN', 'positive'): 384
+    ('MIN', 'zero'): 49
+    ('MINU', 'max'): 39
+    ('MINU', 'min'): 49
+    ('MINU', 'negative'): 284
+    ('MINU', 'positive'): 356
+    ('MINU', 'zero'): 42
+    ('OR', 'max'): 32
+    ('OR', 'min'): 42
+    ('OR', 'negative'): 284
+    ('OR', 'positive'): 348
+    ('OR', 'zero'): 46
+    ('ORN', 'max'): 31
+    ('ORN', 'min'): 40
+    ('ORN', 'negative'): 297
+    ('ORN', 'positive'): 407
+    ('ORN', 'zero'): 50
+    ('ROL', 'max'): 33
+    ('ROL', 'min'): 27
+    ('ROL', 'negative'): 369
+    ('ROL', 'positive'): 451
+    ('ROL', 'zero'): 38
+    ('ROR', 'max'): 24
+    ('ROR', 'min'): 22
+    ('ROR', 'negative'): 381
+    ('ROR', 'positive'): 470
+    ('ROR', 'zero'): 48
+    ('SLL', 'max'): 26
+    ('SLL', 'min'): 45
+    ('SLL', 'negative'): 389
+    ('SLL', 'positive'): 483
+    ('SLL', 'zero'): 49
+    ('SLT', 'max'): 37
+    ('SLT', 'min'): 51
+    ('SLT', 'negative'): 368
+    ('SLT', 'positive'): 379
+    ('SLT', 'zero'): 53
+    ('SLTU', 'max'): 51
+    ('SLTU', 'min'): 55
+    ('SLTU', 'negative'): 303
+    ('SLTU', 'positive'): 383
+    ('SLTU', 'zero'): 52
+    ('SRA', 'max'): 32
+    ('SRA', 'min'): 27
+    ('SRA', 'negative'): 365
+    ('SRA', 'positive'): 454
+    ('SRA', 'zero'): 45
+    ('SRL', 'max'): 42
+    ('SRL', 'min'): 37
+    ('SRL', 'negative'): 393
+    ('SRL', 'positive'): 449
+    ('SRL', 'zero'): 51
+    ('SUB', 'max'): 54
+    ('SUB', 'min'): 49
+    ('SUB', 'negative'): 352
+    ('SUB', 'positive'): 412
+    ('SUB', 'zero'): 56
+    ('XNOR', 'max'): 38
+    ('XNOR', 'min'): 53
+    ('XNOR', 'negative'): 303
+    ('XNOR', 'positive'): 357
+    ('XNOR', 'zero'): 53
+    ('XOR', 'max'): 46
+    ('XOR', 'min'): 50
+    ('XOR', 'negative'): 322
+    ('XOR', 'positive'): 386
+    ('XOR', 'zero'): 59
+  cover_percentage: 100.0
+  coverage: 100
+  size: 100
+  type: <class 'cocotb_coverage.coverage.CoverPoint'>
+  weight: 1
+alu.op_x_flag:
+  at_least: 1
+  bins:_hits:
+    ('ADD', 'C', 0): 542
+    ('ADD', 'C', 1): 336
+    ('ADD', 'N', 0): 475
+    ('ADD', 'N', 1): 403
+    ('ADD', 'V', 0): 717
+    ('ADD', 'V', 1): 161
+    ('ADD', 'Z', 0): 855
+    ('ADD', 'Z', 1): 23
+    ('AND', 'C', 0): 763
+    ('AND', 'N', 0): 613
+    ('AND', 'N', 1): 150
+    ('AND', 'V', 0): 763
+    ('AND', 'Z', 0): 559
+    ('AND', 'Z', 1): 204
+    ('ANDN', 'C', 0): 792
+    ('ANDN', 'N', 0): 611
+    ('ANDN', 'N', 1): 181
+    ('ANDN', 'V', 0): 792
+    ('ANDN', 'Z', 0): 647
+    ('ANDN', 'Z', 1): 145
+    ('CLZ', 'C', 0): 907
+    ('CLZ', 'N', 0): 907
+    ('CLZ', 'V', 0): 907
+    ('CLZ', 'Z', 0): 531
+    ('CLZ', 'Z', 1): 376
+    ('CPOP', 'C', 0): 913
+    ('CPOP', 'N', 0): 913
+    ('CPOP', 'V', 0): 913
+    ('CPOP', 'Z', 0): 860
+    ('CPOP', 'Z', 1): 53
+    ('CTZ', 'C', 0): 913
+    ('CTZ', 'N', 0): 913
+    ('CTZ', 'V', 0): 913
+    ('CTZ', 'Z', 0): 551
+    ('CTZ', 'Z', 1): 362
+    ('ILLEGAL', 'C', 0): 647
+    ('ILLEGAL', 'N', 0): 647
+    ('ILLEGAL', 'V', 0): 647
+    ('ILLEGAL', 'Z', 1): 647
+    ('MAX', 'C', 0): 775
+    ('MAX', 'N', 0): 617
+    ('MAX', 'N', 1): 158
+    ('MAX', 'V', 0): 775
+    ('MAX', 'Z', 0): 727
+    ('MAX', 'Z', 1): 48
+    ('MAXU', 'C', 0): 823
+    ('MAXU', 'N', 0): 269
+    ('MAXU', 'N', 1): 554
+    ('MAXU', 'V', 0): 823
+    ('MAXU', 'Z', 0): 820
+    ('MAXU', 'Z', 1): 3
+    ('MIN', 'C', 0): 811
+    ('MIN', 'N', 0): 274
+    ('MIN', 'N', 1): 537
+    ('MIN', 'V', 0): 811
+    ('MIN', 'Z', 0): 759
+    ('MIN', 'Z', 1): 52
+    ('MINU', 'C', 0): 770
+    ('MINU', 'N', 0): 625
+    ('MINU', 'N', 1): 145
+    ('MINU', 'V', 0): 770
+    ('MINU', 'Z', 0): 684
+    ('MINU', 'Z', 1): 86
+    ('OR', 'C', 0): 752
+    ('OR', 'N', 0): 246
+    ('OR', 'N', 1): 506
+    ('OR', 'V', 0): 752
+    ('OR', 'Z', 0): 751
+    ('OR', 'Z', 1): 1
+    ('ORC.B', 'C', 0): 839
+    ('ORC.B', 'N', 0): 208
+    ('ORC.B', 'N', 1): 631
+    ('ORC.B', 'V', 0): 839
+    ('ORC.B', 'Z', 0): 795
+    ('ORC.B', 'Z', 1): 44
+    ('ORN', 'C', 0): 825
+    ('ORN', 'N', 0): 191
+    ('ORN', 'N', 1): 634
+    ('ORN', 'V', 0): 825
+    ('ORN', 'Z', 0): 822
+    ('ORN', 'Z', 1): 3
+    ('REV8', 'C', 0): 806
+    ('REV8', 'N', 0): 473
+    ('REV8', 'N', 1): 333
+    ('REV8', 'V', 0): 806
+    ('REV8', 'Z', 0): 760
+    ('REV8', 'Z', 1): 46
+    ('ROL', 'C', 0): 918
+    ('ROL', 'N', 0): 556
+    ('ROL', 'N', 1): 362
+    ('ROL', 'V', 0): 918
+    ('ROL', 'Z', 0): 856
+    ('ROL', 'Z', 1): 62
+    ('ROR', 'C', 0): 945
+    ('ROR', 'N', 0): 521
+    ('ROR', 'N', 1): 424
+    ('ROR', 'V', 0): 945
+    ('ROR', 'Z', 0): 897
+    ('ROR', 'Z', 1): 48
+    ('SEXT.B', 'C', 0): 775
+    ('SEXT.B', 'N', 0): 413
+    ('SEXT.B', 'N', 1): 362
+    ('SEXT.B', 'V', 0): 775
+    ('SEXT.B', 'Z', 0): 635
+    ('SEXT.B', 'Z', 1): 140
+    ('SEXT.H', 'C', 0): 767
+    ('SEXT.H', 'N', 0): 441
+    ('SEXT.H', 'N', 1): 326
+    ('SEXT.H', 'V', 0): 767
+    ('SEXT.H', 'Z', 0): 630
+    ('SEXT.H', 'Z', 1): 137
+    ('SLL', 'C', 0): 992
+    ('SLL', 'N', 0): 560
+    ('SLL', 'N', 1): 432
+    ('SLL', 'V', 0): 992
+    ('SLL', 'Z', 0): 786
+    ('SLL', 'Z', 1): 206
+    ('SLT', 'C', 0): 888
+    ('SLT', 'N', 0): 888
+    ('SLT', 'V', 0): 888
+    ('SLT', 'Z', 0): 409
+    ('SLT', 'Z', 1): 479
+    ('SLTU', 'C', 0): 844
+    ('SLTU', 'N', 0): 844
+    ('SLTU', 'V', 0): 844
+    ('SLTU', 'Z', 0): 404
+    ('SLTU', 'Z', 1): 440
+    ('SRA', 'C', 0): 923
+    ('SRA', 'N', 0): 539
+    ('SRA', 'N', 1): 384
+    ('SRA', 'V', 0): 923
+    ('SRA', 'Z', 0): 690
+    ('SRA', 'Z', 1): 233
+    ('SRL', 'C', 0): 972
+    ('SRL', 'N', 0): 868
+    ('SRL', 'N', 1): 104
+    ('SRL', 'V', 0): 972
+    ('SRL', 'Z', 0): 747
+    ('SRL', 'Z', 1): 225
+    ('SUB', 'C', 0): 441
+    ('SUB', 'C', 1): 482
+    ('SUB', 'N', 0): 457
+    ('SUB', 'N', 1): 466
+    ('SUB', 'V', 0): 741
+    ('SUB', 'V', 1): 182
+    ('SUB', 'Z', 0): 899
+    ('SUB', 'Z', 1): 24
+    ('XNOR', 'C', 0): 804
+    ('XNOR', 'N', 0): 390
+    ('XNOR', 'N', 1): 414
+    ('XNOR', 'V', 0): 804
+    ('XNOR', 'Z', 0): 790
+    ('XNOR', 'Z', 1): 14
+    ('XOR', 'C', 0): 863
+    ('XOR', 'N', 0): 459
+    ('XOR', 'N', 1): 404
+    ('XOR', 'V', 0): 863
+    ('XOR', 'Z', 0): 837
+    ('XOR', 'Z', 1): 26
+    ('ZEXT.H', 'C', 0): 818
+    ('ZEXT.H', 'N', 0): 818
+    ('ZEXT.H', 'V', 0): 818
+    ('ZEXT.H', 'Z', 0): 706
+    ('ZEXT.H', 'Z', 1): 112
+  cover_percentage: 100.0
+  coverage: 164
+  size: 164
+  type: <class 'cocotb_coverage.coverage.CoverPoint'>
+  weight: 1
+alu.shift_amount:
+  at_least: 1
+  bins:_hits:
+    ('ROL', '0'): 234
+    ('ROL', '1'): 152
+    ('ROL', '16-30'): 186
+    ('ROL', '2-15'): 160
+    ('ROL', '31'): 186
+    ('ROR', '0'): 246
+    ('ROR', '1'): 164
+    ('ROR', '16-30'): 199
+    ('ROR', '2-15'): 145
+    ('ROR', '31'): 191
+    ('SLL', '0'): 281
+    ('SLL', '1'): 159
+    ('SLL', '16-30'): 192
+    ('SLL', '2-15'): 182
+    ('SLL', '31'): 178
+    ('SRA', '0'): 235
+    ('SRA', '1'): 153
+    ('SRA', '16-30'): 189
+    ('SRA', '2-15'): 166
+    ('SRA', '31'): 180
+    ('SRL', '0'): 253
+    ('SRL', '1'): 181
+    ('SRL', '16-30'): 193
+    ('SRL', '2-15'): 146
+    ('SRL', '31'): 199
+  cover_percentage: 100.0
+  coverage: 25
+  size: 25
+  type: <class 'cocotb_coverage.coverage.CoverPoint'>
+  weight: 1

@@ -80,11 +80,23 @@ Make targets. `make` exists only in the container, not on the host:
 docker exec -w /foss/projects/32bit-RTL-To-GDS iic-osic bash -lc 'make env'           # tool table -> results/env_check.txt
 docker exec -w /foss/projects/32bit-RTL-To-GDS iic-osic bash -lc 'make model'         # pytest + Spike cross-check
 docker exec -w /foss/projects/32bit-RTL-To-GDS iic-osic bash -lc 'make rtl'           # opcodes + lint + synth-check + adder smoke
+docker exec -w /foss/projects/32bit-RTL-To-GDS iic-osic bash -lc 'make verify'        # lint + model + sim (~35 min) + formal (~4 min) + summary
+docker exec -w /foss/projects/32bit-RTL-To-GDS iic-osic bash -lc 'make sim-ci formal-ci'  # what CI runs (minutes)
 docker exec -w /foss/projects/32bit-RTL-To-GDS iic-osic bash -lc 'make legacy-probe'  # audit evidence
 ```
 - `make model` writes `results/model_test.txt` and `results/model_xcheck.json`.
 - The Spike cross-check builds a bare-metal rv32i_zbb program (`model/spike/`) with
   `riscv64-unknown-elf-gcc` and runs it with `spike --isa=rv32i_zbb`.
+
+Verification (Phase 3):
+- cocotb TB is `tb/alu_tb.py` (scoreboard, exact-latency check), with coverage in `tb/alu_coverage.py`.
+  Run it with `.venv/bin/python scripts/run_sim.py --sim verilator|icarus --adder NAME|all --pipe 0|1
+  --vectors N --seed S`.
+- Formal: `formal/*.sby` via `python3 scripts/run_formal.py [--quick]`. Use immediate asserts plus
+  shadow pipelines (D-017).
+- Never mutate `rtl/` while a regression or SBY run is in progress: SBY copies sources when each task
+  starts. Mutation checks use copies under `sim_build/`.
+- `results/verify_summary.json` is the roll-up; `scripts/verify_summary.py` only reads result files.
 
 RTL conventions (Phase 2, D-012):
 - SV subset accepted by Verilator, slang and Icarus. Yosys is always used through slang (`read_slang`;
@@ -93,6 +105,8 @@ RTL conventions (Phase 2, D-012):
 - `ADDER` is an **integer** (`alu_pkg::ADDER_RCA..ADDER_BEH`), since Icarus can't pass string params to
   children. Names are mapped in `scripts/adders.py`.
 - One module per file. Package imports go inside module bodies. No lint waivers so far.
+- No logic inside port connections, and no multi-item `case` lists in `alu_top` (Icarus, D-021): decode
+  into named wires with `assign`.
 
 Spec conventions fixed in Phase 1 (see docs/SPEC.md and docs/DECISIONS.md):
 - Latency 2 (PIPE=0) / 3 (PIPE=1).

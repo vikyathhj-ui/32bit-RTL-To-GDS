@@ -225,6 +225,133 @@ Format for each entry: **context → options → choice → evidence**. Newest a
   - Rotate-by-0 gives `a` naturally.
 - **Evidence:** `rtl/shifter.sv`.
 
+## D-017 — Formal property style
+- **Context:** SymbiYosys must read the RTL through yosys-slang (D-012). Not every SystemVerilog
+  assertion form is supported by every frontend.
+- **Probe:** a 2-stage valid delay with three harness styles, run with `sby` (`sim_build/probe_formal/`,
+  not committed).
+
+  | Style | Result |
+  |---|---|
+  | (a) shadow registers + immediate `assert` in `always_comb`, reset forced by `assume` gated by an `init` register | PASS |
+  | (b) `$past(x, 2)` in `always_ff` | PASS |
+  | (c) a deliberately wrong delay | **FAIL** with a counterexample, so the property is not vacuous |
+
+- **Choice:** style (a), immediate assertions with explicit shadow pipelines.
+  - It reads like the hardware, works with any frontend, and the shadow pipeline doubles as
+    documentation of the timing contract.
+  - `$past` remains available.
+- **Evidence:** `formal/alu_equiv.sv`, `formal/protocol.sv`.
+
+## D-018 — Formal equivalence strategy
+- **Context:** BRIEF A3 asks for three formal checks:
+  - a per-adder miter;
+  - full-ALU equivalence against a separate behavioural reference, with all ops proven;
+  - the `out_valid` latency protocol.
+
+  Risk: 32-bit equivalence that includes a shifter, CLZ and CPOP can be slow for SAT.
+- **Choice:**
+  - **Adder miters** (`formal/adder_miter.sv`): combinational, `assert({cout,sum} == a+b+cin)`,
+    32 bits, one task per architecture.
+  - **ALU equivalence** (`formal/alu_equiv.sv`):
+    - `alu_top` runs next to a shadow pipeline with the SPEC timing, feeding
+      `formal/alu_ref_beh.sv`.
+    - The reference is written from SPEC sections 3–5 with plain operators and literal opcodes; it
+      shares no module or package with the RTL, so an opcode-encoding error would also be caught.
+    - Asserts `out_valid == expected_valid` and, when valid, equal `y`/`flags`/`illegal_op`.
+    - Reset is assumed only in cycle 0; it may recur at any time.
+    - One task per ADDER × PIPE (16), mode `prove` (k-induction, depth 6).
+  - **Protocol** (`formal/protocol.sv`): `out_valid(t+L) == in_valid(t)` via an L-deep shadow shift
+    register, plus "no `out_valid` in the first L cycles after reset", for PIPE 0 and 1.
+- **Op grouping (the planned fallback) was not needed.** Every task closed as a whole by k-induction
+  with smtbmc/yices. Per-task times are in `results/formal/summary.json`.
+- **Mutation checks** (local copies; the real RTL was not touched):
+  - one KS prefix index shifted → adder miter FAIL with a counterexample trace;
+  - SUB carry inverted → ALU equivalence FAIL (the `flags` assertion);
+  - `out_valid` taken one stage early → protocol FAIL.
+
+  So no proof is vacuous.
+
+## D-019 — Simulation vector budget and constrained-random stimulus
+- **Context:** BRIEF A3 requires directed corners and ≥10⁶ constrained-random vectors per adder
+  configuration, with Verilator used for speed.
+- **Budget:**
+
+  | Simulator | Configurations | Random vectors |
+  |---|---|---|
+  | Verilator | 8 ADDER × PIPE=0 | 1,000,000 each — the gate |
+  | Verilator | 8 ADDER × PIPE=1 | 100,000 each |
+  | Icarus | 8 ADDER × PIPE=0 | 20,000 each, to show both simulators agree |
+
+  Every run also executes the full directed test. Formal equivalence covers every configuration
+  exhaustively, so the extra PIPE=1 and Icarus vectors are cross-checks, not the proof.
+- **Stimulus** (`tb/alu_tb.py`):
+  - **Opcodes:** uniform over the 27 legal opcodes; illegal codes about 3%.
+  - **Operands:** a weighted mix of zero, small ±, INT_MAX, INT_MIN, values near the extremes,
+    single-bit, fixed patterns, long zero runs at either end (for CLZ/CTZ), and uniform random.
+  - **Shift/rotate `b`:** biased to 0/1/31 with random upper bits.
+  - **Bubbles:** about 10% of cycles.
+  - **Reset:** a mid-stream reset roughly every 250k vectors.
+- **Seeds:** set explicitly (`--seed`, default 20261030), passed to the TB as `ALU_SEED`, and recorded
+  in every result file.
+- **Throughput** (measured): 10k vectors plus the directed test takes a few seconds on Verilator,
+  build included, so 1M per configuration is minutes, not hours.
+- **Mutation check of the bench** (local, not committed):
+  - SUB carry inverted → FAIL ("NZCV=0100, expected 0110" on `SUB 0,0`);
+  - ORC.B testing only 7 bits per byte → FAIL.
+
+## D-020 — CI tooling and scope
+- **Context:** BRIEF Phase 3 asks for GitHub Actions running lint, a reduced sim and formal, not the
+  full flow. The local tool image (iic-osic-tools) is 16 GB, too large for a hosted runner.
+- **Options:**
+  1. Pull the iic-osic image in CI.
+  2. Distro packages (too old: the RTL needs a recent Icarus/Verilator and the slang plugin).
+  3. YosysHQ OSS CAD Suite, which bundles Yosys + yosys-slang, SymbiYosys, yices, Verilator and Icarus.
+- **Choice:** option 3.
+  - `YosysHQ/setup-oss-cad-suite` v4, pinned to release **2026-10-14** (more than 2 weeks old when
+    chosen).
+  - Python 3.12 with `cocotb==2.0.1`, `cocotb-coverage==2.0` and `pytest`.
+  - Every action is pinned to a commit SHA.
+- **CI runs:**
+  - `make model-test` (Spike is absent, so `test_spike_xcheck` skips with its reason);
+  - `opcodes-check`;
+  - `lint` (all 24 configs);
+  - `sim-ci`: Verilator 20k vectors for BEH, KS and RCA (PIPE 0) + BEH PIPE 1; Icarus 5k for BEH;
+  - `formal-ci`: all 8 adder miters, both protocol proofs, and ALU equivalence for BEH and KS at
+    PIPE 0/1.
+- **Why the formal subset:** the full 16-task ALU equivalence takes minutes per task on a 2-core runner.
+  The full set runs locally under `make verify`, and its results are committed.
+- **Limitation:** CI tool versions differ from the container. A CI-only failure is investigated, not
+  masked.
+
+## D-021 — RTL coding style adjusted for an Icarus 14.0-dev evaluation problem
+- **Context:** the first Icarus cocotb run of `alu_top` failed on SLL, SRA, ROL, ROR and CTZ, while
+  Verilator passed the same test. Isolating it:
+  - `shifter` alone in Icarus is correct.
+  - Package constants inside `alu_top` print correctly (`OP_SLL = 2`).
+  - Inside `alu_top`, comparisons written **inside port connections**
+    (`.left((op0 == OP_SLL) | …)`, `.arith(op0 == OP_SRA)`) and the `sel1` select (an `always_comb`
+    `if` + multi-item `case`) evaluated wrongly: `left = 0` and `sel1 = MISC` for `op0 = 2`.
+  - The same comparison as a plain `assign`, an `always_comb`, or against a literal gave the right
+    value in the same module. A standalone copy of the same `case` structure was also right.
+  - So this is an Icarus problem, not an RTL logic bug. The design passed Verilator, synthesis, and
+    (later) formal equivalence.
+- **Options:**
+  1. Drop Icarus. That breaks BRIEF A3.
+  2. Keep bisecting the simulator.
+  3. Recode the decode in the form shown to evaluate correctly in all tools.
+- **Choice:** option 3, in `rtl/alu_top.sv`:
+  - a one-hot decode of the registered opcode into named `d_*` wires with plain `assign`s;
+  - no logic inside port connections;
+  - AND-OR one-hot muxes for `r_add`/`r_misc`;
+  - ternary chains for `sel1`/`y_next`.
+
+  This is also a common, readable RTL style, and it makes the decode visible in waveforms.
+- **Evidence:** after the change, Icarus PASS (`results/sim/icarus_*`), Verilator PASS, lint 24/24
+  clean, synth-check 16/16, and formal equivalence on all configs (`results/formal/summary.json`).
+- **Follow-up:** this can be reported upstream to Icarus with the minimal case. It is not a project
+  blocker.
+
 ---
 
 ## Bugs found by verification
@@ -245,4 +372,17 @@ Format for each entry: **context → options → choice → evidence**. Newest a
   at W = 8/16/32/64.
 - **Lesson:** padding must be the operator's identity element. It goes in LEARNING.md.
 
-(Phase 3 adds bugs found by cocotb and formal.)
+### Phase 3 (cocotb + formal)
+
+**No functional RTL bugs were found.**
+- The full regression (`results/sim/`) and every proof (`results/formal/summary.json`) passed on the
+  first complete run.
+- The only failure was the Icarus-only mis-evaluation described in **D-021**. That was a simulator
+  problem, not an RTL logic error: Verilator, synthesis and formal equivalence all agreed the original
+  RTL was correct. The RTL was recoded so every tool evaluates it the same way.
+- **This is not because the checks are weak.** Each check was mutation-tested and caught its injected
+  fault (D-018, D-019).
+- **Testbench issue found and fixed during the run:** the first 1M-vector runs checked 999,998 results
+  per configuration, because the mid-stream reset flushes 2 in-flight operations. The bench now issues
+  until exactly `ALU_VECTORS` results are checked, replacing flushed operations. It fails if the count
+  is not exact.

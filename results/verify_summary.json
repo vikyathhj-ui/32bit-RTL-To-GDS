@@ -1,0 +1,333 @@
+{
+  "result": "PASS",
+  "gate": {
+    "adder_configs_sim": {
+      "RCA": "PASS",
+      "CLA4": "PASS",
+      "CSLA": "PASS",
+      "BK": "PASS",
+      "KS": "PASS",
+      "SK": "PASS",
+      "HC": "PASS",
+      "BEH": "PASS"
+    },
+    "min_random_vectors": 1000000,
+    "coverage_required_percent": 100.0
+  },
+  "problems": [],
+  "checks": {
+    "lint": {
+      "result": "PASS",
+      "configs": 24,
+      "source": "results/lint_summary.json"
+    },
+    "model": {
+      "pytest_passed": 162,
+      "pytest_failed": false,
+      "spike_xcheck": "PASS",
+      "spike_vectors": 8572,
+      "sources": [
+        "results/model_test.txt",
+        "results/model_xcheck.json"
+      ]
+    },
+    "simulation": [
+      {
+        "config": "icarus_BEH_PIPE0",
+        "status": "PASS",
+        "random_vectors": 20000,
+        "results_checked": {
+          "test_directed": 3646,
+          "test_random": 20000
+        },
+        "coverage_percent": 100.0,
+        "seed": 20261030,
+        "source": "results/sim/icarus_BEH_PIPE0.json"
+      },
+      {
+        "config": "icarus_BK_PIPE0",
+        "status": "PASS",
+        "random_vectors": 20000,
+        "results_checked": {
+          "test_directed": 3646,
+          "test_random": 20000
+        },
+        "coverage_percent": 100.0,
+        "seed": 20261030,
+        "source": "results/sim/icarus_BK_PIPE0.json"
+      },
+      {
+        "config": "icarus_CLA4_PIPE0",
+        "status": "PASS",
+        "random_vectors": 20000,
+        "results_checked": {
+          "test_directed": 3646,
+          "test_random": 20000
+        },
+        "coverage_percent": 100.0,
+        "seed": 20261030,
+        "source": "results/sim/icarus_CLA4_PIPE0.json"
+      },
+      {
+        "config": "icarus_CSLA_PIPE0",
+        "status": "PASS",
+        "random_vectors": 20000,
+        "results_checked": {
+          "test_directed": 3646,
+          "test_random": 20000
+        },
+        "coverage_percent": 100.0,
+        "seed": 20261030,
+        "source": "results/sim/icarus_CSLA_PIPE0.json"
+      },
+      {
+        "config": "icarus_HC_PIPE0",
+        "status": "PASS",
+        "random_vectors": 20000,
+        "results_checked": {
+          "test_directed": 3646,
+          "test_random": 20000
+        },
+        "coverage_percent": 100.0,
+        "seed": 20261030,
+        "source": "results/sim/icarus_HC_PIPE0.json"
+      },
+      {
+        "config": "icarus_KS_PIPE0",
+        "status": "PASS",
+        "random_vectors": 20000,
+        "results_checked": {
+          "test_directed": 3646,
+          "test_random": 20000
+        },
+        "coverage_percent": 100.0,
+        "seed": 20261030,
+        "source": "results/sim/icarus_KS_PIPE0.json"
+      },
+      {
+        "config": "icarus_RCA_PIPE0",
+        "status": "PASS",
+        "random_vectors": 20000,
+        "results_checked": {
+          "test_directed": 3646,
+          "test_random": 20000
+        },
+        "coverage_percent": 100.0,
+        "seed": 20261030,
+        "source": "results/sim/icarus_RCA_PIPE0.json"
+      },
+      {
+        "config": "icarus_SK_PIPE0",
+        "status": "PASS",
+        "random_vectors": 20000,
+        "results_checked": {
+          "test_directed": 3646,
+          "test_random": 20000
+        },
+        "coverage_percent": 100.0,
+        "seed": 20261030,
+        "source": "results/sim/icarus_SK_PIPE0.json"
+      },
+      {
+        "config": "verilator_BEH_PIPE0",
+        "status": "PASS",
+        "random_vectors": 1000000,
+        "results_checked": {
+          "test_directed": 3646,
+          "test_random": 1000000
+        },
+        "coverage_percent": 100.0,
+        "seed": 20261030,
+        "source": "results/sim/verilator_BEH_PIPE0.json"
+      },
+      {
+        "config": "verilator_BEH_PIPE1",
+        "status": "PASS",
+        "random_vectors": 100000,
+        "results_checked": {
+          "test_directed": 3645,
+          "test_random": 100000
+        },
+        "coverage_percent": 100.0,
+        "seed": 20261030,
+        "source": "results/sim/verilator_BEH_PIPE1.json"
+      },
+      {
+        "config": "verilator_BK_PIPE0",
+        "status": "PASS",
+        "random_vectors": 1000000,
+        "results_checked": {
+          "test_directed": 3646,
+          "test_random": 1000000
+        },
+        "coverage_percent": 100.0,
+        "seed": 20261030,
+        "source": "results/sim/verilator_BK_PIPE0.json"
+      },
+      {
+        "config": "verilator_BK_PIPE1",
+        "status": "PASS",
+        "random_vectors": 100000,
+        "results_checked": {
+          "test_directed": 3645,
+          "test_random": 100000
+        },
+        "coverage_percent": 100.0,
+        "seed": 20261030,
+        "source": "results/sim/verilator_BK_PIPE1.json"
+      },
+      {
+        "config": "verilator_CLA4_PIPE0",
+        "status": "PASS",
+        "random_vectors": 1000000,
+        "results_checked": {
+          "test_directed": 3646,
+          "test_random": 1000000
+        },
+        "coverage_percent": 100.0,
+        "seed": 20261030,
+        "source": "results/sim/verilator_CLA4_PIPE0.json"
+      },
+      {
+        "config": "verilator_CLA4_PIPE1",
+        "status": "PASS",
+        "random_vectors": 100000,
+        "results_checked": {
+          "test_directed": 3645,
+          "test_random": 100000
+        },
+        "coverage_percent": 100.0,
+        "seed": 20261030,
+        "source": "results/sim/verilator_CLA4_PIPE1.json"
+      },
+      {
+        "config": "verilator_CSLA_PIPE0",
+        "status": "PASS",
+        "random_vectors": 1000000,
+        "results_checked": {
+          "test_directed": 3646,
+          "test_random": 1000000
+        },
+        "coverage_percent": 100.0,
+        "seed": 20261030,
+        "source": "results/sim/verilator_CSLA_PIPE0.json"
+      },
+      {
+        "config": "verilator_CSLA_PIPE1",
+        "status": "PASS",
+        "random_vectors": 100000,
+        "results_checked": {
+          "test_directed": 3645,
+          "test_random": 100000
+        },
+        "coverage_percent": 100.0,
+        "seed": 20261030,
+        "source": "results/sim/verilator_CSLA_PIPE1.json"
+      },
+      {
+        "config": "verilator_HC_PIPE0",
+        "status": "PASS",
+        "random_vectors": 1000000,
+        "results_checked": {
+          "test_directed": 3646,
+          "test_random": 1000000
+        },
+        "coverage_percent": 100.0,
+        "seed": 20261030,
+        "source": "results/sim/verilator_HC_PIPE0.json"
+      },
+      {
+        "config": "verilator_HC_PIPE1",
+        "status": "PASS",
+        "random_vectors": 100000,
+        "results_checked": {
+          "test_directed": 3645,
+          "test_random": 100000
+        },
+        "coverage_percent": 100.0,
+        "seed": 20261030,
+        "source": "results/sim/verilator_HC_PIPE1.json"
+      },
+      {
+        "config": "verilator_KS_PIPE0",
+        "status": "PASS",
+        "random_vectors": 1000000,
+        "results_checked": {
+          "test_directed": 3646,
+          "test_random": 1000000
+        },
+        "coverage_percent": 100.0,
+        "seed": 20261030,
+        "source": "results/sim/verilator_KS_PIPE0.json"
+      },
+      {
+        "config": "verilator_KS_PIPE1",
+        "status": "PASS",
+        "random_vectors": 100000,
+        "results_checked": {
+          "test_directed": 3645,
+          "test_random": 100000
+        },
+        "coverage_percent": 100.0,
+        "seed": 20261030,
+        "source": "results/sim/verilator_KS_PIPE1.json"
+      },
+      {
+        "config": "verilator_RCA_PIPE0",
+        "status": "PASS",
+        "random_vectors": 1000000,
+        "results_checked": {
+          "test_directed": 3646,
+          "test_random": 1000000
+        },
+        "coverage_percent": 100.0,
+        "seed": 20261030,
+        "source": "results/sim/verilator_RCA_PIPE0.json"
+      },
+      {
+        "config": "verilator_RCA_PIPE1",
+        "status": "PASS",
+        "random_vectors": 100000,
+        "results_checked": {
+          "test_directed": 3645,
+          "test_random": 100000
+        },
+        "coverage_percent": 100.0,
+        "seed": 20261030,
+        "source": "results/sim/verilator_RCA_PIPE1.json"
+      },
+      {
+        "config": "verilator_SK_PIPE0",
+        "status": "PASS",
+        "random_vectors": 1000000,
+        "results_checked": {
+          "test_directed": 3646,
+          "test_random": 1000000
+        },
+        "coverage_percent": 100.0,
+        "seed": 20261030,
+        "source": "results/sim/verilator_SK_PIPE0.json"
+      },
+      {
+        "config": "verilator_SK_PIPE1",
+        "status": "PASS",
+        "random_vectors": 100000,
+        "results_checked": {
+          "test_directed": 3645,
+          "test_random": 100000
+        },
+        "coverage_percent": 100.0,
+        "seed": 20261030,
+        "source": "results/sim/verilator_SK_PIPE1.json"
+      }
+    ],
+    "formal": {
+      "result": "PASS",
+      "subset": "full",
+      "tasks": 26,
+      "passed": 26,
+      "failed": [],
+      "source": "results/formal/summary.json"
+    }
+  }
+}

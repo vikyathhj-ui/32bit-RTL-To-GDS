@@ -1,0 +1,587 @@
+{
+  "bins": 495,
+  "covered": 495,
+  "percent": 100.0,
+  "points": {
+    "op_x_a_class": {
+      "bins": 140,
+      "covered": 140,
+      "percent": 100.0,
+      "missed": [],
+      "ignored": []
+    },
+    "op_x_b_class": {
+      "bins": 100,
+      "covered": 100,
+      "percent": 100.0,
+      "missed": [],
+      "ignored": [
+        {
+          "bin": [
+            "ORC.B",
+            "*"
+          ],
+          "reason": "unary op: b is ignored (SPEC section 3)"
+        },
+        {
+          "bin": [
+            "CLZ",
+            "*"
+          ],
+          "reason": "unary op: b is ignored (SPEC section 3)"
+        },
+        {
+          "bin": [
+            "CPOP",
+            "*"
+          ],
+          "reason": "unary op: b is ignored (SPEC section 3)"
+        },
+        {
+          "bin": [
+            "REV8",
+            "*"
+          ],
+          "reason": "unary op: b is ignored (SPEC section 3)"
+        },
+        {
+          "bin": [
+            "CTZ",
+            "*"
+          ],
+          "reason": "unary op: b is ignored (SPEC section 3)"
+        },
+        {
+          "bin": [
+            "ZEXT.H",
+            "*"
+          ],
+          "reason": "unary op: b is ignored (SPEC section 3)"
+        },
+        {
+          "bin": [
+            "SEXT.B",
+            "*"
+          ],
+          "reason": "unary op: b is ignored (SPEC section 3)"
+        },
+        {
+          "bin": [
+            "SEXT.H",
+            "*"
+          ],
+          "reason": "unary op: b is ignored (SPEC section 3)"
+        }
+      ]
+    },
+    "op_x_flag": {
+      "bins": 164,
+      "covered": 164,
+      "percent": 100.0,
+      "missed": [],
+      "ignored": [
+        {
+          "bin": [
+            "SLL",
+            "C",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "SLL",
+            "V",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "SLT",
+            "N",
+            1
+          ],
+          "reason": "result is 0/1, a count <= 32, a zero-extended halfword, or 0 (illegal)"
+        },
+        {
+          "bin": [
+            "SLT",
+            "C",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "SLT",
+            "V",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "SLTU",
+            "N",
+            1
+          ],
+          "reason": "result is 0/1, a count <= 32, a zero-extended halfword, or 0 (illegal)"
+        },
+        {
+          "bin": [
+            "SLTU",
+            "C",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "SLTU",
+            "V",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "XOR",
+            "C",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "XOR",
+            "V",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "SRL",
+            "C",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "SRL",
+            "V",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "SRA",
+            "C",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "SRA",
+            "V",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "OR",
+            "C",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "OR",
+            "V",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "AND",
+            "C",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "AND",
+            "V",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "MIN",
+            "C",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "MIN",
+            "V",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "MAX",
+            "C",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "MAX",
+            "V",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "MINU",
+            "C",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "MINU",
+            "V",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "MAXU",
+            "C",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "MAXU",
+            "V",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "ANDN",
+            "C",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "ANDN",
+            "V",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "ORN",
+            "C",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "ORN",
+            "V",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "XNOR",
+            "C",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "XNOR",
+            "V",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "ROL",
+            "C",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "ROL",
+            "V",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "ROR",
+            "C",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "ROR",
+            "V",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "CLZ",
+            "N",
+            1
+          ],
+          "reason": "result is 0/1, a count <= 32, a zero-extended halfword, or 0 (illegal)"
+        },
+        {
+          "bin": [
+            "CLZ",
+            "C",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "CLZ",
+            "V",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "CTZ",
+            "N",
+            1
+          ],
+          "reason": "result is 0/1, a count <= 32, a zero-extended halfword, or 0 (illegal)"
+        },
+        {
+          "bin": [
+            "CTZ",
+            "C",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "CTZ",
+            "V",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "CPOP",
+            "N",
+            1
+          ],
+          "reason": "result is 0/1, a count <= 32, a zero-extended halfword, or 0 (illegal)"
+        },
+        {
+          "bin": [
+            "CPOP",
+            "C",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "CPOP",
+            "V",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "SEXT.B",
+            "C",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "SEXT.B",
+            "V",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "SEXT.H",
+            "C",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "SEXT.H",
+            "V",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "ZEXT.H",
+            "N",
+            1
+          ],
+          "reason": "result is 0/1, a count <= 32, a zero-extended halfword, or 0 (illegal)"
+        },
+        {
+          "bin": [
+            "ZEXT.H",
+            "C",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "ZEXT.H",
+            "V",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "REV8",
+            "C",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "REV8",
+            "V",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "ORC.B",
+            "C",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "ORC.B",
+            "V",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "ILLEGAL",
+            "N",
+            1
+          ],
+          "reason": "result is 0/1, a count <= 32, a zero-extended halfword, or 0 (illegal)"
+        },
+        {
+          "bin": [
+            "ILLEGAL",
+            "Z",
+            0
+          ],
+          "reason": "SPEC section 5: illegal opcodes give y = 0, so Z is always 1"
+        },
+        {
+          "bin": [
+            "ILLEGAL",
+            "C",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        },
+        {
+          "bin": [
+            "ILLEGAL",
+            "V",
+            1
+          ],
+          "reason": "SPEC section 4: C and V are 0 for every op except ADD/SUB"
+        }
+      ]
+    },
+    "shift_amount": {
+      "bins": 25,
+      "covered": 25,
+      "percent": 100.0,
+      "missed": [],
+      "ignored": []
+    },
+    "clz_result": {
+      "bins": 33,
+      "covered": 33,
+      "percent": 100.0,
+      "missed": [],
+      "ignored": []
+    },
+    "ctz_result": {
+      "bins": 33,
+      "covered": 33,
+      "percent": 100.0,
+      "missed": [],
+      "ignored": []
+    }
+  }
+}

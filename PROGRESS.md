@@ -3,7 +3,7 @@
 Single source of truth for status. Update this before every commit.
 Spec: `docs/BRIEF.md`. Branch: `rework/alu-ppa`.
 
-**Current state:** Phases 0–1 merged to `main` (PR #1, merge commit `044d4ca`). Phase 2 complete; PR #2 open (awaiting owner merge). Next: Phase 3 (verification). Plan it first.
+**Current state:** Phases 0–1 merged (PR #1). Phase 2 in PR #2 (awaiting owner merge). Phase 3 gate met (`results/verify_summary.json` PASS); its commits are local until PR #2 is merged, then push, confirm CI green, and open PR #3. Next: Phase 4 (physical design sweep). Plan it first.
 
 ## Phase 0 — Setup and audit
 - [x] Environment check script (`scripts/env_check.sh` → `results/env_check.txt`). All tools found after
@@ -47,17 +47,22 @@ Spec: `docs/BRIEF.md`. Branch: `rework/alu-ppa`.
 - [x] Pushed; PR #2 opened after PR #1 was merged.
 
 ## Phase 3 — Verification
-- [ ] cocotb directed tests (corners, shift amounts 0/1/31, op × flag edges), on Icarus and Verilator.
-- [ ] ≥10⁶ constrained-random vectors per adder config (Verilator), self-checking against `model/alu_ref.py`.
-- [ ] Functional coverage (cocotb-coverage): op × operand class, flags per op, shift bins, CLZ/CTZ 0..32.
-      100%, or each gap justified.
-- [ ] Formal: per-adder equivalence miter (8 configs).
-- [ ] Formal: full-ALU equivalence vs. behavioural reference ALU.
-- [ ] Formal: `out_valid` latency protocol (PIPE=0 and PIPE=1).
-- [ ] `make verify` → `results/verify_summary.json`.
-- [ ] Bugs found by verification recorded in `docs/DECISIONS.md`.
-- [ ] `.github/workflows/ci.yml`: lint, reduced sim, formal.
-- [ ] **Gate:** 8/8 configs pass, coverage closed, all proofs PASS. Commit, push, open PR.
+- [x] cocotb directed tests (corners, shift amounts 0/1/31/32/33, op × flag edges, illegal opcodes,
+      back-to-back, bubbles, reset), on Icarus and Verilator (`tb/alu_tb.py`).
+- [x] ≥10⁶ constrained-random vectors per adder config (Verilator), self-checking against
+      `model/alu_ref.py`: exactly 1,000,000 checked per config (`results/sim/verilator_*_PIPE0.json`);
+      also PIPE=1 (100k) and Icarus (20k).
+- [x] Functional coverage (cocotb-coverage): 100% of the 495 defined bins in every run; left-out bins
+      justified in `docs/COVERAGE.md`.
+- [x] Formal: per-adder equivalence miter: 8/8 PASS.
+- [x] Formal: full-ALU equivalence vs `formal/alu_ref_beh.sv`: 16/16 PASS (ADDER × PIPE).
+- [x] Formal: `out_valid` latency protocol: 2/2 PASS (PIPE 0/1).
+- [x] `make verify` → `results/verify_summary.json` (PASS).
+- [x] Bugs found by verification recorded in `docs/DECISIONS.md`: none functional in Phase 3; Icarus
+      issue D-021; bench vector-count fix.
+- [x] `.github/workflows/ci.yml`: lint, model, reduced sim, formal subset (OSS CAD Suite, D-020).
+- [x] **Gate:** 8/8 configs pass, coverage closed, all proofs PASS. Committed locally.
+- [ ] Push (after PR #2 is merged), confirm the CI run is green, open PR #3.
 
 ## Phase 4 — Physical design sweep
 - [ ] `flow/` config template; fixed die/utilisation policy (DECISIONS.md).
@@ -86,7 +91,6 @@ Spec: `docs/BRIEF.md`. Branch: `rework/alu-ppa`.
 ## Open issues
 - The host has no `make`; run `make` inside the container (see CLAUDE.md). Installing it on the host
   would need sudo, which is the owner's call.
-- `alu_top` has **no functional verification yet**. Phase 2's gate is lint and synthesis only; the adder
-  smoke test covers the adders alone. Phase 3 (cocotb + formal) is where the ALU is proven.
-- CI (Phase 3) will need either the iic-osic image or its own tool install. `test_spike_xcheck` skips
-  with a reason where Spike is absent.
+- CI uses OSS CAD Suite (pinned 2026-10-14), not the iic-osic image, so tool versions differ (D-020).
+  `test_spike_xcheck` skips there with a reason.
+- The first CI run has not been observed yet; it can only start after the push.

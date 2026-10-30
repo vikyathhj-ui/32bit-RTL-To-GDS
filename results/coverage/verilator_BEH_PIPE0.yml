@@ -1,0 +1,548 @@
+alu:
+  cover_percentage: 100.0
+  coverage: 495
+  size: 495
+  type: <class 'cocotb_coverage.coverage.CoverItem'>
+alu.clz_result:
+  at_least: 1
+  bins:_hits:
+    0: 15407
+    1: 6933
+    2: 2160
+    3: 1053
+    4: 648
+    5: 381
+    6: 273
+    7: 193
+    8: 152
+    9: 135
+    10: 149
+    11: 123
+    12: 116
+    13: 132
+    14: 110
+    15: 133
+    16: 389
+    17: 116
+    18: 112
+    19: 127
+    20: 129
+    21: 136
+    22: 131
+    23: 131
+    24: 2011
+    25: 1022
+    26: 592
+    27: 368
+    28: 258
+    29: 164
+    30: 162
+    31: 158
+    32: 1957
+  cover_percentage: 100.0
+  coverage: 33
+  size: 33
+  type: <class 'cocotb_coverage.coverage.CoverPoint'>
+  weight: 1
+alu.ctz_result:
+  at_least: 1
+  bins:_hits:
+    0: 15147
+    1: 6808
+    2: 3248
+    3: 1648
+    4: 911
+    5: 540
+    6: 328
+    7: 211
+    8: 499
+    9: 123
+    10: 131
+    11: 138
+    12: 143
+    13: 144
+    14: 117
+    15: 138
+    16: 422
+    17: 128
+    18: 137
+    19: 146
+    20: 120
+    21: 143
+    22: 130
+    23: 148
+    24: 143
+    25: 122
+    26: 148
+    27: 122
+    28: 125
+    29: 110
+    30: 129
+    31: 1600
+    32: 1986
+  cover_percentage: 100.0
+  coverage: 33
+  size: 33
+  type: <class 'cocotb_coverage.coverage.CoverPoint'>
+  weight: 1
+alu.op_x_a_class:
+  at_least: 1
+  bins:_hits:
+    ('ADD', 'max'): 1443
+    ('ADD', 'min'): 1564
+    ('ADD', 'negative'): 13471
+    ('ADD', 'positive'): 17530
+    ('ADD', 'zero'): 1863
+    ('AND', 'max'): 1488
+    ('AND', 'min'): 1524
+    ('AND', 'negative'): 13513
+    ('AND', 'positive'): 17119
+    ('AND', 'zero'): 1847
+    ('ANDN', 'max'): 1487
+    ('ANDN', 'min'): 1558
+    ('ANDN', 'negative'): 13821
+    ('ANDN', 'positive'): 17146
+    ('ANDN', 'zero'): 1944
+    ('CLZ', 'max'): 1462
+    ('CLZ', 'min'): 1603
+    ('CLZ', 'negative'): 13804
+    ('CLZ', 'positive'): 17235
+    ('CLZ', 'zero'): 1957
+    ('CPOP', 'max'): 1375
+    ('CPOP', 'min'): 1591
+    ('CPOP', 'negative'): 13752
+    ('CPOP', 'positive'): 17298
+    ('CPOP', 'zero'): 1970
+    ('CTZ', 'max'): 1345
+    ('CTZ', 'min'): 1600
+    ('CTZ', 'negative'): 13740
+    ('CTZ', 'positive'): 17462
+    ('CTZ', 'zero'): 1986
+    ('ILLEGAL', 'max'): 1220
+    ('ILLEGAL', 'min'): 1370
+    ('ILLEGAL', 'negative'): 11481
+    ('ILLEGAL', 'positive'): 14495
+    ('ILLEGAL', 'zero'): 1633
+    ('MAX', 'max'): 1505
+    ('MAX', 'min'): 1581
+    ('MAX', 'negative'): 13866
+    ('MAX', 'positive'): 17272
+    ('MAX', 'zero'): 1837
+    ('MAXU', 'max'): 1462
+    ('MAXU', 'min'): 1622
+    ('MAXU', 'negative'): 13750
+    ('MAXU', 'positive'): 17242
+    ('MAXU', 'zero'): 1982
+    ('MIN', 'max'): 1493
+    ('MIN', 'min'): 1588
+    ('MIN', 'negative'): 14077
+    ('MIN', 'positive'): 16966
+    ('MIN', 'zero'): 1926
+    ('MINU', 'max'): 1482
+    ('MINU', 'min'): 1569
+    ('MINU', 'negative'): 13700
+    ('MINU', 'positive'): 17415
+    ('MINU', 'zero'): 1871
+    ('OR', 'max'): 1457
+    ('OR', 'min'): 1586
+    ('OR', 'negative'): 13886
+    ('OR', 'positive'): 17360
+    ('OR', 'zero'): 1890
+    ('ORC.B', 'max'): 1486
+    ('ORC.B', 'min'): 1565
+    ('ORC.B', 'negative'): 13985
+    ('ORC.B', 'positive'): 17445
+    ('ORC.B', 'zero'): 1938
+    ('ORN', 'max'): 1435
+    ('ORN', 'min'): 1609
+    ('ORN', 'negative'): 13906
+    ('ORN', 'positive'): 17269
+    ('ORN', 'zero'): 1928
+    ('REV8', 'max'): 1451
+    ('REV8', 'min'): 1551
+    ('REV8', 'negative'): 13556
+    ('REV8', 'positive'): 17163
+    ('REV8', 'zero'): 1914
+    ('ROL', 'max'): 1419
+    ('ROL', 'min'): 1568
+    ('ROL', 'negative'): 13964
+    ('ROL', 'positive'): 17448
+    ('ROL', 'zero'): 1982
+    ('ROR', 'max'): 1510
+    ('ROR', 'min'): 1589
+    ('ROR', 'negative'): 13921
+    ('ROR', 'positive'): 17199
+    ('ROR', 'zero'): 1905
+    ('SEXT.B', 'max'): 1467
+    ('SEXT.B', 'min'): 1613
+    ('SEXT.B', 'negative'): 13748
+    ('SEXT.B', 'positive'): 17246
+    ('SEXT.B', 'zero'): 1972
+    ('SEXT.H', 'max'): 1452
+    ('SEXT.H', 'min'): 1626
+    ('SEXT.H', 'negative'): 13682
+    ('SEXT.H', 'positive'): 17439
+    ('SEXT.H', 'zero'): 1980
+    ('SLL', 'max'): 1444
+    ('SLL', 'min'): 1653
+    ('SLL', 'negative'): 13967
+    ('SLL', 'positive'): 17455
+    ('SLL', 'zero'): 1997
+    ('SLT', 'max'): 1508
+    ('SLT', 'min'): 1538
+    ('SLT', 'negative'): 13749
+    ('SLT', 'positive'): 17202
+    ('SLT', 'zero'): 2002
+    ('SLTU', 'max'): 1437
+    ('SLTU', 'min'): 1584
+    ('SLTU', 'negative'): 13676
+    ('SLTU', 'positive'): 17350
+    ('SLTU', 'zero'): 2045
+    ('SRA', 'max'): 1424
+    ('SRA', 'min'): 1618
+    ('SRA', 'negative'): 13770
+    ('SRA', 'positive'): 17357
+    ('SRA', 'zero'): 1995
+    ('SRL', 'max'): 1411
+    ('SRL', 'min'): 1605
+    ('SRL', 'negative'): 13973
+    ('SRL', 'positive'): 17424
+    ('SRL', 'zero'): 1896
+    ('SUB', 'max'): 1459
+    ('SUB', 'min'): 1580
+    ('SUB', 'negative'): 13731
+    ('SUB', 'positive'): 17188
+    ('SUB', 'zero'): 2004
+    ('XNOR', 'max'): 1416
+    ('XNOR', 'min'): 1576
+    ('XNOR', 'negative'): 13867
+    ('XNOR', 'positive'): 17154
+    ('XNOR', 'zero'): 1941
+    ('XOR', 'max'): 1469
+    ('XOR', 'min'): 1570
+    ('XOR', 'negative'): 13779
+    ('XOR', 'positive'): 17178
+    ('XOR', 'zero'): 1958
+    ('ZEXT.H', 'max'): 1438
+    ('ZEXT.H', 'min'): 1578
+    ('ZEXT.H', 'negative'): 13564
+    ('ZEXT.H', 'positive'): 17057
+    ('ZEXT.H', 'zero'): 2046
+  cover_percentage: 100.0
+  coverage: 140
+  size: 140
+  type: <class 'cocotb_coverage.coverage.CoverPoint'>
+  weight: 1
+alu.op_x_b_class:
+  at_least: 1
+  bins:_hits:
+    ('ADD', 'max'): 1525
+    ('ADD', 'min'): 1575
+    ('ADD', 'negative'): 13677
+    ('ADD', 'positive'): 17238
+    ('ADD', 'zero'): 1856
+    ('AND', 'max'): 1493
+    ('AND', 'min'): 1573
+    ('AND', 'negative'): 13426
+    ('AND', 'positive'): 17026
+    ('AND', 'zero'): 1973
+    ('ANDN', 'max'): 1391
+    ('ANDN', 'min'): 1606
+    ('ANDN', 'negative'): 13781
+    ('ANDN', 'positive'): 17217
+    ('ANDN', 'zero'): 1961
+    ('ILLEGAL', 'max'): 1183
+    ('ILLEGAL', 'min'): 1321
+    ('ILLEGAL', 'negative'): 11487
+    ('ILLEGAL', 'positive'): 14584
+    ('ILLEGAL', 'zero'): 1624
+    ('MAX', 'max'): 1405
+    ('MAX', 'min'): 1584
+    ('MAX', 'negative'): 13731
+    ('MAX', 'positive'): 17364
+    ('MAX', 'zero'): 1977
+    ('MAXU', 'max'): 1473
+    ('MAXU', 'min'): 1562
+    ('MAXU', 'negative'): 13724
+    ('MAXU', 'positive'): 17320
+    ('MAXU', 'zero'): 1979
+    ('MIN', 'max'): 1421
+    ('MIN', 'min'): 1634
+    ('MIN', 'negative'): 13746
+    ('MIN', 'positive'): 17306
+    ('MIN', 'zero'): 1943
+    ('MINU', 'max'): 1462
+    ('MINU', 'min'): 1670
+    ('MINU', 'negative'): 13648
+    ('MINU', 'positive'): 17384
+    ('MINU', 'zero'): 1873
+    ('OR', 'max'): 1462
+    ('OR', 'min'): 1593
+    ('OR', 'negative'): 13708
+    ('OR', 'positive'): 17490
+    ('OR', 'zero'): 1926
+    ('ORN', 'max'): 1454
+    ('ORN', 'min'): 1521
+    ('ORN', 'negative'): 13751
+    ('ORN', 'positive'): 17483
+    ('ORN', 'zero'): 1938
+    ('ROL', 'max'): 888
+    ('ROL', 'min'): 979
+    ('ROL', 'negative'): 15460
+    ('ROL', 'positive'): 17853
+    ('ROL', 'zero'): 1201
+    ('ROR', 'max'): 874
+    ('ROR', 'min'): 943
+    ('ROR', 'negative'): 15501
+    ('ROR', 'positive'): 17636
+    ('ROR', 'zero'): 1170
+    ('SLL', 'max'): 847
+    ('SLL', 'min'): 1004
+    ('SLL', 'negative'): 15670
+    ('SLL', 'positive'): 17758
+    ('SLL', 'zero'): 1237
+    ('SLT', 'max'): 1526
+    ('SLT', 'min'): 1558
+    ('SLT', 'negative'): 13755
+    ('SLT', 'positive'): 17298
+    ('SLT', 'zero'): 1862
+    ('SLTU', 'max'): 1405
+    ('SLTU', 'min'): 1570
+    ('SLTU', 'negative'): 13892
+    ('SLTU', 'positive'): 17309
+    ('SLTU', 'zero'): 1916
+    ('SRA', 'max'): 922
+    ('SRA', 'min'): 962
+    ('SRA', 'negative'): 15390
+    ('SRA', 'positive'): 17687
+    ('SRA', 'zero'): 1203
+    ('SRL', 'max'): 926
+    ('SRL', 'min'): 975
+    ('SRL', 'negative'): 15779
+    ('SRL', 'positive'): 17473
+    ('SRL', 'zero'): 1156
+    ('SUB', 'max'): 1431
+    ('SUB', 'min'): 1543
+    ('SUB', 'negative'): 13717
+    ('SUB', 'positive'): 17324
+    ('SUB', 'zero'): 1947
+    ('XNOR', 'max'): 1490
+    ('XNOR', 'min'): 1553
+    ('XNOR', 'negative'): 13725
+    ('XNOR', 'positive'): 17191
+    ('XNOR', 'zero'): 1995
+    ('XOR', 'max'): 1401
+    ('XOR', 'min'): 1562
+    ('XOR', 'negative'): 13876
+    ('XOR', 'positive'): 17144
+    ('XOR', 'zero'): 1971
+  cover_percentage: 100.0
+  coverage: 100
+  size: 100
+  type: <class 'cocotb_coverage.coverage.CoverPoint'>
+  weight: 1
+alu.op_x_flag:
+  at_least: 1
+  bins:_hits:
+    ('ADD', 'C', 0): 22393
+    ('ADD', 'C', 1): 13478
+    ('ADD', 'N', 0): 18569
+    ('ADD', 'N', 1): 17302
+    ('ADD', 'V', 0): 29670
+    ('ADD', 'V', 1): 6201
+    ('ADD', 'Z', 0): 35707
+    ('ADD', 'Z', 1): 164
+    ('AND', 'C', 0): 35491
+    ('AND', 'N', 0): 29141
+    ('AND', 'N', 1): 6350
+    ('AND', 'V', 0): 35491
+    ('AND', 'Z', 0): 26684
+    ('AND', 'Z', 1): 8807
+    ('ANDN', 'C', 0): 35956
+    ('ANDN', 'N', 0): 27113
+    ('ANDN', 'N', 1): 8843
+    ('ANDN', 'V', 0): 35956
+    ('ANDN', 'Z', 0): 30544
+    ('ANDN', 'Z', 1): 5412
+    ('CLZ', 'C', 0): 36061
+    ('CLZ', 'N', 0): 36061
+    ('CLZ', 'V', 0): 36061
+    ('CLZ', 'Z', 0): 20654
+    ('CLZ', 'Z', 1): 15407
+    ('CPOP', 'C', 0): 35986
+    ('CPOP', 'N', 0): 35986
+    ('CPOP', 'V', 0): 35986
+    ('CPOP', 'Z', 0): 34016
+    ('CPOP', 'Z', 1): 1970
+    ('CTZ', 'C', 0): 36133
+    ('CTZ', 'N', 0): 36133
+    ('CTZ', 'V', 0): 36133
+    ('CTZ', 'Z', 0): 20986
+    ('CTZ', 'Z', 1): 15147
+    ('ILLEGAL', 'C', 0): 30199
+    ('ILLEGAL', 'N', 0): 30199
+    ('ILLEGAL', 'V', 0): 30199
+    ('ILLEGAL', 'Z', 1): 30199
+    ('MAX', 'C', 0): 36061
+    ('MAX', 'N', 0): 29516
+    ('MAX', 'N', 1): 6545
+    ('MAX', 'V', 0): 36061
+    ('MAX', 'Z', 0): 34317
+    ('MAX', 'Z', 1): 1744
+    ('MAXU', 'C', 0): 36058
+    ('MAXU', 'N', 0): 11925
+    ('MAXU', 'N', 1): 24133
+    ('MAXU', 'V', 0): 36058
+    ('MAXU', 'Z', 0): 35941
+    ('MAXU', 'Z', 1): 117
+    ('MIN', 'C', 0): 36050
+    ('MIN', 'N', 0): 11718
+    ('MIN', 'N', 1): 24332
+    ('MIN', 'V', 0): 36050
+    ('MIN', 'Z', 0): 33924
+    ('MIN', 'Z', 1): 2126
+    ('MINU', 'C', 0): 36037
+    ('MINU', 'N', 0): 29539
+    ('MINU', 'N', 1): 6498
+    ('MINU', 'V', 0): 36037
+    ('MINU', 'Z', 0): 32391
+    ('MINU', 'Z', 1): 3646
+    ('OR', 'C', 0): 36179
+    ('OR', 'N', 0): 12032
+    ('OR', 'N', 1): 24147
+    ('OR', 'V', 0): 36179
+    ('OR', 'Z', 0): 36084
+    ('OR', 'Z', 1): 95
+    ('ORC.B', 'C', 0): 36419
+    ('ORC.B', 'N', 0): 9092
+    ('ORC.B', 'N', 1): 27327
+    ('ORC.B', 'V', 0): 36419
+    ('ORC.B', 'Z', 0): 34481
+    ('ORC.B', 'Z', 1): 1938
+    ('ORN', 'C', 0): 36147
+    ('ORN', 'N', 0): 8724
+    ('ORN', 'N', 1): 27423
+    ('ORN', 'V', 0): 36147
+    ('ORN', 'Z', 0): 36127
+    ('ORN', 'Z', 1): 20
+    ('REV8', 'C', 0): 35635
+    ('REV8', 'N', 0): 20719
+    ('REV8', 'N', 1): 14916
+    ('REV8', 'V', 0): 35635
+    ('REV8', 'Z', 0): 33721
+    ('REV8', 'Z', 1): 1914
+    ('ROL', 'C', 0): 36381
+    ('ROL', 'N', 0): 21013
+    ('ROL', 'N', 1): 15368
+    ('ROL', 'V', 0): 36381
+    ('ROL', 'Z', 0): 34399
+    ('ROL', 'Z', 1): 1982
+    ('ROR', 'C', 0): 36124
+    ('ROR', 'N', 0): 20698
+    ('ROR', 'N', 1): 15426
+    ('ROR', 'V', 0): 36124
+    ('ROR', 'Z', 0): 34219
+    ('ROR', 'Z', 1): 1905
+    ('SEXT.B', 'C', 0): 36046
+    ('SEXT.B', 'N', 0): 21010
+    ('SEXT.B', 'N', 1): 15036
+    ('SEXT.B', 'V', 0): 36046
+    ('SEXT.B', 'Z', 0): 28636
+    ('SEXT.B', 'Z', 1): 7410
+    ('SEXT.H', 'C', 0): 36179
+    ('SEXT.H', 'N', 0): 20844
+    ('SEXT.H', 'N', 1): 15335
+    ('SEXT.H', 'V', 0): 36179
+    ('SEXT.H', 'Z', 0): 30210
+    ('SEXT.H', 'Z', 1): 5969
+    ('SLL', 'C', 0): 36516
+    ('SLL', 'N', 0): 20985
+    ('SLL', 'N', 1): 15531
+    ('SLL', 'V', 0): 36516
+    ('SLL', 'Z', 0): 29100
+    ('SLL', 'Z', 1): 7416
+    ('SLT', 'C', 0): 35999
+    ('SLT', 'N', 0): 35999
+    ('SLT', 'V', 0): 35999
+    ('SLT', 'Z', 0): 17827
+    ('SLT', 'Z', 1): 18172
+    ('SLTU', 'C', 0): 36092
+    ('SLTU', 'N', 0): 36092
+    ('SLTU', 'V', 0): 36092
+    ('SLTU', 'Z', 0): 18038
+    ('SLTU', 'Z', 1): 18054
+    ('SRA', 'C', 0): 36164
+    ('SRA', 'N', 0): 20776
+    ('SRA', 'N', 1): 15388
+    ('SRA', 'V', 0): 36164
+    ('SRA', 'Z', 0): 28555
+    ('SRA', 'Z', 1): 7609
+    ('SRL', 'C', 0): 36309
+    ('SRL', 'N', 0): 32133
+    ('SRL', 'N', 1): 4176
+    ('SRL', 'V', 0): 36309
+    ('SRL', 'Z', 0): 28762
+    ('SRL', 'Z', 1): 7547
+    ('SUB', 'C', 0): 17865
+    ('SUB', 'C', 1): 18097
+    ('SUB', 'N', 0): 17902
+    ('SUB', 'N', 1): 18060
+    ('SUB', 'V', 0): 29562
+    ('SUB', 'V', 1): 6400
+    ('SUB', 'Z', 0): 35677
+    ('SUB', 'Z', 1): 285
+    ('XNOR', 'C', 0): 35954
+    ('XNOR', 'N', 0): 17673
+    ('XNOR', 'N', 1): 18281
+    ('XNOR', 'V', 0): 35954
+    ('XNOR', 'Z', 0): 35774
+    ('XNOR', 'Z', 1): 180
+    ('XOR', 'C', 0): 35954
+    ('XOR', 'N', 0): 18517
+    ('XOR', 'N', 1): 17437
+    ('XOR', 'V', 0): 35954
+    ('XOR', 'Z', 0): 35668
+    ('XOR', 'Z', 1): 286
+    ('ZEXT.H', 'C', 0): 35683
+    ('ZEXT.H', 'N', 0): 35683
+    ('ZEXT.H', 'V', 0): 35683
+    ('ZEXT.H', 'Z', 0): 29783
+    ('ZEXT.H', 'Z', 1): 5900
+  cover_percentage: 100.0
+  coverage: 164
+  size: 164
+  type: <class 'cocotb_coverage.coverage.CoverPoint'>
+  weight: 1
+alu.shift_amount:
+  at_least: 1
+  bins:_hits:
+    ('ROL', '0'): 9864
+    ('ROL', '1'): 5471
+    ('ROL', '16-30'): 7431
+    ('ROL', '2-15'): 7033
+    ('ROL', '31'): 6582
+    ('ROR', '0'): 9770
+    ('ROR', '1'): 5396
+    ('ROR', '16-30'): 7320
+    ('ROR', '2-15'): 6960
+    ('ROR', '31'): 6678
+    ('SLL', '0'): 9947
+    ('SLL', '1'): 5476
+    ('SLL', '16-30'): 7445
+    ('SLL', '2-15'): 7078
+    ('SLL', '31'): 6570
+    ('SRA', '0'): 9798
+    ('SRA', '1'): 5370
+    ('SRA', '16-30'): 7334
+    ('SRA', '2-15'): 7058
+    ('SRA', '31'): 6604
+    ('SRL', '0'): 9838
+    ('SRL', '1'): 5297
+    ('SRL', '16-30'): 7454
+    ('SRL', '2-15'): 7083
+    ('SRL', '31'): 6637
+  cover_percentage: 100.0
+  coverage: 25
+  size: 25
+  type: <class 'cocotb_coverage.coverage.CoverPoint'>
+  weight: 1
