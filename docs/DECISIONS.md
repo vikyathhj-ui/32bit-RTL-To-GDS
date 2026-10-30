@@ -360,6 +360,25 @@ Format for each entry: **context → options → choice → evidence**. Newest a
 - **Follow-up:** this can be reported upstream to Icarus with the minimal case. It is not a project
   blocker.
 
+## D-022 — Floorplan policy for the sweep: fixed utilisation
+- **Context:** BRIEF A4: "Keep die size and utilisation policy fixed across architectures so the
+  comparison is fair." Two readings were offered: one fixed die for all, or a fixed utilisation
+  percentage. The project owner chose **fixed utilisation** (2026-10-30).
+- **Choice** (`flow/config.template.json`):
+  - `FP_SIZING relative`, `FP_CORE_UTIL 40`, `PL_TARGET_DENSITY_PCT 50` for every architecture and every
+    period.
+  - All other settings at LibreLane defaults: the same `base.sdc` (input/output delay = 20% of period,
+    default clock uncertainty), the same CTS and resizer settings.
+  - The die therefore grows with each architecture's cell area. Die and core area are reported per
+    architecture.
+- **Consequence:** wirelength comparisons include the effect of die size, which is the real cost of a
+  bigger adder.
+- **First measured run** (`runs/BEH_P0_T10.00`): about 10 min wall and 0.9 GB peak RAM per run, so the
+  sweep runs 3 architectures in parallel on this 6-core, 7 GB machine. At 10 ns, BEH had setup WS
+  −10.17 ns at `max_ss_100C_1v60` and −0.65 ns at `nom_tt_025C_1v80`. The critical path is an
+  input-register → output-register chain of `a311`/`o311` cells: the synthesiser's mapping of `a + b`
+  looks like a ripple carry. D-026 tests that.
+
 ---
 
 ## Bugs found by verification
