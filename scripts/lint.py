@@ -79,6 +79,11 @@ def main() -> int:
 
     for r in results:
         print(f"{r['status']}  {r['config']:<22} warnings={r['warnings']} errors={r['errors']}")
+        if r["status"] != "PASS":
+            # Show the messages themselves (CI keeps only stdout, not sim_build/ logs).
+            text = (REPO / r["log"]).read_text()
+            for line in [ln for ln in text.splitlines() if ln.startswith(("%Warning", "%Error"))][:8]:
+                print("      " + line)
     waivers = find_waivers()
     failed = [r["config"] for r in results if r["status"] != "PASS"]
     summary = {
