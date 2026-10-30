@@ -14,13 +14,13 @@ module adder_sk #(
 );
     localparam int L = $clog2(W);
 
-    logic [W-1:0] p;
+    logic [W-1:0] pb;  // per-bit propagate a ^ b (P is the group propagate)
     logic [W-1:0] G [0:L];
     logic [W-1:0] P [0:L];
 
-    assign p    = a ^ b;
-    assign G[0] = (a & b) | {{(W-1){1'b0}}, p[0] & cin};
-    assign P[0] = p;
+    assign pb   = a ^ b;
+    assign G[0] = (a & b) | {{(W-1){1'b0}}, pb[0] & cin};
+    assign P[0] = pb;
 
     for (genvar k = 0; k < L; k++) begin : g_lvl
         for (genvar i = 0; i < W; i++) begin : g_bit
@@ -38,6 +38,6 @@ module adder_sk #(
         end
     end
 
-    assign sum  = p ^ {G[L][W-2:0], cin};
+    assign sum  = pb ^ {G[L][W-2:0], cin};
     assign cout = G[L][W-1];
 endmodule
