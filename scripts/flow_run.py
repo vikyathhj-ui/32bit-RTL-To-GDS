@@ -71,7 +71,9 @@ def evaluate(metrics: dict) -> dict:
 def run(arch: str, period: float, pipe: int = 0, quiet: bool = True, variant: str = "default") -> dict:
     t = tag(arch, period, pipe, variant)
     rundir = RUNS / t
-    metrics_file = rundir / "final" / "metrics.json"
+    # LibreLane writes <design-dir>/runs/<tag>/final/; a finished run is reused, never re-run
+    # (re-running with the same tag appends a second set of steps to the same directory).
+    metrics_file = rundir / "runs" / t / "final" / "metrics.json"
     rec = {"arch": arch, "pipe": pipe, "variant": variant, "period_ns": round(period, 2), "tag": t,
            "run_dir": str(rundir.relative_to(REPO))}
 
