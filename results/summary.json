@@ -3815,6 +3815,222 @@
           "source": "results/flow/preserved/BEH/power.json"
         }
       }
+    },
+    "preserved_P1": {
+      "HC": {
+        "variant": "preserved_P1",
+        "arch": "HC",
+        "sweep_status": "DONE",
+        "min_period_ns": 11.5,
+        "failing_neighbour_ns": 11.25,
+        "nonmonotonic_points_ns": [],
+        "sweep_runs": [
+          {
+            "period_ns": 11.25,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.029926284519749147,
+            "hold_ws_min": 0.11100098931976522
+          },
+          {
+            "period_ns": 11.5,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.08107026390779198,
+            "hold_ws_min": 0.1110134238179927
+          },
+          {
+            "period_ns": 11.75,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.030722092406307442,
+            "hold_ws_min": 0.11063733575776442
+          },
+          {
+            "period_ns": 12.0,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.1516218304935863,
+            "hold_ws_min": 0.10965240137361237
+          }
+        ],
+        "sweep_source": "results/flow/sweep_preserved_P1/HC.json",
+        "closing_run": "runs/HC_P1_T11.50_preserved/runs/HC_P1_T11.50_preserved",
+        "metrics_source": "results/flow/preserved_P1/HC/metrics.json",
+        "area": {
+          "stdcell_count": 2703,
+          "stdcell_area_um2": 20666.1,
+          "core_area_um2": 38647.1,
+          "die_area_um2": 45835.8,
+          "utilisation": 0.534738,
+          "timing_repair_buffer_area_um2": 3265.63
+        },
+        "timing": {
+          "max_ff_n40C_1v95": {
+            "setup_ws_ns": 6.690607812706259,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.11612955370476438,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 7.402722,
+            "fmax_MHz": 207.93
+          },
+          "max_ss_100C_1v60": {
+            "setup_ws_ns": 0.08107026390779198,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.415681945075267,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.08107,
+            "fmax_MHz": 87.57
+          },
+          "max_tt_025C_1v80": {
+            "setup_ws_ns": 5.3357488826437605,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.3714295087740373,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 5.335749,
+            "fmax_MHz": 162.23
+          },
+          "min_ff_n40C_1v95": {
+            "setup_ws_ns": 6.764907492329192,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.1110134238179927,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 7.556723,
+            "fmax_MHz": 211.19
+          },
+          "min_ss_100C_1v60": {
+            "setup_ws_ns": 0.6189156029527049,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.4796414512436108,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.618916,
+            "fmax_MHz": 91.9
+          },
+          "min_tt_025C_1v80": {
+            "setup_ws_ns": 5.570668972673969,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.3680033049119932,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 5.613777,
+            "fmax_MHz": 168.65
+          },
+          "nom_ff_n40C_1v95": {
+            "setup_ws_ns": 6.722877556052664,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.11360751549954654,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 7.481067,
+            "fmax_MHz": 209.33
+          },
+          "nom_ss_100C_1v60": {
+            "setup_ws_ns": 0.3523359481676823,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.44974203412181746,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.352336,
+            "fmax_MHz": 89.7
+          },
+          "nom_tt_025C_1v80": {
+            "setup_ws_ns": 5.469003626987702,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.3690724497149447,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 5.469004,
+            "fmax_MHz": 165.81
+          }
+        },
+        "fmax_slowest_corner_MHz": 87.57,
+        "critical_path_slowest": {
+          "startpoint": "_2646_ (rising edge-triggered flip-flop clocked by clk)",
+          "endpoint": "_2677_ (rising edge-triggered flip-flop clocked by clk)",
+          "data_arrival_ns": 11.573122,
+          "cells_on_path": 28,
+          "logic_depth_excluding_buffers": 17,
+          "cell_types": [
+            "clkbuf_16",
+            "clkbuf_16",
+            "clkbuf_16",
+            "buf_6",
+            "nor3b_1",
+            "buf_4",
+            "and2_4",
+            "nor4_4",
+            "nand2_2",
+            "a211oi_4",
+            "buf_6",
+            "buf_4",
+            "xnor2_1",
+            "nand2_2",
+            "inv_1",
+            "nor2_1",
+            "and2_0",
+            "and2_0",
+            "and2_0",
+            "and2_0",
+            "a21o_4",
+            "a21oi_1",
+            "clkdlybuf4s15_2",
+            "a221oi_1",
+            "o211ai_1",
+            "clkbuf_16",
+            "clkbuf_16",
+            "clkbuf_16"
+          ],
+          "source": "results/flow/preserved_P1/HC/max_max_ss_100C_1v60.rpt"
+        },
+        "post_synth_vs_post_route": {
+          "corner": "nom_ss_100C_1v60",
+          "post_synth_delay_ns": 21.7431,
+          "post_route_delay_ns": 11.1477,
+          "degradation_ns": -10.5955,
+          "degradation_percent": -48.7,
+          "note": "delay = T - setup WS (worst path, any type) at the same corner and clock",
+          "sources": [
+            "runs/HC_P1_T11.50_preserved/runs/HC_P1_T11.50_preserved/12-openroad-staprepnr/state_out.json",
+            "results/flow/preserved_P1/HC/metrics.json"
+          ]
+        },
+        "wire_delay": {
+          "corner": "nom_ss_100C_1v60",
+          "delay_routed_ns": 11.1477,
+          "delay_ideal_wires_ns": 9.1673,
+          "wire_delay_ns": 1.9804,
+          "wire_delay_percent_of_routed": 17.8,
+          "ws_routed_ns": 0.352336,
+          "flow_ws_ns": 0.3523359481676823,
+          "note": "same final netlist; routed = with nominal SPEF, ideal = no SPEF; delay = T - WS",
+          "source": "results/flow/preserved_P1/HC/wire_delay.json"
+        },
+        "physical": {
+          "route_wirelength_um": 67431,
+          "max_fanout_violations": 13,
+          "max_slew_violations_max_ss_100C_1v60": 361
+        },
+        "signoff_flow_counts": {
+          "magic_drc_errors": 0,
+          "klayout_drc_errors": 0,
+          "lvs_errors": 0,
+          "antenna_violating_nets": 0,
+          "route_drc_errors": 0
+        },
+        "power_default_activity_W": {
+          "value": 0.004076219163835049,
+          "label": "LibreLane default activity (not annotated)"
+        },
+        "power_annotated": {
+          "gate_level_sim": "PASS",
+          "results_checked": 10000,
+          "total_W": 0.00353492,
+          "internal_W": 0.002040011,
+          "switching_W": 0.001494895,
+          "leakage_W": 1.427571e-08,
+          "annotation": {
+            "vcd": 7492,
+            "unannotated": 0
+          },
+          "energy_per_op_pJ": 40.65158,
+          "period_ns": 11.5,
+          "mix": "50% ADD/SUB, 20% AND/OR/XOR, 20% SLL/SRL/SRA, 10% Zbb (uniform), back-to-back",
+          "note": "functional cell models (zero-delay logic, 1 ns flop clock-to-Q): glitch power not included",
+          "source": "results/flow/preserved_P1/HC/power.json"
+        }
+      }
     }
   },
   "abc_experiment": {
@@ -3949,5 +4165,72 @@
         "logic_depth": 20
       }
     ]
+  },
+  "verification": {
+    "result": "PASS",
+    "adder_configs_passing": 8,
+    "random_vectors_per_config_verilator": 1000000,
+    "configs_with_1M_vectors": 8,
+    "coverage_percent_min": 100.0,
+    "formal_tasks": 26,
+    "formal_passed": 26,
+    "model_pytest_passed": 162,
+    "spike_xcheck_vectors": 8572,
+    "lint_configs": 24,
+    "source": "results/verify_summary.json"
+  },
+  "signoff": {
+    "HC_preserved": {
+      "status": "PASS",
+      "arch": "HC",
+      "variant": "preserved",
+      "period_ns": 15.75,
+      "checks": {
+        "magic_drc_errors": 0,
+        "klayout_drc_errors": 0,
+        "klayout_xor_differences": 0,
+        "lvs_errors": 0,
+        "antenna_violating_nets": 0,
+        "antenna_violating_pins": 0,
+        "route_drc_errors": 0
+      },
+      "lvs_final_result_match": true,
+      "ir_drop_by_activity": {
+        "vcd_activity": {
+          "VPWR": {
+            "total_power_W": 0.00226,
+            "worst_voltage_V": 1.8,
+            "avg_drop_V": 0.000116,
+            "worst_drop_V": 0.000491,
+            "percent_drop": 0.03
+          },
+          "VGND": {
+            "total_power_W": 0.00226,
+            "worst_voltage_V": 0.000463,
+            "avg_drop_V": 0.000116,
+            "worst_drop_V": 0.000463,
+            "percent_drop": 0.03
+          }
+        },
+        "default_activity": {
+          "VPWR": {
+            "total_power_W": 0.00213,
+            "worst_voltage_V": 1.8,
+            "avg_drop_V": 0.000105,
+            "worst_drop_V": 0.000654,
+            "percent_drop": 0.04
+          },
+          "VGND": {
+            "total_power_W": 0.00213,
+            "worst_voltage_V": 0.000538,
+            "avg_drop_V": 0.000104,
+            "worst_drop_V": 0.000538,
+            "percent_drop": 0.03
+          }
+        }
+      },
+      "render_png": "results/signoff/HC_preserved/render_2400px.png",
+      "source": "results/signoff/HC_preserved/signoff.json"
+    }
   }
 }

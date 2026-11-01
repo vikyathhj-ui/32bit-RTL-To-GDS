@@ -21,7 +21,8 @@ sys.path.insert(0, str(REPO / "scripts"))
 import gls_power  # noqa: E402
 
 SWEEPS = {"default": REPO / "results" / "flow" / "sweep",
-          "preserved": REPO / "results" / "flow" / "sweep_preserved"}
+          "preserved": REPO / "results" / "flow" / "sweep_preserved",
+          "preserved_P1": REPO / "results" / "flow" / "sweep_preserved_P1"}  # STA fix, D-032
 
 
 def main(argv=None) -> int:

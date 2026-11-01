@@ -89,7 +89,8 @@ nothing.
 - **BK:** about half the cells and short wires, but 2·log₂W−1 = 9 levels.
 - **Sklansky:** minimum depth with few cells, but fan-out up to 16.
 - **Han–Carlson:** KS on odd bits plus one extra level. It sits in between.
-- Which one is fastest after routing is an empirical question; Phase 4 measures it.
+- Which one is fastest after routing is an empirical question. Measured (preserved flow): HC 15.75 ns,
+  BK 16.0, KS 17.25 ns; see Q32–Q34.
 
 **Q14. What is a gray cell vs a black cell?**
 - A black cell outputs G and P. A gray cell outputs only G.
@@ -277,3 +278,37 @@ event order.
   of the period fixed it: RCA at 22 ns went from −2.08 to −0.76 ns (D-029).
 - My resume logic looked in the wrong directory and silently re-ran finished runs. It cost time but no
   results, because the flow is deterministic (identical slack on repeats). Fixed (D-030).
+
+### Signoff, STA and the final design (Phase 5)
+
+**Q41. Which configuration did you sign off, and what does "signoff-clean" mean here?**
+- HC, structure-preserved flow, PIPE=0, 15.75 ns (64.32 MHz at `max_ss`).
+- Magic DRC 0 and KLayout DRC 0 (two independent rule decks); KLayout XOR 0, so the Magic and KLayout
+  GDS agree; Netgen LVS "Circuits match uniquely" (layout = netlist); 0 antenna violations; 0 routing
+  DRC errors.
+
+**Q42. How did you measure IR drop, and is 0.49 mV believable?**
+- OpenROAD `analyze_power_grid` with power from the gate-level workload VCD (0 unannotated pins).
+  Worst VPWR drop 0.491 mV, about 0.03% of 1.8 V, at 2.26 mW.
+- LibreLane's built-in step uses default activity and reported 0.654 mV at 2.13 mW. More total power
+  can still give a lower worst drop if it is spread differently.
+- Yes, it is believable: a 0.04 mm² block drawing about 2 mW, with a full power grid. It says nothing
+  about a full chip.
+
+**Q43. What is the critical path of your signed-off design?**
+- Not the adder. At `max_ss` it runs from `b0[4]` (the shift-by-16 bit) through fanout buffers and the
+  shifter muxes into the result mux, then a four-level OR tree computing Z, ending at the Z-flag flop.
+  At `tt` it goes through the HC adder instead, but ends in the same Z logic.
+- So the zero flag, computed after the result mux, is on every unit's path. That is why the fast
+  prefix adders all cluster at 15.75–16.5 ns.
+
+**Q44. What fix did you try, and what did it cost?**
+- PIPE=1: register the unit results before the result mux and flags. 15.75 → 11.5 ns (64.32 → 87.57
+  MHz), and the critical path became the adder.
+- The cost: cell area 18,735.5 → 20,666.1 µm², energy 35.56 → 40.65 pJ/op, latency 2 → 3 cycles. One
+  isolated operation takes 34.5 ns instead of 31.5 ns, but throughput is 36% higher.
+
+**Q45. What else did STA show that you would fix next?**
+- 182 of the 237 fanout buffers the resizer inserted are `clkdlybuf4s*` *delay* cells. On the critical
+  path they cost 5.68 of 14.92 ns. LibreLane's sky130 config excludes them from synthesis but not
+  from PnR. Next experiment: exclude them in PnR (`EXTRA_EXCLUDED_CELLS`) and re-sweep.

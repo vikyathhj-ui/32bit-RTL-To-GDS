@@ -50,6 +50,9 @@ jobs:
       - name: Opcode / adder-code consistency
         run: make PY=python opcodes-check
 
+      - name: README table matches results/summary.json
+        run: make PY=python readme-check
+
       - name: Lint (verilator -Wall, all configurations)
         run: make PY=python lint
 

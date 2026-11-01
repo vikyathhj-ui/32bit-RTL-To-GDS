@@ -1,0 +1,49 @@
+{
+  "step_ns": 0.25,
+  "criterion": "setup WS >= 0 at max_ss_100C_1v60 and hold WS >= 0 at all corners",
+  "results": {
+    "HC": {
+      "pipe": 1,
+      "variant": "preserved",
+      "seed_ns": 12.0,
+      "step_ns": 0.25,
+      "min_period_ns": 11.5,
+      "failing_neighbour_ns": 11.25,
+      "status": "DONE",
+      "nonmonotonic_points_ns": [],
+      "runs_used": 4,
+      "minutes": 28.9,
+      "runs": [
+        {
+          "period_ns": 11.25,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.029926284519749147,
+          "hold_ws_min": 0.11100098931976522,
+          "run_dir": "runs/HC_P1_T11.25_preserved/runs/HC_P1_T11.25_preserved"
+        },
+        {
+          "period_ns": 11.5,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.08107026390779198,
+          "hold_ws_min": 0.1110134238179927,
+          "run_dir": "runs/HC_P1_T11.50_preserved/runs/HC_P1_T11.50_preserved"
+        },
+        {
+          "period_ns": 11.75,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.030722092406307442,
+          "hold_ws_min": 0.11063733575776442,
+          "run_dir": "runs/HC_P1_T11.75_preserved/runs/HC_P1_T11.75_preserved"
+        },
+        {
+          "period_ns": 12.0,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.1516218304935863,
+          "hold_ws_min": 0.10965240137361237,
+          "run_dir": "runs/HC_P1_T12.00_preserved/runs/HC_P1_T12.00_preserved"
+        }
+      ]
+    }
+  },
+  "variant": "preserved"
+}

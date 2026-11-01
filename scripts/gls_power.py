@@ -41,7 +41,7 @@ LIB_DIR = Path(os.environ.get("PDK_ROOT", "/foss/pdks")) / "sky130A" / "libs.ref
 CORNER_LIB = LIB_DIR / "lib" / "sky130_fd_sc_hd__tt_025C_1v80.lib"
 
 
-def simulate(run: Path, period: float, ops: int, seed: int, work: Path) -> dict:
+def simulate(run: Path, period: float, pipe: int, ops: int, seed: int, work: Path) -> dict:
     # The cocotb Icarus runner makes vvp write FST when waves are enabled (and
     # suppresses dumping entirely otherwise), so dump FST and convert to VCD.
     fst = work / "workload.fst"
@@ -60,7 +60,7 @@ def simulate(run: Path, period: float, ops: int, seed: int, work: Path) -> dict:
     results_xml = work / "results.xml"
     runner.test(test_module="workload_tb", hdl_toplevel="alu_top", build_dir=work, test_dir=work,
                 extra_env={"ALU_OPS": str(ops), "ALU_SEED": str(seed), "ALU_CLK_NS": f"{period}",
-                           "ALU_PIPE": "0"},
+                           "ALU_PIPE": str(pipe)},
                 results_xml=results_xml, log_file=work / "sim.log", timescale=("1ns", "1ps"),
                 waves=True)  # without this the runner passes vvp -none, which suppresses $dumpvars
     failed = any(tc.find("failure") is not None or tc.find("error") is not None
@@ -119,11 +119,13 @@ def main(argv=None) -> dict:
     run = (REPO / a.run).resolve() if not a.run.is_absolute() else a.run
     cfg = json.loads((run / "resolved.json").read_text())
     period = float(cfg["CLOCK_PERIOD"])
+    # The bench checks latency L = 2 + PIPE, so it must match the netlist's PIPE parameter.
+    pipe = int(next(p.split("=")[1] for p in cfg["SYNTH_PARAMETERS"] if p.startswith("PIPE=")))
     work = REPO / "sim_build" / "gls" / run.name
     work.mkdir(parents=True, exist_ok=True)
 
-    sim = simulate(run, period, a.ops, a.seed, work)
-    rec = {"run": str(run.relative_to(REPO)), "period_ns": period, "ops": a.ops, "seed": a.seed,
+    sim = simulate(run, period, pipe, a.ops, a.seed, work)
+    rec = {"run": str(run.relative_to(REPO)), "period_ns": period, "pipe": pipe, "ops": a.ops, "seed": a.seed,
            "mix": "50% ADD/SUB, 20% AND/OR/XOR, 20% SLL/SRL/SRA, 10% Zbb (uniform), back-to-back",
            "gate_level_sim": sim,
            "note": "functional cell models (zero-delay logic, 1 ns flop clock-to-Q): glitch power not included"}

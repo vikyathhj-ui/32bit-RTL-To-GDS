@@ -1,0 +1,38 @@
+Annotated 7412 pin activities.
+vcd          7412
+unannotated     0
+Group                    Internal    Switching      Leakage        Total
+                            Power        Power        Power        Power (Watts)
+------------------------------------------------------------------------
+Sequential           4.025728e-04 8.151881e-05 1.138989e-09 4.840928e-04  21.4%
+Combinational        5.610901e-04 8.829944e-04 6.086672e-09 1.444091e-03  64.0%
+Clock                2.000250e-04 1.293384e-04 5.174859e-09 3.293686e-04  14.6%
+Macro                0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+Pad                  0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+------------------------------------------------------------------------
+Total                1.163688e-03 1.093851e-03 1.240055e-08 2.257551e-03 100.0%
+                            51.5%        48.5%         0.0%
+[INFO PSM-0040] All shapes on net VPWR are connected.
+########## IR report #################
+Net              : VPWR
+Corner           : default
+Total power      : 2.26e-03 W
+Supply voltage   : 1.80e+00 V
+Worstcase voltage: 1.80e+00 V
+Average voltage  : 1.80e+00 V
+Average IR drop  : 1.16e-04 V
+Worstcase IR drop: 4.91e-04 V
+Percentage drop  : 0.03 %
+######################################
+[INFO PSM-0040] All shapes on net VGND are connected.
+########## IR report #################
+Net              : VGND
+Corner           : default
+Total power      : 2.26e-03 W
+Supply voltage   : 0.00e+00 V
+Worstcase voltage: 4.63e-04 V
+Average voltage  : 1.16e-04 V
+Average IR drop  : 1.16e-04 V
+Worstcase IR drop: 4.63e-04 V
+Percentage drop  : 0.03 %
+######################################

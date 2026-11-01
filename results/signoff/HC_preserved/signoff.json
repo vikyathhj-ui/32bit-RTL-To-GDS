@@ -1,0 +1,79 @@
+{
+  "status": "PASS",
+  "arch": "HC",
+  "variant": "preserved",
+  "period_ns": 15.75,
+  "run": "runs/HC_P0_T15.75_preserved/runs/HC_P0_T15.75_preserved",
+  "checks": {
+    "magic_drc_errors": 0,
+    "klayout_drc_errors": 0,
+    "klayout_xor_differences": 0,
+    "lvs_errors": 0,
+    "antenna_violating_nets": 0,
+    "antenna_violating_pins": 0,
+    "route_drc_errors": 0
+  },
+  "lvs_final_result_match": true,
+  "checks_source": "runs/HC_P0_T15.75_preserved/runs/HC_P0_T15.75_preserved/final/metrics.json",
+  "ir_drop": {
+    "vcd_activity": {
+      "label": "activity from the gate-level workload VCD (D-025), tt_025C_1v80, nominal SPEF",
+      "annotation": {
+        "vcd": 7412,
+        "unannotated": 0
+      },
+      "nets": {
+        "VPWR": {
+          "total_power_W": 0.00226,
+          "worst_voltage_V": 1.8,
+          "avg_drop_V": 0.000116,
+          "worst_drop_V": 0.000491,
+          "percent_drop": 0.03
+        },
+        "VGND": {
+          "total_power_W": 0.00226,
+          "worst_voltage_V": 0.000463,
+          "avg_drop_V": 0.000116,
+          "worst_drop_V": 0.000463,
+          "percent_drop": 0.03
+        }
+      },
+      "exit": 0,
+      "report": "results/signoff/HC_preserved/irdrop_vcd.rpt"
+    },
+    "default_activity": {
+      "label": "LibreLane OpenROAD.IRDropReport, default activity (not annotated)",
+      "nets": {
+        "VPWR": {
+          "total_power_W": 0.00213,
+          "worst_voltage_V": 1.8,
+          "avg_drop_V": 0.000105,
+          "worst_drop_V": 0.000654,
+          "percent_drop": 0.04
+        },
+        "VGND": {
+          "total_power_W": 0.00213,
+          "worst_voltage_V": 0.000538,
+          "avg_drop_V": 0.000104,
+          "worst_drop_V": 0.000538,
+          "percent_drop": 0.03
+        }
+      },
+      "report": "results/signoff/HC_preserved/irdrop_default_activity.rpt"
+    }
+  },
+  "render": {
+    "png": "results/signoff/HC_preserved/render_2400px.png",
+    "exit": 0,
+    "librelane_png": "results/signoff/HC_preserved/render_librelane_1000px.png"
+  },
+  "reports": {
+    "drc.magic.rpt": "results/signoff/HC_preserved/drc.magic.rpt",
+    "drc.klayout.lyrdb": "results/signoff/HC_preserved/drc.klayout.lyrdb",
+    "lvs.netgen.rpt": "results/signoff/HC_preserved/lvs.netgen.rpt",
+    "antenna_summary.rpt": "results/signoff/HC_preserved/antenna_summary.rpt",
+    "xor.xml": "results/signoff/HC_preserved/xor.xml",
+    "irdrop_default_activity.rpt": "results/signoff/HC_preserved/irdrop_default_activity.rpt",
+    "render_librelane_1000px.png": "results/signoff/HC_preserved/render_librelane_1000px.png"
+  }
+}

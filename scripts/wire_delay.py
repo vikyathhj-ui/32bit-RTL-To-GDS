@@ -31,7 +31,8 @@ from adders import ADDERS  # noqa: E402
 CORNER = "nom_ss_100C_1v60"
 LIB = (Path(os.environ.get("PDK_ROOT", "/foss/pdks")) / "sky130A" / "libs.ref" / "sky130_fd_sc_hd" / "lib"
        / "sky130_fd_sc_hd__ss_100C_1v60.lib")
-SWEEPS = {"default": REPO / "results" / "flow" / "sweep", "preserved": REPO / "results" / "flow" / "sweep_preserved"}
+SWEEPS = {"default": REPO / "results" / "flow" / "sweep", "preserved": REPO / "results" / "flow" / "sweep_preserved",
+          "preserved_P1": REPO / "results" / "flow" / "sweep_preserved_P1"}  # STA fix, D-032
 
 
 def worst_slack(run: Path, work: Path, name: str, spef: bool) -> float | None:

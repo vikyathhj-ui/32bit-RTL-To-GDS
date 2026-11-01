@@ -280,5 +280,41 @@ depth. Phase 4 measures it.
 - Running the same LibreLane configuration twice gave identical slack to every printed digit (D-030).
   One run per period is enough; a different result would mean a different input.
 
-## Phase 5+
-(to be added)
+## Phase 5 — Signoff, STA and reports
+
+### What signoff checks, and why two DRC tools
+- **DRC:** geometry rules (widths, spacings, enclosures). Magic and KLayout use independent rule decks,
+  so a bug in one deck is unlikely to hide the same error in the other. Both reported 0.
+- **XOR:** the GDS written by Magic and by KLayout must be identical (0 differences).
+- **LVS:** the circuit extracted from the layout must match the netlist. "Circuits match uniquely"
+  means every device and net has exactly one partner.
+- **Antenna:** long metal connected only to a gate can collect charge during manufacturing and damage
+  the gate oxide. Diodes or layer jumps fix it; the flow added 9 diodes.
+- **IR drop:** the voltage lost in the power grid. It needs a power *map*, so its accuracy depends on
+  the activity used.
+
+### Reading an STA path
+- Each line is a pin: the cell's output delay, then the wire to the next input. The wire's
+  resistance shows up as a tiny pin-to-pin delay; its *capacitance* shows up in the driving cell's
+  delay. That is why "wire delay" from a path listing (under 0.05 ns here) differs from the wire cost
+  measured by removing the parasitics (D-024).
+- Names like `_0000_` are synthesis-generated. Follow the `(net)` lines to see what the path does:
+  here it ended at the Z flag.
+
+### The critical path is not always where the design's "interesting" block is
+- I expected the adder to limit the clock. At the slow corner the worst path was the shifter, the
+  result mux and the zero flag. Z = NOR of all 32 result bits, computed after the mux, so it
+  lengthens every path.
+- Pipelining in front of the mux (PIPE=1) cut the period from 15.75 to 11.5 ns and made the adder
+  critical. Latency went up by a cycle: throughput and latency are different metrics.
+
+### Tools make choices you did not ask for
+- The resizer used slow *delay* cells (`clkdlybuf4s*`) as fanout buffers: 5.68 ns of a 14.92 ns path.
+  The library configuration excluded them from synthesis only.
+- Lesson: read the cell types on the critical path, not only the slack.
+
+### Making every number traceable
+- Every table in the docs and the README is printed by a script from `results/summary.json`, and CI
+  fails if the README table is stale. Re-running `make all` reproduces the numbers instead of
+  copying them.
+
