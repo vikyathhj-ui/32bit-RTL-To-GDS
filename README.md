@@ -1,4 +1,4 @@
-# rv32-alu-ppa-explorer
+# prefix-adder-alu-sky130
 
 A 32-bit RV32I + Zbb ALU with a swappable adder, taken from specification to signed-off layout on
 SkyWater SKY130 with open-source tools. It asks one question: **which adder should this ALU use at a
@@ -84,11 +84,11 @@ flowchart LR
 
 All tools are in the [IIC-OSIC-TOOLS](https://github.com/iic-jku/IIC-OSIC-TOOLS) Docker image
 (LibreLane, OpenROAD, Yosys + slang, Verilator, Icarus, SymbiYosys, Magic, KLayout, Netgen). With the
-image running as container `iic-osic`, with this repository mounted at `/foss/projects/32bit-RTL-To-GDS`
+image running as container `iic-osic`, with this repository cloned under `~/projects/` and mounted at `/foss/projects/prefix-adder-alu-sky130`
 and a Python venv in `.venv` (see `CLAUDE.md`):
 
 ```bash
-docker exec -w /foss/projects/32bit-RTL-To-GDS iic-osic bash -lc 'make all'
+docker exec -w /foss/projects/prefix-adder-alu-sky130 iic-osic bash -lc 'make all'
 ```
 
 `make all` runs lint → model tests → simulation → formal → three LibreLane sweeps → ABC experiment

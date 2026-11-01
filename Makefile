@@ -1,7 +1,7 @@
-# rv32-alu-ppa-explorer: top-level entry points (docs/BRIEF.md, A5 "make all").
+# prefix-adder-alu-sky130: top-level entry points (docs/BRIEF.md, A5 "make all").
 #
 # Run inside the iic-osic container (all tools live there), from the host:
-#   docker exec -w /foss/projects/32bit-RTL-To-GDS iic-osic bash -lc 'make <target>'
+#   docker exec -w /foss/projects/<clone folder> iic-osic bash -lc 'make <target>'
 
 SHELL := /bin/bash
 .SHELLFLAGS := -o pipefail -c
