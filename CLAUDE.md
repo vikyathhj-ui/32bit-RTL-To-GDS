@@ -1,4 +1,7 @@
-# rv32-alu-ppa-explorer (repo: vikyathhj-ui/32bit-RTL-To-GDS)
+# prefix-adder-alu-sky130 (repo: vikyathhj-ui/prefix-adder-alu-sky130; renamed from 32bit-RTL-To-GDS on 2026-11-01)
+
+The local clone stays at `~/projects/32bit-RTL-To-GDS`: LibreLane runs in `runs/` store absolute paths,
+so the folder is not renamed.
 
 **The binding spec is docs/BRIEF.md.** Part A is the design spec; Part B holds the working rules and
 phases. Status lives in `PROGRESS.md`. To resume: "Read CLAUDE.md and PROGRESS.md and continue".

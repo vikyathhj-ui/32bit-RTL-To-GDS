@@ -3,9 +3,8 @@
 Single source of truth for status. Update this before every commit.
 Spec: `docs/BRIEF.md`. Branch: `rework/alu-ppa`.
 
-**Current state (2026-11-01): Phase 5 COMPLETE — final PR open, waiting for the owner to merge.** Phases 0–4
-merged (PR #1–#4). After the merge: ask the owner about renaming the repo to `rv32-alu-ppa-explorer`
-and archiving `STA`.
+**Current state (2026-11-01): ALL PHASES COMPLETE.** PR #1–#5 merged. The repo was renamed to
+`prefix-adder-alu-sky130` (owner's choice) and `STA` was archived with a pointer to `docs/STA_REPORT.md`.
 
 ## Phase 0 — Setup and audit
 - [x] Environment check script (`scripts/env_check.sh` → `results/env_check.txt`). All tools found after
@@ -100,8 +99,8 @@ and archiving `STA`.
       2026-11-01: rc 0 in 2106 s, 0 new LibreLane runs, `results/summary.json` byte-identical; other
       result files differed only in run times.
 - [x] Final PR opened.
-- [ ] Ask the user about renaming the repo to `rv32-alu-ppa-explorer` and archiving `STA` (after the
-      merge).
+- [x] Asked after the merge: the repo was renamed to `prefix-adder-alu-sky130`; `STA` got a README
+      pointer and was archived.
 - [ ] Owner: run `make all` yourself, so the README's "reproduced by Vikyath J" line is true.
 
 ## Open issues
