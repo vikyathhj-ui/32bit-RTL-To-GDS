@@ -188,6 +188,20 @@ def main() -> int:
             {k: r.get(k) for k in ("arch", "variant", "cells", "area_um2", "r2r_path_delay_ns")}
             | {"logic_depth": r["critical_path"]["logic_depth"]}
             for r in json.loads(abc.read_text())["results"]]}
+    # Verification roll-up (Phase 3), copied so summary.json is the one source for README and resume.
+    vs = REPO / "results" / "verify_summary.json"
+    if vs.exists():
+        v = json.loads(vs.read_text())
+        ck = v["checks"]
+        vl = [s for s in ck["simulation"] if s["config"].startswith("verilator") and s["config"].endswith("PIPE0")]
+        summary["verification"] = {
+            "result": v["result"], "adder_configs_passing": sum(x == "PASS" for x in v["gate"]["adder_configs_sim"].values()),
+            "random_vectors_per_config_verilator": min(s["random_vectors"] for s in vl),
+            "configs_with_1M_vectors": len(vl),
+            "coverage_percent_min": min(s["coverage_percent"] for s in ck["simulation"]),
+            "formal_tasks": ck["formal"]["tasks"], "formal_passed": ck["formal"]["passed"],
+            "model_pytest_passed": ck["model"]["pytest_passed"], "spike_xcheck_vectors": ck["model"]["spike_vectors"],
+            "lint_configs": ck["lint"]["configs"], "source": rel(vs)}
     # Signoff of the recommended configuration (scripts/signoff.py, D-031).
     for so in sorted((REPO / "results" / "signoff").glob("*/signoff.json")):
         s = json.loads(so.read_text())

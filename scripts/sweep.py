@@ -45,8 +45,10 @@ def q_up(t: float) -> float:
     return math.ceil(round(t / STEP, 6)) * STEP
 
 
-def outdir(variant: str) -> Path:
-    return OUTDIR if variant == "default" else OUTDIR.parent / f"sweep_{variant}"
+def outdir(variant: str, pipe: int = 0) -> Path:
+    """results/flow/sweep[_<variant>][_P1]/: PIPE=1 sweeps never overwrite the PIPE=0 results."""
+    name = OUTDIR.name + ("" if variant == "default" else f"_{variant}") + ("" if pipe == 0 else f"_P{pipe}")
+    return OUTDIR.parent / name
 
 
 def search(arch: str, seed: float, pipe: int, variant: str = "default") -> dict:
@@ -64,7 +66,7 @@ def search(arch: str, seed: float, pipe: int, variant: str = "default") -> dict:
         return hist[t]
 
     def save(result=None):
-        od = outdir(variant)
+        od = outdir(variant, pipe)
         od.mkdir(parents=True, exist_ok=True)
         data = {"arch": arch, "pipe": pipe, "variant": variant, "seed_ns": seed, "step_ns": STEP,
                 "runs": [hist[t] for t in sorted(hist)]}
@@ -140,14 +142,15 @@ def main(argv=None) -> int:
         results = list(ex.map(search, archs, [a.seed] * n, [a.pipe] * n, [a.variant] * n))
     # Merge every per-architecture file (not only this invocation's) into one log.
     merged = {}
-    for f in sorted(outdir(a.variant).glob("*.json")):
+    for f in sorted(outdir(a.variant, a.pipe).glob("*.json")):
         d = json.loads(f.read_text())
         merged[d["arch"]] = {k: v for k, v in d.items() if k not in ("arch", "runs")} | {
             "runs": [{k: r.get(k) for k in ("period_ns", "status", "setup_ws_slowest", "hold_ws_min",
                                              "run_dir")} for r in d["runs"]]}
     log = {"step_ns": STEP, "criterion": "setup WS >= 0 at max_ss_100C_1v60 and hold WS >= 0 at all corners",
            "results": merged}
-    log_name = "sweep_log.json" if a.variant == "default" else f"sweep_log_{a.variant}.json"
+    log_name = "sweep_log" + ("" if a.variant == "default" else f"_{a.variant}") + \
+        ("" if a.pipe == 0 else f"_P{a.pipe}") + ".json"
     log["variant"] = a.variant
     (REPO / "results" / "flow" / log_name).write_text(json.dumps(log, indent=2) + "\n")
     for r in results:

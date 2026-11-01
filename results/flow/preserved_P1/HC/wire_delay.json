@@ -1,0 +1,17 @@
+{
+  "run": "runs/HC_P1_T11.50_preserved/runs/HC_P1_T11.50_preserved",
+  "period_ns": 11.5,
+  "corner": "nom_ss_100C_1v60",
+  "ws_routed_ns": 0.352336,
+  "ws_ideal_wires_ns": 2.332696,
+  "flow_ws_ns": 0.3523359481676823,
+  "note": "same final netlist; routed = with nominal SPEF, ideal = no SPEF; delay = T - WS",
+  "reports": [
+    "sim_build/wire/HC_P1_T11.50_preserved/routed.rpt",
+    "sim_build/wire/HC_P1_T11.50_preserved/ideal.rpt"
+  ],
+  "delay_routed_ns": 11.1477,
+  "delay_ideal_wires_ns": 9.1673,
+  "wire_delay_ns": 1.9804,
+  "wire_delay_percent_of_routed": 17.8
+}

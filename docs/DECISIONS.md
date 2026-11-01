@@ -681,6 +681,39 @@ Format for each entry: **context → options → choice → evidence**. Newest a
 - **Caveat:** an IR drop this small is expected for a 0.04 mm² block with a full power grid. It says
   nothing about a whole chip.
 
+## D-032 — STA fix attempted: PIPE=1 on the recommended configuration
+- **Choice** (owner, 2026-11-01): the one fix for `docs/STA_REPORT.md` is pipelining, `PIPE=1`
+  (D-013), on HC with the structure-preserved flow. The RTL was already verified with PIPE=1 in Phase 3
+  (formal latency proof, 100k simulation vectors).
+- **Why it should help:** at `max_ss` the PIPE=0 critical path is operand register `b0[4]` (shift
+  amount) → fanout buffers → shifter muxes → result mux (`y_next[6]`) → 32-input zero detect → Z flag.
+  PIPE=1 registers the unit results before the result mux and the flag logic.
+- **Method:** the same sweep (`scripts/sweep.py --variant preserved --pipe 1 --adder HC`, results in
+  `results/flow/sweep_preserved_P1/`), gate-level power at latency 3, and the same STA extraction.
+  - `sweep.py` now writes PIPE=1 sweeps to their own folder (the first version would have overwritten
+    `sweep_preserved/HC.json`). `gls_power.py` reads PIPE from the run's config, because the bench
+    checks the exact latency.
+- **Result** (`results/summary.json` → `variants.preserved_P1.HC`, `results/sta/HC_preserved_P1.json`):
+  - Minimum period **11.5 ns** (11.25 fails), against 15.75 ns: fmax at `max_ss` **87.57 MHz** against
+    64.32 MHz; at `nom_tt` 165.81 against 122.94 MHz.
+  - The new critical path is the **adder**: `op0[1]` → opcode decode → `~b` select → Han–Carlson
+    prefix → compare select → `r_add[26]`, 17 logic cells. Delay cells on it: 0.72 ns, against 5.68 ns
+    before.
+  - Cost: 2703 cells against 2567, cell area 20,666.1 against 18,735.5 µm², die 45,835.8 against
+    40,009.3 µm². Power 3.53 against 2.26 mW; energy/op 40.65 against 35.56 pJ (more flops switch every
+    cycle).
+  - Latency: 3 cycles × 11.5 ns = 34.5 ns against 2 × 15.75 = 31.5 ns. Throughput rises with the clock,
+    but one isolated operation takes slightly longer.
+  - Gate-level workload simulation PASS at latency 3 (10,000 results, 0 errors, 0 unannotated nets).
+    Flow DRC/LVS/antenna counts 0. Worst hold slack 0.111 ns.
+- **Decision:** PIPE=0 stays the signed-off configuration (D-031). The PPA report recommends PIPE=1
+  for targets above 64.32 MHz, if the extra cycle of latency is acceptable to the pipeline using the
+  ALU.
+- **Second candidate, not attempted:** 182 of the 237 fanout buffers in the PIPE=0 netlist are
+  `clkdlybuf4s*` delay cells. LibreLane excludes them from synthesis but not from PnR repair. On the
+  PIPE=0 critical path they cost 5.68 ns of the 14.92 ns data path. Excluding them in PnR
+  (`EXTRA_EXCLUDED_CELLS`) is the next experiment, recorded in STA_REPORT.
+
 ---
 
 ## Bugs found by verification
