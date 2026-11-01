@@ -1,3 +1,4 @@
 * text=auto eol=lf
 *.png binary
 *.gds binary
+  *.py linguist-detectable=false
