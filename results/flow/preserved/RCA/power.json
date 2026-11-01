@@ -1,0 +1,30 @@
+{
+  "run": "runs/RCA_P0_T33.50_preserved/runs/RCA_P0_T33.50_preserved",
+  "period_ns": 33.5,
+  "ops": 10000,
+  "seed": 20261030,
+  "mix": "50% ADD/SUB, 20% AND/OR/XOR, 20% SLL/SRL/SRA, 10% Zbb (uniform), back-to-back",
+  "gate_level_sim": {
+    "status": "PASS",
+    "results_checked": 10000,
+    "errors": 0,
+    "group_counts": "{'ADD...': 4990, 'AND...': 1999, 'SLL...': 2012, 'MIN...': 999}",
+    "vcd": "sim_build/gls/RCA_P0_T33.50_preserved/workload.vcd",
+    "log": "sim_build/gls/RCA_P0_T33.50_preserved/sim.log"
+  },
+  "note": "functional cell models (zero-delay logic, 1 ns flop clock-to-Q): glitch power not included",
+  "power": {
+    "internal_W": 0.0004954016,
+    "switching_W": 0.0004179898,
+    "leakage_W": 1.010279e-08,
+    "total_W": 0.0009134015,
+    "annotation": {
+      "vcd": 5842,
+      "unannotated": 0
+    },
+    "report": "sim_build/gls/RCA_P0_T33.50_preserved/power.rpt",
+    "corner": "tt_025C_1v80, nominal SPEF",
+    "exit": 0
+  },
+  "energy_per_op_pJ": 30.59895025
+}

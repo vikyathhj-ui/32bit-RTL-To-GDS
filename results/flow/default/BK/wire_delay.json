@@ -1,0 +1,17 @@
+{
+  "run": "runs/BK_P0_T20.50/runs/BK_P0_T20.50",
+  "period_ns": 20.5,
+  "corner": "nom_ss_100C_1v60",
+  "ws_routed_ns": 0.523233,
+  "ws_ideal_wires_ns": 2.955103,
+  "flow_ws_ns": 0.523233027270742,
+  "note": "same final netlist; routed = with nominal SPEF, ideal = no SPEF; delay = T - WS",
+  "reports": [
+    "sim_build/wire/BK_P0_T20.50/routed.rpt",
+    "sim_build/wire/BK_P0_T20.50/ideal.rpt"
+  ],
+  "delay_routed_ns": 19.9768,
+  "delay_ideal_wires_ns": 17.5449,
+  "wire_delay_ns": 2.4319,
+  "wire_delay_percent_of_routed": 12.2
+}

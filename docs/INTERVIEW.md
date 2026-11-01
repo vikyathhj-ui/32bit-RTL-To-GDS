@@ -206,3 +206,74 @@ event order.
   exception.
 - Coverage confirms illegal opcodes were exercised (about 3% of random ops, plus directed codes 27–31).
 - Formal proves the behaviour for all of them.
+
+### Physical design (Phase 4)
+
+**Q31. How did you find each architecture's maximum frequency?**
+- A LibreLane run per (architecture, clock period) on sky130A, searched at 0.25 ns steps. A period
+  "closes" when setup slack ≥ 0 at the slowest corner (`max_ss_100C_1v60`, slow-slow, 100 °C, 1.60 V,
+  max wire RC) and hold slack ≥ 0 at all 9 corners (D-023).
+- The minimum must also have its +0.25 ns neighbour closing, because PnR is not monotonic.
+- fmax at a corner = 1 / (T − WS). Preserved HC: 15.75 ns → 64.32 MHz at `max_ss`, 122.94 MHz at
+  `nom_tt`, 163.9 MHz at `min_ff`. The same silicon spans 2.5× in speed across corners.
+
+**Q32. Which adder is fastest after layout, and is it the one with the shallowest tree?**
+- No. In the structure-preserved flow: HC 15.75 ns, CLA4 and BK 16.0, SK 16.5, KS 17.25, CSLA 18.75,
+  RCA 33.5 ns.
+- KS has the shallowest prefix tree (6 levels on the synthesised path, D-026), but it is the largest
+  (2635 cells), has the longest routing (80,258 µm), and its wires cost 2.55 ns of its critical path
+  against 1.86 ns for HC. Han–Carlson halves KS's wiring, at one extra level, and that wins here.
+
+**Q33. KS vs BK: fan-out and wiring, with your numbers.**
+- KS: minimum depth (log₂ n) and fan-out 2, but about n·log₂ n prefix cells and long wires at every
+  level. BK: about 2·log₂ n depth and about 2n cells, with short wires.
+- Preserved, after layout: KS 2635 cells, 80,258 µm wire, 17.25 ns; BK 2463 cells, 70,496 µm, 16.0 ns.
+  BK's extra levels cost less than KS's wires at this size in sky130.
+
+**Q34. Why does post-route change the ranking?**
+- Before layout only cell delays are seen; KS looks best (depth 6, 1.739 ns on the adder alone).
+- After layout, wire RC is real: wires added 1.7–2.9 ns (7.6–15.8%) to the critical paths, most for CLA4
+  and KS, least for RCA. Architectures with long spans pay the most.
+
+**Q35. Did your post-route timing degrade compared with post-synthesis?**
+- Measured as specified, no: post-route was 5.8–37.6% *faster* in all 16 runs. The synthesised netlist
+  is unsized; the resizer then upsizes and buffers the critical path (2423.6–3616.0 µm² of repair
+  buffers per run), and that gain outweighs the wires.
+- To see the wire cost alone, I timed the same final netlist with and without the extracted SPEF. That
+  is where the 7.6–15.8% comes from (D-024). Lesson: change one thing at a time.
+
+**Q36. Setup vs hold: which corner limits each, and why does hold matter at FF?**
+- Setup is limited at the slow corner (ss, 100 °C, 1.60 V): slow cells make data late.
+- Hold is limited at the fast corner (ff, −40 °C, 1.95 V): fast cells make new data arrive too soon after
+  the clock edge. The worst hold slack was at an `ff_n40C_1v95` corner in all 16 runs. At `max_ss` the
+  hold slack is 0.95–1.38 ns; at ff it falls to 0.107–0.252 ns.
+- Hold violations can't be fixed by slowing the clock, so a chip with one is broken at any frequency.
+
+**Q37. What did ABC do to your adders?**
+- With LibreLane's default area script on a flattened design, ABC rebuilt every prefix adder as a
+  16–22-deep chain: KS went from depth 6 / 1.739 ns to depth 17 / 4.505 ns (adder alone, tt corner).
+- CSLA came out identical to RCA (same 2842.7 µm² and 12.787 ns): its duplicated adders were merged.
+- So I ran two sweeps: the stock flow, and one with `keep_hierarchy` on the prefix cells (D-026, D-027).
+  In the stock flow all eight adders end within 17.25–23.0 ns.
+
+**Q38. Energy per operation vs power: which did you use and why?**
+- Power grows with clock frequency, so a faster design always looks "worse" in mW. Energy/op = P × T
+  is the cost of one operation, which is what a battery pays.
+- Preserved: HC 2.258 mW → 35.56 pJ/op at 15.75 ns; RCA 0.913 mW → 30.60 pJ/op at 33.5 ns. RCA uses
+  2.5× less power but only about 14% less energy per operation, at about half the speed.
+
+**Q39. How did you get realistic switching activity for power?**
+- I simulated each post-route netlist with the PDK cell models running the brief's workload (50%
+  ADD/SUB, 20% logic, 20% shifts, 10% Zbb), 10,000 operations at that design's own clock. The VCD went
+  into OpenSTA `read_vcd`.
+- All 16 netlists passed against the golden model (0 errors), and every net was annotated (0
+  unannotated). LibreLane's default-activity estimate was 1.07–1.17× the annotated value.
+- Limitation: zero-delay simulation has no glitches, so glitch power is missing, mostly for RCA.
+
+**Q40. What went wrong in the flow, and how did you notice?**
+- Routing added about 4 ns at `max_ss` and nothing repaired it: post-route repair is off by default in
+  LibreLane. I enabled it (D-028).
+- The resizer's parasitic estimates were optimistic, so runs still ended short. A setup margin of 12%
+  of the period fixed it: RCA at 22 ns went from −2.08 to −0.76 ns (D-029).
+- My resume logic looked in the wrong directory and silently re-ran finished runs. It cost time but no
+  results, because the flow is deterministic (identical slack on repeats). Fixed (D-030).

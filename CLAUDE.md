@@ -98,6 +98,16 @@ Verification (Phase 3):
   starts. Mutation checks use copies under `sim_build/`.
 - `results/verify_summary.json` is the roll-up; `scripts/verify_summary.py` only reads result files.
 
+Physical design (Phase 4), all inside the container from the repo root:
+- `make flow-sweep` / `make flow-sweep-preserved` (`scripts/sweep.py --variant default|preserved`): hours.
+  Finished runs in `runs/` are reused, so a sweep can be stopped (kill by PID) and restarted. Runs left
+  part-way are moved aside to a git-ignored `runs_v*/` folder, never deleted.
+- `make power` (`scripts/power_all.py`, gate-level sim + OpenSTA, ~3 min per design), `make wire-delay`,
+  `make abc-exp`, then `make summary` (`scripts/parse_flow.py` → `results/summary.json`).
+- `python3 scripts/phase4_tables.py` prints the Markdown tables for docs; paste its output, never
+  hand-type PPA numbers.
+- Flow settings: D-022 (util 40%), D-027 (variants), D-028 (post-GRT repair), D-029 (12% margin).
+
 RTL conventions (Phase 2, D-012):
 - SV subset accepted by Verilator, slang and Icarus. Yosys is always used through slang (`read_slang`;
   LibreLane `USE_SLANG`), because the built-in frontend rejects `parameter string` and in-module

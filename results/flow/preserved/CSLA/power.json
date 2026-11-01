@@ -1,0 +1,30 @@
+{
+  "run": "runs/CSLA_P0_T18.75_preserved/runs/CSLA_P0_T18.75_preserved",
+  "period_ns": 18.75,
+  "ops": 10000,
+  "seed": 20261030,
+  "mix": "50% ADD/SUB, 20% AND/OR/XOR, 20% SLL/SRL/SRA, 10% Zbb (uniform), back-to-back",
+  "gate_level_sim": {
+    "status": "PASS",
+    "results_checked": 10000,
+    "errors": 0,
+    "group_counts": "{'ADD...': 4990, 'AND...': 1999, 'SLL...': 2012, 'MIN...': 999}",
+    "vcd": "sim_build/gls/CSLA_P0_T18.75_preserved/workload.vcd",
+    "log": "sim_build/gls/CSLA_P0_T18.75_preserved/sim.log"
+  },
+  "note": "functional cell models (zero-delay logic, 1 ns flop clock-to-Q): glitch power not included",
+  "power": {
+    "internal_W": 0.0009802964,
+    "switching_W": 0.0008538502,
+    "leakage_W": 1.116196e-08,
+    "total_W": 0.001834158,
+    "annotation": {
+      "vcd": 6498,
+      "unannotated": 0
+    },
+    "report": "sim_build/gls/CSLA_P0_T18.75_preserved/power.rpt",
+    "corner": "tt_025C_1v80, nominal SPEF",
+    "exit": 0
+  },
+  "energy_per_op_pJ": 34.390462500000005
+}

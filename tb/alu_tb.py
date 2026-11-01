@@ -12,6 +12,8 @@ Environment (set by scripts/run_sim.py):
   ALU_PIPE      0 or 1 (must match the PIPE parameter the design was built with)
   ALU_VECTORS   random vectors for test_random (default 1_000_000)
   ALU_SEED      seed for test_random's stimulus generator (default 1)
+  ALU_CLK_NS    clock period in ns (default 10; the gate-level power runs use the
+                architecture's own closing period)
   ALU_COV_OUT   path for the coverage JSON (default: none written)
 """
 
@@ -58,7 +60,9 @@ class Bench:
         self.max_report = 20
 
     async def start(self):
-        cocotb.start_soon(Clock(self.dut.clk, 10, unit="ns").start())
+        # Period in ps so fractional ns periods (e.g. 20.25) are exact; default 10 ns.
+        period_ps = round(float(os.environ.get("ALU_CLK_NS", "10")) * 1000)
+        cocotb.start_soon(Clock(self.dut.clk, period_ps, unit="ps").start())
         self.dut.in_valid.value = 0
         self.dut.op.value = 0
         self.dut.a.value = 0

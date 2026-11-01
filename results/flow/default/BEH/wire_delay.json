@@ -1,0 +1,17 @@
+{
+  "run": "runs/BEH_P0_T19.75/runs/BEH_P0_T19.75",
+  "period_ns": 19.75,
+  "corner": "nom_ss_100C_1v60",
+  "ws_routed_ns": 0.354198,
+  "ws_ideal_wires_ns": 2.511548,
+  "flow_ws_ns": 0.3541966820095792,
+  "note": "same final netlist; routed = with nominal SPEF, ideal = no SPEF; delay = T - WS",
+  "reports": [
+    "sim_build/wire/BEH_P0_T19.75/routed.rpt",
+    "sim_build/wire/BEH_P0_T19.75/ideal.rpt"
+  ],
+  "delay_routed_ns": 19.3958,
+  "delay_ideal_wires_ns": 17.2385,
+  "wire_delay_ns": 2.1574,
+  "wire_delay_percent_of_routed": 11.1
+}

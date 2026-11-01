@@ -3,7 +3,8 @@
 Single source of truth for status. Update this before every commit.
 Spec: `docs/BRIEF.md`. Branch: `rework/alu-ppa`.
 
-**Current state:** Phases 0–2 merged (PR #1 `044d4ca`, PR #2 `dc2a1dc`). Phase 3 complete, CI green, PR #3 open (awaiting owner merge). Next: Phase 4 (physical design sweep). Plan it first.
+**Current state (2026-11-01): Phase 4 COMPLETE — PR #4 open, waiting for the owner to merge.** Phases 0–3
+merged (PR #1–#3). Phase 5 starts after PR #4 is merged.
 
 ## Phase 0 — Setup and audit
 - [x] Environment check script (`scripts/env_check.sh` → `results/env_check.txt`). All tools found after
@@ -66,16 +67,20 @@ Spec: `docs/BRIEF.md`. Branch: `rework/alu-ppa`.
       SIMILARNAME lint warning). PR #3 opened.
 
 ## Phase 4 — Physical design sweep
-- [ ] `flow/` config template; fixed die/utilisation policy (DECISIONS.md).
-- [ ] `scripts/sweep.py`: min closing period at the slowest corner, 0.25 ns resolution (plus a
-      monotonicity check).
-- [ ] Report parser → `results/summary.json` (area, cells, util, WNS/TNS setup+hold per corner, fmax per
-      corner, critical path, logic depth).
-- [ ] Workload VCD (50% add/sub, 20% logic, 20% shift, 10% Zbb) → OpenSTA activity-annotated power;
-      energy/op.
-- [ ] ABC structure experiment: default vs. structure-preserving.
-- [ ] Post-synth vs. post-route delay per architecture.
-- [ ] **Gate:** all 8 configs complete, `summary.json` populated. Commit, push, open PR.
+- [x] `flow/` config template; fixed utilisation policy (D-022), post-GRT repair (D-028), 12% setup margin (D-029).
+- [x] `scripts/sweep.py`: min closing period at the slowest corner, 0.25 ns resolution, plus a
+      monotonicity check (D-023). Default flow 8/8, preserved flow 8/8. One non-monotonic case (KS
+      preserved), handled by the rule.
+- [x] Report parser → `results/summary.json` (area, cells, util, WNS/TNS setup+hold per corner, fmax per
+      corner, critical path, logic depth, signoff counts), every value with its source.
+- [x] Workload VCD (50% add/sub, 20% logic, 20% shift, 10% Zbb) → OpenSTA activity-annotated power;
+      energy/op. 16/16 gate-level sims PASS (10,000 checked each), 0 unannotated nets (D-025).
+- [x] ABC structure experiment: default vs. structure-preserving (`results/flow/abc_experiment.json`,
+      D-026). This led to two sweeps (D-027).
+- [x] Post-synth vs. post-route delay per architecture, plus the wire share isolated with
+      `scripts/wire_delay.py` (D-024).
+- [x] Resume bug fixed (D-030).
+- [x] **Gate:** all 8 configs × 2 flows complete, `summary.json` populated. Commit, push, open PR #4.
 
 ## Phase 5 — Signoff, reports, docs
 - [ ] Recommended config chosen from data (DECISIONS.md).

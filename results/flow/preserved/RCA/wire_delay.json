@@ -1,0 +1,17 @@
+{
+  "run": "runs/RCA_P0_T33.50_preserved/runs/RCA_P0_T33.50_preserved",
+  "period_ns": 33.5,
+  "corner": "nom_ss_100C_1v60",
+  "ws_routed_ns": 0.385075,
+  "ws_ideal_wires_ns": 2.891181,
+  "flow_ws_ns": 0.3850750938221749,
+  "note": "same final netlist; routed = with nominal SPEF, ideal = no SPEF; delay = T - WS",
+  "reports": [
+    "sim_build/wire/RCA_P0_T33.50_preserved/routed.rpt",
+    "sim_build/wire/RCA_P0_T33.50_preserved/ideal.rpt"
+  ],
+  "delay_routed_ns": 33.1149,
+  "delay_ideal_wires_ns": 30.6088,
+  "wire_delay_ns": 2.5061,
+  "wire_delay_percent_of_routed": 7.6
+}

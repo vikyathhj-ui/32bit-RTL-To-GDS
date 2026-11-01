@@ -207,5 +207,78 @@ depth. Phase 4 measures it.
 - **The lesson:** when two tools disagree, isolate with minimal cases before "fixing" the design. Then
   choose a coding style that every tool evaluates the same way.
 
-## Phase 4+
+## Phase 4 — physical design
+
+### PVT corners: why `max_ss_100C_1v60` is the slowest
+- **What a corner is:** a combination of Process (transistor speed: ff fast, tt typical, ss slow), Voltage
+  and Temperature, plus wire RC (min / nom / max).
+- **The slowest one:** slow transistors at 1.60 V and 100 °C, with maximum wire resistance and
+  capacitance. Signals take longest there, so if setup timing closes at that corner it closes
+  everywhere.
+- **Measured:** the same BEH path was about 2× slower at `max_ss` than at `nom_tt` (D-022).
+- **Hold is different:** hold is checked at the **fast** corners (ff, −40 °C, 1.95 V). There, data
+  arrives soonest after the clock edge and can corrupt the capturing flop.
+
+### Setup vs hold
+- **Setup:** data must arrive *before* the next clock edge, minus the flop's setup time.
+  `slack = required − arrival`; negative means the clock is too fast for the path. Fix it with a slower
+  clock, a shorter path, or bigger cells.
+- **Hold:** data must stay stable for a moment *after* the clock edge. It doesn't depend on the clock
+  period. Fix it by adding delay (buffers) on fast paths, which the flow does automatically.
+
+### What the flow does to make timing (the "resizer")
+- After placement, OpenROAD resizes cells, inserts buffers on long or high-fan-out nets, and fixes
+  slew, capacitance and hold.
+- **Its effort depends on the clock target.** A relaxed clock gets less repair, so the same design can
+  have a *slower* critical path when the target is relaxed. That is why the sweep's slack-based
+  estimate undershoots, and why the minimum period must be found by running the flow at each period
+  rather than calculated from one run.
+
+### fmax from slack
+- `fmax = 1 / (T − WS)`, where T is the clock period of the run and WS the worst setup slack at a corner.
+  It's computed per corner at the closing run (`results/summary.json`).
+
+### ABC and why the default flow erased the adder architectures (D-026)
+- **What ABC does:** after Yosys elaborates the RTL, ABC optimises the logic and maps it to library
+  cells. LibreLane's default script is *area*-oriented.
+- **The effect:** with the design flattened, ABC is free to rebuild a Kogge–Stone tree as a compact,
+  deep chain. It saves area and loses speed.
+- **Keeping the structure:** `keep_hierarchy` keeps each prefix cell as its own module, so ABC can only
+  optimise inside a cell, and the tree survives.
+- **Lesson:** hand-written structure only matters if the tool keeps it. Always check the netlist, not
+  just the RTL.
+
+### Activity-annotated power and energy per operation (D-025)
+- **Dynamic power** ∝ activity × capacitance × V² × f. The activity (how often each net toggles) depends
+  on the workload.
+- **Default activity** guesses one toggle rate for everything. **Annotated power** uses real toggles
+  from simulating the netlist with a realistic mix of operations. Every net was annotated: 100%, 0
+  unannotated.
+- **Energy per op = P × T:** the energy one ALU operation costs. A faster clock raises power but not
+  necessarily energy/op. Energy/op is the fair metric for comparing designs running at different
+  clocks.
+
+### Post-synthesis vs post-route delay (D-024)
+- **After synthesis:** STA only sees cell delays and pin loads. The netlist has not been sized yet.
+- **After routing:** it sees real wires (RC from extraction) **and** the gates and buffers the resizer
+  changed during placement and routing.
+- **What I expected:** routing makes things slower. **What I measured:** post-route was *faster* in all
+  16 runs (5.8–37.6%), because the resizer's gains are bigger than the wire delay. Two things changed at
+  once, so the comparison could not show the wire cost.
+- **How to isolate one effect:** keep everything else fixed. Timing the same final netlist with and
+  without its extracted wires showed the wires cost 7.6–15.8% of the critical path. RCA's short local
+  hops cost least; CLA4's and KS's long spans cost most.
+- **Lesson:** before explaining a difference, check that only one thing changed.
+
+### Non-monotonic place-and-route (D-023)
+- KS (preserved) closed at 16.25 ns, failed at 16.50, closed at 16.75, failed at 17.00. A tighter
+  target makes the resizer work harder, so it can end with a better result. PnR is a heuristic, not a
+  function that gets steadily worse as the target tightens.
+- So a "minimum period" needs a rule. Mine: the lowest closing period whose next step up also closes.
+
+### Determinism
+- Running the same LibreLane configuration twice gave identical slack to every printed digit (D-030).
+  One run per period is enough; a different result would mean a different input.
+
+## Phase 5+
 (to be added)

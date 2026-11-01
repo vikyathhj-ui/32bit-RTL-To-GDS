@@ -1,0 +1,17 @@
+{
+  "run": "runs/CLA4_P0_T19.50/runs/CLA4_P0_T19.50",
+  "period_ns": 19.5,
+  "corner": "nom_ss_100C_1v60",
+  "ws_routed_ns": 0.465001,
+  "ws_ideal_wires_ns": 2.182675,
+  "flow_ws_ns": 0.46499871935770487,
+  "note": "same final netlist; routed = with nominal SPEF, ideal = no SPEF; delay = T - WS",
+  "reports": [
+    "sim_build/wire/CLA4_P0_T19.50/routed.rpt",
+    "sim_build/wire/CLA4_P0_T19.50/ideal.rpt"
+  ],
+  "delay_routed_ns": 19.035,
+  "delay_ideal_wires_ns": 17.3173,
+  "wire_delay_ns": 1.7177,
+  "wire_delay_percent_of_routed": 9.0
+}

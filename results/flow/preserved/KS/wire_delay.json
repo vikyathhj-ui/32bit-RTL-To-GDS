@@ -1,0 +1,17 @@
+{
+  "run": "runs/KS_P0_T17.25_preserved/runs/KS_P0_T17.25_preserved",
+  "period_ns": 17.25,
+  "corner": "nom_ss_100C_1v60",
+  "ws_routed_ns": 0.616621,
+  "ws_ideal_wires_ns": 3.163029,
+  "flow_ws_ns": 0.616621438029736,
+  "note": "same final netlist; routed = with nominal SPEF, ideal = no SPEF; delay = T - WS",
+  "reports": [
+    "sim_build/wire/KS_P0_T17.25_preserved/routed.rpt",
+    "sim_build/wire/KS_P0_T17.25_preserved/ideal.rpt"
+  ],
+  "delay_routed_ns": 16.6334,
+  "delay_ideal_wires_ns": 14.087,
+  "wire_delay_ns": 2.5464,
+  "wire_delay_percent_of_routed": 15.3
+}
