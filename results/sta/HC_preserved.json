@@ -1,0 +1,1423 @@
+{
+  "name": "HC_preserved",
+  "run": "runs/HC_P0_T15.75_preserved/runs/HC_P0_T15.75_preserved",
+  "period_ns": 15.75,
+  "pipe": 0,
+  "latency_cycles": 2,
+  "sta_step": "runs/HC_P0_T15.75_preserved/runs/HC_P0_T15.75_preserved/57-openroad-stapostpnr",
+  "corners": {
+    "max_ff_n40C_1v95": {
+      "setup_ws_ns": 9.553583083930976,
+      "setup_tns_ns": 0,
+      "hold_ws_ns": 0.2198567501395273,
+      "hold_tns_ns": 0,
+      "setup_path": {
+        "startpoint": "in_valid",
+        "startpoint_type": "input port clocked by clk",
+        "start_net": "in_valid",
+        "endpoint": "_2608_",
+        "endpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "end_net": "net417",
+        "data_arrival_ns": 6.245632,
+        "launch_clock_arrival_ns": 3.15,
+        "slack_ns": 9.553583,
+        "data_path_ns": 3.095632,
+        "split_ns": {
+          "launch_clk_to_q_ns": 0.0,
+          "logic_ns": 0.0,
+          "buffer_ns": 0.2711,
+          "delay_cell_ns": 2.7984,
+          "wire_ns": 0.0261
+        },
+        "logic_depth": 0,
+        "cells_on_path": 7,
+        "cells": [
+          {
+            "inst": "input65",
+            "cell": "buf_2",
+            "delay_ns": 0.108821,
+            "fanout": 2
+          },
+          {
+            "inst": "fanout422",
+            "cell": "clkdlybuf4s50_1",
+            "delay_ns": 0.676474,
+            "fanout": 6
+          },
+          {
+            "inst": "fanout421",
+            "cell": "clkdlybuf4s50_1",
+            "delay_ns": 0.514725,
+            "fanout": 6
+          },
+          {
+            "inst": "fanout420",
+            "cell": "clkdlybuf4s50_1",
+            "delay_ns": 0.609664,
+            "fanout": 8
+          },
+          {
+            "inst": "fanout419",
+            "cell": "clkdlybuf4s50_1",
+            "delay_ns": 0.536332,
+            "fanout": 7
+          },
+          {
+            "inst": "fanout416",
+            "cell": "clkdlybuf4s50_1",
+            "delay_ns": 0.461212,
+            "fanout": 5
+          },
+          {
+            "inst": "load_slew417",
+            "cell": "buf_2",
+            "delay_ns": 0.162259,
+            "fanout": 6
+          }
+        ],
+        "source": "results/sta/HC_preserved/max_ff_n40C_1v95.setup.rpt"
+      },
+      "hold_path": {
+        "startpoint": "_2629_",
+        "startpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "start_net": "b0[16]",
+        "endpoint": "_2670_",
+        "endpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "end_net": "y_next[16]",
+        "data_arrival_ns": 0.798814,
+        "launch_clock_arrival_ns": 0.39419199999999993,
+        "slack_ns": 0.219857,
+        "data_path_ns": 0.404622,
+        "split_ns": {
+          "launch_clk_to_q_ns": 0.258,
+          "logic_ns": 0.1453,
+          "buffer_ns": 0.0,
+          "delay_cell_ns": 0.0,
+          "wire_ns": 0.0013
+        },
+        "logic_depth": 2,
+        "cells_on_path": 2,
+        "cells": [
+          {
+            "inst": "_2293_",
+            "cell": "o21ai_0",
+            "delay_ns": 0.061246,
+            "fanout": 1
+          },
+          {
+            "inst": "_2309_",
+            "cell": "nand4_1",
+            "delay_ns": 0.084075,
+            "fanout": 2
+          }
+        ],
+        "source": "results/sta/HC_preserved/max_ff_n40C_1v95.hold.rpt"
+      },
+      "fmax_MHz": 161.38
+    },
+    "max_ss_100C_1v60": {
+      "setup_ws_ns": 0.20192204035905056,
+      "setup_tns_ns": 0,
+      "hold_ws_ns": 1.219489321819136,
+      "hold_tns_ns": 0,
+      "setup_path": {
+        "startpoint": "_2617_",
+        "startpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "start_net": "b0[4]",
+        "endpoint": "_2647_",
+        "endpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "end_net": "_0000_",
+        "data_arrival_ns": 15.965683,
+        "launch_clock_arrival_ns": 1.042596,
+        "slack_ns": 0.201922,
+        "data_path_ns": 14.923087,
+        "split_ns": {
+          "launch_clk_to_q_ns": 0.891,
+          "logic_ns": 8.335,
+          "buffer_ns": 0.0,
+          "delay_cell_ns": 5.6772,
+          "wire_ns": 0.0198
+        },
+        "logic_depth": 12,
+        "cells_on_path": 17,
+        "cells": [
+          {
+            "inst": "fanout337",
+            "cell": "clkdlybuf4s50_1",
+            "delay_ns": 1.249363,
+            "fanout": 6
+          },
+          {
+            "inst": "fanout335",
+            "cell": "clkdlybuf4s15_2",
+            "delay_ns": 0.836025,
+            "fanout": 10
+          },
+          {
+            "inst": "_1255_",
+            "cell": "inv_1",
+            "delay_ns": 0.203122,
+            "fanout": 1
+          },
+          {
+            "inst": "fanout308",
+            "cell": "clkdlybuf4s50_1",
+            "delay_ns": 1.341195,
+            "fanout": 8
+          },
+          {
+            "inst": "fanout307",
+            "cell": "clkdlybuf4s15_2",
+            "delay_ns": 0.896555,
+            "fanout": 10
+          },
+          {
+            "inst": "_1524_",
+            "cell": "o21ai_0",
+            "delay_ns": 0.584574,
+            "fanout": 2
+          },
+          {
+            "inst": "fanout206",
+            "cell": "clkdlybuf4s50_1",
+            "delay_ns": 1.354073,
+            "fanout": 10
+          },
+          {
+            "inst": "_1612_",
+            "cell": "o22ai_1",
+            "delay_ns": 0.907818,
+            "fanout": 3
+          },
+          {
+            "inst": "_1900_",
+            "cell": "mux2i_1",
+            "delay_ns": 0.512093,
+            "fanout": 3
+          },
+          {
+            "inst": "_2037_",
+            "cell": "mux4_2",
+            "delay_ns": 1.196007,
+            "fanout": 2
+          },
+          {
+            "inst": "_2038_",
+            "cell": "mux2_1",
+            "delay_ns": 0.799638,
+            "fanout": 2
+          },
+          {
+            "inst": "_2046_",
+            "cell": "o21ai_0",
+            "delay_ns": 0.276969,
+            "fanout": 1
+          },
+          {
+            "inst": "_2062_",
+            "cell": "o21ai_0",
+            "delay_ns": 0.340266,
+            "fanout": 2
+          },
+          {
+            "inst": "_2572_",
+            "cell": "or4_4",
+            "delay_ns": 1.178694,
+            "fanout": 1
+          },
+          {
+            "inst": "_2574_",
+            "cell": "or4b_4",
+            "delay_ns": 1.006809,
+            "fanout": 1
+          },
+          {
+            "inst": "_2575_",
+            "cell": "or4_4",
+            "delay_ns": 0.936669,
+            "fanout": 1
+          },
+          {
+            "inst": "_2579_",
+            "cell": "nor4b_2",
+            "delay_ns": 0.392332,
+            "fanout": 1
+          }
+        ],
+        "source": "results/sta/HC_preserved/max_ss_100C_1v60.setup.rpt"
+      },
+      "hold_path": {
+        "startpoint": "_2629_",
+        "startpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "start_net": "b0[16]",
+        "endpoint": "_2670_",
+        "endpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "end_net": "y_next[16]",
+        "data_arrival_ns": 2.134934,
+        "launch_clock_arrival_ns": 0.953185,
+        "slack_ns": 1.219489,
+        "data_path_ns": 1.181749,
+        "split_ns": {
+          "launch_clk_to_q_ns": 0.7513,
+          "logic_ns": 0.4292,
+          "buffer_ns": 0.0,
+          "delay_cell_ns": 0.0,
+          "wire_ns": 0.0012
+        },
+        "logic_depth": 2,
+        "cells_on_path": 2,
+        "cells": [
+          {
+            "inst": "_2293_",
+            "cell": "o21ai_0",
+            "delay_ns": 0.222609,
+            "fanout": 1
+          },
+          {
+            "inst": "_2309_",
+            "cell": "nand4_1",
+            "delay_ns": 0.206636,
+            "fanout": 2
+          }
+        ],
+        "source": "results/sta/HC_preserved/max_ss_100C_1v60.hold.rpt"
+      },
+      "fmax_MHz": 64.32
+    },
+    "max_tt_025C_1v80": {
+      "setup_ws_ns": 7.427218161828111,
+      "setup_tns_ns": 0,
+      "hold_ws_ns": 0.495299204558487,
+      "hold_tns_ns": 0,
+      "setup_path": {
+        "startpoint": "_2582_",
+        "startpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "start_net": "u_cpop.g_node.u_lo.g_node.u_lo.g_node.u_lo.g_node.u_lo.g_node.ch",
+        "endpoint": "_2647_",
+        "endpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "end_net": "_0000_",
+        "data_arrival_ns": 8.513466,
+        "launch_clock_arrival_ns": 0.6080220000000001,
+        "slack_ns": 7.427218,
+        "data_path_ns": 7.905444,
+        "split_ns": {
+          "launch_clk_to_q_ns": 0.3628,
+          "logic_ns": 4.7235,
+          "buffer_ns": 0.175,
+          "delay_cell_ns": 2.6147,
+          "wire_ns": 0.0295
+        },
+        "logic_depth": 16,
+        "cells_on_path": 21,
+        "cells": [
+          {
+            "inst": "fanout414",
+            "cell": "clkdlybuf4s50_1",
+            "delay_ns": 0.989262,
+            "fanout": 8
+          },
+          {
+            "inst": "fanout413",
+            "cell": "clkdlybuf4s50_1",
+            "delay_ns": 0.961983,
+            "fanout": 10
+          },
+          {
+            "inst": "_1861_",
+            "cell": "xnor3_1",
+            "delay_ns": 0.580984,
+            "fanout": 3
+          },
+          {
+            "inst": "u_adder.g_hc.u_add.g_l0[1].g_gray.u_cell/_0_",
+            "cell": "a21o_1",
+            "delay_ns": 0.247721,
+            "fanout": 2
+          },
+          {
+            "inst": "rebuffer431",
+            "cell": "buf_4",
+            "delay_ns": 0.174961,
+            "fanout": 5
+          },
+          {
+            "inst": "u_adder.g_hc.u_add.g_lvl[2].g_bit[5].g_gray.u_cell/_0_",
+            "cell": "a21o_1",
+            "delay_ns": 0.210902,
+            "fanout": 3
+          },
+          {
+            "inst": "u_adder.g_hc.u_add.g_lvl[3].g_bit[13].g_gray.u_cell/_0_",
+            "cell": "a21o_1",
+            "delay_ns": 0.203645,
+            "fanout": 2
+          },
+          {
+            "inst": "u_adder.g_hc.u_add.g_lvl[4].g_bit[29].g_gray.u_cell/_0_",
+            "cell": "a21o_1",
+            "delay_ns": 0.233799,
+            "fanout": 2
+          },
+          {
+            "inst": "u_adder.g_hc.u_add.g_fix[30].g_gray.u_cell/_0_",
+            "cell": "a21o_1",
+            "delay_ns": 0.192081,
+            "fanout": 1
+          },
+          {
+            "inst": "_1249_",
+            "cell": "inv_1",
+            "delay_ns": 0.097909,
+            "fanout": 3
+          },
+          {
+            "inst": "_1791_",
+            "cell": "o21ai_0",
+            "delay_ns": 0.145268,
+            "fanout": 2
+          },
+          {
+            "inst": "fanout136",
+            "cell": "clkdlybuf4s15_2",
+            "delay_ns": 0.339135,
+            "fanout": 6
+          },
+          {
+            "inst": "fanout134",
+            "cell": "clkdlybuf4s15_2",
+            "delay_ns": 0.324349,
+            "fanout": 6
+          },
+          {
+            "inst": "_2051_",
+            "cell": "o21ai_0",
+            "delay_ns": 0.181711,
+            "fanout": 1
+          },
+          {
+            "inst": "_2052_",
+            "cell": "nor2_1",
+            "delay_ns": 0.060496,
+            "fanout": 1
+          },
+          {
+            "inst": "_2061_",
+            "cell": "nor3_1",
+            "delay_ns": 0.495209,
+            "fanout": 2
+          },
+          {
+            "inst": "_2062_",
+            "cell": "o21ai_0",
+            "delay_ns": 0.302367,
+            "fanout": 2
+          },
+          {
+            "inst": "_2572_",
+            "cell": "or4_4",
+            "delay_ns": 0.594136,
+            "fanout": 1
+          },
+          {
+            "inst": "_2574_",
+            "cell": "or4b_4",
+            "delay_ns": 0.499457,
+            "fanout": 1
+          },
+          {
+            "inst": "_2575_",
+            "cell": "or4_4",
+            "delay_ns": 0.459075,
+            "fanout": 1
+          },
+          {
+            "inst": "_2579_",
+            "cell": "nor4b_2",
+            "delay_ns": 0.218694,
+            "fanout": 1
+          }
+        ],
+        "source": "results/sta/HC_preserved/max_tt_025C_1v80.setup.rpt"
+      },
+      "hold_path": {
+        "startpoint": "_2629_",
+        "startpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "start_net": "b0[16]",
+        "endpoint": "_2670_",
+        "endpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "end_net": "y_next[16]",
+        "data_arrival_ns": 1.179952,
+        "launch_clock_arrival_ns": 0.562087,
+        "slack_ns": 0.495299,
+        "data_path_ns": 0.617865,
+        "split_ns": {
+          "launch_clk_to_q_ns": 0.3927,
+          "logic_ns": 0.2239,
+          "buffer_ns": 0.0,
+          "delay_cell_ns": 0.0,
+          "wire_ns": 0.0013
+        },
+        "logic_depth": 2,
+        "cells_on_path": 2,
+        "cells": [
+          {
+            "inst": "_2293_",
+            "cell": "o21ai_0",
+            "delay_ns": 0.103988,
+            "fanout": 1
+          },
+          {
+            "inst": "_2309_",
+            "cell": "nand4_1",
+            "delay_ns": 0.119876,
+            "fanout": 2
+          }
+        ],
+        "source": "results/sta/HC_preserved/max_tt_025C_1v80.hold.rpt"
+      },
+      "fmax_MHz": 120.15
+    },
+    "min_ff_n40C_1v95": {
+      "setup_ws_ns": 9.64864482288001,
+      "setup_tns_ns": 0,
+      "hold_ws_ns": 0.20680624464941877,
+      "hold_tns_ns": 0,
+      "setup_path": {
+        "startpoint": "in_valid",
+        "startpoint_type": "input port clocked by clk",
+        "start_net": "in_valid",
+        "endpoint": "_2608_",
+        "endpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "end_net": "net417",
+        "data_arrival_ns": 6.128373,
+        "launch_clock_arrival_ns": 3.15,
+        "slack_ns": 9.648644,
+        "data_path_ns": 2.978373,
+        "split_ns": {
+          "launch_clk_to_q_ns": 0.0,
+          "logic_ns": 0.0,
+          "buffer_ns": 0.2599,
+          "delay_cell_ns": 2.7054,
+          "wire_ns": 0.0131
+        },
+        "logic_depth": 0,
+        "cells_on_path": 7,
+        "cells": [
+          {
+            "inst": "input65",
+            "cell": "buf_2",
+            "delay_ns": 0.1008,
+            "fanout": 2
+          },
+          {
+            "inst": "fanout422",
+            "cell": "clkdlybuf4s50_1",
+            "delay_ns": 0.627131,
+            "fanout": 6
+          },
+          {
+            "inst": "fanout421",
+            "cell": "clkdlybuf4s50_1",
+            "delay_ns": 0.505445,
+            "fanout": 6
+          },
+          {
+            "inst": "fanout420",
+            "cell": "clkdlybuf4s50_1",
+            "delay_ns": 0.590732,
+            "fanout": 8
+          },
+          {
+            "inst": "fanout419",
+            "cell": "clkdlybuf4s50_1",
+            "delay_ns": 0.526129,
+            "fanout": 7
+          },
+          {
+            "inst": "fanout416",
+            "cell": "clkdlybuf4s50_1",
+            "delay_ns": 0.455995,
+            "fanout": 5
+          },
+          {
+            "inst": "load_slew417",
+            "cell": "buf_2",
+            "delay_ns": 0.159075,
+            "fanout": 6
+          }
+        ],
+        "source": "results/sta/HC_preserved/min_ff_n40C_1v95.setup.rpt"
+      },
+      "hold_path": {
+        "startpoint": "_2629_",
+        "startpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "start_net": "b0[16]",
+        "endpoint": "_2670_",
+        "endpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "end_net": "y_next[16]",
+        "data_arrival_ns": 0.758352,
+        "launch_clock_arrival_ns": 0.36572899999999997,
+        "slack_ns": 0.206806,
+        "data_path_ns": 0.392623,
+        "split_ns": {
+          "launch_clk_to_q_ns": 0.2531,
+          "logic_ns": 0.1393,
+          "buffer_ns": 0.0,
+          "delay_cell_ns": 0.0,
+          "wire_ns": 0.0002
+        },
+        "logic_depth": 2,
+        "cells_on_path": 2,
+        "cells": [
+          {
+            "inst": "_2293_",
+            "cell": "o21ai_0",
+            "delay_ns": 0.059712,
+            "fanout": 1
+          },
+          {
+            "inst": "_2309_",
+            "cell": "nand4_1",
+            "delay_ns": 0.079562,
+            "fanout": 2
+          }
+        ],
+        "source": "results/sta/HC_preserved/min_ff_n40C_1v95.hold.rpt"
+      },
+      "fmax_MHz": 163.9
+    },
+    "min_ss_100C_1v60": {
+      "setup_ws_ns": 0.8486562803819478,
+      "setup_tns_ns": 0,
+      "hold_ws_ns": 1.1896096666677398,
+      "hold_tns_ns": 0,
+      "setup_path": {
+        "startpoint": "_2617_",
+        "startpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "start_net": "b0[4]",
+        "endpoint": "_2647_",
+        "endpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "end_net": "_0000_",
+        "data_arrival_ns": 15.257556,
+        "launch_clock_arrival_ns": 0.9834870000000001,
+        "slack_ns": 0.848656,
+        "data_path_ns": 14.274069,
+        "split_ns": {
+          "launch_clk_to_q_ns": 0.8764,
+          "logic_ns": 8.0203,
+          "buffer_ns": 0.0,
+          "delay_cell_ns": 5.3733,
+          "wire_ns": 0.004
+        },
+        "logic_depth": 12,
+        "cells_on_path": 17,
+        "cells": [
+          {
+            "inst": "fanout337",
+            "cell": "clkdlybuf4s50_1",
+            "delay_ns": 1.182,
+            "fanout": 6
+          },
+          {
+            "inst": "fanout335",
+            "cell": "clkdlybuf4s15_2",
+            "delay_ns": 0.781094,
+            "fanout": 10
+          },
+          {
+            "inst": "_1255_",
+            "cell": "inv_1",
+            "delay_ns": 0.184624,
+            "fanout": 1
+          },
+          {
+            "inst": "fanout308",
+            "cell": "clkdlybuf4s50_1",
+            "delay_ns": 1.272555,
+            "fanout": 8
+          },
+          {
+            "inst": "fanout307",
+            "cell": "clkdlybuf4s15_2",
+            "delay_ns": 0.849242,
+            "fanout": 10
+          },
+          {
+            "inst": "_1524_",
+            "cell": "o21ai_0",
+            "delay_ns": 0.52045,
+            "fanout": 2
+          },
+          {
+            "inst": "fanout206",
+            "cell": "clkdlybuf4s50_1",
+            "delay_ns": 1.288449,
+            "fanout": 10
+          },
+          {
+            "inst": "_1612_",
+            "cell": "o22ai_1",
+            "delay_ns": 0.808101,
+            "fanout": 3
+          },
+          {
+            "inst": "_1900_",
+            "cell": "mux2i_1",
+            "delay_ns": 0.4724,
+            "fanout": 3
+          },
+          {
+            "inst": "_2037_",
+            "cell": "mux4_2",
+            "delay_ns": 1.174536,
+            "fanout": 2
+          },
+          {
+            "inst": "_2038_",
+            "cell": "mux2_1",
+            "delay_ns": 0.787611,
+            "fanout": 2
+          },
+          {
+            "inst": "_2046_",
+            "cell": "o21ai_0",
+            "delay_ns": 0.271871,
+            "fanout": 1
+          },
+          {
+            "inst": "_2062_",
+            "cell": "o21ai_0",
+            "delay_ns": 0.319645,
+            "fanout": 2
+          },
+          {
+            "inst": "_2572_",
+            "cell": "or4_4",
+            "delay_ns": 1.156067,
+            "fanout": 1
+          },
+          {
+            "inst": "_2574_",
+            "cell": "or4b_4",
+            "delay_ns": 1.00596,
+            "fanout": 1
+          },
+          {
+            "inst": "_2575_",
+            "cell": "or4_4",
+            "delay_ns": 0.93064,
+            "fanout": 1
+          },
+          {
+            "inst": "_2579_",
+            "cell": "nor4b_2",
+            "delay_ns": 0.388418,
+            "fanout": 1
+          }
+        ],
+        "source": "results/sta/HC_preserved/min_ss_100C_1v60.setup.rpt"
+      },
+      "hold_path": {
+        "startpoint": "_2629_",
+        "startpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "start_net": "b0[16]",
+        "endpoint": "_2670_",
+        "endpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "end_net": "y_next[16]",
+        "data_arrival_ns": 2.050397,
+        "launch_clock_arrival_ns": 0.895393,
+        "slack_ns": 1.18961,
+        "data_path_ns": 1.155004,
+        "split_ns": {
+          "launch_clk_to_q_ns": 0.7397,
+          "logic_ns": 0.4151,
+          "buffer_ns": 0.0,
+          "delay_cell_ns": 0.0,
+          "wire_ns": 0.0002
+        },
+        "logic_depth": 2,
+        "cells_on_path": 2,
+        "cells": [
+          {
+            "inst": "_2293_",
+            "cell": "o21ai_0",
+            "delay_ns": 0.217219,
+            "fanout": 1
+          },
+          {
+            "inst": "_2309_",
+            "cell": "nand4_1",
+            "delay_ns": 0.197896,
+            "fanout": 2
+          }
+        ],
+        "source": "results/sta/HC_preserved/min_ss_100C_1v60.hold.rpt"
+      },
+      "fmax_MHz": 67.11
+    },
+    "min_tt_025C_1v80": {
+      "setup_ws_ns": 7.795329047354233,
+      "setup_tns_ns": 0,
+      "hold_ws_ns": 0.4759694995081157,
+      "hold_tns_ns": 0,
+      "setup_path": {
+        "startpoint": "_2582_",
+        "startpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "start_net": "u_cpop.g_node.u_lo.g_node.u_lo.g_node.u_lo.g_node.u_lo.g_node.ch",
+        "endpoint": "_2647_",
+        "endpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "end_net": "_0000_",
+        "data_arrival_ns": 8.107293,
+        "launch_clock_arrival_ns": 0.573617,
+        "slack_ns": 7.795329,
+        "data_path_ns": 7.533676,
+        "split_ns": {
+          "launch_clk_to_q_ns": 0.3549,
+          "logic_ns": 4.539,
+          "buffer_ns": 0.1701,
+          "delay_cell_ns": 2.4623,
+          "wire_ns": 0.0073
+        },
+        "logic_depth": 16,
+        "cells_on_path": 21,
+        "cells": [
+          {
+            "inst": "fanout414",
+            "cell": "clkdlybuf4s50_1",
+            "delay_ns": 0.918949,
+            "fanout": 8
+          },
+          {
+            "inst": "fanout413",
+            "cell": "clkdlybuf4s50_1",
+            "delay_ns": 0.911695,
+            "fanout": 10
+          },
+          {
+            "inst": "_1861_",
+            "cell": "xnor3_1",
+            "delay_ns": 0.568627,
+            "fanout": 3
+          },
+          {
+            "inst": "u_adder.g_hc.u_add.g_l0[1].g_gray.u_cell/_0_",
+            "cell": "a21o_1",
+            "delay_ns": 0.241242,
+            "fanout": 2
+          },
+          {
+            "inst": "rebuffer431",
+            "cell": "buf_4",
+            "delay_ns": 0.170141,
+            "fanout": 5
+          },
+          {
+            "inst": "u_adder.g_hc.u_add.g_lvl[2].g_bit[5].g_gray.u_cell/_0_",
+            "cell": "a21o_1",
+            "delay_ns": 0.203805,
+            "fanout": 3
+          },
+          {
+            "inst": "u_adder.g_hc.u_add.g_lvl[3].g_bit[13].g_gray.u_cell/_0_",
+            "cell": "a21o_1",
+            "delay_ns": 0.196799,
+            "fanout": 2
+          },
+          {
+            "inst": "u_adder.g_hc.u_add.g_lvl[4].g_bit[29].g_gray.u_cell/_0_",
+            "cell": "a21o_1",
+            "delay_ns": 0.225732,
+            "fanout": 2
+          },
+          {
+            "inst": "u_adder.g_hc.u_add.g_fix[30].g_gray.u_cell/_0_",
+            "cell": "a21o_1",
+            "delay_ns": 0.187935,
+            "fanout": 1
+          },
+          {
+            "inst": "_1249_",
+            "cell": "inv_1",
+            "delay_ns": 0.094577,
+            "fanout": 3
+          },
+          {
+            "inst": "_1791_",
+            "cell": "o21ai_0",
+            "delay_ns": 0.135885,
+            "fanout": 2
+          },
+          {
+            "inst": "fanout136",
+            "cell": "clkdlybuf4s15_2",
+            "delay_ns": 0.321604,
+            "fanout": 6
+          },
+          {
+            "inst": "fanout134",
+            "cell": "clkdlybuf4s15_2",
+            "delay_ns": 0.310043,
+            "fanout": 6
+          },
+          {
+            "inst": "_2051_",
+            "cell": "o21ai_0",
+            "delay_ns": 0.173587,
+            "fanout": 1
+          },
+          {
+            "inst": "_2052_",
+            "cell": "nor2_1",
+            "delay_ns": 0.059122,
+            "fanout": 1
+          },
+          {
+            "inst": "_2061_",
+            "cell": "nor3_1",
+            "delay_ns": 0.43416,
+            "fanout": 2
+          },
+          {
+            "inst": "_2062_",
+            "cell": "o21ai_0",
+            "delay_ns": 0.266019,
+            "fanout": 2
+          },
+          {
+            "inst": "_2572_",
+            "cell": "or4_4",
+            "delay_ns": 0.580867,
+            "fanout": 1
+          },
+          {
+            "inst": "_2574_",
+            "cell": "or4b_4",
+            "delay_ns": 0.498928,
+            "fanout": 1
+          },
+          {
+            "inst": "_2575_",
+            "cell": "or4_4",
+            "delay_ns": 0.45547,
+            "fanout": 1
+          },
+          {
+            "inst": "_2579_",
+            "cell": "nor4b_2",
+            "delay_ns": 0.216282,
+            "fanout": 1
+          }
+        ],
+        "source": "results/sta/HC_preserved/min_tt_025C_1v80.setup.rpt"
+      },
+      "hold_path": {
+        "startpoint": "_2629_",
+        "startpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "start_net": "b0[16]",
+        "endpoint": "_2670_",
+        "endpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "end_net": "y_next[16]",
+        "data_arrival_ns": 1.1267,
+        "launch_clock_arrival_ns": 0.5248229999999999,
+        "slack_ns": 0.475969,
+        "data_path_ns": 0.601877,
+        "split_ns": {
+          "launch_clk_to_q_ns": 0.3858,
+          "logic_ns": 0.2158,
+          "buffer_ns": 0.0,
+          "delay_cell_ns": 0.0,
+          "wire_ns": 0.0002
+        },
+        "logic_depth": 2,
+        "cells_on_path": 2,
+        "cells": [
+          {
+            "inst": "_2293_",
+            "cell": "o21ai_0",
+            "delay_ns": 0.101582,
+            "fanout": 1
+          },
+          {
+            "inst": "_2309_",
+            "cell": "nand4_1",
+            "delay_ns": 0.114237,
+            "fanout": 2
+          }
+        ],
+        "source": "results/sta/HC_preserved/min_tt_025C_1v80.hold.rpt"
+      },
+      "fmax_MHz": 125.71
+    },
+    "nom_ff_n40C_1v95": {
+      "setup_ws_ns": 9.600379429831627,
+      "setup_tns_ns": 0,
+      "hold_ws_ns": 0.2135077730601933,
+      "hold_tns_ns": 0,
+      "setup_path": {
+        "startpoint": "in_valid",
+        "startpoint_type": "input port clocked by clk",
+        "start_net": "in_valid",
+        "endpoint": "_2608_",
+        "endpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "end_net": "net417",
+        "data_arrival_ns": 6.18679,
+        "launch_clock_arrival_ns": 3.1500000000000004,
+        "slack_ns": 9.600379,
+        "data_path_ns": 3.03679,
+        "split_ns": {
+          "launch_clk_to_q_ns": 0.0,
+          "logic_ns": 0.0,
+          "buffer_ns": 0.2653,
+          "delay_cell_ns": 2.7543,
+          "wire_ns": 0.0171
+        },
+        "logic_depth": 0,
+        "cells_on_path": 7,
+        "cells": [
+          {
+            "inst": "input65",
+            "cell": "buf_2",
+            "delay_ns": 0.104418,
+            "fanout": 2
+          },
+          {
+            "inst": "fanout422",
+            "cell": "clkdlybuf4s50_1",
+            "delay_ns": 0.65365,
+            "fanout": 6
+          },
+          {
+            "inst": "fanout421",
+            "cell": "clkdlybuf4s50_1",
+            "delay_ns": 0.510148,
+            "fanout": 6
+          },
+          {
+            "inst": "fanout420",
+            "cell": "clkdlybuf4s50_1",
+            "delay_ns": 0.600867,
+            "fanout": 8
+          },
+          {
+            "inst": "fanout419",
+            "cell": "clkdlybuf4s50_1",
+            "delay_ns": 0.531188,
+            "fanout": 7
+          },
+          {
+            "inst": "fanout416",
+            "cell": "clkdlybuf4s50_1",
+            "delay_ns": 0.458485,
+            "fanout": 5
+          },
+          {
+            "inst": "load_slew417",
+            "cell": "buf_2",
+            "delay_ns": 0.160898,
+            "fanout": 6
+          }
+        ],
+        "source": "results/sta/HC_preserved/nom_ff_n40C_1v95.setup.rpt"
+      },
+      "hold_path": {
+        "startpoint": "_2629_",
+        "startpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "start_net": "b0[16]",
+        "endpoint": "_2670_",
+        "endpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "end_net": "y_next[16]",
+        "data_arrival_ns": 0.777022,
+        "launch_clock_arrival_ns": 0.37817999999999996,
+        "slack_ns": 0.213508,
+        "data_path_ns": 0.398842,
+        "split_ns": {
+          "launch_clk_to_q_ns": 0.2559,
+          "logic_ns": 0.1424,
+          "buffer_ns": 0.0,
+          "delay_cell_ns": 0.0,
+          "wire_ns": 0.0006
+        },
+        "logic_depth": 2,
+        "cells_on_path": 2,
+        "cells": [
+          {
+            "inst": "_2293_",
+            "cell": "o21ai_0",
+            "delay_ns": 0.060527,
+            "fanout": 1
+          },
+          {
+            "inst": "_2309_",
+            "cell": "nand4_1",
+            "delay_ns": 0.081845,
+            "fanout": 2
+          }
+        ],
+        "source": "results/sta/HC_preserved/nom_ff_n40C_1v95.hold.rpt"
+      },
+      "fmax_MHz": 162.61
+    },
+    "nom_ss_100C_1v60": {
+      "setup_ws_ns": 0.5246114802171019,
+      "setup_tns_ns": 0,
+      "hold_ws_ns": 1.204433031844861,
+      "hold_tns_ns": 0,
+      "setup_path": {
+        "startpoint": "_2617_",
+        "startpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "start_net": "b0[4]",
+        "endpoint": "_2647_",
+        "endpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "end_net": "_0000_",
+        "data_arrival_ns": 15.612088,
+        "launch_clock_arrival_ns": 1.0114,
+        "slack_ns": 0.524611,
+        "data_path_ns": 14.600688,
+        "split_ns": {
+          "launch_clk_to_q_ns": 0.8838,
+          "logic_ns": 8.1825,
+          "buffer_ns": 0.0,
+          "delay_cell_ns": 5.5254,
+          "wire_ns": 0.009
+        },
+        "logic_depth": 12,
+        "cells_on_path": 17,
+        "cells": [
+          {
+            "inst": "fanout337",
+            "cell": "clkdlybuf4s50_1",
+            "delay_ns": 1.217111,
+            "fanout": 6
+          },
+          {
+            "inst": "fanout335",
+            "cell": "clkdlybuf4s15_2",
+            "delay_ns": 0.808677,
+            "fanout": 10
+          },
+          {
+            "inst": "_1255_",
+            "cell": "inv_1",
+            "delay_ns": 0.193764,
+            "fanout": 1
+          },
+          {
+            "inst": "fanout308",
+            "cell": "clkdlybuf4s50_1",
+            "delay_ns": 1.307295,
+            "fanout": 8
+          },
+          {
+            "inst": "fanout307",
+            "cell": "clkdlybuf4s15_2",
+            "delay_ns": 0.873239,
+            "fanout": 10
+          },
+          {
+            "inst": "_1524_",
+            "cell": "o21ai_0",
+            "delay_ns": 0.553223,
+            "fanout": 2
+          },
+          {
+            "inst": "fanout206",
+            "cell": "clkdlybuf4s50_1",
+            "delay_ns": 1.31912,
+            "fanout": 10
+          },
+          {
+            "inst": "_1612_",
+            "cell": "o22ai_1",
+            "delay_ns": 0.859499,
+            "fanout": 3
+          },
+          {
+            "inst": "_1900_",
+            "cell": "mux2i_1",
+            "delay_ns": 0.494025,
+            "fanout": 3
+          },
+          {
+            "inst": "_2037_",
+            "cell": "mux4_2",
+            "delay_ns": 1.184789,
+            "fanout": 2
+          },
+          {
+            "inst": "_2038_",
+            "cell": "mux2_1",
+            "delay_ns": 0.793019,
+            "fanout": 2
+          },
+          {
+            "inst": "_2046_",
+            "cell": "o21ai_0",
+            "delay_ns": 0.27459,
+            "fanout": 1
+          },
+          {
+            "inst": "_2062_",
+            "cell": "o21ai_0",
+            "delay_ns": 0.331688,
+            "fanout": 2
+          },
+          {
+            "inst": "_2572_",
+            "cell": "or4_4",
+            "delay_ns": 1.167772,
+            "fanout": 1
+          },
+          {
+            "inst": "_2574_",
+            "cell": "or4b_4",
+            "delay_ns": 1.00636,
+            "fanout": 1
+          },
+          {
+            "inst": "_2575_",
+            "cell": "or4_4",
+            "delay_ns": 0.933686,
+            "fanout": 1
+          },
+          {
+            "inst": "_2579_",
+            "cell": "nor4b_2",
+            "delay_ns": 0.390088,
+            "fanout": 1
+          }
+        ],
+        "source": "results/sta/HC_preserved/nom_ss_100C_1v60.setup.rpt"
+      },
+      "hold_path": {
+        "startpoint": "_2629_",
+        "startpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "start_net": "b0[16]",
+        "endpoint": "_2670_",
+        "endpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "end_net": "y_next[16]",
+        "data_arrival_ns": 2.090509,
+        "launch_clock_arrival_ns": 0.9222340000000001,
+        "slack_ns": 1.204433,
+        "data_path_ns": 1.168275,
+        "split_ns": {
+          "launch_clk_to_q_ns": 0.7461,
+          "logic_ns": 0.4216,
+          "buffer_ns": 0.0,
+          "delay_cell_ns": 0.0,
+          "wire_ns": 0.0006
+        },
+        "logic_depth": 2,
+        "cells_on_path": 2,
+        "cells": [
+          {
+            "inst": "_2293_",
+            "cell": "o21ai_0",
+            "delay_ns": 0.22012,
+            "fanout": 1
+          },
+          {
+            "inst": "_2309_",
+            "cell": "nand4_1",
+            "delay_ns": 0.201504,
+            "fanout": 2
+          }
+        ],
+        "source": "results/sta/HC_preserved/nom_ss_100C_1v60.hold.rpt"
+      },
+      "fmax_MHz": 65.68
+    },
+    "nom_tt_025C_1v80": {
+      "setup_ws_ns": 7.615696733246374,
+      "setup_tns_ns": 0,
+      "hold_ws_ns": 0.48556249284600017,
+      "hold_tns_ns": 0,
+      "setup_path": {
+        "startpoint": "_2582_",
+        "startpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "start_net": "u_cpop.g_node.u_lo.g_node.u_lo.g_node.u_lo.g_node.u_lo.g_node.ch",
+        "endpoint": "_2647_",
+        "endpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "end_net": "_0000_",
+        "data_arrival_ns": 8.304929,
+        "launch_clock_arrival_ns": 0.5894379999999999,
+        "slack_ns": 7.615697,
+        "data_path_ns": 7.715491,
+        "split_ns": {
+          "launch_clk_to_q_ns": 0.3593,
+          "logic_ns": 4.6346,
+          "buffer_ns": 0.1722,
+          "delay_cell_ns": 2.5353,
+          "wire_ns": 0.0141
+        },
+        "logic_depth": 16,
+        "cells_on_path": 21,
+        "cells": [
+          {
+            "inst": "fanout414",
+            "cell": "clkdlybuf4s50_1",
+            "delay_ns": 0.950383,
+            "fanout": 8
+          },
+          {
+            "inst": "fanout413",
+            "cell": "clkdlybuf4s50_1",
+            "delay_ns": 0.937997,
+            "fanout": 10
+          },
+          {
+            "inst": "_1861_",
+            "cell": "xnor3_1",
+            "delay_ns": 0.574952,
+            "fanout": 3
+          },
+          {
+            "inst": "u_adder.g_hc.u_add.g_l0[1].g_gray.u_cell/_0_",
+            "cell": "a21o_1",
+            "delay_ns": 0.244351,
+            "fanout": 2
+          },
+          {
+            "inst": "rebuffer431",
+            "cell": "buf_4",
+            "delay_ns": 0.172225,
+            "fanout": 5
+          },
+          {
+            "inst": "u_adder.g_hc.u_add.g_lvl[2].g_bit[5].g_gray.u_cell/_0_",
+            "cell": "a21o_1",
+            "delay_ns": 0.206962,
+            "fanout": 3
+          },
+          {
+            "inst": "u_adder.g_hc.u_add.g_lvl[3].g_bit[13].g_gray.u_cell/_0_",
+            "cell": "a21o_1",
+            "delay_ns": 0.200313,
+            "fanout": 2
+          },
+          {
+            "inst": "u_adder.g_hc.u_add.g_lvl[4].g_bit[29].g_gray.u_cell/_0_",
+            "cell": "a21o_1",
+            "delay_ns": 0.229993,
+            "fanout": 2
+          },
+          {
+            "inst": "u_adder.g_hc.u_add.g_fix[30].g_gray.u_cell/_0_",
+            "cell": "a21o_1",
+            "delay_ns": 0.189917,
+            "fanout": 1
+          },
+          {
+            "inst": "_1249_",
+            "cell": "inv_1",
+            "delay_ns": 0.096091,
+            "fanout": 3
+          },
+          {
+            "inst": "_1791_",
+            "cell": "o21ai_0",
+            "delay_ns": 0.139856,
+            "fanout": 2
+          },
+          {
+            "inst": "fanout136",
+            "cell": "clkdlybuf4s15_2",
+            "delay_ns": 0.330322,
+            "fanout": 6
+          },
+          {
+            "inst": "fanout134",
+            "cell": "clkdlybuf4s15_2",
+            "delay_ns": 0.316594,
+            "fanout": 6
+          },
+          {
+            "inst": "_2051_",
+            "cell": "o21ai_0",
+            "delay_ns": 0.17737,
+            "fanout": 1
+          },
+          {
+            "inst": "_2052_",
+            "cell": "nor2_1",
+            "delay_ns": 0.059273,
+            "fanout": 1
+          },
+          {
+            "inst": "_2061_",
+            "cell": "nor3_1",
+            "delay_ns": 0.468559,
+            "fanout": 2
+          },
+          {
+            "inst": "_2062_",
+            "cell": "o21ai_0",
+            "delay_ns": 0.285504,
+            "fanout": 2
+          },
+          {
+            "inst": "_2572_",
+            "cell": "or4_4",
+            "delay_ns": 0.587677,
+            "fanout": 1
+          },
+          {
+            "inst": "_2574_",
+            "cell": "or4b_4",
+            "delay_ns": 0.499155,
+            "fanout": 1
+          },
+          {
+            "inst": "_2575_",
+            "cell": "or4_4",
+            "delay_ns": 0.45732,
+            "fanout": 1
+          },
+          {
+            "inst": "_2579_",
+            "cell": "nor4b_2",
+            "delay_ns": 0.217312,
+            "fanout": 1
+          }
+        ],
+        "source": "results/sta/HC_preserved/nom_tt_025C_1v80.setup.rpt"
+      },
+      "hold_path": {
+        "startpoint": "_2629_",
+        "startpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "start_net": "b0[16]",
+        "endpoint": "_2670_",
+        "endpoint_type": "rising edge-triggered flip-flop clocked by clk",
+        "end_net": "y_next[16]",
+        "data_arrival_ns": 1.151196,
+        "launch_clock_arrival_ns": 0.541296,
+        "slack_ns": 0.485563,
+        "data_path_ns": 0.6099,
+        "split_ns": {
+          "launch_clk_to_q_ns": 0.3897,
+          "logic_ns": 0.2196,
+          "buffer_ns": 0.0,
+          "delay_cell_ns": 0.0,
+          "wire_ns": 0.0006
+        },
+        "logic_depth": 2,
+        "cells_on_path": 2,
+        "cells": [
+          {
+            "inst": "_2293_",
+            "cell": "o21ai_0",
+            "delay_ns": 0.10287,
+            "fanout": 1
+          },
+          {
+            "inst": "_2309_",
+            "cell": "nand4_1",
+            "delay_ns": 0.116726,
+            "fanout": 2
+          }
+        ],
+        "source": "results/sta/HC_preserved/nom_tt_025C_1v80.hold.rpt"
+      },
+      "fmax_MHz": 122.94
+    }
+  }
+}

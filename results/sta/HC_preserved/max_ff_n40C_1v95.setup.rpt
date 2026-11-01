@@ -1,0 +1,56 @@
+Startpoint: in_valid (input port clocked by clk)
+Endpoint: _2608_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  3.150000    3.150000 ^ input external delay
+     1    0.003755    0.017353    0.010293    3.160293 ^ in_valid (in)
+                                                         in_valid (net)
+                      0.017356    0.000000    3.160293 ^ input65/A (sky130_fd_sc_hd__buf_2)
+     2    0.022441    0.086196    0.108821    3.269114 ^ input65/X (sky130_fd_sc_hd__buf_2)
+                                                         net65 (net)
+                      0.086259    0.002003    3.271116 ^ fanout422/A (sky130_fd_sc_hd__clkdlybuf4s50_1)
+     6    0.067683    0.486654    0.676474    3.947590 ^ fanout422/X (sky130_fd_sc_hd__clkdlybuf4s50_1)
+                                                         net422 (net)
+                      0.486661    0.002852    3.950442 ^ fanout421/A (sky130_fd_sc_hd__clkdlybuf4s50_1)
+     6    0.027883    0.206340    0.514725    4.465167 ^ fanout421/X (sky130_fd_sc_hd__clkdlybuf4s50_1)
+                                                         net421 (net)
+                      0.206363    0.002367    4.467534 ^ fanout420/A (sky130_fd_sc_hd__clkdlybuf4s50_1)
+     8    0.050591    0.367589    0.609664    5.077198 ^ fanout420/X (sky130_fd_sc_hd__clkdlybuf4s50_1)
+                                                         net420 (net)
+                      0.367598    0.002549    5.079747 ^ fanout419/A (sky130_fd_sc_hd__clkdlybuf4s50_1)
+     7    0.033149    0.243641    0.536332    5.616079 ^ fanout419/X (sky130_fd_sc_hd__clkdlybuf4s50_1)
+                                                         net419 (net)
+                      0.243652    0.001941    5.618020 ^ fanout416/A (sky130_fd_sc_hd__clkdlybuf4s50_1)
+     5    0.020459    0.154570    0.461212    6.079232 ^ fanout416/X (sky130_fd_sc_hd__clkdlybuf4s50_1)
+                                                         net416 (net)
+                      0.154573    0.000985    6.080216 ^ load_slew417/A (sky130_fd_sc_hd__buf_2)
+     6    0.031339    0.118248    0.162259    6.242476 ^ load_slew417/X (sky130_fd_sc_hd__buf_2)
+                                                         net417 (net)
+                      0.118361    0.003157    6.245632 ^ _2608_/DE (sky130_fd_sc_hd__edfxtp_1)
+                                              6.245632   data arrival time
+
+                                 15.750001   15.750001   clock clk (rise edge)
+                                  0.000000   15.750001   clock source latency
+     1    0.038385    0.104086    0.068550   15.818550 ^ clk (in)
+                                                         clk (net)
+                      0.104191    0.000000   15.818550 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    16    0.205635    0.168609    0.184571   16.003120 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.170716    0.014378   16.017498 ^ clkbuf_4_1_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     8    0.026204    0.037953    0.113342   16.130840 ^ clkbuf_4_1_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_4_1_0_clk (net)
+                      0.038448    0.002583   16.133425 ^ _2608_/CLK (sky130_fd_sc_hd__edfxtp_1)
+                                 -0.250000   15.883425   clock uncertainty
+                                  0.000000   15.883425   clock reconvergence pessimism
+                                 -0.084210   15.799214   library setup time
+                                             15.799214   data required time
+---------------------------------------------------------------------------------------------
+                                             15.799214   data required time
+                                             -6.245632   data arrival time
+---------------------------------------------------------------------------------------------
+                                              9.553583   slack (MET)
