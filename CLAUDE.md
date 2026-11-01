@@ -108,6 +108,13 @@ Physical design (Phase 4), all inside the container from the repo root:
   hand-type PPA numbers.
 - Flow settings: D-022 (util 40%), D-027 (variants), D-028 (post-GRT repair), D-029 (12% margin).
 
+Signoff and reports (Phase 5):
+- `make signoff` (HC preserved), `make flow-pipe1` (STA fix), then `make reports` = summary, STA
+  tables (`results/sta/`), plots, README table and resume bullets. `make all` runs everything; the
+  sweep seeds in the Makefile match the committed sweeps, so finished runs are reused.
+- `python3 scripts/sta_report.py --md` prints the STA_REPORT tables. `make readme-check` (also in CI)
+  fails if the README table is stale.
+
 RTL conventions (Phase 2, D-012):
 - SV subset accepted by Verilator, slang and Icarus. Yosys is always used through slang (`read_slang`;
   LibreLane `USE_SLANG`), because the built-in frontend rejects `parameter string` and in-module

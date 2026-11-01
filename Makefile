@@ -9,9 +9,11 @@ PY    ?= .venv/bin/python
 
 .PHONY: help env model model-test model-xcheck rtl lint synth-check opcodes-check adder-smoke \
         sim sim-ci formal formal-ci verify verify-summary \
-        flow-sweep flow-sweep-preserved abc-exp power wire-delay signoff summary legacy-probe clean
+        flow-sweep flow-sweep-preserved flow-pipe1 abc-exp power wire-delay signoff summary sta plots \
+        readme readme-check bullets reports all legacy-probe clean
 
 help:
+	@echo "make all          everything: verify -> flow sweeps -> power -> signoff -> reports"
 	@echo "make env          tool table -> results/env_check.txt"
 	@echo "make model        golden-model unit tests + Spike cross-check"
 	@echo "make rtl          all Phase 2 RTL checks (opcodes, lint, synth, adder smoke)"
@@ -29,8 +31,13 @@ help:
 	@echo "make abc-exp      ABC structure experiment -> results/flow/abc_experiment.json"
 	@echo "make power        gate-level workload power on each closing run"
 	@echo "make wire-delay   wire share of each closing run's critical path (D-024)"
+	@echo "make flow-pipe1   PIPE=1 sweep of HC preserved, the STA fix (D-032)"
 	@echo "make signoff      DRC/LVS/antenna/IR(VCD)/render evidence for the recommended config (D-031)"
 	@echo "make summary      build results/summary.json from all of the above"
+	@echo "make sta          per-corner critical paths -> results/sta/"
+	@echo "make plots        Pareto plots -> results/plots/"
+	@echo "make readme       README table from summary.json (readme-check: fail if stale)"
+	@echo "make bullets      results/resume_bullets.md from summary.json"
 	@echo "make legacy-probe audit evidence for docs/AUDIT.md"
 	@echo "make clean        remove sim_build/"
 
@@ -86,11 +93,15 @@ verify-summary:
 
 verify: lint model sim formal verify-summary
 
+# Seeds are the ones the committed sweeps used, so finished runs in runs/ are reused, not re-run.
 flow-sweep:
-	python3 scripts/sweep.py --jobs 3
+	python3 scripts/sweep.py --seed 20 --jobs 3
 
 flow-sweep-preserved:
 	python3 scripts/sweep.py --variant preserved --seed 12 --jobs 2
+
+flow-pipe1:
+	python3 scripts/sweep.py --variant preserved --pipe 1 --adder HC --seed 12 --jobs 1
 
 abc-exp:
 	python3 scripts/abc_exp.py
@@ -106,6 +117,27 @@ signoff:
 
 summary:
 	python3 scripts/parse_flow.py
+
+sta:
+	python3 scripts/sta_report.py
+
+plots:
+	python3 scripts/plots.py
+
+readme:
+	python3 scripts/gen_readme_table.py
+
+readme-check:
+	python3 scripts/gen_readme_table.py --check
+
+bullets:
+	python3 scripts/resume_bullets.py
+
+reports: summary sta plots readme bullets
+
+# BRIEF A5 "make all": lint -> sim -> formal -> flow sweep -> reports. With runs/ present every
+# finished LibreLane run is reused; from scratch the sweeps take many hours.
+all: verify flow-sweep flow-sweep-preserved flow-pipe1 abc-exp power wire-delay signoff reports
 
 legacy-probe:
 	scripts/legacy_probe.sh
