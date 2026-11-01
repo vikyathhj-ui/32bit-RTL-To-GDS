@@ -1,5 +1,13 @@
 # prefix-adder-alu-sky130
 
+[![ci](https://github.com/vikyathhj-ui/prefix-adder-alu-sky130/actions/workflows/ci.yml/badge.svg)](https://github.com/vikyathhj-ui/prefix-adder-alu-sky130/actions/workflows/ci.yml)
+![SystemVerilog](https://img.shields.io/badge/RTL-SystemVerilog-blue)
+![Verilog](https://img.shields.io/badge/netlists-Verilog-blue)
+![Python](https://img.shields.io/badge/verification%20%26%20flow-Python-yellow)
+![SKY130](https://img.shields.io/badge/PDK-SKY130-green)
+![LibreLane](https://img.shields.io/badge/flow-LibreLane-green)
+![License: MIT](https://img.shields.io/badge/license-MIT-lightgrey)
+
 A 32-bit RV32I + Zbb ALU with a swappable adder, taken from specification to signed-off layout on
 SkyWater SKY130 with open-source tools. It asks one question: **which adder should this ALU use at a
 given frequency target, and why?** Eight adders are compared: ripple-carry, 4-bit carry-lookahead,
