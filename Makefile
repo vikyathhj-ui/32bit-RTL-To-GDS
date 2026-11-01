@@ -9,7 +9,7 @@ PY    ?= .venv/bin/python
 
 .PHONY: help env model model-test model-xcheck rtl lint synth-check opcodes-check adder-smoke \
         sim sim-ci formal formal-ci verify verify-summary \
-        flow-sweep flow-sweep-preserved abc-exp power wire-delay summary legacy-probe clean
+        flow-sweep flow-sweep-preserved abc-exp power wire-delay signoff summary legacy-probe clean
 
 help:
 	@echo "make env          tool table -> results/env_check.txt"
@@ -29,6 +29,7 @@ help:
 	@echo "make abc-exp      ABC structure experiment -> results/flow/abc_experiment.json"
 	@echo "make power        gate-level workload power on each closing run"
 	@echo "make wire-delay   wire share of each closing run's critical path (D-024)"
+	@echo "make signoff      DRC/LVS/antenna/IR(VCD)/render evidence for the recommended config (D-031)"
 	@echo "make summary      build results/summary.json from all of the above"
 	@echo "make legacy-probe audit evidence for docs/AUDIT.md"
 	@echo "make clean        remove sim_build/"
@@ -99,6 +100,9 @@ power:
 
 wire-delay:
 	python3 scripts/wire_delay.py
+
+signoff:
+	python3 scripts/signoff.py --arch HC --variant preserved
 
 summary:
 	python3 scripts/parse_flow.py

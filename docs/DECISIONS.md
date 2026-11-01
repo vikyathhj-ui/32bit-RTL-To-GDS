@@ -658,6 +658,29 @@ Format for each entry: **context → options → choice → evidence**. Newest a
   - `scripts/parse_flow.py` reads the newest step directories of each run, which belong to its last
     complete repeat.
 
+## D-031 — Recommended configuration and its signoff
+- **Choice** (owner, 2026-11-01, from the Phase 4 data): **HC (Han–Carlson), structure-preserved flow,
+  PIPE=0, at 15.75 ns** (64.32 MHz at `max_ss_100C_1v60`).
+  - It is the fastest of the 16 closing runs. The cost against the fastest stock-flow design (KS
+    default, 17.25 ns) is area and energy: 18,735.5 vs 15,065.7 µm² of cells and 35.56 vs 29.64 pJ/op.
+  - The PPA report also gives a recommendation per frequency target, because no single design is
+    best at every target.
+- **Signoff** (`scripts/signoff.py` → `results/signoff/HC_preserved/`, PASS):
+  - Magic DRC 0, KLayout DRC 0, KLayout XOR (Magic vs KLayout GDS) 0 differences.
+  - Netgen LVS: 0 errors, "Final result: Circuits match uniquely."
+  - Antenna: 0 violating nets and pins (the flow inserted 9 diodes); routing DRC 0.
+  - **IR drop with real activity:** OpenROAD reads the final ODB, SDC, nominal SPEF and the gate-level
+    workload VCD (7412 pins annotated, 0 unannotated), then `analyze_power_grid`. Worst drop:
+    VPWR 0.491 mV, VGND 0.463 mV (0.03% of 1.8 V) at 2.26 mW.
+  - LibreLane's own IR-drop step uses **default activity** (2.13 mW): worst VPWR drop 0.654 mV. Both are
+    recorded and labelled. The VCD run has more total power but a lower worst-case drop, because the
+    real activity is spread differently across the die.
+  - The VCD power inside OpenROAD (2.257551 mW) matches the separate OpenSTA measurement of D-025
+    (2.257552 mW).
+  - GDS render: `results/signoff/HC_preserved/render_2400px.png` (KLayout, LibreLane's `render.py`).
+- **Caveat:** an IR drop this small is expected for a 0.04 mm² block with a full power grid. It says
+  nothing about a whole chip.
+
 ---
 
 ## Bugs found by verification

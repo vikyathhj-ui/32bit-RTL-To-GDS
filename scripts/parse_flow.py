@@ -37,7 +37,9 @@ from adders import ADDERS  # noqa: E402
 RES = REPO / "results" / "flow"
 SLOWEST = "max_ss_100C_1v60"
 PRE_POST_CORNER = "nom_ss_100C_1v60"
-VARIANT_DIRS = {"default": RES / "sweep", "preserved": RES / "sweep_preserved"}
+# preserved_P1: the PIPE=1 STA fix on the recommended configuration (D-032).
+VARIANT_DIRS = {"default": RES / "sweep", "preserved": RES / "sweep_preserved",
+                "preserved_P1": RES / "sweep_preserved_P1"}
 OUT_PIN = re.compile(r"\s(\S+)/(X|Y|SUM|COUT)\s+\((sky130_fd_sc_hd__\w+)\)")
 
 
@@ -186,6 +188,13 @@ def main() -> int:
             {k: r.get(k) for k in ("arch", "variant", "cells", "area_um2", "r2r_path_delay_ns")}
             | {"logic_depth": r["critical_path"]["logic_depth"]}
             for r in json.loads(abc.read_text())["results"]]}
+    # Signoff of the recommended configuration (scripts/signoff.py, D-031).
+    for so in sorted((REPO / "results" / "signoff").glob("*/signoff.json")):
+        s = json.loads(so.read_text())
+        ir = {k: v["nets"] for k, v in s["ir_drop"].items() if "nets" in v}
+        summary.setdefault("signoff", {})[so.parent.name] = {
+            k: s[k] for k in ("status", "arch", "variant", "period_ns", "checks", "lvs_final_result_match")
+        } | {"ir_drop_by_activity": ir, "render_png": s["render"]["png"], "source": rel(so)}
     out = REPO / "results" / "summary.json"
     out.write_text(json.dumps(summary, indent=2) + "\n")
     for v, archs in summary["variants"].items():
