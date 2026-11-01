@@ -1,0 +1,3953 @@
+{
+  "brief": "docs/BRIEF.md A4/A5",
+  "pdk": "sky130A / sky130_fd_sc_hd",
+  "closing_criterion": "setup WS >= 0 at max_ss_100C_1v60 and hold WS >= 0 at all corners",
+  "period_resolution_ns": 0.25,
+  "variants": {
+    "default": {
+      "RCA": {
+        "variant": "default",
+        "arch": "RCA",
+        "sweep_status": "DONE",
+        "min_period_ns": 23.0,
+        "failing_neighbour_ns": 22.75,
+        "nonmonotonic_points_ns": [],
+        "sweep_runs": [
+          {
+            "period_ns": 20.0,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -2.48446781291276,
+            "hold_ws_min": 0.11948176120012448
+          },
+          {
+            "period_ns": 22.5,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.370596008814727,
+            "hold_ws_min": 0.11699253008621215
+          },
+          {
+            "period_ns": 22.75,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.10861889473075925,
+            "hold_ws_min": 0.11263496010246915
+          },
+          {
+            "period_ns": 23.0,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.14138202120326196,
+            "hold_ws_min": 0.11263496010246915
+          },
+          {
+            "period_ns": 23.25,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.39138293713728317,
+            "hold_ws_min": 0.11263496010246915
+          }
+        ],
+        "sweep_source": "results/flow/sweep/RCA.json",
+        "closing_run": "runs/RCA_P0_T23.00/runs/RCA_P0_T23.00",
+        "metrics_source": "results/flow/default/RCA/metrics.json",
+        "area": {
+          "stdcell_count": 2066,
+          "stdcell_area_um2": 14485.1,
+          "core_area_um2": 26058.7,
+          "die_area_um2": 31987.2,
+          "utilisation": 0.555865,
+          "timing_repair_buffer_area_um2": 2596.24
+        },
+        "timing": {
+          "max_ff_n40C_1v95": {
+            "setup_ws_ns": 15.148130290004696,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.11595003063660524,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 15.14813,
+            "fmax_MHz": 127.36
+          },
+          "max_ss_100C_1v60": {
+            "setup_ws_ns": 0.14138202120326196,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.9788518050950135,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.141382,
+            "fmax_MHz": 43.75
+          },
+          "max_tt_025C_1v80": {
+            "setup_ws_ns": 10.678660036266546,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.3495069887986265,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 10.67866,
+            "fmax_MHz": 81.16
+          },
+          "min_ff_n40C_1v95": {
+            "setup_ws_ns": 15.463845752714024,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.11263496010246915,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 15.463846,
+            "fmax_MHz": 132.69
+          },
+          "min_ss_100C_1v60": {
+            "setup_ws_ns": 0.9396270694141431,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.9724650249206218,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.939627,
+            "fmax_MHz": 45.33
+          },
+          "min_tt_025C_1v80": {
+            "setup_ws_ns": 11.143172922014935,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.3456681150266581,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 11.143173,
+            "fmax_MHz": 84.34
+          },
+          "nom_ff_n40C_1v95": {
+            "setup_ws_ns": 15.305034117709623,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.11366119478430531,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 15.305034,
+            "fmax_MHz": 129.96
+          },
+          "nom_ss_100C_1v60": {
+            "setup_ws_ns": 0.5318075019770298,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.973191332843873,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.531807,
+            "fmax_MHz": 44.51
+          },
+          "nom_tt_025C_1v80": {
+            "setup_ws_ns": 10.915267221252689,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.3465652307670786,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 10.915267,
+            "fmax_MHz": 82.75
+          }
+        },
+        "fmax_slowest_corner_MHz": 43.75,
+        "critical_path_slowest": {
+          "startpoint": "_2420_ (rising edge-triggered flip-flop clocked by clk)",
+          "endpoint": "_2450_ (rising edge-triggered flip-flop clocked by clk)",
+          "data_arrival_ns": 23.245443,
+          "cells_on_path": 52,
+          "logic_depth_excluding_buffers": 36,
+          "cell_types": [
+            "clkbuf_16",
+            "clkbuf_16",
+            "clkdlybuf4s50_1",
+            "clkdlybuf4s15_2",
+            "clkdlybuf4s15_2",
+            "inv_1",
+            "clkdlybuf4s50_1",
+            "clkdlybuf4s15_2",
+            "xnor2_1",
+            "buf_1",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "a21boi_2",
+            "buf_6",
+            "o21ai_4",
+            "a21oi_4",
+            "o21ai_4",
+            "a21oi_2",
+            "o21a_1",
+            "o21ba_4",
+            "o21ba_4",
+            "o21bai_4",
+            "a21oi_4",
+            "o21ai_4",
+            "maj3_4",
+            "a21boi_4",
+            "buf_6",
+            "o21ai_4",
+            "maj3_4",
+            "maj3_4",
+            "a21oi_4",
+            "o21ai_4",
+            "a21oi_2",
+            "o21a_1",
+            "o21bai_4",
+            "a21oi_4",
+            "o21ai_4",
+            "a21oi_4",
+            "o21ai_2",
+            "buf_6",
+            "mux2i_1",
+            "o211ai_1",
+            "buf_6",
+            "buf_6",
+            "buf_4",
+            "a221o_1",
+            "nor4_1",
+            "and4_1",
+            "and3_1",
+            "clkbuf_16",
+            "clkbuf_16"
+          ],
+          "source": "results/flow/default/RCA/max_max_ss_100C_1v60.rpt"
+        },
+        "post_synth_vs_post_route": {
+          "corner": "nom_ss_100C_1v60",
+          "post_synth_delay_ns": 28.4051,
+          "post_route_delay_ns": 22.4682,
+          "degradation_ns": -5.9369,
+          "degradation_percent": -20.9,
+          "note": "delay = T - setup WS (worst path, any type) at the same corner and clock",
+          "sources": [
+            "runs/RCA_P0_T23.00/runs/RCA_P0_T23.00/12-openroad-staprepnr/state_out.json",
+            "results/flow/default/RCA/metrics.json"
+          ]
+        },
+        "wire_delay": {
+          "corner": "nom_ss_100C_1v60",
+          "delay_routed_ns": 22.4682,
+          "delay_ideal_wires_ns": 19.5545,
+          "wire_delay_ns": 2.9137,
+          "wire_delay_percent_of_routed": 13.0,
+          "ws_routed_ns": 0.531807,
+          "flow_ws_ns": 0.5318075019770298,
+          "note": "same final netlist; routed = with nominal SPEF, ideal = no SPEF; delay = T - WS",
+          "source": "results/flow/default/RCA/wire_delay.json"
+        },
+        "physical": {
+          "route_wirelength_um": 50457,
+          "max_fanout_violations": 2,
+          "max_slew_violations_max_ss_100C_1v60": 550
+        },
+        "signoff_flow_counts": {
+          "magic_drc_errors": 0,
+          "klayout_drc_errors": 0,
+          "lvs_errors": 0,
+          "antenna_violating_nets": 0,
+          "route_drc_errors": 0
+        },
+        "power_default_activity_W": {
+          "value": 0.0014189595822244883,
+          "label": "LibreLane default activity (not annotated)"
+        },
+        "power_annotated": {
+          "gate_level_sim": "PASS",
+          "results_checked": 10000,
+          "total_W": 0.001275255,
+          "internal_W": 0.000685348,
+          "switching_W": 0.000589897,
+          "leakage_W": 9.787767e-09,
+          "annotation": {
+            "vcd": 5825,
+            "unannotated": 0
+          },
+          "energy_per_op_pJ": 29.330865000000006,
+          "period_ns": 23.0,
+          "mix": "50% ADD/SUB, 20% AND/OR/XOR, 20% SLL/SRL/SRA, 10% Zbb (uniform), back-to-back",
+          "note": "functional cell models (zero-delay logic, 1 ns flop clock-to-Q): glitch power not included",
+          "source": "results/flow/default/RCA/power.json"
+        }
+      },
+      "CLA4": {
+        "variant": "default",
+        "arch": "CLA4",
+        "sweep_status": "DONE",
+        "min_period_ns": 19.5,
+        "failing_neighbour_ns": 19.25,
+        "nonmonotonic_points_ns": [],
+        "sweep_runs": [
+          {
+            "period_ns": 19.25,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.09130829684122667,
+            "hold_ws_min": 0.11182388664889052
+          },
+          {
+            "period_ns": 19.5,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.1680824416114266,
+            "hold_ws_min": 0.11435519521662617
+          },
+          {
+            "period_ns": 19.75,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.3586624432301318,
+            "hold_ws_min": 0.11342643811910895
+          },
+          {
+            "period_ns": 20.0,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.6101821443047944,
+            "hold_ws_min": 0.11321832680725717
+          }
+        ],
+        "sweep_source": "results/flow/sweep/CLA4.json",
+        "closing_run": "runs/CLA4_P0_T19.50/runs/CLA4_P0_T19.50",
+        "metrics_source": "results/flow/default/CLA4/metrics.json",
+        "area": {
+          "stdcell_count": 2024,
+          "stdcell_area_um2": 14197.4,
+          "core_area_um2": 25984.9,
+          "die_area_um2": 31824.6,
+          "utilisation": 0.546369,
+          "timing_repair_buffer_area_um2": 2423.57
+        },
+        "timing": {
+          "max_ff_n40C_1v95": {
+            "setup_ws_ns": 12.8475713704116,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.11757983808284907,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 12.847571,
+            "fmax_MHz": 150.32
+          },
+          "max_ss_100C_1v60": {
+            "setup_ws_ns": 0.1680824416114266,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.9688163878693032,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.168082,
+            "fmax_MHz": 51.73
+          },
+          "max_tt_025C_1v80": {
+            "setup_ws_ns": 9.148340122162283,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.3491421139912641,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 9.14834,
+            "fmax_MHz": 96.6
+          },
+          "min_ff_n40C_1v95": {
+            "setup_ws_ns": 13.05276990105359,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.11435519521662617,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 13.05277,
+            "fmax_MHz": 155.11
+          },
+          "min_ss_100C_1v60": {
+            "setup_ws_ns": 0.7239773430119619,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.9611587353626805,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.723977,
+            "fmax_MHz": 53.26
+          },
+          "min_tt_025C_1v80": {
+            "setup_ws_ns": 9.453917027923998,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.34470510754786254,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 9.453918,
+            "fmax_MHz": 99.54
+          },
+          "nom_ff_n40C_1v95": {
+            "setup_ws_ns": 12.951942107640788,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.11609363798890199,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 12.951942,
+            "fmax_MHz": 152.72
+          },
+          "nom_ss_100C_1v60": {
+            "setup_ws_ns": 0.46499871935770487,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.9639578297315292,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.464999,
+            "fmax_MHz": 52.53
+          },
+          "nom_tt_025C_1v80": {
+            "setup_ws_ns": 9.302076705532984,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.3466674823105385,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 9.302076,
+            "fmax_MHz": 98.06
+          }
+        },
+        "fmax_slowest_corner_MHz": 51.73,
+        "critical_path_slowest": {
+          "startpoint": "_2413_ (rising edge-triggered flip-flop clocked by clk)",
+          "endpoint": "_2408_ (rising edge-triggered flip-flop clocked by clk)",
+          "data_arrival_ns": 19.694687,
+          "cells_on_path": 43,
+          "logic_depth_excluding_buffers": 22,
+          "cell_types": [
+            "clkbuf_16",
+            "clkbuf_16",
+            "nand2b_1",
+            "o221ai_4",
+            "nor4_4",
+            "buf_1",
+            "clkdlybuf4s50_1",
+            "clkdlybuf4s50_1",
+            "xnor2_1",
+            "nand2_1",
+            "o311ai_2",
+            "clkbuf_2",
+            "clkbuf_2",
+            "clkbuf_2",
+            "a311oi_4",
+            "o311ai_2",
+            "clkbuf_2",
+            "clkbuf_2",
+            "clkbuf_2",
+            "buf_6",
+            "buf_6",
+            "a311oi_4",
+            "o311ai_4",
+            "clkbuf_2",
+            "a311oi_2",
+            "clkbuf_2",
+            "nor3_2",
+            "clkbuf_2",
+            "o2111a_2",
+            "o2111ai_4",
+            "a21oi_4",
+            "a311o_1",
+            "mux2i_2",
+            "o211ai_1",
+            "buf_4",
+            "buf_6",
+            "buf_4",
+            "a221o_1",
+            "or4_4",
+            "nor4_4",
+            "and4_1",
+            "clkbuf_16",
+            "clkbuf_16"
+          ],
+          "source": "results/flow/default/CLA4/max_max_ss_100C_1v60.rpt"
+        },
+        "post_synth_vs_post_route": {
+          "corner": "nom_ss_100C_1v60",
+          "post_synth_delay_ns": 27.1581,
+          "post_route_delay_ns": 19.035,
+          "degradation_ns": -8.1231,
+          "degradation_percent": -29.9,
+          "note": "delay = T - setup WS (worst path, any type) at the same corner and clock",
+          "sources": [
+            "runs/CLA4_P0_T19.50/runs/CLA4_P0_T19.50/12-openroad-staprepnr/state_out.json",
+            "results/flow/default/CLA4/metrics.json"
+          ]
+        },
+        "wire_delay": {
+          "corner": "nom_ss_100C_1v60",
+          "delay_routed_ns": 19.035,
+          "delay_ideal_wires_ns": 17.3173,
+          "wire_delay_ns": 1.7177,
+          "wire_delay_percent_of_routed": 9.0,
+          "ws_routed_ns": 0.465001,
+          "flow_ws_ns": 0.46499871935770487,
+          "note": "same final netlist; routed = with nominal SPEF, ideal = no SPEF; delay = T - WS",
+          "source": "results/flow/default/CLA4/wire_delay.json"
+        },
+        "physical": {
+          "route_wirelength_um": 49931,
+          "max_fanout_violations": 1,
+          "max_slew_violations_max_ss_100C_1v60": 594
+        },
+        "signoff_flow_counts": {
+          "magic_drc_errors": 0,
+          "klayout_drc_errors": 0,
+          "lvs_errors": 0,
+          "antenna_violating_nets": 0,
+          "route_drc_errors": 0
+        },
+        "power_default_activity_W": {
+          "value": 0.001584889949299395,
+          "label": "LibreLane default activity (not annotated)"
+        },
+        "power_annotated": {
+          "gate_level_sim": "PASS",
+          "results_checked": 10000,
+          "total_W": 0.001481653,
+          "internal_W": 0.0007951128,
+          "switching_W": 0.0006865307,
+          "leakage_W": 9.536773e-09,
+          "annotation": {
+            "vcd": 5772,
+            "unannotated": 0
+          },
+          "energy_per_op_pJ": 28.892233500000003,
+          "period_ns": 19.5,
+          "mix": "50% ADD/SUB, 20% AND/OR/XOR, 20% SLL/SRL/SRA, 10% Zbb (uniform), back-to-back",
+          "note": "functional cell models (zero-delay logic, 1 ns flop clock-to-Q): glitch power not included",
+          "source": "results/flow/default/CLA4/power.json"
+        }
+      },
+      "CSLA": {
+        "variant": "default",
+        "arch": "CSLA",
+        "sweep_status": "DONE",
+        "min_period_ns": 23.0,
+        "failing_neighbour_ns": 22.75,
+        "nonmonotonic_points_ns": [],
+        "sweep_runs": [
+          {
+            "period_ns": 20.0,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -2.789343945881511,
+            "hold_ws_min": 0.11748702343536542
+          },
+          {
+            "period_ns": 21.5,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -1.3852244188232101,
+            "hold_ws_min": 0.1255998118838054
+          },
+          {
+            "period_ns": 22.25,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.6456542150339967,
+            "hold_ws_min": 0.11905876621577918
+          },
+          {
+            "period_ns": 22.5,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.3956532990999755,
+            "hold_ws_min": 0.11905876621577918
+          },
+          {
+            "period_ns": 22.75,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.14565415952284388,
+            "hold_ws_min": 0.11905876621577918
+          },
+          {
+            "period_ns": 23.0,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.09143797089417031,
+            "hold_ws_min": 0.12364248863603436
+          },
+          {
+            "period_ns": 23.25,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.33012882251185965,
+            "hold_ws_min": 0.11571910424095215
+          }
+        ],
+        "sweep_source": "results/flow/sweep/CSLA.json",
+        "closing_run": "runs/CSLA_P0_T23.00/runs/CSLA_P0_T23.00",
+        "metrics_source": "results/flow/default/CSLA/metrics.json",
+        "area": {
+          "stdcell_count": 2080,
+          "stdcell_area_um2": 14541.4,
+          "core_area_um2": 26650.6,
+          "die_area_um2": 32293.9,
+          "utilisation": 0.545634,
+          "timing_repair_buffer_area_um2": 2552.45
+        },
+        "timing": {
+          "max_ff_n40C_1v95": {
+            "setup_ws_ns": 15.215512835899373,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.1279429931546977,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 15.215513,
+            "fmax_MHz": 128.46
+          },
+          "max_ss_100C_1v60": {
+            "setup_ws_ns": 0.09143797089417031,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 1.019734214820834,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.091438,
+            "fmax_MHz": 43.65
+          },
+          "max_tt_025C_1v80": {
+            "setup_ws_ns": 10.635944870319841,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.36780729503145204,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 10.635945,
+            "fmax_MHz": 80.88
+          },
+          "min_ff_n40C_1v95": {
+            "setup_ws_ns": 15.474630015391023,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.12364248863603436,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 15.47463,
+            "fmax_MHz": 132.88
+          },
+          "min_ss_100C_1v60": {
+            "setup_ws_ns": 0.7727276814912161,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 1.0102537981008302,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.772728,
+            "fmax_MHz": 44.99
+          },
+          "min_tt_025C_1v80": {
+            "setup_ws_ns": 11.015347168414953,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.36237897042132633,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 11.015347,
+            "fmax_MHz": 83.44
+          },
+          "nom_ff_n40C_1v95": {
+            "setup_ws_ns": 15.343884819242918,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.12579321274016483,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 15.343884,
+            "fmax_MHz": 130.61
+          },
+          "nom_ss_100C_1v60": {
+            "setup_ws_ns": 0.43215920953894765,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 1.014438561865903,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.432159,
+            "fmax_MHz": 44.31
+          },
+          "nom_tt_025C_1v80": {
+            "setup_ws_ns": 10.82441367177521,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.3648078054009909,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 10.824413,
+            "fmax_MHz": 82.13
+          }
+        },
+        "fmax_slowest_corner_MHz": 43.65,
+        "critical_path_slowest": {
+          "startpoint": "_2455_ (rising edge-triggered flip-flop clocked by clk)",
+          "endpoint": "_2486_ (rising edge-triggered flip-flop clocked by clk)",
+          "data_arrival_ns": 23.23698,
+          "cells_on_path": 46,
+          "logic_depth_excluding_buffers": 34,
+          "cell_types": [
+            "clkbuf_16",
+            "clkbuf_16",
+            "clkdlybuf4s50_1",
+            "clkdlybuf4s50_1",
+            "inv_1",
+            "clkdlybuf4s50_1",
+            "xnor2_1",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "a211oi_2",
+            "buf_6",
+            "o31ai_4",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "a211oi_4",
+            "o31ai_4",
+            "a21oi_2",
+            "o21ai_2",
+            "a21oi_2",
+            "o21ba_4",
+            "o21bai_4",
+            "a211oi_2",
+            "o31ai_1",
+            "buf_2",
+            "a21oi_4",
+            "o21bai_4",
+            "a21oi_4",
+            "o21ai_2",
+            "a21o_1",
+            "a21oi_4",
+            "nor3_1",
+            "nand4bb_4",
+            "buf_6",
+            "clkbuf_4",
+            "a221o_1",
+            "nor4_1",
+            "dlymetal6s2s_1",
+            "nand2_1",
+            "nor3_2",
+            "clkbuf_16",
+            "clkbuf_16"
+          ],
+          "source": "results/flow/default/CSLA/max_max_ss_100C_1v60.rpt"
+        },
+        "post_synth_vs_post_route": {
+          "corner": "nom_ss_100C_1v60",
+          "post_synth_delay_ns": 28.2384,
+          "post_route_delay_ns": 22.5678,
+          "degradation_ns": -5.6706,
+          "degradation_percent": -20.1,
+          "note": "delay = T - setup WS (worst path, any type) at the same corner and clock",
+          "sources": [
+            "runs/CSLA_P0_T23.00/runs/CSLA_P0_T23.00/12-openroad-staprepnr/state_out.json",
+            "results/flow/default/CSLA/metrics.json"
+          ]
+        },
+        "wire_delay": {
+          "corner": "nom_ss_100C_1v60",
+          "delay_routed_ns": 22.5678,
+          "delay_ideal_wires_ns": 20.443,
+          "wire_delay_ns": 2.1248,
+          "wire_delay_percent_of_routed": 9.4,
+          "ws_routed_ns": 0.432159,
+          "flow_ws_ns": 0.43215920953894765,
+          "note": "same final netlist; routed = with nominal SPEF, ideal = no SPEF; delay = T - WS",
+          "source": "results/flow/default/CSLA/wire_delay.json"
+        },
+        "physical": {
+          "route_wirelength_um": 52340,
+          "max_fanout_violations": 1,
+          "max_slew_violations_max_ss_100C_1v60": 584
+        },
+        "signoff_flow_counts": {
+          "magic_drc_errors": 0,
+          "klayout_drc_errors": 0,
+          "lvs_errors": 0,
+          "antenna_violating_nets": 0,
+          "route_drc_errors": 0
+        },
+        "power_default_activity_W": {
+          "value": 0.0014297438319772482,
+          "label": "LibreLane default activity (not annotated)"
+        },
+        "power_annotated": {
+          "gate_level_sim": "PASS",
+          "results_checked": 10000,
+          "total_W": 0.001286621,
+          "internal_W": 0.0006816849,
+          "switching_W": 0.0006049264,
+          "leakage_W": 9.867916e-09,
+          "annotation": {
+            "vcd": 5872,
+            "unannotated": 0
+          },
+          "energy_per_op_pJ": 29.592283,
+          "period_ns": 23.0,
+          "mix": "50% ADD/SUB, 20% AND/OR/XOR, 20% SLL/SRL/SRA, 10% Zbb (uniform), back-to-back",
+          "note": "functional cell models (zero-delay logic, 1 ns flop clock-to-Q): glitch power not included",
+          "source": "results/flow/default/CSLA/power.json"
+        }
+      },
+      "BK": {
+        "variant": "default",
+        "arch": "BK",
+        "sweep_status": "DONE",
+        "min_period_ns": 20.5,
+        "failing_neighbour_ns": 20.25,
+        "nonmonotonic_points_ns": [],
+        "sweep_runs": [
+          {
+            "period_ns": 20.0,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.32772185892639877,
+            "hold_ws_min": 0.11120332747172568
+          },
+          {
+            "period_ns": 20.25,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.04224531954939599,
+            "hold_ws_min": 0.10973611219203662
+          },
+          {
+            "period_ns": 20.5,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.18543389570942087,
+            "hold_ws_min": 0.10904344402738299
+          },
+          {
+            "period_ns": 20.75,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.4299174471442232,
+            "hold_ws_min": 0.10839490722920633
+          }
+        ],
+        "sweep_source": "results/flow/sweep/BK.json",
+        "closing_run": "runs/BK_P0_T20.50/runs/BK_P0_T20.50",
+        "metrics_source": "results/flow/default/BK/metrics.json",
+        "area": {
+          "stdcell_count": 2096,
+          "stdcell_area_um2": 14810.5,
+          "core_area_um2": 26132.6,
+          "die_area_um2": 32166.4,
+          "utilisation": 0.566743,
+          "timing_repair_buffer_area_um2": 2900.28
+        },
+        "timing": {
+          "max_ff_n40C_1v95": {
+            "setup_ws_ns": 13.444378435515858,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.11324869140783944,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 13.444379,
+            "fmax_MHz": 141.73
+          },
+          "max_ss_100C_1v60": {
+            "setup_ws_ns": 0.18543389570942087,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.9719130220171665,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.185434,
+            "fmax_MHz": 49.23
+          },
+          "max_tt_025C_1v80": {
+            "setup_ws_ns": 9.568411223067237,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.34602388600496115,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 9.568411,
+            "fmax_MHz": 91.48
+          },
+          "min_ff_n40C_1v95": {
+            "setup_ws_ns": 13.693363275309006,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.10904344402738299,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 13.693363,
+            "fmax_MHz": 146.92
+          },
+          "min_ss_100C_1v60": {
+            "setup_ws_ns": 0.8651781758124807,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.9614127543978989,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.865178,
+            "fmax_MHz": 50.93
+          },
+          "min_tt_025C_1v80": {
+            "setup_ws_ns": 9.94593946464378,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.3394407073719588,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 9.945939,
+            "fmax_MHz": 94.75
+          },
+          "nom_ff_n40C_1v95": {
+            "setup_ws_ns": 13.570609908807388,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.11093565269291819,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 13.57061,
+            "fmax_MHz": 144.31
+          },
+          "nom_ss_100C_1v60": {
+            "setup_ws_ns": 0.523233027270742,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.9660073014929502,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.523233,
+            "fmax_MHz": 50.06
+          },
+          "nom_tt_025C_1v80": {
+            "setup_ws_ns": 9.756834727421921,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.34236880965991756,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 9.756835,
+            "fmax_MHz": 93.08
+          }
+        },
+        "fmax_slowest_corner_MHz": 49.23,
+        "critical_path_slowest": {
+          "startpoint": "_2419_ (rising edge-triggered flip-flop clocked by clk)",
+          "endpoint": "_2450_ (rising edge-triggered flip-flop clocked by clk)",
+          "data_arrival_ns": 20.65498,
+          "cells_on_path": 54,
+          "logic_depth_excluding_buffers": 26,
+          "cell_types": [
+            "clkbuf_16",
+            "clkbuf_16",
+            "clkbuf_4",
+            "clkdlybuf4s15_2",
+            "clkbuf_2",
+            "clkdlybuf4s15_2",
+            "inv_1",
+            "clkbuf_4",
+            "xnor2_2",
+            "and2_4",
+            "a211oi_4",
+            "o311ai_2",
+            "clkbuf_2",
+            "clkbuf_2",
+            "clkbuf_2",
+            "a311oi_2",
+            "clkbuf_2",
+            "o311ai_2",
+            "clkbuf_2",
+            "buf_6",
+            "a311oi_4",
+            "o311ai_2",
+            "clkbuf_2",
+            "a311oi_2",
+            "clkbuf_2",
+            "o311a_4",
+            "o311a_4",
+            "o31a_1",
+            "o21ai_4",
+            "a211oi_2",
+            "clkbuf_2",
+            "o311ai_2",
+            "clkbuf_2",
+            "clkbuf_2",
+            "clkbuf_2",
+            "buf_6",
+            "a311oi_4",
+            "o311ai_2",
+            "clkbuf_2",
+            "buf_6",
+            "a31oi_4",
+            "o21ai_2",
+            "clkbuf_2",
+            "mux2i_1",
+            "a311o_1",
+            "buf_6",
+            "buf_8",
+            "a221o_1",
+            "nor4_2",
+            "clkbuf_2",
+            "nand4_1",
+            "nor2_1",
+            "clkbuf_16",
+            "clkbuf_16"
+          ],
+          "source": "results/flow/default/BK/max_max_ss_100C_1v60.rpt"
+        },
+        "post_synth_vs_post_route": {
+          "corner": "nom_ss_100C_1v60",
+          "post_synth_delay_ns": 21.5171,
+          "post_route_delay_ns": 19.9768,
+          "degradation_ns": -1.5404,
+          "degradation_percent": -7.2,
+          "note": "delay = T - setup WS (worst path, any type) at the same corner and clock",
+          "sources": [
+            "runs/BK_P0_T20.50/runs/BK_P0_T20.50/12-openroad-staprepnr/state_out.json",
+            "results/flow/default/BK/metrics.json"
+          ]
+        },
+        "wire_delay": {
+          "corner": "nom_ss_100C_1v60",
+          "delay_routed_ns": 19.9768,
+          "delay_ideal_wires_ns": 17.5449,
+          "wire_delay_ns": 2.4319,
+          "wire_delay_percent_of_routed": 12.2,
+          "ws_routed_ns": 0.523233,
+          "flow_ws_ns": 0.523233027270742,
+          "note": "same final netlist; routed = with nominal SPEF, ideal = no SPEF; delay = T - WS",
+          "source": "results/flow/default/BK/wire_delay.json"
+        },
+        "physical": {
+          "route_wirelength_um": 51552,
+          "max_fanout_violations": 1,
+          "max_slew_violations_max_ss_100C_1v60": 568
+        },
+        "signoff_flow_counts": {
+          "magic_drc_errors": 0,
+          "klayout_drc_errors": 0,
+          "lvs_errors": 0,
+          "antenna_violating_nets": 0,
+          "route_drc_errors": 0
+        },
+        "power_default_activity_W": {
+          "value": 0.001598777831532061,
+          "label": "LibreLane default activity (not annotated)"
+        },
+        "power_annotated": {
+          "gate_level_sim": "PASS",
+          "results_checked": 10000,
+          "total_W": 0.001449943,
+          "internal_W": 0.0007747511,
+          "switching_W": 0.0006751817,
+          "leakage_W": 9.771575e-09,
+          "annotation": {
+            "vcd": 5912,
+            "unannotated": 0
+          },
+          "energy_per_op_pJ": 29.7238315,
+          "period_ns": 20.5,
+          "mix": "50% ADD/SUB, 20% AND/OR/XOR, 20% SLL/SRL/SRA, 10% Zbb (uniform), back-to-back",
+          "note": "functional cell models (zero-delay logic, 1 ns flop clock-to-Q): glitch power not included",
+          "source": "results/flow/default/BK/power.json"
+        }
+      },
+      "KS": {
+        "variant": "default",
+        "arch": "KS",
+        "sweep_status": "DONE",
+        "min_period_ns": 17.25,
+        "failing_neighbour_ns": 17.0,
+        "nonmonotonic_points_ns": [],
+        "sweep_runs": [
+          {
+            "period_ns": 17.0,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.06159872786201349,
+            "hold_ws_min": 0.10726470015817348
+          },
+          {
+            "period_ns": 17.25,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.21368329932535077,
+            "hold_ws_min": 0.10696283050924044
+          },
+          {
+            "period_ns": 17.5,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.463684215259372,
+            "hold_ws_min": 0.10696283050924044
+          },
+          {
+            "period_ns": 18.0,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.7507363831974846,
+            "hold_ws_min": 0.105405520628555
+          },
+          {
+            "period_ns": 19.0,
+            "status": "CLOSES",
+            "setup_ws_slowest": 1.061195605870371,
+            "hold_ws_min": 0.10651324568270336
+          },
+          {
+            "period_ns": 20.0,
+            "status": "CLOSES",
+            "setup_ws_slowest": 1.1557812811729817,
+            "hold_ws_min": 0.10432072168051355
+          }
+        ],
+        "sweep_source": "results/flow/sweep/KS.json",
+        "closing_run": "runs/KS_P0_T17.25/runs/KS_P0_T17.25",
+        "metrics_source": "results/flow/default/KS/metrics.json",
+        "area": {
+          "stdcell_count": 2140,
+          "stdcell_area_um2": 15065.7,
+          "core_area_um2": 26875.8,
+          "die_area_um2": 32810.1,
+          "utilisation": 0.560568,
+          "timing_repair_buffer_area_um2": 2835.22
+        },
+        "timing": {
+          "max_ff_n40C_1v95": {
+            "setup_ws_ns": 11.406802936184711,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.10850243233218229,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 11.406803,
+            "fmax_MHz": 171.14
+          },
+          "max_ss_100C_1v60": {
+            "setup_ws_ns": 0.21368329932535077,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.9644751936756366,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.213683,
+            "fmax_MHz": 58.7
+          },
+          "max_tt_025C_1v80": {
+            "setup_ws_ns": 8.17737278814424,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.3396049093619448,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 8.177373,
+            "fmax_MHz": 110.22
+          },
+          "min_ff_n40C_1v95": {
+            "setup_ws_ns": 11.605420952729034,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.10696283050924044,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 11.605421,
+            "fmax_MHz": 177.16
+          },
+          "min_ss_100C_1v60": {
+            "setup_ws_ns": 0.7757474882036025,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.9576513186840881,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.775747,
+            "fmax_MHz": 60.7
+          },
+          "min_tt_025C_1v80": {
+            "setup_ws_ns": 8.488955556549822,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.33584519449387096,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 8.488955,
+            "fmax_MHz": 114.14
+          },
+          "nom_ff_n40C_1v95": {
+            "setup_ws_ns": 11.510216217050385,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.1081210707124379,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 11.510216,
+            "fmax_MHz": 174.22
+          },
+          "nom_ss_100C_1v60": {
+            "setup_ws_ns": 0.5056453177064257,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.9615423174285369,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.505645,
+            "fmax_MHz": 59.72
+          },
+          "nom_tt_025C_1v80": {
+            "setup_ws_ns": 8.339166038187898,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.3381715003743117,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 8.339166,
+            "fmax_MHz": 112.22
+          }
+        },
+        "fmax_slowest_corner_MHz": 58.7,
+        "critical_path_slowest": {
+          "startpoint": "_2578_ (rising edge-triggered flip-flop clocked by clk)",
+          "endpoint": "_2572_ (rising edge-triggered flip-flop clocked by clk)",
+          "data_arrival_ns": 17.376965,
+          "cells_on_path": 46,
+          "logic_depth_excluding_buffers": 24,
+          "cell_types": [
+            "clkbuf_16",
+            "clkbuf_16",
+            "buf_4",
+            "clkbuf_1",
+            "and4b_1",
+            "a21oi_1",
+            "nand3b_1",
+            "buf_6",
+            "xor3_1",
+            "a22oi_2",
+            "o211ai_1",
+            "a311o_1",
+            "a31oi_4",
+            "o311ai_2",
+            "clkbuf_2",
+            "clkbuf_2",
+            "buf_6",
+            "a31oi_4",
+            "o311ai_2",
+            "clkbuf_2",
+            "dlymetal6s2s_1",
+            "buf_6",
+            "a31oi_4",
+            "nor3_4",
+            "o221ai_4",
+            "a311oi_4",
+            "o311ai_2",
+            "clkbuf_2",
+            "clkdlybuf4s25_1",
+            "clkbuf_2",
+            "buf_6",
+            "a21boi_4",
+            "o31ai_4",
+            "buf_6",
+            "mux2i_2",
+            "nand3_2",
+            "buf_6",
+            "buf_4",
+            "a221o_1",
+            "nor4_4",
+            "clkbuf_2",
+            "clkbuf_1",
+            "nand4_1",
+            "nor2_1",
+            "clkbuf_16",
+            "clkbuf_16"
+          ],
+          "source": "results/flow/default/KS/max_max_ss_100C_1v60.rpt"
+        },
+        "post_synth_vs_post_route": {
+          "corner": "nom_ss_100C_1v60",
+          "post_synth_delay_ns": 18.7776,
+          "post_route_delay_ns": 16.7444,
+          "degradation_ns": -2.0333,
+          "degradation_percent": -10.8,
+          "note": "delay = T - setup WS (worst path, any type) at the same corner and clock",
+          "sources": [
+            "runs/KS_P0_T17.25/runs/KS_P0_T17.25/12-openroad-staprepnr/state_out.json",
+            "results/flow/default/KS/metrics.json"
+          ]
+        },
+        "wire_delay": {
+          "corner": "nom_ss_100C_1v60",
+          "delay_routed_ns": 16.7444,
+          "delay_ideal_wires_ns": 14.4407,
+          "wire_delay_ns": 2.3037,
+          "wire_delay_percent_of_routed": 13.8,
+          "ws_routed_ns": 0.505645,
+          "flow_ws_ns": 0.5056453177064257,
+          "note": "same final netlist; routed = with nominal SPEF, ideal = no SPEF; delay = T - WS",
+          "source": "results/flow/default/KS/wire_delay.json"
+        },
+        "physical": {
+          "route_wirelength_um": 52261,
+          "max_fanout_violations": 1,
+          "max_slew_violations_max_ss_100C_1v60": 502
+        },
+        "signoff_flow_counts": {
+          "magic_drc_errors": 0,
+          "klayout_drc_errors": 0,
+          "lvs_errors": 0,
+          "antenna_violating_nets": 0,
+          "route_drc_errors": 0
+        },
+        "power_default_activity_W": {
+          "value": 0.0018937521381303668,
+          "label": "LibreLane default activity (not annotated)"
+        },
+        "power_annotated": {
+          "gate_level_sim": "PASS",
+          "results_checked": 10000,
+          "total_W": 0.001718115,
+          "internal_W": 0.0009182458,
+          "switching_W": 0.0007998593,
+          "leakage_W": 1.006668e-08,
+          "annotation": {
+            "vcd": 6072,
+            "unannotated": 0
+          },
+          "energy_per_op_pJ": 29.637483750000005,
+          "period_ns": 17.25,
+          "mix": "50% ADD/SUB, 20% AND/OR/XOR, 20% SLL/SRL/SRA, 10% Zbb (uniform), back-to-back",
+          "note": "functional cell models (zero-delay logic, 1 ns flop clock-to-Q): glitch power not included",
+          "source": "results/flow/default/KS/power.json"
+        }
+      },
+      "SK": {
+        "variant": "default",
+        "arch": "SK",
+        "sweep_status": "DONE",
+        "min_period_ns": 18.25,
+        "failing_neighbour_ns": 18.0,
+        "nonmonotonic_points_ns": [],
+        "sweep_runs": [
+          {
+            "period_ns": 18.0,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.032938985804576985,
+            "hold_ws_min": 0.12759593742738448
+          },
+          {
+            "period_ns": 18.25,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.20120261581874677,
+            "hold_ws_min": 0.12447926375335995
+          },
+          {
+            "period_ns": 18.5,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.46470206775713513,
+            "hold_ws_min": 0.12350160133022485
+          },
+          {
+            "period_ns": 18.75,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.5213642998228417,
+            "hold_ws_min": 0.1234306580769449
+          },
+          {
+            "period_ns": 20.0,
+            "status": "CLOSES",
+            "setup_ws_slowest": 1.2613963564033615,
+            "hold_ws_min": 0.10901613254020479
+          }
+        ],
+        "sweep_source": "results/flow/sweep/SK.json",
+        "closing_run": "runs/SK_P0_T18.25/runs/SK_P0_T18.25",
+        "metrics_source": "results/flow/default/SK/metrics.json",
+        "area": {
+          "stdcell_count": 2101,
+          "stdcell_area_um2": 14745.4,
+          "core_area_um2": 26575.5,
+          "die_area_um2": 32238.2,
+          "utilisation": 0.554849,
+          "timing_repair_buffer_area_um2": 2725.11
+        },
+        "timing": {
+          "max_ff_n40C_1v95": {
+            "setup_ws_ns": 11.920690549859062,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.12738027659875173,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 11.920691,
+            "fmax_MHz": 158.0
+          },
+          "max_ss_100C_1v60": {
+            "setup_ws_ns": 0.20120261581874677,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 1.0184795517452208,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.201203,
+            "fmax_MHz": 55.41
+          },
+          "max_tt_025C_1v80": {
+            "setup_ws_ns": 8.46376681585474,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.370514740487026,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 8.463767,
+            "fmax_MHz": 102.18
+          },
+          "min_ff_n40C_1v95": {
+            "setup_ws_ns": 12.155147454830297,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.12447926375335995,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 12.155148,
+            "fmax_MHz": 164.07
+          },
+          "min_ss_100C_1v60": {
+            "setup_ws_ns": 0.8173426611313905,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 1.0091125998215427,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.817343,
+            "fmax_MHz": 57.36
+          },
+          "min_tt_025C_1v80": {
+            "setup_ws_ns": 8.812643308979851,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.3643166982321585,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 8.812643,
+            "fmax_MHz": 105.96
+          },
+          "nom_ff_n40C_1v95": {
+            "setup_ws_ns": 12.047347460625662,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.12604023737013026,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 12.047347,
+            "fmax_MHz": 161.22
+          },
+          "nom_ss_100C_1v60": {
+            "setup_ws_ns": 0.531880332609505,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 1.013528178959963,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.53188,
+            "fmax_MHz": 56.44
+          },
+          "nom_tt_025C_1v80": {
+            "setup_ws_ns": 8.648044303229007,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.3683817799517919,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 8.648045,
+            "fmax_MHz": 104.15
+          }
+        },
+        "fmax_slowest_corner_MHz": 55.41,
+        "critical_path_slowest": {
+          "startpoint": "_2458_ (rising edge-triggered flip-flop clocked by clk)",
+          "endpoint": "_2488_ (rising edge-triggered flip-flop clocked by clk)",
+          "data_arrival_ns": 18.404646,
+          "cells_on_path": 47,
+          "logic_depth_excluding_buffers": 23,
+          "cell_types": [
+            "clkbuf_16",
+            "clkbuf_16",
+            "clkdlybuf4s15_2",
+            "clkdlybuf4s15_2",
+            "clkdlybuf4s15_2",
+            "inv_1",
+            "clkdlybuf4s15_2",
+            "xnor2_2",
+            "nor2_1",
+            "o311ai_2",
+            "clkbuf_2",
+            "buf_6",
+            "a31oi_4",
+            "o311ai_2",
+            "clkbuf_2",
+            "buf_6",
+            "buf_6",
+            "a31oi_4",
+            "o311ai_2",
+            "clkbuf_2",
+            "buf_6",
+            "a31oi_4",
+            "o311ai_4",
+            "buf_6",
+            "a31oi_4",
+            "o311a_4",
+            "o311a_4",
+            "o311ai_4",
+            "clkbuf_2",
+            "buf_6",
+            "buf_6",
+            "nand3_4",
+            "a311oi_4",
+            "o221ai_2",
+            "a31oi_1",
+            "buf_4",
+            "buf_4",
+            "o221ai_2",
+            "buf_6",
+            "buf_2",
+            "a221o_1",
+            "nor4_1",
+            "dlymetal6s2s_1",
+            "nand4_1",
+            "nor2_1",
+            "clkbuf_16",
+            "clkbuf_16"
+          ],
+          "source": "results/flow/default/SK/max_max_ss_100C_1v60.rpt"
+        },
+        "post_synth_vs_post_route": {
+          "corner": "nom_ss_100C_1v60",
+          "post_synth_delay_ns": 20.7076,
+          "post_route_delay_ns": 17.7181,
+          "degradation_ns": -2.9894,
+          "degradation_percent": -14.4,
+          "note": "delay = T - setup WS (worst path, any type) at the same corner and clock",
+          "sources": [
+            "runs/SK_P0_T18.25/runs/SK_P0_T18.25/12-openroad-staprepnr/state_out.json",
+            "results/flow/default/SK/metrics.json"
+          ]
+        },
+        "wire_delay": {
+          "corner": "nom_ss_100C_1v60",
+          "delay_routed_ns": 17.7181,
+          "delay_ideal_wires_ns": 15.8023,
+          "wire_delay_ns": 1.9158,
+          "wire_delay_percent_of_routed": 10.8,
+          "ws_routed_ns": 0.531882,
+          "flow_ws_ns": 0.531880332609505,
+          "note": "same final netlist; routed = with nominal SPEF, ideal = no SPEF; delay = T - WS",
+          "source": "results/flow/default/SK/wire_delay.json"
+        },
+        "physical": {
+          "route_wirelength_um": 50748,
+          "max_fanout_violations": 1,
+          "max_slew_violations_max_ss_100C_1v60": 504
+        },
+        "signoff_flow_counts": {
+          "magic_drc_errors": 0,
+          "klayout_drc_errors": 0,
+          "lvs_errors": 0,
+          "antenna_violating_nets": 0,
+          "route_drc_errors": 0
+        },
+        "power_default_activity_W": {
+          "value": 0.0017963435966521502,
+          "label": "LibreLane default activity (not annotated)"
+        },
+        "power_annotated": {
+          "gate_level_sim": "PASS",
+          "results_checked": 10000,
+          "total_W": 0.001626789,
+          "internal_W": 0.0008711465,
+          "switching_W": 0.0007556331,
+          "leakage_W": 9.818752e-09,
+          "annotation": {
+            "vcd": 5919,
+            "unannotated": 0
+          },
+          "energy_per_op_pJ": 29.688899250000006,
+          "period_ns": 18.25,
+          "mix": "50% ADD/SUB, 20% AND/OR/XOR, 20% SLL/SRL/SRA, 10% Zbb (uniform), back-to-back",
+          "note": "functional cell models (zero-delay logic, 1 ns flop clock-to-Q): glitch power not included",
+          "source": "results/flow/default/SK/power.json"
+        }
+      },
+      "HC": {
+        "variant": "default",
+        "arch": "HC",
+        "sweep_status": "DONE",
+        "min_period_ns": 17.5,
+        "failing_neighbour_ns": 17.25,
+        "nonmonotonic_points_ns": [],
+        "sweep_runs": [
+          {
+            "period_ns": 17.25,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.16444979177211472,
+            "hold_ws_min": 0.11608297984756416
+          },
+          {
+            "period_ns": 17.5,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.0855511241619065,
+            "hold_ws_min": 0.11608297984756416
+          },
+          {
+            "period_ns": 17.75,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.33554848738214843,
+            "hold_ws_min": 0.11608297984756416
+          },
+          {
+            "period_ns": 18.75,
+            "status": "CLOSES",
+            "setup_ws_slowest": 1.284439257975759,
+            "hold_ws_min": 0.11347484384435161
+          },
+          {
+            "period_ns": 20.0,
+            "status": "CLOSES",
+            "setup_ws_slowest": 1.3202754818673375,
+            "hold_ws_min": 0.1129874004116041
+          }
+        ],
+        "sweep_source": "results/flow/sweep/HC.json",
+        "closing_run": "runs/HC_P0_T17.50/runs/HC_P0_T17.50",
+        "metrics_source": "results/flow/default/HC/metrics.json",
+        "area": {
+          "stdcell_count": 2134,
+          "stdcell_area_um2": 15200.8,
+          "core_area_um2": 26725.6,
+          "die_area_um2": 32582.2,
+          "utilisation": 0.568773,
+          "timing_repair_buffer_area_um2": 2930.31
+        },
+        "timing": {
+          "max_ff_n40C_1v95": {
+            "setup_ws_ns": 11.53762273932218,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.12207724066049834,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 11.537622,
+            "fmax_MHz": 167.72
+          },
+          "max_ss_100C_1v60": {
+            "setup_ws_ns": 0.0855511241619065,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 1.0003030908942947,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.085551,
+            "fmax_MHz": 57.42
+          },
+          "max_tt_025C_1v80": {
+            "setup_ws_ns": 8.295624866287511,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.3612467094376398,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 8.295625,
+            "fmax_MHz": 108.64
+          },
+          "min_ff_n40C_1v95": {
+            "setup_ws_ns": 11.757157358242003,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.11608297984756416,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 11.757157,
+            "fmax_MHz": 174.13
+          },
+          "min_ss_100C_1v60": {
+            "setup_ws_ns": 0.7175202857181239,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.987475462682683,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.71752,
+            "fmax_MHz": 59.59
+          },
+          "min_tt_025C_1v80": {
+            "setup_ws_ns": 8.59605921885372,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.3519542534810211,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 8.596059,
+            "fmax_MHz": 112.31
+          },
+          "nom_ff_n40C_1v95": {
+            "setup_ws_ns": 11.654039840798454,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.11863454998607226,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 11.654039,
+            "fmax_MHz": 171.06
+          },
+          "nom_ss_100C_1v60": {
+            "setup_ws_ns": 0.3908748990668464,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.99128874581321,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.390875,
+            "fmax_MHz": 58.45
+          },
+          "nom_tt_025C_1v80": {
+            "setup_ws_ns": 8.459849948913087,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.3555412731527304,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 8.45985,
+            "fmax_MHz": 110.62
+          }
+        },
+        "fmax_slowest_corner_MHz": 57.42,
+        "critical_path_slowest": {
+          "startpoint": "_2514_ (rising edge-triggered flip-flop clocked by clk)",
+          "endpoint": "_2512_ (rising edge-triggered flip-flop clocked by clk)",
+          "data_arrival_ns": 17.687838,
+          "cells_on_path": 36,
+          "logic_depth_excluding_buffers": 18,
+          "cell_types": [
+            "clkbuf_16",
+            "clkbuf_16",
+            "buf_6",
+            "buf_4",
+            "or3b_4",
+            "buf_4",
+            "a21oi_1",
+            "clkdlybuf4s15_2",
+            "clkdlybuf4s50_1",
+            "buf_4",
+            "clkbuf_2",
+            "mux2i_1",
+            "nor2_1",
+            "o22ai_1",
+            "o22ai_1",
+            "o211ai_1",
+            "o21ai_0",
+            "nand2_1",
+            "o21ai_0",
+            "o21ai_0",
+            "a21oi_1",
+            "a2111oi_0",
+            "clkdlybuf4s25_1",
+            "clkdlybuf4s25_1",
+            "clkdlybuf4s25_1",
+            "clkdlybuf4s25_1",
+            "clkdlybuf4s25_1",
+            "clkdlybuf4s25_1",
+            "clkdlybuf4s25_1",
+            "o21ai_0",
+            "a221o_1",
+            "nor3_1",
+            "nand4_1",
+            "nor4_2",
+            "clkbuf_16",
+            "clkbuf_16"
+          ],
+          "source": "results/flow/default/HC/max_max_ss_100C_1v60.rpt"
+        },
+        "post_synth_vs_post_route": {
+          "corner": "nom_ss_100C_1v60",
+          "post_synth_delay_ns": 19.9204,
+          "post_route_delay_ns": 17.1091,
+          "degradation_ns": -2.8113,
+          "degradation_percent": -14.1,
+          "note": "delay = T - setup WS (worst path, any type) at the same corner and clock",
+          "sources": [
+            "runs/HC_P0_T17.50/runs/HC_P0_T17.50/12-openroad-staprepnr/state_out.json",
+            "results/flow/default/HC/metrics.json"
+          ]
+        },
+        "wire_delay": {
+          "corner": "nom_ss_100C_1v60",
+          "delay_routed_ns": 17.1091,
+          "delay_ideal_wires_ns": 15.1106,
+          "wire_delay_ns": 1.9985,
+          "wire_delay_percent_of_routed": 11.7,
+          "ws_routed_ns": 0.390877,
+          "flow_ws_ns": 0.3908748990668464,
+          "note": "same final netlist; routed = with nominal SPEF, ideal = no SPEF; delay = T - WS",
+          "source": "results/flow/default/HC/wire_delay.json"
+        },
+        "physical": {
+          "route_wirelength_um": 51874,
+          "max_fanout_violations": 1,
+          "max_slew_violations_max_ss_100C_1v60": 527
+        },
+        "signoff_flow_counts": {
+          "magic_drc_errors": 0,
+          "klayout_drc_errors": 0,
+          "lvs_errors": 0,
+          "antenna_violating_nets": 0,
+          "route_drc_errors": 0
+        },
+        "power_default_activity_W": {
+          "value": 0.00198843190446496,
+          "label": "LibreLane default activity (not annotated)"
+        },
+        "power_annotated": {
+          "gate_level_sim": "PASS",
+          "results_checked": 10000,
+          "total_W": 0.00169838,
+          "internal_W": 0.0009052604,
+          "switching_W": 0.0007931091,
+          "leakage_W": 9.985349e-09,
+          "annotation": {
+            "vcd": 6019,
+            "unannotated": 0
+          },
+          "energy_per_op_pJ": 29.721649999999997,
+          "period_ns": 17.5,
+          "mix": "50% ADD/SUB, 20% AND/OR/XOR, 20% SLL/SRL/SRA, 10% Zbb (uniform), back-to-back",
+          "note": "functional cell models (zero-delay logic, 1 ns flop clock-to-Q): glitch power not included",
+          "source": "results/flow/default/HC/power.json"
+        }
+      },
+      "BEH": {
+        "variant": "default",
+        "arch": "BEH",
+        "sweep_status": "DONE",
+        "min_period_ns": 19.75,
+        "failing_neighbour_ns": 19.5,
+        "nonmonotonic_points_ns": [],
+        "sweep_runs": [
+          {
+            "period_ns": 19.5,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.5751523864411122,
+            "hold_ws_min": 0.1246905947120742
+          },
+          {
+            "period_ns": 19.75,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.04537526038894,
+            "hold_ws_min": 0.11553064387719202
+          },
+          {
+            "period_ns": 20.0,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.21979041431192983,
+            "hold_ws_min": 0.11547813032664206
+          }
+        ],
+        "sweep_source": "results/flow/sweep/BEH.json",
+        "closing_run": "runs/BEH_P0_T19.75/runs/BEH_P0_T19.75",
+        "metrics_source": "results/flow/default/BEH/metrics.json",
+        "area": {
+          "stdcell_count": 2040,
+          "stdcell_area_um2": 14448.9,
+          "core_area_um2": 26650.6,
+          "die_area_um2": 32351.5,
+          "utilisation": 0.54216,
+          "timing_repair_buffer_area_um2": 2527.42
+        },
+        "timing": {
+          "max_ff_n40C_1v95": {
+            "setup_ws_ns": 12.860039619419977,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.11553064387719202,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 12.86004,
+            "fmax_MHz": 145.14
+          },
+          "max_ss_100C_1v60": {
+            "setup_ws_ns": 0.04537526038894,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.9884069398266875,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.045375,
+            "fmax_MHz": 50.75
+          },
+          "max_tt_025C_1v80": {
+            "setup_ws_ns": 9.164201212829871,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.35129600223110424,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 9.164201,
+            "fmax_MHz": 94.47
+          },
+          "min_ff_n40C_1v95": {
+            "setup_ws_ns": 13.076153863148798,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.11686879572661824,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 13.128027,
+            "fmax_MHz": 149.84
+          },
+          "min_ss_100C_1v60": {
+            "setup_ws_ns": 0.61822548830108,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.9823313551748996,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.618226,
+            "fmax_MHz": 52.27
+          },
+          "min_tt_025C_1v80": {
+            "setup_ws_ns": 9.552408023848479,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.35150938710247215,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 9.552408,
+            "fmax_MHz": 98.06
+          },
+          "nom_ff_n40C_1v95": {
+            "setup_ws_ns": 13.001216471402486,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.11799339617121815,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 13.001217,
+            "fmax_MHz": 148.17
+          },
+          "nom_ss_100C_1v60": {
+            "setup_ws_ns": 0.3541966820095792,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.987346454763573,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.354197,
+            "fmax_MHz": 51.56
+          },
+          "nom_tt_025C_1v80": {
+            "setup_ws_ns": 9.371680585718158,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.35346471194874235,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 9.37168,
+            "fmax_MHz": 96.35
+          }
+        },
+        "fmax_slowest_corner_MHz": 50.75,
+        "critical_path_slowest": {
+          "startpoint": "_2436_ (rising edge-triggered flip-flop clocked by clk)",
+          "endpoint": "_2430_ (rising edge-triggered flip-flop clocked by clk)",
+          "data_arrival_ns": 20.046251,
+          "cells_on_path": 55,
+          "logic_depth_excluding_buffers": 30,
+          "cell_types": [
+            "clkbuf_16",
+            "clkbuf_16",
+            "clkbuf_4",
+            "nor2_1",
+            "clkbuf_2",
+            "nand3b_1",
+            "nand4_1",
+            "or4_4",
+            "buf_8",
+            "buf_8",
+            "buf_8",
+            "xor3_1",
+            "a22oi_2",
+            "o21ai_2",
+            "buf_6",
+            "a211oi_4",
+            "o311a_4",
+            "o311a_4",
+            "o311ai_4",
+            "clkbuf_2",
+            "buf_6",
+            "buf_6",
+            "a311oi_4",
+            "o311a_4",
+            "o311ai_4",
+            "clkbuf_2",
+            "buf_6",
+            "a311oi_4",
+            "o311a_4",
+            "o311ai_2",
+            "clkbuf_2",
+            "buf_6",
+            "a31oi_4",
+            "o21ai_2",
+            "clkbuf_2",
+            "a211o_1",
+            "a311o_1",
+            "a311oi_2",
+            "o31a_1",
+            "buf_6",
+            "o21bai_4",
+            "buf_6",
+            "mux2i_2",
+            "o211ai_1",
+            "buf_6",
+            "buf_8",
+            "buf_4",
+            "a221o_1",
+            "nor4_2",
+            "clkbuf_2",
+            "clkbuf_1",
+            "nand4_1",
+            "nor2_1",
+            "clkbuf_16",
+            "clkbuf_16"
+          ],
+          "source": "results/flow/default/BEH/max_max_ss_100C_1v60.rpt"
+        },
+        "post_synth_vs_post_route": {
+          "corner": "nom_ss_100C_1v60",
+          "post_synth_delay_ns": 20.8434,
+          "post_route_delay_ns": 19.3958,
+          "degradation_ns": -1.4476,
+          "degradation_percent": -6.9,
+          "note": "delay = T - setup WS (worst path, any type) at the same corner and clock",
+          "sources": [
+            "runs/BEH_P0_T19.75/runs/BEH_P0_T19.75/12-openroad-staprepnr/state_out.json",
+            "results/flow/default/BEH/metrics.json"
+          ]
+        },
+        "wire_delay": {
+          "corner": "nom_ss_100C_1v60",
+          "delay_routed_ns": 19.3958,
+          "delay_ideal_wires_ns": 17.2385,
+          "wire_delay_ns": 2.1574,
+          "wire_delay_percent_of_routed": 11.1,
+          "ws_routed_ns": 0.354198,
+          "flow_ws_ns": 0.3541966820095792,
+          "note": "same final netlist; routed = with nominal SPEF, ideal = no SPEF; delay = T - WS",
+          "source": "results/flow/default/BEH/wire_delay.json"
+        },
+        "physical": {
+          "route_wirelength_um": 50773,
+          "max_fanout_violations": 2,
+          "max_slew_violations_max_ss_100C_1v60": 609
+        },
+        "signoff_flow_counts": {
+          "magic_drc_errors": 0,
+          "klayout_drc_errors": 0,
+          "lvs_errors": 0,
+          "antenna_violating_nets": 0,
+          "route_drc_errors": 0
+        },
+        "power_default_activity_W": {
+          "value": 0.0016536676557734609,
+          "label": "LibreLane default activity (not annotated)"
+        },
+        "power_annotated": {
+          "gate_level_sim": "PASS",
+          "results_checked": 10000,
+          "total_W": 0.001469127,
+          "internal_W": 0.0007871826,
+          "switching_W": 0.0006819343,
+          "leakage_W": 9.865603e-09,
+          "annotation": {
+            "vcd": 5783,
+            "unannotated": 0
+          },
+          "energy_per_op_pJ": 29.015258250000002,
+          "period_ns": 19.75,
+          "mix": "50% ADD/SUB, 20% AND/OR/XOR, 20% SLL/SRL/SRA, 10% Zbb (uniform), back-to-back",
+          "note": "functional cell models (zero-delay logic, 1 ns flop clock-to-Q): glitch power not included",
+          "source": "results/flow/default/BEH/power.json"
+        }
+      }
+    },
+    "preserved": {
+      "RCA": {
+        "variant": "preserved",
+        "arch": "RCA",
+        "sweep_status": "DONE",
+        "min_period_ns": 33.5,
+        "failing_neighbour_ns": 33.25,
+        "nonmonotonic_points_ns": [],
+        "sweep_runs": [
+          {
+            "period_ns": 12.0,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -21.419062685303167,
+            "hold_ws_min": 0.10257461836915116
+          },
+          {
+            "period_ns": 22.75,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -10.669062379991827,
+            "hold_ws_min": 0.10257461836915116
+          },
+          {
+            "period_ns": 28.0,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -5.483020415114621,
+            "hold_ws_min": 0.10458378903363853
+          },
+          {
+            "period_ns": 30.75,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -2.7262530782322005,
+            "hold_ws_min": 0.10293921562074958
+          },
+          {
+            "period_ns": 32.0,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -1.2818049207084246,
+            "hold_ws_min": 0.10188927767666729
+          },
+          {
+            "period_ns": 32.75,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.5810285750320383,
+            "hold_ws_min": 0.0989556242734284
+          },
+          {
+            "period_ns": 33.0,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.27362290985244136,
+            "hold_ws_min": 0.10561402051847639
+          },
+          {
+            "period_ns": 33.25,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.13557155781725264,
+            "hold_ws_min": 0.1043460902773437
+          },
+          {
+            "period_ns": 33.5,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.04977707276146558,
+            "hold_ws_min": 0.1065739193727151
+          },
+          {
+            "period_ns": 33.75,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.2133084880216369,
+            "hold_ws_min": 0.10588902276945364
+          }
+        ],
+        "sweep_source": "results/flow/sweep_preserved/RCA.json",
+        "closing_run": "runs/RCA_P0_T33.50_preserved/runs/RCA_P0_T33.50_preserved",
+        "metrics_source": "results/flow/preserved/RCA/metrics.json",
+        "area": {
+          "stdcell_count": 2037,
+          "stdcell_area_um2": 15374.7,
+          "core_area_um2": 27629,
+          "die_area_um2": 33595.8,
+          "utilisation": 0.556471,
+          "timing_repair_buffer_area_um2": 2836.47
+        },
+        "timing": {
+          "max_ff_n40C_1v95": {
+            "setup_ws_ns": 23.028516634305515,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.1065739193727151,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 23.028517,
+            "fmax_MHz": 95.5
+          },
+          "max_ss_100C_1v60": {
+            "setup_ws_ns": 0.04977707276146558,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.9534167059037998,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.049777,
+            "fmax_MHz": 29.9
+          },
+          "max_tt_025C_1v80": {
+            "setup_ws_ns": 15.981753262029628,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.3368374563501928,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 15.981753,
+            "fmax_MHz": 57.08
+          },
+          "min_ff_n40C_1v95": {
+            "setup_ws_ns": 23.262885609610713,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.10664486262599505,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 23.262886,
+            "fmax_MHz": 97.68
+          },
+          "min_ss_100C_1v60": {
+            "setup_ws_ns": 0.745842519966529,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.9494734156534124,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.745843,
+            "fmax_MHz": 30.53
+          },
+          "min_tt_025C_1v80": {
+            "setup_ws_ns": 16.35444537197413,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.33534531656289596,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 16.354445,
+            "fmax_MHz": 58.32
+          },
+          "nom_ff_n40C_1v95": {
+            "setup_ws_ns": 23.145702898315005,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.10737788739873516,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 23.145702,
+            "fmax_MHz": 96.58
+          },
+          "nom_ss_100C_1v60": {
+            "setup_ws_ns": 0.3850750938221749,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.9512928491976251,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.385075,
+            "fmax_MHz": 30.2
+          },
+          "nom_tt_025C_1v80": {
+            "setup_ws_ns": 16.162618367818897,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.3370525065561447,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 16.162619,
+            "fmax_MHz": 57.68
+          }
+        },
+        "fmax_slowest_corner_MHz": 29.9,
+        "critical_path_slowest": {
+          "startpoint": "_2054_ (rising edge-triggered flip-flop clocked by clk)",
+          "endpoint": "_2085_ (rising edge-triggered flip-flop clocked by clk)",
+          "data_arrival_ns": 33.773422,
+          "cells_on_path": 54,
+          "logic_depth_excluding_buffers": 41,
+          "cell_types": [
+            "clkbuf_16",
+            "clkbuf_16",
+            "clkdlybuf4s50_1",
+            "clkbuf_4",
+            "clkdlybuf4s15_2",
+            "clkdlybuf4s15_2",
+            "inv_1",
+            "clkdlybuf4s15_2",
+            "buf_4",
+            "xnor2_1",
+            "clkbuf_2",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "maj3_4",
+            "o21ai_1",
+            "o21ai_1",
+            "a41o_1",
+            "buf_2",
+            "buf_4",
+            "a22oi_1",
+            "nand2_1",
+            "a211o_1",
+            "or4_4",
+            "nor4_4",
+            "nand4b_1",
+            "nor4_2",
+            "clkbuf_16",
+            "clkbuf_16"
+          ],
+          "source": "results/flow/preserved/RCA/max_max_ss_100C_1v60.rpt"
+        },
+        "post_synth_vs_post_route": {
+          "corner": "nom_ss_100C_1v60",
+          "post_synth_delay_ns": 44.298,
+          "post_route_delay_ns": 33.1149,
+          "degradation_ns": -11.1831,
+          "degradation_percent": -25.2,
+          "note": "delay = T - setup WS (worst path, any type) at the same corner and clock",
+          "sources": [
+            "runs/RCA_P0_T33.50_preserved/runs/RCA_P0_T33.50_preserved/168-openroad-staprepnr/state_out.json",
+            "results/flow/preserved/RCA/metrics.json"
+          ]
+        },
+        "wire_delay": {
+          "corner": "nom_ss_100C_1v60",
+          "delay_routed_ns": 33.1149,
+          "delay_ideal_wires_ns": 30.6088,
+          "wire_delay_ns": 2.5061,
+          "wire_delay_percent_of_routed": 7.6,
+          "ws_routed_ns": 0.385075,
+          "flow_ws_ns": 0.3850750938221749,
+          "note": "same final netlist; routed = with nominal SPEF, ideal = no SPEF; delay = T - WS",
+          "source": "results/flow/preserved/RCA/wire_delay.json"
+        },
+        "physical": {
+          "route_wirelength_um": 54248,
+          "max_fanout_violations": 1,
+          "max_slew_violations_max_ss_100C_1v60": 588
+        },
+        "signoff_flow_counts": {
+          "magic_drc_errors": 0,
+          "klayout_drc_errors": 0,
+          "lvs_errors": 0,
+          "antenna_violating_nets": 0,
+          "route_drc_errors": 0
+        },
+        "power_default_activity_W": {
+          "value": 0.0010266756871715188,
+          "label": "LibreLane default activity (not annotated)"
+        },
+        "power_annotated": {
+          "gate_level_sim": "PASS",
+          "results_checked": 10000,
+          "total_W": 0.0009134015,
+          "internal_W": 0.0004954016,
+          "switching_W": 0.0004179898,
+          "leakage_W": 1.010279e-08,
+          "annotation": {
+            "vcd": 5842,
+            "unannotated": 0
+          },
+          "energy_per_op_pJ": 30.59895025,
+          "period_ns": 33.5,
+          "mix": "50% ADD/SUB, 20% AND/OR/XOR, 20% SLL/SRL/SRA, 10% Zbb (uniform), back-to-back",
+          "note": "functional cell models (zero-delay logic, 1 ns flop clock-to-Q): glitch power not included",
+          "source": "results/flow/preserved/RCA/power.json"
+        }
+      },
+      "CLA4": {
+        "variant": "preserved",
+        "arch": "CLA4",
+        "sweep_status": "DONE",
+        "min_period_ns": 16.0,
+        "failing_neighbour_ns": 15.75,
+        "nonmonotonic_points_ns": [],
+        "sweep_runs": [
+          {
+            "period_ns": 12.0,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -3.027617353630135,
+            "hold_ws_min": 0.2131208603251688
+          },
+          {
+            "period_ns": 15.25,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.4949658600859157,
+            "hold_ws_min": 0.2559866835405768
+          },
+          {
+            "period_ns": 15.75,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.037202242339710714,
+            "hold_ws_min": 0.2519335367187957
+          },
+          {
+            "period_ns": 16.0,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.02776445818505842,
+            "hold_ws_min": 0.2521054547590211
+          },
+          {
+            "period_ns": 16.25,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.23318592161669793,
+            "hold_ws_min": 0.25166719420765543
+          }
+        ],
+        "sweep_source": "results/flow/sweep_preserved/CLA4.json",
+        "closing_run": "runs/CLA4_P0_T16.00_preserved/runs/CLA4_P0_T16.00_preserved",
+        "metrics_source": "results/flow/preserved/CLA4/metrics.json",
+        "area": {
+          "stdcell_count": 2427,
+          "stdcell_area_um2": 18059.8,
+          "core_area_um2": 32618.8,
+          "die_area_um2": 39280.3,
+          "utilisation": 0.553663,
+          "timing_repair_buffer_area_um2": 3384.5
+        },
+        "timing": {
+          "max_ff_n40C_1v95": {
+            "setup_ws_ns": 9.693993437915605,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.26933228631897665,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 10.487451,
+            "fmax_MHz": 158.58
+          },
+          "max_ss_100C_1v60": {
+            "setup_ws_ns": 0.02776445818505842,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 1.375766206564327,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.027764,
+            "fmax_MHz": 62.61
+          },
+          "max_tt_025C_1v80": {
+            "setup_ws_ns": 7.416925950009542,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.5812759882400733,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 7.416926,
+            "fmax_MHz": 116.51
+          },
+          "min_ff_n40C_1v95": {
+            "setup_ws_ns": 9.753439221227376,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.2521054547590211,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 10.740536,
+            "fmax_MHz": 160.09
+          },
+          "min_ss_100C_1v60": {
+            "setup_ws_ns": 0.9210730217018631,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 1.3308298173494335,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.921073,
+            "fmax_MHz": 66.32
+          },
+          "min_tt_025C_1v80": {
+            "setup_ws_ns": 7.8933786185916395,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.5534833303893919,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 7.893379,
+            "fmax_MHz": 123.36
+          },
+          "nom_ff_n40C_1v95": {
+            "setup_ws_ns": 9.715664991969202,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.26047925664793237,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 10.611658,
+            "fmax_MHz": 159.13
+          },
+          "nom_ss_100C_1v60": {
+            "setup_ws_ns": 0.45566929297332054,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 1.3509367340501748,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.455669,
+            "fmax_MHz": 64.33
+          },
+          "nom_tt_025C_1v80": {
+            "setup_ws_ns": 7.645570615237878,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.5670610808088064,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 7.645571,
+            "fmax_MHz": 119.7
+          }
+        },
+        "fmax_slowest_corner_MHz": 62.61,
+        "critical_path_slowest": {
+          "startpoint": "_2589_ (rising edge-triggered flip-flop clocked by clk)",
+          "endpoint": "_2587_ (rising edge-triggered flip-flop clocked by clk)",
+          "data_arrival_ns": 16.350065,
+          "cells_on_path": 27,
+          "logic_depth_excluding_buffers": 13,
+          "cell_types": [
+            "clkbuf_16",
+            "clkbuf_16",
+            "clkbuf_2",
+            "buf_4",
+            "or2_0",
+            "clkdlybuf4s15_2",
+            "nand3_1",
+            "clkdlybuf4s50_1",
+            "clkdlybuf4s50_1",
+            "clkdlybuf4s50_1",
+            "clkdlybuf4s50_1",
+            "o31ai_1",
+            "buf_1",
+            "a31oi_1",
+            "a32o_1",
+            "a2bb2oi_1",
+            "a22oi_1",
+            "o21a_1",
+            "o21ai_0",
+            "nand4_1",
+            "nor4_2",
+            "clkdlybuf4s25_1",
+            "clkbuf_1",
+            "nand4b_1",
+            "nor4_2",
+            "clkbuf_16",
+            "clkbuf_16"
+          ],
+          "source": "results/flow/preserved/CLA4/max_max_ss_100C_1v60.rpt"
+        },
+        "post_synth_vs_post_route": {
+          "corner": "nom_ss_100C_1v60",
+          "post_synth_delay_ns": 24.7099,
+          "post_route_delay_ns": 15.5443,
+          "degradation_ns": -9.1655,
+          "degradation_percent": -37.1,
+          "note": "delay = T - setup WS (worst path, any type) at the same corner and clock",
+          "sources": [
+            "runs/CLA4_P0_T16.00_preserved/runs/CLA4_P0_T16.00_preserved/12-openroad-staprepnr/state_out.json",
+            "results/flow/preserved/CLA4/metrics.json"
+          ]
+        },
+        "wire_delay": {
+          "corner": "nom_ss_100C_1v60",
+          "delay_routed_ns": 15.5443,
+          "delay_ideal_wires_ns": 13.0876,
+          "wire_delay_ns": 2.4567,
+          "wire_delay_percent_of_routed": 15.8,
+          "ws_routed_ns": 0.455668,
+          "flow_ws_ns": 0.45566929297332054,
+          "note": "same final netlist; routed = with nominal SPEF, ideal = no SPEF; delay = T - WS",
+          "source": "results/flow/preserved/CLA4/wire_delay.json"
+        },
+        "physical": {
+          "route_wirelength_um": 72709,
+          "max_fanout_violations": 1,
+          "max_slew_violations_max_ss_100C_1v60": 753
+        },
+        "signoff_flow_counts": {
+          "magic_drc_errors": 0,
+          "klayout_drc_errors": 0,
+          "lvs_errors": 0,
+          "antenna_violating_nets": 0,
+          "route_drc_errors": 0
+        },
+        "power_default_activity_W": {
+          "value": 0.0023071723990142345,
+          "label": "LibreLane default activity (not annotated)"
+        },
+        "power_annotated": {
+          "gate_level_sim": "PASS",
+          "results_checked": 10000,
+          "total_W": 0.002165829,
+          "internal_W": 0.001108176,
+          "switching_W": 0.001057641,
+          "leakage_W": 1.204017e-08,
+          "annotation": {
+            "vcd": 7168,
+            "unannotated": 0
+          },
+          "energy_per_op_pJ": 34.65326400000001,
+          "period_ns": 16.0,
+          "mix": "50% ADD/SUB, 20% AND/OR/XOR, 20% SLL/SRL/SRA, 10% Zbb (uniform), back-to-back",
+          "note": "functional cell models (zero-delay logic, 1 ns flop clock-to-Q): glitch power not included",
+          "source": "results/flow/preserved/CLA4/power.json"
+        }
+      },
+      "CSLA": {
+        "variant": "preserved",
+        "arch": "CSLA",
+        "sweep_status": "DONE",
+        "min_period_ns": 18.75,
+        "failing_neighbour_ns": 18.5,
+        "nonmonotonic_points_ns": [],
+        "sweep_runs": [
+          {
+            "period_ns": 12.0,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -6.823971802998912,
+            "hold_ws_min": 0.11755091677223962
+          },
+          {
+            "period_ns": 15.5,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -3.2953747330329883,
+            "hold_ws_min": 0.10726303482358944
+          },
+          {
+            "period_ns": 17.25,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -1.502359168482899,
+            "hold_ws_min": 0.10338769022423064
+          },
+          {
+            "period_ns": 18.0,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.7465157592277022,
+            "hold_ws_min": 0.11995305088740683
+          },
+          {
+            "period_ns": 18.5,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.17035795478705423,
+            "hold_ws_min": 0.11818296675803433
+          },
+          {
+            "period_ns": 18.75,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.03238831516878888,
+            "hold_ws_min": 0.11987605691847154
+          },
+          {
+            "period_ns": 19.0,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.23724312075263354,
+            "hold_ws_min": 0.12131868075746967
+          }
+        ],
+        "sweep_source": "results/flow/sweep_preserved/CSLA.json",
+        "closing_run": "runs/CSLA_P0_T18.75_preserved/runs/CSLA_P0_T18.75_preserved",
+        "metrics_source": "results/flow/preserved/CSLA/metrics.json",
+        "area": {
+          "stdcell_count": 2286,
+          "stdcell_area_um2": 17395.4,
+          "core_area_um2": 31392.6,
+          "die_area_um2": 37655.8,
+          "utilisation": 0.554125,
+          "timing_repair_buffer_area_um2": 3316.93
+        },
+        "timing": {
+          "max_ff_n40C_1v95": {
+            "setup_ws_ns": 12.535993931076687,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.12471907193346123,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 12.651217,
+            "fmax_MHz": 160.93
+          },
+          "max_ss_100C_1v60": {
+            "setup_ws_ns": 0.03238831516878888,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.9742249505090317,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.032388,
+            "fmax_MHz": 53.43
+          },
+          "max_tt_025C_1v80": {
+            "setup_ws_ns": 8.965517471080632,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.35755488470944186,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 8.965517,
+            "fmax_MHz": 102.2
+          },
+          "min_ff_n40C_1v95": {
+            "setup_ws_ns": 12.600083111297973,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.11987605691847154,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 12.843767,
+            "fmax_MHz": 162.6
+          },
+          "min_ss_100C_1v60": {
+            "setup_ws_ns": 0.7145875204933299,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.9577505726252967,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.714588,
+            "fmax_MHz": 55.45
+          },
+          "min_tt_025C_1v80": {
+            "setup_ws_ns": 9.27097003186007,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.3495918098401068,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 9.27097,
+            "fmax_MHz": 105.5
+          },
+          "nom_ff_n40C_1v95": {
+            "setup_ws_ns": 12.562159668061069,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.12244511307011204,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 12.761989,
+            "fmax_MHz": 161.61
+          },
+          "nom_ss_100C_1v60": {
+            "setup_ws_ns": 0.41406523826108427,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.965969109819823,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.414065,
+            "fmax_MHz": 54.54
+          },
+          "nom_tt_025C_1v80": {
+            "setup_ws_ns": 9.142886706511092,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.3537624737723681,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 9.142887,
+            "fmax_MHz": 104.09
+          }
+        },
+        "fmax_slowest_corner_MHz": 53.43,
+        "critical_path_slowest": {
+          "startpoint": "_2189_ (rising edge-triggered flip-flop clocked by clk)",
+          "endpoint": "_2183_ (rising edge-triggered flip-flop clocked by clk)",
+          "data_arrival_ns": 19.000931,
+          "cells_on_path": 38,
+          "logic_depth_excluding_buffers": 26,
+          "cell_types": [
+            "clkbuf_16",
+            "clkbuf_16",
+            "clkbuf_4",
+            "buf_6",
+            "nor4_4",
+            "buf_6",
+            "a211oi_2",
+            "nand4_1",
+            "nor2_4",
+            "buf_4",
+            "clkbuf_2",
+            "xnor2_1",
+            "clkbuf_2",
+            "maj3_2",
+            "maj3_2",
+            "maj3_2",
+            "maj3_2",
+            "maj3_1",
+            "maj3_2",
+            "maj3_1",
+            "maj3_1",
+            "mux2_4",
+            "mux2i_4",
+            "inv_2",
+            "o31a_1",
+            "o31a_1",
+            "buf_6",
+            "nand4b_1",
+            "buf_6",
+            "o21ai_0",
+            "nand3_1",
+            "nor2_1",
+            "nand4_1",
+            "nor4bb_2",
+            "nand4b_1",
+            "nor4_2",
+            "clkbuf_16",
+            "clkbuf_16"
+          ],
+          "source": "results/flow/preserved/CSLA/max_max_ss_100C_1v60.rpt"
+        },
+        "post_synth_vs_post_route": {
+          "corner": "nom_ss_100C_1v60",
+          "post_synth_delay_ns": 24.3135,
+          "post_route_delay_ns": 18.3359,
+          "degradation_ns": -5.9776,
+          "degradation_percent": -24.6,
+          "note": "delay = T - setup WS (worst path, any type) at the same corner and clock",
+          "sources": [
+            "runs/CSLA_P0_T18.75_preserved/runs/CSLA_P0_T18.75_preserved/12-openroad-staprepnr/state_out.json",
+            "results/flow/preserved/CSLA/metrics.json"
+          ]
+        },
+        "wire_delay": {
+          "corner": "nom_ss_100C_1v60",
+          "delay_routed_ns": 18.3359,
+          "delay_ideal_wires_ns": 16.5697,
+          "wire_delay_ns": 1.7662,
+          "wire_delay_percent_of_routed": 9.6,
+          "ws_routed_ns": 0.414065,
+          "flow_ws_ns": 0.41406523826108427,
+          "note": "same final netlist; routed = with nominal SPEF, ideal = no SPEF; delay = T - WS",
+          "source": "results/flow/preserved/CSLA/wire_delay.json"
+        },
+        "physical": {
+          "route_wirelength_um": 62542,
+          "max_fanout_violations": 2,
+          "max_slew_violations_max_ss_100C_1v60": 691
+        },
+        "signoff_flow_counts": {
+          "magic_drc_errors": 0,
+          "klayout_drc_errors": 0,
+          "lvs_errors": 0,
+          "antenna_violating_nets": 0,
+          "route_drc_errors": 0
+        },
+        "power_default_activity_W": {
+          "value": 0.002140050521120429,
+          "label": "LibreLane default activity (not annotated)"
+        },
+        "power_annotated": {
+          "gate_level_sim": "PASS",
+          "results_checked": 10000,
+          "total_W": 0.001834158,
+          "internal_W": 0.0009802964,
+          "switching_W": 0.0008538502,
+          "leakage_W": 1.116196e-08,
+          "annotation": {
+            "vcd": 6498,
+            "unannotated": 0
+          },
+          "energy_per_op_pJ": 34.390462500000005,
+          "period_ns": 18.75,
+          "mix": "50% ADD/SUB, 20% AND/OR/XOR, 20% SLL/SRL/SRA, 10% Zbb (uniform), back-to-back",
+          "note": "functional cell models (zero-delay logic, 1 ns flop clock-to-Q): glitch power not included",
+          "source": "results/flow/preserved/CSLA/power.json"
+        }
+      },
+      "BK": {
+        "variant": "preserved",
+        "arch": "BK",
+        "sweep_status": "DONE",
+        "min_period_ns": 16.0,
+        "failing_neighbour_ns": 15.75,
+        "nonmonotonic_points_ns": [],
+        "sweep_runs": [
+          {
+            "period_ns": 12.0,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -3.409213452483952,
+            "hold_ws_min": 0.22630847836269632
+          },
+          {
+            "period_ns": 15.5,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.49709571199659297,
+            "hold_ws_min": 0.24319336122139634
+          },
+          {
+            "period_ns": 15.75,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.24709479606257173,
+            "hold_ws_min": 0.24319336122139634
+          },
+          {
+            "period_ns": 16.0,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.0029043435145598537,
+            "hold_ws_min": 0.24319336122139634
+          },
+          {
+            "period_ns": 16.25,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.2289546395055777,
+            "hold_ws_min": 0.2402444422511371
+          }
+        ],
+        "sweep_source": "results/flow/sweep_preserved/BK.json",
+        "closing_run": "runs/BK_P0_T16.00_preserved/runs/BK_P0_T16.00_preserved",
+        "metrics_source": "results/flow/preserved/BK/metrics.json",
+        "area": {
+          "stdcell_count": 2463,
+          "stdcell_area_um2": 18171.2,
+          "core_area_um2": 32536.2,
+          "die_area_um2": 39147.6,
+          "utilisation": 0.558491,
+          "timing_repair_buffer_area_um2": 3504.61
+        },
+        "timing": {
+          "max_ff_n40C_1v95": {
+            "setup_ws_ns": 10.341562565676632,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.2550712491197319,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 10.567311,
+            "fmax_MHz": 176.73
+          },
+          "max_ss_100C_1v60": {
+            "setup_ws_ns": 0.0029043435145598537,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 1.3228086778142683,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.002904,
+            "fmax_MHz": 62.51
+          },
+          "max_tt_025C_1v80": {
+            "setup_ws_ns": 7.455040351612083,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.5527807257283868,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 7.45504,
+            "fmax_MHz": 117.03
+          },
+          "min_ff_n40C_1v95": {
+            "setup_ws_ns": 10.406422684788023,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.24319336122139634,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 10.809772,
+            "fmax_MHz": 178.78
+          },
+          "min_ss_100C_1v60": {
+            "setup_ws_ns": 0.7945004878875219,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 1.2857282269438035,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.7945,
+            "fmax_MHz": 65.77
+          },
+          "min_tt_025C_1v80": {
+            "setup_ws_ns": 7.902387412557444,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.5339451809602519,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 7.902388,
+            "fmax_MHz": 123.49
+          },
+          "nom_ff_n40C_1v95": {
+            "setup_ws_ns": 10.36898418698199,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.24859143225324543,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 10.693402,
+            "fmax_MHz": 177.59
+          },
+          "nom_ss_100C_1v60": {
+            "setup_ws_ns": 0.3853877326347514,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 1.3038543946902916,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.385388,
+            "fmax_MHz": 64.04
+          },
+          "nom_tt_025C_1v80": {
+            "setup_ws_ns": 7.6698400912425715,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.5427032865600061,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 7.66984,
+            "fmax_MHz": 120.05
+          }
+        },
+        "fmax_slowest_corner_MHz": 62.51,
+        "critical_path_slowest": {
+          "startpoint": "_2617_ (rising edge-triggered flip-flop clocked by clk)",
+          "endpoint": "_2647_ (rising edge-triggered flip-flop clocked by clk)",
+          "data_arrival_ns": 16.361506,
+          "cells_on_path": 20,
+          "logic_depth_excluding_buffers": 12,
+          "cell_types": [
+            "clkbuf_16",
+            "clkbuf_16",
+            "clkdlybuf4s50_1",
+            "clkdlybuf4s50_1",
+            "inv_1",
+            "clkdlybuf4s15_2",
+            "o21ai_0",
+            "clkdlybuf4s50_1",
+            "o22ai_1",
+            "mux2i_1",
+            "mux4_2",
+            "mux2_1",
+            "o21ai_0",
+            "o21ai_2",
+            "or4_4",
+            "or4b_4",
+            "or4_4",
+            "nor4b_2",
+            "clkbuf_16",
+            "clkbuf_16"
+          ],
+          "source": "results/flow/preserved/BK/max_max_ss_100C_1v60.rpt"
+        },
+        "post_synth_vs_post_route": {
+          "corner": "nom_ss_100C_1v60",
+          "post_synth_delay_ns": 25.0274,
+          "post_route_delay_ns": 15.6146,
+          "degradation_ns": -9.4127,
+          "degradation_percent": -37.6,
+          "note": "delay = T - setup WS (worst path, any type) at the same corner and clock",
+          "sources": [
+            "runs/BK_P0_T16.00_preserved/runs/BK_P0_T16.00_preserved/90-openroad-staprepnr/state_out.json",
+            "results/flow/preserved/BK/metrics.json"
+          ]
+        },
+        "wire_delay": {
+          "corner": "nom_ss_100C_1v60",
+          "delay_routed_ns": 15.6146,
+          "delay_ideal_wires_ns": 13.5028,
+          "wire_delay_ns": 2.1118,
+          "wire_delay_percent_of_routed": 13.5,
+          "ws_routed_ns": 0.385388,
+          "flow_ws_ns": 0.3853877326347514,
+          "note": "same final netlist; routed = with nominal SPEF, ideal = no SPEF; delay = T - WS",
+          "source": "results/flow/preserved/BK/wire_delay.json"
+        },
+        "physical": {
+          "route_wirelength_um": 70496,
+          "max_fanout_violations": 2,
+          "max_slew_violations_max_ss_100C_1v60": 764
+        },
+        "signoff_flow_counts": {
+          "magic_drc_errors": 0,
+          "klayout_drc_errors": 0,
+          "lvs_errors": 0,
+          "antenna_violating_nets": 0,
+          "route_drc_errors": 0
+        },
+        "power_default_activity_W": {
+          "value": 0.0023722059559077024,
+          "label": "LibreLane default activity (not annotated)"
+        },
+        "power_annotated": {
+          "gate_level_sim": "PASS",
+          "results_checked": 10000,
+          "total_W": 0.002178218,
+          "internal_W": 0.001135471,
+          "switching_W": 0.001042736,
+          "leakage_W": 1.191784e-08,
+          "annotation": {
+            "vcd": 7224,
+            "unannotated": 0
+          },
+          "energy_per_op_pJ": 34.851488,
+          "period_ns": 16.0,
+          "mix": "50% ADD/SUB, 20% AND/OR/XOR, 20% SLL/SRL/SRA, 10% Zbb (uniform), back-to-back",
+          "note": "functional cell models (zero-delay logic, 1 ns flop clock-to-Q): glitch power not included",
+          "source": "results/flow/preserved/BK/power.json"
+        }
+      },
+      "KS": {
+        "variant": "preserved",
+        "arch": "KS",
+        "sweep_status": "DONE",
+        "min_period_ns": 17.25,
+        "failing_neighbour_ns": 17.0,
+        "nonmonotonic_points_ns": [
+          16.25,
+          16.75
+        ],
+        "sweep_runs": [
+          {
+            "period_ns": 12.0,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -3.7253348127425627,
+            "hold_ws_min": 0.19735830195380383
+          },
+          {
+            "period_ns": 15.75,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.3086295750765582,
+            "hold_ws_min": 0.19955054840022965
+          },
+          {
+            "period_ns": 16.0,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.05863043549942663,
+            "hold_ws_min": 0.19955054840022965
+          },
+          {
+            "period_ns": 16.25,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.20085800258215677,
+            "hold_ws_min": 0.19754104466882547
+          },
+          {
+            "period_ns": 16.5,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.233480796860378,
+            "hold_ws_min": 0.19080310094181333
+          },
+          {
+            "period_ns": 16.75,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.130786052356565,
+            "hold_ws_min": 0.19863272699981427
+          },
+          {
+            "period_ns": 17.0,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.01829647596328226,
+            "hold_ws_min": 0.18675539421300674
+          },
+          {
+            "period_ns": 17.25,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.2755697970034858,
+            "hold_ws_min": 0.18669838425907986
+          },
+          {
+            "period_ns": 17.5,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.46752647521166124,
+            "hold_ws_min": 0.20475438590842726
+          }
+        ],
+        "sweep_source": "results/flow/sweep_preserved/KS.json",
+        "closing_run": "runs/KS_P0_T17.25_preserved/runs/KS_P0_T17.25_preserved",
+        "metrics_source": "results/flow/preserved/KS/metrics.json",
+        "area": {
+          "stdcell_count": 2635,
+          "stdcell_area_um2": 19019.5,
+          "core_area_um2": 35310.1,
+          "die_area_um2": 41844.7,
+          "utilisation": 0.538641,
+          "timing_repair_buffer_area_um2": 3348.21
+        },
+        "timing": {
+          "max_ff_n40C_1v95": {
+            "setup_ws_ns": 11.397915822665848,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.19574570296492838,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 11.397916,
+            "fmax_MHz": 170.88
+          },
+          "max_ss_100C_1v60": {
+            "setup_ws_ns": 0.2755697970034858,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 1.2177725839076055,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.27557,
+            "fmax_MHz": 58.91
+          },
+          "max_tt_025C_1v80": {
+            "setup_ws_ns": 8.203742806170931,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.4716714374801756,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 8.203743,
+            "fmax_MHz": 110.54
+          },
+          "min_ff_n40C_1v95": {
+            "setup_ws_ns": 11.480111408663227,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.18669838425907986,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 11.586062,
+            "fmax_MHz": 173.31
+          },
+          "min_ss_100C_1v60": {
+            "setup_ws_ns": 0.9817835711190571,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 1.1855795569743712,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.981784,
+            "fmax_MHz": 61.47
+          },
+          "min_tt_025C_1v80": {
+            "setup_ws_ns": 8.56761263962304,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.4591219201440981,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 8.567613,
+            "fmax_MHz": 115.18
+          },
+          "nom_ff_n40C_1v95": {
+            "setup_ws_ns": 11.440150484073905,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.19140090054632966,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 11.492066,
+            "fmax_MHz": 172.12
+          },
+          "nom_ss_100C_1v60": {
+            "setup_ws_ns": 0.616621438029736,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 1.2017203128297709,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.616621,
+            "fmax_MHz": 60.12
+          },
+          "nom_tt_025C_1v80": {
+            "setup_ws_ns": 8.428721958957496,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.4657183104314671,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 8.428722,
+            "fmax_MHz": 113.36
+          }
+        },
+        "fmax_slowest_corner_MHz": 58.91,
+        "critical_path_slowest": {
+          "startpoint": "_2582_ (rising edge-triggered flip-flop clocked by clk)",
+          "endpoint": "_2647_ (rising edge-triggered flip-flop clocked by clk)",
+          "data_arrival_ns": 17.460756,
+          "cells_on_path": 24,
+          "logic_depth_excluding_buffers": 16,
+          "cell_types": [
+            "clkbuf_16",
+            "clkbuf_16",
+            "clkdlybuf4s50_1",
+            "clkdlybuf4s50_1",
+            "xnor3_1",
+            "a21o_1",
+            "a21o_1",
+            "a21o_1",
+            "a21o_1",
+            "a21o_4",
+            "o21a_4",
+            "clkdlybuf4s15_2",
+            "a22oi_1",
+            "nand2_1",
+            "a221oi_1",
+            "nand4b_1",
+            "a211o_1",
+            "or4_1",
+            "or4b_4",
+            "or4_4",
+            "nor4b_4",
+            "clkbuf_2",
+            "clkbuf_16",
+            "clkbuf_16"
+          ],
+          "source": "results/flow/preserved/KS/max_max_ss_100C_1v60.rpt"
+        },
+        "post_synth_vs_post_route": {
+          "corner": "nom_ss_100C_1v60",
+          "post_synth_delay_ns": 22.3333,
+          "post_route_delay_ns": 16.6334,
+          "degradation_ns": -5.6999,
+          "degradation_percent": -25.5,
+          "note": "delay = T - setup WS (worst path, any type) at the same corner and clock",
+          "sources": [
+            "runs/KS_P0_T17.25_preserved/runs/KS_P0_T17.25_preserved/12-openroad-staprepnr/state_out.json",
+            "results/flow/preserved/KS/metrics.json"
+          ]
+        },
+        "wire_delay": {
+          "corner": "nom_ss_100C_1v60",
+          "delay_routed_ns": 16.6334,
+          "delay_ideal_wires_ns": 14.087,
+          "wire_delay_ns": 2.5464,
+          "wire_delay_percent_of_routed": 15.3,
+          "ws_routed_ns": 0.616621,
+          "flow_ws_ns": 0.616621438029736,
+          "note": "same final netlist; routed = with nominal SPEF, ideal = no SPEF; delay = T - WS",
+          "source": "results/flow/preserved/KS/wire_delay.json"
+        },
+        "physical": {
+          "route_wirelength_um": 80258,
+          "max_fanout_violations": 3,
+          "max_slew_violations_max_ss_100C_1v60": 770
+        },
+        "signoff_flow_counts": {
+          "magic_drc_errors": 0,
+          "klayout_drc_errors": 0,
+          "lvs_errors": 0,
+          "antenna_violating_nets": 0,
+          "route_drc_errors": 0
+        },
+        "power_default_activity_W": {
+          "value": 0.0023355239536613226,
+          "label": "LibreLane default activity (not annotated)"
+        },
+        "power_annotated": {
+          "gate_level_sim": "PASS",
+          "results_checked": 10000,
+          "total_W": 0.002125648,
+          "internal_W": 0.001055797,
+          "switching_W": 0.001069838,
+          "leakage_W": 1.297755e-08,
+          "annotation": {
+            "vcd": 7671,
+            "unannotated": 0
+          },
+          "energy_per_op_pJ": 36.667428,
+          "period_ns": 17.25,
+          "mix": "50% ADD/SUB, 20% AND/OR/XOR, 20% SLL/SRL/SRA, 10% Zbb (uniform), back-to-back",
+          "note": "functional cell models (zero-delay logic, 1 ns flop clock-to-Q): glitch power not included",
+          "source": "results/flow/preserved/KS/power.json"
+        }
+      },
+      "SK": {
+        "variant": "preserved",
+        "arch": "SK",
+        "sweep_status": "DONE",
+        "min_period_ns": 16.5,
+        "failing_neighbour_ns": 16.25,
+        "nonmonotonic_points_ns": [],
+        "sweep_runs": [
+          {
+            "period_ns": 12.0,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -4.303581612885426,
+            "hold_ws_min": 0.23034386161558104
+          },
+          {
+            "period_ns": 14.25,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -2.260283579834308,
+            "hold_ws_min": 0.21660807094414145
+          },
+          {
+            "period_ns": 15.5,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.9445688942811189,
+            "hold_ws_min": 0.21890945231697445
+          },
+          {
+            "period_ns": 16.0,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.44457061512685575,
+            "hold_ws_min": 0.21890945231697445
+          },
+          {
+            "period_ns": 16.25,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.19456969919283454,
+            "hold_ws_min": 0.21890945231697445
+          },
+          {
+            "period_ns": 16.5,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.05543121674118669,
+            "hold_ws_min": 0.21890945231697445
+          },
+          {
+            "period_ns": 16.75,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.30542857996142864,
+            "hold_ws_min": 0.21890945231697445
+          }
+        ],
+        "sweep_source": "results/flow/sweep_preserved/SK.json",
+        "closing_run": "runs/SK_P0_T16.50_preserved/runs/SK_P0_T16.50_preserved",
+        "metrics_source": "results/flow/preserved/SK/metrics.json",
+        "area": {
+          "stdcell_count": 2534,
+          "stdcell_area_um2": 18412.7,
+          "core_area_um2": 33448.3,
+          "die_area_um2": 40009.3,
+          "utilisation": 0.550481,
+          "timing_repair_buffer_area_um2": 3494.6
+        },
+        "timing": {
+          "max_ff_n40C_1v95": {
+            "setup_ws_ns": 10.828665381990561,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.22919972124519508,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 10.828666,
+            "fmax_MHz": 176.33
+          },
+          "max_ss_100C_1v60": {
+            "setup_ws_ns": 0.05543121674118669,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 1.2399965849538797,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.055431,
+            "fmax_MHz": 60.81
+          },
+          "max_tt_025C_1v80": {
+            "setup_ws_ns": 7.727368297291977,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.5060392248467032,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 7.727368,
+            "fmax_MHz": 113.99
+          },
+          "min_ff_n40C_1v95": {
+            "setup_ws_ns": 10.946012406298562,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.21890945231697445,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 11.09639,
+            "fmax_MHz": 180.05
+          },
+          "min_ss_100C_1v60": {
+            "setup_ws_ns": 0.7086971210472868,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 1.2151530126069159,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.708697,
+            "fmax_MHz": 63.33
+          },
+          "min_tt_025C_1v80": {
+            "setup_ws_ns": 8.133145054306006,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.49090166654472717,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 8.133145,
+            "fmax_MHz": 119.52
+          },
+          "nom_ff_n40C_1v95": {
+            "setup_ws_ns": 10.926557745643235,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.22436569903695922,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 10.960007,
+            "fmax_MHz": 179.42
+          },
+          "nom_ss_100C_1v60": {
+            "setup_ws_ns": 0.37898751876138187,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 1.2274548391791944,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.378988,
+            "fmax_MHz": 62.03
+          },
+          "nom_tt_025C_1v80": {
+            "setup_ws_ns": 7.924039426685255,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.49898320221414005,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 7.924039,
+            "fmax_MHz": 116.61
+          }
+        },
+        "fmax_slowest_corner_MHz": 60.81,
+        "critical_path_slowest": {
+          "startpoint": "_2650_ (rising edge-triggered flip-flop clocked by clk)",
+          "endpoint": "_2647_ (rising edge-triggered flip-flop clocked by clk)",
+          "data_arrival_ns": 16.821047,
+          "cells_on_path": 23,
+          "logic_depth_excluding_buffers": 13,
+          "cell_types": [
+            "clkbuf_16",
+            "clkbuf_16",
+            "clkdlybuf4s15_2",
+            "nor4bb_1",
+            "clkdlybuf4s50_1",
+            "clkdlybuf4s15_2",
+            "o21ai_1",
+            "clkbuf_4",
+            "clkdlybuf4s50_1",
+            "clkdlybuf4s50_1",
+            "mux4_2",
+            "a22oi_1",
+            "nor2_1",
+            "o221ai_1",
+            "o211a_1",
+            "a211oi_1",
+            "or4_4",
+            "or4_4",
+            "or4b_4",
+            "or4_4",
+            "nor4b_4",
+            "clkbuf_16",
+            "clkbuf_16"
+          ],
+          "source": "results/flow/preserved/SK/max_max_ss_100C_1v60.rpt"
+        },
+        "post_synth_vs_post_route": {
+          "corner": "nom_ss_100C_1v60",
+          "post_synth_delay_ns": 23.0369,
+          "post_route_delay_ns": 16.121,
+          "degradation_ns": -6.9159,
+          "degradation_percent": -30.0,
+          "note": "delay = T - setup WS (worst path, any type) at the same corner and clock",
+          "sources": [
+            "runs/SK_P0_T16.50_preserved/runs/SK_P0_T16.50_preserved/12-openroad-staprepnr/state_out.json",
+            "results/flow/preserved/SK/metrics.json"
+          ]
+        },
+        "wire_delay": {
+          "corner": "nom_ss_100C_1v60",
+          "delay_routed_ns": 16.121,
+          "delay_ideal_wires_ns": 13.8112,
+          "wire_delay_ns": 2.3098,
+          "wire_delay_percent_of_routed": 14.3,
+          "ws_routed_ns": 0.378989,
+          "flow_ws_ns": 0.37898751876138187,
+          "note": "same final netlist; routed = with nominal SPEF, ideal = no SPEF; delay = T - WS",
+          "source": "results/flow/preserved/SK/wire_delay.json"
+        },
+        "physical": {
+          "route_wirelength_um": 72344,
+          "max_fanout_violations": 3,
+          "max_slew_violations_max_ss_100C_1v60": 782
+        },
+        "signoff_flow_counts": {
+          "magic_drc_errors": 0,
+          "klayout_drc_errors": 0,
+          "lvs_errors": 0,
+          "antenna_violating_nets": 0,
+          "route_drc_errors": 0
+        },
+        "power_default_activity_W": {
+          "value": 0.0023159177508205175,
+          "label": "LibreLane default activity (not annotated)"
+        },
+        "power_annotated": {
+          "gate_level_sim": "PASS",
+          "results_checked": 10000,
+          "total_W": 0.002116005,
+          "internal_W": 0.00108979,
+          "switching_W": 0.001026203,
+          "leakage_W": 1.232991e-08,
+          "annotation": {
+            "vcd": 7350,
+            "unannotated": 0
+          },
+          "energy_per_op_pJ": 34.9140825,
+          "period_ns": 16.5,
+          "mix": "50% ADD/SUB, 20% AND/OR/XOR, 20% SLL/SRL/SRA, 10% Zbb (uniform), back-to-back",
+          "note": "functional cell models (zero-delay logic, 1 ns flop clock-to-Q): glitch power not included",
+          "source": "results/flow/preserved/SK/power.json"
+        }
+      },
+      "HC": {
+        "variant": "preserved",
+        "arch": "HC",
+        "sweep_status": "DONE",
+        "min_period_ns": 15.75,
+        "failing_neighbour_ns": 15.5,
+        "nonmonotonic_points_ns": [],
+        "sweep_runs": [
+          {
+            "period_ns": 12.0,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -3.1164067764018535,
+            "hold_ws_min": 0.20248520100421896
+          },
+          {
+            "period_ns": 15.25,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.2980762387952126,
+            "hold_ws_min": 0.20680624464941877
+          },
+          {
+            "period_ns": 15.5,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.04807887557497064,
+            "hold_ws_min": 0.20680624464941877
+          },
+          {
+            "period_ns": 15.75,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.20192204035905056,
+            "hold_ws_min": 0.20680624464941877
+          },
+          {
+            "period_ns": 16.0,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.4519229562930718,
+            "hold_ws_min": 0.20680624464941877
+          }
+        ],
+        "sweep_source": "results/flow/sweep_preserved/HC.json",
+        "closing_run": "runs/HC_P0_T15.75_preserved/runs/HC_P0_T15.75_preserved",
+        "metrics_source": "results/flow/preserved/HC/metrics.json",
+        "area": {
+          "stdcell_count": 2567,
+          "stdcell_area_um2": 18735.5,
+          "core_area_um2": 33448.3,
+          "die_area_um2": 40009.3,
+          "utilisation": 0.560132,
+          "timing_repair_buffer_area_um2": 3615.97
+        },
+        "timing": {
+          "max_ff_n40C_1v95": {
+            "setup_ws_ns": 9.553583083930976,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.2198567501395273,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 10.347531,
+            "fmax_MHz": 161.38
+          },
+          "max_ss_100C_1v60": {
+            "setup_ws_ns": 0.20192204035905056,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 1.219489321819136,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.201922,
+            "fmax_MHz": 64.32
+          },
+          "max_tt_025C_1v80": {
+            "setup_ws_ns": 7.427218161828111,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.495299204558487,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 7.427218,
+            "fmax_MHz": 120.15
+          },
+          "min_ff_n40C_1v95": {
+            "setup_ws_ns": 9.64864482288001,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.20680624464941877,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 10.579725,
+            "fmax_MHz": 163.9
+          },
+          "min_ss_100C_1v60": {
+            "setup_ws_ns": 0.8486562803819478,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 1.1896096666677398,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.848656,
+            "fmax_MHz": 67.11
+          },
+          "min_tt_025C_1v80": {
+            "setup_ws_ns": 7.795329047354233,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.4759694995081157,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 7.795329,
+            "fmax_MHz": 125.71
+          },
+          "nom_ff_n40C_1v95": {
+            "setup_ws_ns": 9.600379429831627,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.2135077730601933,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 10.469669,
+            "fmax_MHz": 162.61
+          },
+          "nom_ss_100C_1v60": {
+            "setup_ws_ns": 0.5246114802171019,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 1.204433031844861,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.524611,
+            "fmax_MHz": 65.68
+          },
+          "nom_tt_025C_1v80": {
+            "setup_ws_ns": 7.615696733246374,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.48556249284600017,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 7.615697,
+            "fmax_MHz": 122.94
+          }
+        },
+        "fmax_slowest_corner_MHz": 64.32,
+        "critical_path_slowest": {
+          "startpoint": "_2617_ (rising edge-triggered flip-flop clocked by clk)",
+          "endpoint": "_2647_ (rising edge-triggered flip-flop clocked by clk)",
+          "data_arrival_ns": 15.965683,
+          "cells_on_path": 21,
+          "logic_depth_excluding_buffers": 12,
+          "cell_types": [
+            "clkbuf_16",
+            "clkbuf_16",
+            "clkdlybuf4s50_1",
+            "clkdlybuf4s15_2",
+            "inv_1",
+            "clkdlybuf4s50_1",
+            "clkdlybuf4s15_2",
+            "o21ai_0",
+            "clkdlybuf4s50_1",
+            "o22ai_1",
+            "mux2i_1",
+            "mux4_2",
+            "mux2_1",
+            "o21ai_0",
+            "o21ai_0",
+            "or4_4",
+            "or4b_4",
+            "or4_4",
+            "nor4b_2",
+            "clkbuf_16",
+            "clkbuf_16"
+          ],
+          "source": "results/flow/preserved/HC/max_max_ss_100C_1v60.rpt"
+        },
+        "post_synth_vs_post_route": {
+          "corner": "nom_ss_100C_1v60",
+          "post_synth_delay_ns": 22.57,
+          "post_route_delay_ns": 15.2254,
+          "degradation_ns": -7.3446,
+          "degradation_percent": -32.5,
+          "note": "delay = T - setup WS (worst path, any type) at the same corner and clock",
+          "sources": [
+            "runs/HC_P0_T15.75_preserved/runs/HC_P0_T15.75_preserved/12-openroad-staprepnr/state_out.json",
+            "results/flow/preserved/HC/metrics.json"
+          ]
+        },
+        "wire_delay": {
+          "corner": "nom_ss_100C_1v60",
+          "delay_routed_ns": 15.2254,
+          "delay_ideal_wires_ns": 13.3634,
+          "wire_delay_ns": 1.862,
+          "wire_delay_percent_of_routed": 12.2,
+          "ws_routed_ns": 0.524611,
+          "flow_ws_ns": 0.5246114802171019,
+          "note": "same final netlist; routed = with nominal SPEF, ideal = no SPEF; delay = T - WS",
+          "source": "results/flow/preserved/HC/wire_delay.json"
+        },
+        "physical": {
+          "route_wirelength_um": 74179,
+          "max_fanout_violations": 3,
+          "max_slew_violations_max_ss_100C_1v60": 739
+        },
+        "signoff_flow_counts": {
+          "magic_drc_errors": 0,
+          "klayout_drc_errors": 0,
+          "lvs_errors": 0,
+          "antenna_violating_nets": 0,
+          "route_drc_errors": 0
+        },
+        "power_default_activity_W": {
+          "value": 0.002504731062799692,
+          "label": "LibreLane default activity (not annotated)"
+        },
+        "power_annotated": {
+          "gate_level_sim": "PASS",
+          "results_checked": 10000,
+          "total_W": 0.002257552,
+          "internal_W": 0.001163687,
+          "switching_W": 0.001093852,
+          "leakage_W": 1.240057e-08,
+          "annotation": {
+            "vcd": 7412,
+            "unannotated": 0
+          },
+          "energy_per_op_pJ": 35.556444,
+          "period_ns": 15.75,
+          "mix": "50% ADD/SUB, 20% AND/OR/XOR, 20% SLL/SRL/SRA, 10% Zbb (uniform), back-to-back",
+          "note": "functional cell models (zero-delay logic, 1 ns flop clock-to-Q): glitch power not included",
+          "source": "results/flow/preserved/HC/power.json"
+        }
+      },
+      "BEH": {
+        "variant": "preserved",
+        "arch": "BEH",
+        "sweep_status": "DONE",
+        "min_period_ns": 22.0,
+        "failing_neighbour_ns": 21.75,
+        "nonmonotonic_points_ns": [],
+        "sweep_runs": [
+          {
+            "period_ns": 12.0,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -9.759288764464957,
+            "hold_ws_min": 0.11033158032813531
+          },
+          {
+            "period_ns": 17.0,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -4.809102585609577,
+            "hold_ws_min": 0.11216150548022753
+          },
+          {
+            "period_ns": 19.5,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -2.266439544635352,
+            "hold_ws_min": 0.11286866205576229
+          },
+          {
+            "period_ns": 20.75,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.9267360474660324,
+            "hold_ws_min": 0.10894602195421685
+          },
+          {
+            "period_ns": 21.5,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.3107167944218841,
+            "hold_ws_min": 0.11196266453089357
+          },
+          {
+            "period_ns": 21.75,
+            "status": "FAILS_TIMING",
+            "setup_ws_slowest": -0.09617373836194804,
+            "hold_ws_min": 0.1128235869996877
+          },
+          {
+            "period_ns": 22.0,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.3244373750374562,
+            "hold_ws_min": 0.11081169628871307
+          },
+          {
+            "period_ns": 22.25,
+            "status": "CLOSES",
+            "setup_ws_slowest": 0.4449152283634457,
+            "hold_ws_min": 0.11401835354142836
+          }
+        ],
+        "sweep_source": "results/flow/sweep_preserved/BEH.json",
+        "closing_run": "runs/BEH_P0_T22.00_preserved/runs/BEH_P0_T22.00_preserved",
+        "metrics_source": "results/flow/preserved/BEH/metrics.json",
+        "area": {
+          "stdcell_count": 2132,
+          "stdcell_area_um2": 14611.5,
+          "core_area_um2": 26575.5,
+          "die_area_um2": 32249,
+          "utilisation": 0.549812,
+          "timing_repair_buffer_area_um2": 2673.81
+        },
+        "timing": {
+          "max_ff_n40C_1v95": {
+            "setup_ws_ns": 14.471446672822484,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.1226214720025615,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 14.471447,
+            "fmax_MHz": 132.83
+          },
+          "max_ss_100C_1v60": {
+            "setup_ws_ns": 0.3244373750374562,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.9740012405632428,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.324437,
+            "fmax_MHz": 46.13
+          },
+          "max_tt_025C_1v80": {
+            "setup_ws_ns": 10.327825997849054,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.3531985914822133,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 10.327826,
+            "fmax_MHz": 85.67
+          },
+          "min_ff_n40C_1v95": {
+            "setup_ws_ns": 14.767400165134577,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.11081169628871307,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 14.7674,
+            "fmax_MHz": 138.26
+          },
+          "min_ss_100C_1v60": {
+            "setup_ws_ns": 1.1375150032768233,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.9583321074620423,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 1.137515,
+            "fmax_MHz": 47.93
+          },
+          "min_tt_025C_1v80": {
+            "setup_ws_ns": 10.794603738631732,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.3384995712873669,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 10.794603,
+            "fmax_MHz": 89.24
+          },
+          "nom_ff_n40C_1v95": {
+            "setup_ws_ns": 14.622603985989429,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.11472240149240624,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 14.622604,
+            "fmax_MHz": 135.55
+          },
+          "nom_ss_100C_1v60": {
+            "setup_ws_ns": 0.7445795302179956,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.9623381253150952,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 0.74458,
+            "fmax_MHz": 47.05
+          },
+          "nom_tt_025C_1v80": {
+            "setup_ws_ns": 10.564679208264412,
+            "setup_tns_ns": 0,
+            "hold_ws_ns": 0.34298065358609264,
+            "hold_tns_ns": 0,
+            "setup_r2r_ws_ns": 10.564679,
+            "fmax_MHz": 87.45
+          }
+        },
+        "fmax_slowest_corner_MHz": 46.13,
+        "critical_path_slowest": {
+          "startpoint": "_2500_ (rising edge-triggered flip-flop clocked by clk)",
+          "endpoint": "_2530_ (rising edge-triggered flip-flop clocked by clk)",
+          "data_arrival_ns": 21.984463,
+          "cells_on_path": 57,
+          "logic_depth_excluding_buffers": 29,
+          "cell_types": [
+            "clkbuf_16",
+            "clkbuf_16",
+            "clkdlybuf4s50_1",
+            "clkdlybuf4s15_2",
+            "inv_1",
+            "clkdlybuf4s15_2",
+            "xnor2_1",
+            "nand2_1",
+            "inv_1",
+            "nor2_1",
+            "a311oi_2",
+            "o311ai_1",
+            "clkbuf_2",
+            "clkbuf_2",
+            "clkbuf_2",
+            "clkbuf_2",
+            "a311oi_2",
+            "o311ai_1",
+            "clkbuf_2",
+            "clkbuf_2",
+            "clkbuf_2",
+            "clkbuf_2",
+            "clkbuf_2",
+            "a311oi_2",
+            "clkbuf_2",
+            "o311ai_2",
+            "clkbuf_2",
+            "a311o_1",
+            "a311oi_2",
+            "o311ai_1",
+            "clkbuf_2",
+            "clkbuf_2",
+            "clkbuf_2",
+            "clkbuf_2",
+            "clkbuf_2",
+            "a31o_4",
+            "a21oi_4",
+            "o21bai_4",
+            "a21oi_4",
+            "o211ai_1",
+            "a31oi_2",
+            "o21ai_2",
+            "clkbuf_2",
+            "a21o_1",
+            "buf_6",
+            "a21o_4",
+            "buf_6",
+            "a2111o_1",
+            "clkbuf_4",
+            "nand2_1",
+            "o211ai_1",
+            "buf_6",
+            "nor4_4",
+            "nand4b_1",
+            "nor4_2",
+            "clkbuf_16",
+            "clkbuf_16"
+          ],
+          "source": "results/flow/preserved/BEH/max_max_ss_100C_1v60.rpt"
+        },
+        "post_synth_vs_post_route": {
+          "corner": "nom_ss_100C_1v60",
+          "post_synth_delay_ns": 22.5566,
+          "post_route_delay_ns": 21.2554,
+          "degradation_ns": -1.3012,
+          "degradation_percent": -5.8,
+          "note": "delay = T - setup WS (worst path, any type) at the same corner and clock",
+          "sources": [
+            "runs/BEH_P0_T22.00_preserved/runs/BEH_P0_T22.00_preserved/12-openroad-staprepnr/state_out.json",
+            "results/flow/preserved/BEH/metrics.json"
+          ]
+        },
+        "wire_delay": {
+          "corner": "nom_ss_100C_1v60",
+          "delay_routed_ns": 21.2554,
+          "delay_ideal_wires_ns": 18.5064,
+          "wire_delay_ns": 2.7491,
+          "wire_delay_percent_of_routed": 12.9,
+          "ws_routed_ns": 0.744578,
+          "flow_ws_ns": 0.7445795302179956,
+          "note": "same final netlist; routed = with nominal SPEF, ideal = no SPEF; delay = T - WS",
+          "source": "results/flow/preserved/BEH/wire_delay.json"
+        },
+        "physical": {
+          "route_wirelength_um": 52950,
+          "max_fanout_violations": 1,
+          "max_slew_violations_max_ss_100C_1v60": 554
+        },
+        "signoff_flow_counts": {
+          "magic_drc_errors": 0,
+          "klayout_drc_errors": 0,
+          "lvs_errors": 0,
+          "antenna_violating_nets": 0,
+          "route_drc_errors": 0
+        },
+        "power_default_activity_W": {
+          "value": 0.0015012463554739952,
+          "label": "LibreLane default activity (not annotated)"
+        },
+        "power_annotated": {
+          "gate_level_sim": "PASS",
+          "results_checked": 10000,
+          "total_W": 0.001353638,
+          "internal_W": 0.0007150971,
+          "switching_W": 0.0006385313,
+          "leakage_W": 9.894617e-09,
+          "annotation": {
+            "vcd": 5999,
+            "unannotated": 0
+          },
+          "energy_per_op_pJ": 29.780036000000006,
+          "period_ns": 22.0,
+          "mix": "50% ADD/SUB, 20% AND/OR/XOR, 20% SLL/SRL/SRA, 10% Zbb (uniform), back-to-back",
+          "note": "functional cell models (zero-delay logic, 1 ns flop clock-to-Q): glitch power not included",
+          "source": "results/flow/preserved/BEH/power.json"
+        }
+      }
+    }
+  },
+  "abc_experiment": {
+    "source": "results/flow/abc_experiment.json",
+    "results": [
+      {
+        "arch": "RCA",
+        "variant": "default",
+        "cells": 194,
+        "area_um2": 2842.7264,
+        "r2r_path_delay_ns": 12.7865,
+        "logic_depth": 32
+      },
+      {
+        "arch": "RCA",
+        "variant": "preserved",
+        "cells": 194,
+        "area_um2": 2842.7264,
+        "r2r_path_delay_ns": 12.7865,
+        "logic_depth": 32
+      },
+      {
+        "arch": "CLA4",
+        "variant": "default",
+        "cells": 247,
+        "area_um2": 3009.136,
+        "r2r_path_delay_ns": 6.1088,
+        "logic_depth": 22
+      },
+      {
+        "arch": "CLA4",
+        "variant": "preserved",
+        "cells": 287,
+        "area_um2": 3803.648,
+        "r2r_path_delay_ns": 2.6773,
+        "logic_depth": 15
+      },
+      {
+        "arch": "CSLA",
+        "variant": "default",
+        "cells": 194,
+        "area_um2": 2842.7264,
+        "r2r_path_delay_ns": 12.7865,
+        "logic_depth": 32
+      },
+      {
+        "arch": "CSLA",
+        "variant": "preserved",
+        "cells": 299,
+        "area_um2": 3827.4208,
+        "r2r_path_delay_ns": 5.1996,
+        "logic_depth": 11
+      },
+      {
+        "arch": "BK",
+        "variant": "default",
+        "cells": 254,
+        "area_um2": 2969.0976,
+        "r2r_path_delay_ns": 6.2303,
+        "logic_depth": 20
+      },
+      {
+        "arch": "BK",
+        "variant": "preserved",
+        "cells": 277,
+        "area_um2": 3316.9312,
+        "r2r_path_delay_ns": 2.5135,
+        "logic_depth": 10
+      },
+      {
+        "arch": "KS",
+        "variant": "default",
+        "cells": 279,
+        "area_um2": 3087.9616,
+        "r2r_path_delay_ns": 4.5047,
+        "logic_depth": 17
+      },
+      {
+        "arch": "KS",
+        "variant": "preserved",
+        "cells": 421,
+        "area_um2": 4307.8816,
+        "r2r_path_delay_ns": 1.7392,
+        "logic_depth": 6
+      },
+      {
+        "arch": "SK",
+        "variant": "default",
+        "cells": 255,
+        "area_um2": 2996.624,
+        "r2r_path_delay_ns": 6.0724,
+        "logic_depth": 21
+      },
+      {
+        "arch": "SK",
+        "variant": "preserved",
+        "cells": 323,
+        "area_um2": 3633.4848,
+        "r2r_path_delay_ns": 2.0776,
+        "logic_depth": 7
+      },
+      {
+        "arch": "HC",
+        "variant": "default",
+        "cells": 274,
+        "area_um2": 3066.6912,
+        "r2r_path_delay_ns": 4.4413,
+        "logic_depth": 16
+      },
+      {
+        "arch": "HC",
+        "variant": "preserved",
+        "cells": 323,
+        "area_um2": 3633.4848,
+        "r2r_path_delay_ns": 1.9001,
+        "logic_depth": 7
+      },
+      {
+        "arch": "BEH",
+        "variant": "default",
+        "cells": 254,
+        "area_um2": 2979.1072,
+        "r2r_path_delay_ns": 5.9127,
+        "logic_depth": 20
+      },
+      {
+        "arch": "BEH",
+        "variant": "preserved",
+        "cells": 254,
+        "area_um2": 2979.1072,
+        "r2r_path_delay_ns": 5.9134,
+        "logic_depth": 20
+      }
+    ]
+  }
+}

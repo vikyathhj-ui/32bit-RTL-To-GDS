@@ -1,0 +1,17 @@
+Warning 198: /foss/projects/32bit-RTL-To-GDS/runs/BEH_P0_T19.75/runs/BEH_P0_T19.75/final/nl/alu_top.nl.v line 1655, module sky130_fd_sc_hd__fill_2 not found. Creating black box for FILLER_0_169.
+Warning 198: /foss/projects/32bit-RTL-To-GDS/runs/BEH_P0_T19.75/runs/BEH_P0_T19.75/final/nl/alu_top.nl.v line 1667, module sky130_fd_sc_hd__fill_1 not found. Creating black box for FILLER_0_27.
+Warning 198: /foss/projects/32bit-RTL-To-GDS/runs/BEH_P0_T19.75/runs/BEH_P0_T19.75/final/nl/alu_top.nl.v line 3582, module sky130_fd_sc_hd__tapvpwrvgnd_1 not found. Creating black box for TAP_TAPCELL_ROW_0_120.
+Annotated 5783 pin activities.
+vcd          5783
+unannotated     0
+Group                    Internal    Switching      Leakage        Total
+                            Power        Power        Power        Power (Watts)
+------------------------------------------------------------------------
+Sequential           3.206367e-04 5.981373e-05 1.138988e-09 3.804516e-04  25.9%
+Combinational        3.141740e-04 5.199076e-04 4.418983e-09 8.340860e-04  56.8%
+Clock                1.523719e-04 1.022133e-04 4.307618e-09 2.545895e-04  17.3%
+Macro                0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+Pad                  0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+------------------------------------------------------------------------
+Total                7.871826e-04 6.819343e-04 9.865603e-09 1.469127e-03 100.0%
+                            53.6%        46.4%         0.0%

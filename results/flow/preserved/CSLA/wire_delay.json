@@ -1,0 +1,17 @@
+{
+  "run": "runs/CSLA_P0_T18.75_preserved/runs/CSLA_P0_T18.75_preserved",
+  "period_ns": 18.75,
+  "corner": "nom_ss_100C_1v60",
+  "ws_routed_ns": 0.414065,
+  "ws_ideal_wires_ns": 2.180254,
+  "flow_ws_ns": 0.41406523826108427,
+  "note": "same final netlist; routed = with nominal SPEF, ideal = no SPEF; delay = T - WS",
+  "reports": [
+    "sim_build/wire/CSLA_P0_T18.75_preserved/routed.rpt",
+    "sim_build/wire/CSLA_P0_T18.75_preserved/ideal.rpt"
+  ],
+  "delay_routed_ns": 18.3359,
+  "delay_ideal_wires_ns": 16.5697,
+  "wire_delay_ns": 1.7662,
+  "wire_delay_percent_of_routed": 9.6
+}

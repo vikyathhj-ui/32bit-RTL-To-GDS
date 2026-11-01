@@ -1,0 +1,514 @@
+{
+  "step_ns": 0.25,
+  "criterion": "setup WS >= 0 at max_ss_100C_1v60 and hold WS >= 0 at all corners",
+  "results": {
+    "BEH": {
+      "pipe": 0,
+      "variant": "preserved",
+      "seed_ns": 12.0,
+      "step_ns": 0.25,
+      "min_period_ns": 22.0,
+      "failing_neighbour_ns": 21.75,
+      "status": "DONE",
+      "nonmonotonic_points_ns": [],
+      "runs_used": 8,
+      "minutes": 34.8,
+      "runs": [
+        {
+          "period_ns": 12.0,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -9.759288764464957,
+          "hold_ws_min": 0.11033158032813531,
+          "run_dir": "runs/BEH_P0_T12.00_preserved/runs/BEH_P0_T12.00_preserved"
+        },
+        {
+          "period_ns": 17.0,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -4.809102585609577,
+          "hold_ws_min": 0.11216150548022753,
+          "run_dir": "runs/BEH_P0_T17.00_preserved/runs/BEH_P0_T17.00_preserved"
+        },
+        {
+          "period_ns": 19.5,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -2.266439544635352,
+          "hold_ws_min": 0.11286866205576229,
+          "run_dir": "runs/BEH_P0_T19.50_preserved/runs/BEH_P0_T19.50_preserved"
+        },
+        {
+          "period_ns": 20.75,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.9267360474660324,
+          "hold_ws_min": 0.10894602195421685,
+          "run_dir": "runs/BEH_P0_T20.75_preserved/runs/BEH_P0_T20.75_preserved"
+        },
+        {
+          "period_ns": 21.5,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.3107167944218841,
+          "hold_ws_min": 0.11196266453089357,
+          "run_dir": "runs/BEH_P0_T21.50_preserved/runs/BEH_P0_T21.50_preserved"
+        },
+        {
+          "period_ns": 21.75,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.09617373836194804,
+          "hold_ws_min": 0.1128235869996877,
+          "run_dir": "runs/BEH_P0_T21.75_preserved/runs/BEH_P0_T21.75_preserved"
+        },
+        {
+          "period_ns": 22.0,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.3244373750374562,
+          "hold_ws_min": 0.11081169628871307,
+          "run_dir": "runs/BEH_P0_T22.00_preserved/runs/BEH_P0_T22.00_preserved"
+        },
+        {
+          "period_ns": 22.25,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.4449152283634457,
+          "hold_ws_min": 0.11401835354142836,
+          "run_dir": "runs/BEH_P0_T22.25_preserved/runs/BEH_P0_T22.25_preserved"
+        }
+      ]
+    },
+    "BK": {
+      "pipe": 0,
+      "variant": "preserved",
+      "seed_ns": 12.0,
+      "step_ns": 0.25,
+      "min_period_ns": 16.0,
+      "failing_neighbour_ns": 15.75,
+      "status": "DONE",
+      "nonmonotonic_points_ns": [],
+      "runs_used": 5,
+      "minutes": 0.0,
+      "runs": [
+        {
+          "period_ns": 12.0,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -3.409213452483952,
+          "hold_ws_min": 0.22630847836269632,
+          "run_dir": "runs/BK_P0_T12.00_preserved/runs/BK_P0_T12.00_preserved"
+        },
+        {
+          "period_ns": 15.5,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.49709571199659297,
+          "hold_ws_min": 0.24319336122139634,
+          "run_dir": "runs/BK_P0_T15.50_preserved/runs/BK_P0_T15.50_preserved"
+        },
+        {
+          "period_ns": 15.75,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.24709479606257173,
+          "hold_ws_min": 0.24319336122139634,
+          "run_dir": "runs/BK_P0_T15.75_preserved/runs/BK_P0_T15.75_preserved"
+        },
+        {
+          "period_ns": 16.0,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.0029043435145598537,
+          "hold_ws_min": 0.24319336122139634,
+          "run_dir": "runs/BK_P0_T16.00_preserved/runs/BK_P0_T16.00_preserved"
+        },
+        {
+          "period_ns": 16.25,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.2289546395055777,
+          "hold_ws_min": 0.2402444422511371,
+          "run_dir": "runs/BK_P0_T16.25_preserved/runs/BK_P0_T16.25_preserved"
+        }
+      ]
+    },
+    "CLA4": {
+      "pipe": 0,
+      "variant": "preserved",
+      "seed_ns": 12.0,
+      "step_ns": 0.25,
+      "min_period_ns": 16.0,
+      "failing_neighbour_ns": 15.75,
+      "status": "DONE",
+      "nonmonotonic_points_ns": [],
+      "runs_used": 5,
+      "minutes": 0.0,
+      "runs": [
+        {
+          "period_ns": 12.0,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -3.027617353630135,
+          "hold_ws_min": 0.2131208603251688,
+          "run_dir": "runs/CLA4_P0_T12.00_preserved/runs/CLA4_P0_T12.00_preserved"
+        },
+        {
+          "period_ns": 15.25,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.4949658600859157,
+          "hold_ws_min": 0.2559866835405768,
+          "run_dir": "runs/CLA4_P0_T15.25_preserved/runs/CLA4_P0_T15.25_preserved"
+        },
+        {
+          "period_ns": 15.75,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.037202242339710714,
+          "hold_ws_min": 0.2519335367187957,
+          "run_dir": "runs/CLA4_P0_T15.75_preserved/runs/CLA4_P0_T15.75_preserved"
+        },
+        {
+          "period_ns": 16.0,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.02776445818505842,
+          "hold_ws_min": 0.2521054547590211,
+          "run_dir": "runs/CLA4_P0_T16.00_preserved/runs/CLA4_P0_T16.00_preserved"
+        },
+        {
+          "period_ns": 16.25,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.23318592161669793,
+          "hold_ws_min": 0.25166719420765543,
+          "run_dir": "runs/CLA4_P0_T16.25_preserved/runs/CLA4_P0_T16.25_preserved"
+        }
+      ]
+    },
+    "CSLA": {
+      "pipe": 0,
+      "variant": "preserved",
+      "seed_ns": 12.0,
+      "step_ns": 0.25,
+      "min_period_ns": 18.75,
+      "failing_neighbour_ns": 18.5,
+      "status": "DONE",
+      "nonmonotonic_points_ns": [],
+      "runs_used": 7,
+      "minutes": 0.0,
+      "runs": [
+        {
+          "period_ns": 12.0,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -6.823971802998912,
+          "hold_ws_min": 0.11755091677223962,
+          "run_dir": "runs/CSLA_P0_T12.00_preserved/runs/CSLA_P0_T12.00_preserved"
+        },
+        {
+          "period_ns": 15.5,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -3.2953747330329883,
+          "hold_ws_min": 0.10726303482358944,
+          "run_dir": "runs/CSLA_P0_T15.50_preserved/runs/CSLA_P0_T15.50_preserved"
+        },
+        {
+          "period_ns": 17.25,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -1.502359168482899,
+          "hold_ws_min": 0.10338769022423064,
+          "run_dir": "runs/CSLA_P0_T17.25_preserved/runs/CSLA_P0_T17.25_preserved"
+        },
+        {
+          "period_ns": 18.0,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.7465157592277022,
+          "hold_ws_min": 0.11995305088740683,
+          "run_dir": "runs/CSLA_P0_T18.00_preserved/runs/CSLA_P0_T18.00_preserved"
+        },
+        {
+          "period_ns": 18.5,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.17035795478705423,
+          "hold_ws_min": 0.11818296675803433,
+          "run_dir": "runs/CSLA_P0_T18.50_preserved/runs/CSLA_P0_T18.50_preserved"
+        },
+        {
+          "period_ns": 18.75,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.03238831516878888,
+          "hold_ws_min": 0.11987605691847154,
+          "run_dir": "runs/CSLA_P0_T18.75_preserved/runs/CSLA_P0_T18.75_preserved"
+        },
+        {
+          "period_ns": 19.0,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.23724312075263354,
+          "hold_ws_min": 0.12131868075746967,
+          "run_dir": "runs/CSLA_P0_T19.00_preserved/runs/CSLA_P0_T19.00_preserved"
+        }
+      ]
+    },
+    "HC": {
+      "pipe": 0,
+      "variant": "preserved",
+      "seed_ns": 12.0,
+      "step_ns": 0.25,
+      "min_period_ns": 15.75,
+      "failing_neighbour_ns": 15.5,
+      "status": "DONE",
+      "nonmonotonic_points_ns": [],
+      "runs_used": 5,
+      "minutes": 0.0,
+      "runs": [
+        {
+          "period_ns": 12.0,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -3.1164067764018535,
+          "hold_ws_min": 0.20248520100421896,
+          "run_dir": "runs/HC_P0_T12.00_preserved/runs/HC_P0_T12.00_preserved"
+        },
+        {
+          "period_ns": 15.25,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.2980762387952126,
+          "hold_ws_min": 0.20680624464941877,
+          "run_dir": "runs/HC_P0_T15.25_preserved/runs/HC_P0_T15.25_preserved"
+        },
+        {
+          "period_ns": 15.5,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.04807887557497064,
+          "hold_ws_min": 0.20680624464941877,
+          "run_dir": "runs/HC_P0_T15.50_preserved/runs/HC_P0_T15.50_preserved"
+        },
+        {
+          "period_ns": 15.75,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.20192204035905056,
+          "hold_ws_min": 0.20680624464941877,
+          "run_dir": "runs/HC_P0_T15.75_preserved/runs/HC_P0_T15.75_preserved"
+        },
+        {
+          "period_ns": 16.0,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.4519229562930718,
+          "hold_ws_min": 0.20680624464941877,
+          "run_dir": "runs/HC_P0_T16.00_preserved/runs/HC_P0_T16.00_preserved"
+        }
+      ]
+    },
+    "KS": {
+      "pipe": 0,
+      "variant": "preserved",
+      "seed_ns": 12.0,
+      "step_ns": 0.25,
+      "min_period_ns": 17.25,
+      "failing_neighbour_ns": 17.0,
+      "status": "DONE",
+      "nonmonotonic_points_ns": [
+        16.25,
+        16.75
+      ],
+      "runs_used": 9,
+      "minutes": 0.0,
+      "runs": [
+        {
+          "period_ns": 12.0,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -3.7253348127425627,
+          "hold_ws_min": 0.19735830195380383,
+          "run_dir": "runs/KS_P0_T12.00_preserved/runs/KS_P0_T12.00_preserved"
+        },
+        {
+          "period_ns": 15.75,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.3086295750765582,
+          "hold_ws_min": 0.19955054840022965,
+          "run_dir": "runs/KS_P0_T15.75_preserved/runs/KS_P0_T15.75_preserved"
+        },
+        {
+          "period_ns": 16.0,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.05863043549942663,
+          "hold_ws_min": 0.19955054840022965,
+          "run_dir": "runs/KS_P0_T16.00_preserved/runs/KS_P0_T16.00_preserved"
+        },
+        {
+          "period_ns": 16.25,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.20085800258215677,
+          "hold_ws_min": 0.19754104466882547,
+          "run_dir": "runs/KS_P0_T16.25_preserved/runs/KS_P0_T16.25_preserved"
+        },
+        {
+          "period_ns": 16.5,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.233480796860378,
+          "hold_ws_min": 0.19080310094181333,
+          "run_dir": "runs/KS_P0_T16.50_preserved/runs/KS_P0_T16.50_preserved"
+        },
+        {
+          "period_ns": 16.75,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.130786052356565,
+          "hold_ws_min": 0.19863272699981427,
+          "run_dir": "runs/KS_P0_T16.75_preserved/runs/KS_P0_T16.75_preserved"
+        },
+        {
+          "period_ns": 17.0,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.01829647596328226,
+          "hold_ws_min": 0.18675539421300674,
+          "run_dir": "runs/KS_P0_T17.00_preserved/runs/KS_P0_T17.00_preserved"
+        },
+        {
+          "period_ns": 17.25,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.2755697970034858,
+          "hold_ws_min": 0.18669838425907986,
+          "run_dir": "runs/KS_P0_T17.25_preserved/runs/KS_P0_T17.25_preserved"
+        },
+        {
+          "period_ns": 17.5,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.46752647521166124,
+          "hold_ws_min": 0.20475438590842726,
+          "run_dir": "runs/KS_P0_T17.50_preserved/runs/KS_P0_T17.50_preserved"
+        }
+      ]
+    },
+    "RCA": {
+      "pipe": 0,
+      "variant": "preserved",
+      "seed_ns": 12.0,
+      "step_ns": 0.25,
+      "min_period_ns": 33.5,
+      "failing_neighbour_ns": 33.25,
+      "status": "DONE",
+      "nonmonotonic_points_ns": [],
+      "runs_used": 10,
+      "minutes": 0.0,
+      "runs": [
+        {
+          "period_ns": 12.0,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -21.419062685303167,
+          "hold_ws_min": 0.10257461836915116,
+          "run_dir": "runs/RCA_P0_T12.00_preserved/runs/RCA_P0_T12.00_preserved"
+        },
+        {
+          "period_ns": 22.75,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -10.669062379991827,
+          "hold_ws_min": 0.10257461836915116,
+          "run_dir": "runs/RCA_P0_T22.75_preserved/runs/RCA_P0_T22.75_preserved"
+        },
+        {
+          "period_ns": 28.0,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -5.483020415114621,
+          "hold_ws_min": 0.10458378903363853,
+          "run_dir": "runs/RCA_P0_T28.00_preserved/runs/RCA_P0_T28.00_preserved"
+        },
+        {
+          "period_ns": 30.75,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -2.7262530782322005,
+          "hold_ws_min": 0.10293921562074958,
+          "run_dir": "runs/RCA_P0_T30.75_preserved/runs/RCA_P0_T30.75_preserved"
+        },
+        {
+          "period_ns": 32.0,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -1.2818049207084246,
+          "hold_ws_min": 0.10188927767666729,
+          "run_dir": "runs/RCA_P0_T32.00_preserved/runs/RCA_P0_T32.00_preserved"
+        },
+        {
+          "period_ns": 32.75,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.5810285750320383,
+          "hold_ws_min": 0.0989556242734284,
+          "run_dir": "runs/RCA_P0_T32.75_preserved/runs/RCA_P0_T32.75_preserved"
+        },
+        {
+          "period_ns": 33.0,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.27362290985244136,
+          "hold_ws_min": 0.10561402051847639,
+          "run_dir": "runs/RCA_P0_T33.00_preserved/runs/RCA_P0_T33.00_preserved"
+        },
+        {
+          "period_ns": 33.25,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.13557155781725264,
+          "hold_ws_min": 0.1043460902773437,
+          "run_dir": "runs/RCA_P0_T33.25_preserved/runs/RCA_P0_T33.25_preserved"
+        },
+        {
+          "period_ns": 33.5,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.04977707276146558,
+          "hold_ws_min": 0.1065739193727151,
+          "run_dir": "runs/RCA_P0_T33.50_preserved/runs/RCA_P0_T33.50_preserved"
+        },
+        {
+          "period_ns": 33.75,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.2133084880216369,
+          "hold_ws_min": 0.10588902276945364,
+          "run_dir": "runs/RCA_P0_T33.75_preserved/runs/RCA_P0_T33.75_preserved"
+        }
+      ]
+    },
+    "SK": {
+      "pipe": 0,
+      "variant": "preserved",
+      "seed_ns": 12.0,
+      "step_ns": 0.25,
+      "min_period_ns": 16.5,
+      "failing_neighbour_ns": 16.25,
+      "status": "DONE",
+      "nonmonotonic_points_ns": [],
+      "runs_used": 7,
+      "minutes": 0.0,
+      "runs": [
+        {
+          "period_ns": 12.0,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -4.303581612885426,
+          "hold_ws_min": 0.23034386161558104,
+          "run_dir": "runs/SK_P0_T12.00_preserved/runs/SK_P0_T12.00_preserved"
+        },
+        {
+          "period_ns": 14.25,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -2.260283579834308,
+          "hold_ws_min": 0.21660807094414145,
+          "run_dir": "runs/SK_P0_T14.25_preserved/runs/SK_P0_T14.25_preserved"
+        },
+        {
+          "period_ns": 15.5,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.9445688942811189,
+          "hold_ws_min": 0.21890945231697445,
+          "run_dir": "runs/SK_P0_T15.50_preserved/runs/SK_P0_T15.50_preserved"
+        },
+        {
+          "period_ns": 16.0,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.44457061512685575,
+          "hold_ws_min": 0.21890945231697445,
+          "run_dir": "runs/SK_P0_T16.00_preserved/runs/SK_P0_T16.00_preserved"
+        },
+        {
+          "period_ns": 16.25,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.19456969919283454,
+          "hold_ws_min": 0.21890945231697445,
+          "run_dir": "runs/SK_P0_T16.25_preserved/runs/SK_P0_T16.25_preserved"
+        },
+        {
+          "period_ns": 16.5,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.05543121674118669,
+          "hold_ws_min": 0.21890945231697445,
+          "run_dir": "runs/SK_P0_T16.50_preserved/runs/SK_P0_T16.50_preserved"
+        },
+        {
+          "period_ns": 16.75,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.30542857996142864,
+          "hold_ws_min": 0.21890945231697445,
+          "run_dir": "runs/SK_P0_T16.75_preserved/runs/SK_P0_T16.75_preserved"
+        }
+      ]
+    }
+  },
+  "variant": "preserved"
+}

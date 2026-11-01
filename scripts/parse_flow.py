@@ -12,7 +12,8 @@ minimum closing period found by scripts/sweep.py:
   - timing: setup/hold WNS and TNS at all 9 corners, reg-to-reg setup WS,
             fmax per corner = 1 / (T - setup WS)
   - critical path at max_ss_100C_1v60 (startpoint, endpoint, arrival, logic depth)
-  - post-synthesis vs post-route delay at nom_ss_100C_1v60 (D-024)
+  - post-synthesis vs post-route delay at nom_ss_100C_1v60, and the wire share of
+    the routed delay from scripts/wire_delay.py (D-024)
   - signoff counts from the flow (DRC, LVS, antenna) and wirelength
   - gate-level activity-annotated power and energy/op (D-025), if measured
 
@@ -132,6 +133,14 @@ def one(variant: str, arch: str) -> dict | None:
                 "sources": [rel(pre / "state_out.json"), rec["metrics_source"]]}
         if (pre / PRE_POST_CORNER / "max.rpt").exists():
             shutil.copy(pre / PRE_POST_CORNER / "max.rpt", keep / f"prepnr_max_{PRE_POST_CORNER}.rpt")
+
+    wd = REPO / "sim_build" / "wire" / run.name / "wire_delay.json"
+    if wd.exists():
+        shutil.copy(wd, keep / "wire_delay.json")
+        w = json.loads(wd.read_text())
+        rec["wire_delay"] = {k: w.get(k) for k in (
+            "corner", "delay_routed_ns", "delay_ideal_wires_ns", "wire_delay_ns", "wire_delay_percent_of_routed",
+            "ws_routed_ns", "flow_ws_ns", "note")} | {"source": rel(keep / "wire_delay.json")}
 
     rec["physical"] = {"route_wirelength_um": m.get("route__wirelength"),
                        "max_fanout_violations": m.get("design__max_fanout_violation__count"),

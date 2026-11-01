@@ -1,0 +1,30 @@
+{
+  "run": "runs/CLA4_P0_T16.00_preserved/runs/CLA4_P0_T16.00_preserved",
+  "period_ns": 16.0,
+  "ops": 10000,
+  "seed": 20261030,
+  "mix": "50% ADD/SUB, 20% AND/OR/XOR, 20% SLL/SRL/SRA, 10% Zbb (uniform), back-to-back",
+  "gate_level_sim": {
+    "status": "PASS",
+    "results_checked": 10000,
+    "errors": 0,
+    "group_counts": "{'ADD...': 4990, 'AND...': 1999, 'SLL...': 2012, 'MIN...': 999}",
+    "vcd": "sim_build/gls/CLA4_P0_T16.00_preserved/workload.vcd",
+    "log": "sim_build/gls/CLA4_P0_T16.00_preserved/sim.log"
+  },
+  "note": "functional cell models (zero-delay logic, 1 ns flop clock-to-Q): glitch power not included",
+  "power": {
+    "internal_W": 0.001108176,
+    "switching_W": 0.001057641,
+    "leakage_W": 1.204017e-08,
+    "total_W": 0.002165829,
+    "annotation": {
+      "vcd": 7168,
+      "unannotated": 0
+    },
+    "report": "sim_build/gls/CLA4_P0_T16.00_preserved/power.rpt",
+    "corner": "tt_025C_1v80, nominal SPEF",
+    "exit": 0
+  },
+  "energy_per_op_pJ": 34.65326400000001
+}

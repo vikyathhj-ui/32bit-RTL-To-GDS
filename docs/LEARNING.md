@@ -259,10 +259,26 @@ depth. Phase 4 measures it.
   clocks.
 
 ### Post-synthesis vs post-route delay (D-024)
-- **After synthesis:** STA only sees cell delays and estimated loads.
-- **After routing:** it sees real wires (RC from extraction) and the buffers the resizer added.
-- **Why the ranking changes:** architectures with long wires and high fan-out (Kogge–Stone's spans,
-  Sklansky's fan-out) lose more in this step than compact ones (Brent–Kung).
+- **After synthesis:** STA only sees cell delays and pin loads. The netlist has not been sized yet.
+- **After routing:** it sees real wires (RC from extraction) **and** the gates and buffers the resizer
+  changed during placement and routing.
+- **What I expected:** routing makes things slower. **What I measured:** post-route was *faster* in all
+  16 runs (5.8–37.6%), because the resizer's gains are bigger than the wire delay. Two things changed at
+  once, so the comparison could not show the wire cost.
+- **How to isolate one effect:** keep everything else fixed. Timing the same final netlist with and
+  without its extracted wires showed the wires cost 7.6–15.8% of the critical path. RCA's short local
+  hops cost least; CLA4's and KS's long spans cost most.
+- **Lesson:** before explaining a difference, check that only one thing changed.
+
+### Non-monotonic place-and-route (D-023)
+- KS (preserved) closed at 16.25 ns, failed at 16.50, closed at 16.75, failed at 17.00. A tighter
+  target makes the resizer work harder, so it can end with a better result. PnR is a heuristic, not a
+  function that gets steadily worse as the target tightens.
+- So a "minimum period" needs a rule. Mine: the lowest closing period whose next step up also closes.
+
+### Determinism
+- Running the same LibreLane configuration twice gave identical slack to every printed digit (D-030).
+  One run per period is enough; a different result would mean a different input.
 
 ## Phase 5+
 (to be added)

@@ -1,0 +1,392 @@
+{
+  "step_ns": 0.25,
+  "criterion": "setup WS >= 0 at max_ss_100C_1v60 and hold WS >= 0 at all corners",
+  "results": {
+    "BEH": {
+      "pipe": 0,
+      "variant": "default",
+      "seed_ns": 20.0,
+      "step_ns": 0.25,
+      "min_period_ns": 19.75,
+      "failing_neighbour_ns": 19.5,
+      "status": "DONE",
+      "nonmonotonic_points_ns": [],
+      "runs_used": 3,
+      "minutes": 38.0,
+      "runs": [
+        {
+          "period_ns": 19.5,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.5751523864411122,
+          "hold_ws_min": 0.1246905947120742,
+          "run_dir": "runs/BEH_P0_T19.50/runs/BEH_P0_T19.50"
+        },
+        {
+          "period_ns": 19.75,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.04537526038894,
+          "hold_ws_min": 0.11553064387719202,
+          "run_dir": "runs/BEH_P0_T19.75/runs/BEH_P0_T19.75"
+        },
+        {
+          "period_ns": 20.0,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.21979041431192983,
+          "hold_ws_min": 0.11547813032664206,
+          "run_dir": "runs/BEH_P0_T20.00/runs/BEH_P0_T20.00"
+        }
+      ]
+    },
+    "BK": {
+      "pipe": 0,
+      "variant": "default",
+      "seed_ns": 20.0,
+      "step_ns": 0.25,
+      "min_period_ns": 20.5,
+      "failing_neighbour_ns": 20.25,
+      "status": "DONE",
+      "nonmonotonic_points_ns": [],
+      "runs_used": 4,
+      "minutes": 36.5,
+      "runs": [
+        {
+          "period_ns": 20.0,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.32772185892639877,
+          "hold_ws_min": 0.11120332747172568,
+          "run_dir": "runs/BK_P0_T20.00/runs/BK_P0_T20.00"
+        },
+        {
+          "period_ns": 20.25,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.04224531954939599,
+          "hold_ws_min": 0.10973611219203662,
+          "run_dir": "runs/BK_P0_T20.25/runs/BK_P0_T20.25"
+        },
+        {
+          "period_ns": 20.5,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.18543389570942087,
+          "hold_ws_min": 0.10904344402738299,
+          "run_dir": "runs/BK_P0_T20.50/runs/BK_P0_T20.50"
+        },
+        {
+          "period_ns": 20.75,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.4299174471442232,
+          "hold_ws_min": 0.10839490722920633,
+          "run_dir": "runs/BK_P0_T20.75/runs/BK_P0_T20.75"
+        }
+      ]
+    },
+    "CLA4": {
+      "pipe": 0,
+      "variant": "default",
+      "seed_ns": 20.0,
+      "step_ns": 0.25,
+      "min_period_ns": 19.5,
+      "failing_neighbour_ns": 19.25,
+      "status": "DONE",
+      "nonmonotonic_points_ns": [],
+      "runs_used": 4,
+      "minutes": 34.4,
+      "runs": [
+        {
+          "period_ns": 19.25,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.09130829684122667,
+          "hold_ws_min": 0.11182388664889052,
+          "run_dir": "runs/CLA4_P0_T19.25/runs/CLA4_P0_T19.25"
+        },
+        {
+          "period_ns": 19.5,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.1680824416114266,
+          "hold_ws_min": 0.11435519521662617,
+          "run_dir": "runs/CLA4_P0_T19.50/runs/CLA4_P0_T19.50"
+        },
+        {
+          "period_ns": 19.75,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.3586624432301318,
+          "hold_ws_min": 0.11342643811910895,
+          "run_dir": "runs/CLA4_P0_T19.75/runs/CLA4_P0_T19.75"
+        },
+        {
+          "period_ns": 20.0,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.6101821443047944,
+          "hold_ws_min": 0.11321832680725717,
+          "run_dir": "runs/CLA4_P0_T20.00/runs/CLA4_P0_T20.00"
+        }
+      ]
+    },
+    "CSLA": {
+      "pipe": 0,
+      "variant": "default",
+      "seed_ns": 20.0,
+      "step_ns": 0.25,
+      "min_period_ns": 23.0,
+      "failing_neighbour_ns": 22.75,
+      "status": "DONE",
+      "nonmonotonic_points_ns": [],
+      "runs_used": 7,
+      "minutes": 75.5,
+      "runs": [
+        {
+          "period_ns": 20.0,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -2.789343945881511,
+          "hold_ws_min": 0.11748702343536542,
+          "run_dir": "runs/CSLA_P0_T20.00/runs/CSLA_P0_T20.00"
+        },
+        {
+          "period_ns": 21.5,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -1.3852244188232101,
+          "hold_ws_min": 0.1255998118838054,
+          "run_dir": "runs/CSLA_P0_T21.50/runs/CSLA_P0_T21.50"
+        },
+        {
+          "period_ns": 22.25,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.6456542150339967,
+          "hold_ws_min": 0.11905876621577918,
+          "run_dir": "runs/CSLA_P0_T22.25/runs/CSLA_P0_T22.25"
+        },
+        {
+          "period_ns": 22.5,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.3956532990999755,
+          "hold_ws_min": 0.11905876621577918,
+          "run_dir": "runs/CSLA_P0_T22.50/runs/CSLA_P0_T22.50"
+        },
+        {
+          "period_ns": 22.75,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.14565415952284388,
+          "hold_ws_min": 0.11905876621577918,
+          "run_dir": "runs/CSLA_P0_T22.75/runs/CSLA_P0_T22.75"
+        },
+        {
+          "period_ns": 23.0,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.09143797089417031,
+          "hold_ws_min": 0.12364248863603436,
+          "run_dir": "runs/CSLA_P0_T23.00/runs/CSLA_P0_T23.00"
+        },
+        {
+          "period_ns": 23.25,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.33012882251185965,
+          "hold_ws_min": 0.11571910424095215,
+          "run_dir": "runs/CSLA_P0_T23.25/runs/CSLA_P0_T23.25"
+        }
+      ]
+    },
+    "HC": {
+      "pipe": 0,
+      "variant": "default",
+      "seed_ns": 20.0,
+      "step_ns": 0.25,
+      "min_period_ns": 17.5,
+      "failing_neighbour_ns": 17.25,
+      "status": "DONE",
+      "nonmonotonic_points_ns": [],
+      "runs_used": 5,
+      "minutes": 49.6,
+      "runs": [
+        {
+          "period_ns": 17.25,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.16444979177211472,
+          "hold_ws_min": 0.11608297984756416,
+          "run_dir": "runs/HC_P0_T17.25/runs/HC_P0_T17.25"
+        },
+        {
+          "period_ns": 17.5,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.0855511241619065,
+          "hold_ws_min": 0.11608297984756416,
+          "run_dir": "runs/HC_P0_T17.50/runs/HC_P0_T17.50"
+        },
+        {
+          "period_ns": 17.75,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.33554848738214843,
+          "hold_ws_min": 0.11608297984756416,
+          "run_dir": "runs/HC_P0_T17.75/runs/HC_P0_T17.75"
+        },
+        {
+          "period_ns": 18.75,
+          "status": "CLOSES",
+          "setup_ws_slowest": 1.284439257975759,
+          "hold_ws_min": 0.11347484384435161,
+          "run_dir": "runs/HC_P0_T18.75/runs/HC_P0_T18.75"
+        },
+        {
+          "period_ns": 20.0,
+          "status": "CLOSES",
+          "setup_ws_slowest": 1.3202754818673375,
+          "hold_ws_min": 0.1129874004116041,
+          "run_dir": "runs/HC_P0_T20.00/runs/HC_P0_T20.00"
+        }
+      ]
+    },
+    "KS": {
+      "pipe": 0,
+      "variant": "default",
+      "seed_ns": 20.0,
+      "step_ns": 0.25,
+      "min_period_ns": 17.25,
+      "failing_neighbour_ns": 17.0,
+      "status": "DONE",
+      "nonmonotonic_points_ns": [],
+      "runs_used": 6,
+      "minutes": 66.1,
+      "runs": [
+        {
+          "period_ns": 17.0,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.06159872786201349,
+          "hold_ws_min": 0.10726470015817348,
+          "run_dir": "runs/KS_P0_T17.00/runs/KS_P0_T17.00"
+        },
+        {
+          "period_ns": 17.25,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.21368329932535077,
+          "hold_ws_min": 0.10696283050924044,
+          "run_dir": "runs/KS_P0_T17.25/runs/KS_P0_T17.25"
+        },
+        {
+          "period_ns": 17.5,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.463684215259372,
+          "hold_ws_min": 0.10696283050924044,
+          "run_dir": "runs/KS_P0_T17.50/runs/KS_P0_T17.50"
+        },
+        {
+          "period_ns": 18.0,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.7507363831974846,
+          "hold_ws_min": 0.105405520628555,
+          "run_dir": "runs/KS_P0_T18.00/runs/KS_P0_T18.00"
+        },
+        {
+          "period_ns": 19.0,
+          "status": "CLOSES",
+          "setup_ws_slowest": 1.061195605870371,
+          "hold_ws_min": 0.10651324568270336,
+          "run_dir": "runs/KS_P0_T19.00/runs/KS_P0_T19.00"
+        },
+        {
+          "period_ns": 20.0,
+          "status": "CLOSES",
+          "setup_ws_slowest": 1.1557812811729817,
+          "hold_ws_min": 0.10432072168051355,
+          "run_dir": "runs/KS_P0_T20.00/runs/KS_P0_T20.00"
+        }
+      ]
+    },
+    "RCA": {
+      "pipe": 0,
+      "variant": "default",
+      "seed_ns": 20.0,
+      "step_ns": 0.25,
+      "min_period_ns": 23.0,
+      "failing_neighbour_ns": 22.75,
+      "status": "DONE",
+      "nonmonotonic_points_ns": [],
+      "runs_used": 5,
+      "minutes": 46.1,
+      "runs": [
+        {
+          "period_ns": 20.0,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -2.48446781291276,
+          "hold_ws_min": 0.11948176120012448,
+          "run_dir": "runs/RCA_P0_T20.00/runs/RCA_P0_T20.00"
+        },
+        {
+          "period_ns": 22.5,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.370596008814727,
+          "hold_ws_min": 0.11699253008621215,
+          "run_dir": "runs/RCA_P0_T22.50/runs/RCA_P0_T22.50"
+        },
+        {
+          "period_ns": 22.75,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.10861889473075925,
+          "hold_ws_min": 0.11263496010246915,
+          "run_dir": "runs/RCA_P0_T22.75/runs/RCA_P0_T22.75"
+        },
+        {
+          "period_ns": 23.0,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.14138202120326196,
+          "hold_ws_min": 0.11263496010246915,
+          "run_dir": "runs/RCA_P0_T23.00/runs/RCA_P0_T23.00"
+        },
+        {
+          "period_ns": 23.25,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.39138293713728317,
+          "hold_ws_min": 0.11263496010246915,
+          "run_dir": "runs/RCA_P0_T23.25/runs/RCA_P0_T23.25"
+        }
+      ]
+    },
+    "SK": {
+      "pipe": 0,
+      "variant": "default",
+      "seed_ns": 20.0,
+      "step_ns": 0.25,
+      "min_period_ns": 18.25,
+      "failing_neighbour_ns": 18.0,
+      "status": "DONE",
+      "nonmonotonic_points_ns": [],
+      "runs_used": 5,
+      "minutes": 53.9,
+      "runs": [
+        {
+          "period_ns": 18.0,
+          "status": "FAILS_TIMING",
+          "setup_ws_slowest": -0.032938985804576985,
+          "hold_ws_min": 0.12759593742738448,
+          "run_dir": "runs/SK_P0_T18.00/runs/SK_P0_T18.00"
+        },
+        {
+          "period_ns": 18.25,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.20120261581874677,
+          "hold_ws_min": 0.12447926375335995,
+          "run_dir": "runs/SK_P0_T18.25/runs/SK_P0_T18.25"
+        },
+        {
+          "period_ns": 18.5,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.46470206775713513,
+          "hold_ws_min": 0.12350160133022485,
+          "run_dir": "runs/SK_P0_T18.50/runs/SK_P0_T18.50"
+        },
+        {
+          "period_ns": 18.75,
+          "status": "CLOSES",
+          "setup_ws_slowest": 0.5213642998228417,
+          "hold_ws_min": 0.1234306580769449,
+          "run_dir": "runs/SK_P0_T18.75/runs/SK_P0_T18.75"
+        },
+        {
+          "period_ns": 20.0,
+          "status": "CLOSES",
+          "setup_ws_slowest": 1.2613963564033615,
+          "hold_ws_min": 0.10901613254020479,
+          "run_dir": "runs/SK_P0_T20.00/runs/SK_P0_T20.00"
+        }
+      ]
+    }
+  },
+  "variant": "default"
+}

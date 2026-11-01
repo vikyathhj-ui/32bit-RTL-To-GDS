@@ -1,0 +1,17 @@
+{
+  "run": "runs/CSLA_P0_T23.00/runs/CSLA_P0_T23.00",
+  "period_ns": 23.0,
+  "corner": "nom_ss_100C_1v60",
+  "ws_routed_ns": 0.432159,
+  "ws_ideal_wires_ns": 2.556988,
+  "flow_ws_ns": 0.43215920953894765,
+  "note": "same final netlist; routed = with nominal SPEF, ideal = no SPEF; delay = T - WS",
+  "reports": [
+    "sim_build/wire/CSLA_P0_T23.00/routed.rpt",
+    "sim_build/wire/CSLA_P0_T23.00/ideal.rpt"
+  ],
+  "delay_routed_ns": 22.5678,
+  "delay_ideal_wires_ns": 20.443,
+  "wire_delay_ns": 2.1248,
+  "wire_delay_percent_of_routed": 9.4
+}
